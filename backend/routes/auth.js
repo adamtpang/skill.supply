@@ -30,12 +30,6 @@ router.post('/verify', async (req, res) => {
 
     console.log('Using Twilio number:', twilioNumber);
 
-    const message = await twilioClient.messages.create({
-      body: `Your townhall.town verification code is: ${verificationCode}`,
-      from: twilioNumber,
-      to: phoneNumber
-    });
-
     console.log('SMS sent successfully:', {
       messageId: message.sid,
       status: message.status

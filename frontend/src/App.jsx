@@ -1,16 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
+import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import Landing from './components/Landing';
-import Dashboard from './components/Dashboard';
+import { wallets, endpoint } from './config/wallet';
+
+// Import wallet styles
+import '@solana/wallet-adapter-react-ui/styles.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/dash" element={<Dashboard />} />
-      </Routes>
-    </BrowserRouter>
+    <ConnectionProvider endpoint={endpoint}>
+      <WalletProvider wallets={wallets} autoConnect>
+        <WalletModalProvider>
+          <Landing />
+        </WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
   );
 }
 

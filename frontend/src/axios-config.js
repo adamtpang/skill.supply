@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create a custom axios instance with base configuration
 const axiosInstance = axios.create({
-  baseURL: 'https://townhalltown-production.up.railway.app/',
+  baseURL: 'https://skillsupply-production.up.railway.app/',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
