@@ -1,7 +1,7 @@
 {
   "name": "skill.supply",
   "version": "1.0.0",
-  "description": "Decentralized Service Marketplace",
+  "description": "Local Service Marketplace",
   "scripts": {
     "install-all": "npm install && cd frontend && npm install --legacy-peer-deps && cd ../backend && npm install",
     "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
@@ -12,5 +12,9 @@
     "concurrently": "^8.2.2",
     "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@craco/craco": "^7.1.0",
+    "react-scripts": "^5.0.1"
   }
 }
