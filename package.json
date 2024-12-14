@@ -9,12 +9,6 @@
     "start-frontend": "cd frontend && npm start"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
-    "@craco/craco": "^7.1.0",
-    "react-scripts": "^5.0.1"
+    "concurrently": "^8.2.2"
   }
 }

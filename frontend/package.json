@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^7.1.0",
     "@solana/spl-token": "^0.4.9",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
@@ -17,15 +16,14 @@
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "url": "^0.11.3"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "CI=false craco build",
-    "test": "craco test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -50,9 +48,19 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-private-methods": "^7.25.9",
+    "@babel/plugin-transform-private-property-in-object": "^7.25.9",
+    "ajv": "^8.17.1",
+    "ajv-keywords": "^5.1.0",
     "autoprefixer": "^10.4.16",
+    "babel-preset-react-app": "^10.0.1",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5"
+    "react-app-rewired": "^2.2.1",
+    "react-scripts": "^5.0.1",
+    "tailwindcss": "^3.3.5",
+    "webpack": "^5.89.0"
   },
   "proxy": "http://localhost:5000"
 }
