@@ -1,47 +1,100 @@
 const express = require('express');
 const router = express.Router();
 const Problem = require('../models/Problem');
+const upload = require('../utils/imageUpload');
 
-// Get all problems
+// Get problems with optional location-based filtering
 router.get('/', async (req, res) => {
   try {
-    const problems = await Problem.find().sort({ createdAt: -1 });
+    const { lat, lng, radius = 10000 } = req.query; // radius in meters, default 10km
+
+    let query = {};
+
+    // Add location-based search if coordinates are provided
+    if (lat && lng) {
+      query.location = {
+        $near: {
+          $geometry: {
+            type: 'Point',
+            coordinates: [parseFloat(lng), parseFloat(lat)]
+          },
+          $maxDistance: parseInt(radius)
+        }
+      };
+    }
+
+    const problems = await Problem.find(query)
+      .sort({ createdAt: -1 })
+      .limit(50);
+
     res.json(problems);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 
-// Create a new problem
-router.post('/', async (req, res) => {
-  console.log('Received problem data:', req.body);  // Debug log
-
+// Create new problem with image upload support
+router.post('/', upload.array('images', 5), async (req, res) => {
   try {
-    const problem = new Problem({
-      title: req.body.title,
-      description: req.body.description || '',
-      location: req.body.location,
-      author: {
-        uid: req.body.author.uid,
-        name: req.body.author.name,
-        photoURL: req.body.author.photoURL
-      },
-      votes: 0,
-      createdAt: new Date()
-    });
+    const problemData = {
+      ...req.body,
+      location: {
+        type: 'Point',
+        coordinates: [parseFloat(req.body.longitude), parseFloat(req.body.latitude)],
+        address: req.body.address
+      }
+    };
 
-    console.log('Created problem object:', problem);  // Debug log
+    // Add uploaded images if any
+    if (req.files && req.files.length > 0) {
+      problemData.images = req.files.map(file => ({
+        url: file.location,
+        caption: ''
+      }));
+    }
 
+    const problem = new Problem(problemData);
     const newProblem = await problem.save();
-    console.log('Saved problem:', newProblem);  // Debug log
-
     res.status(201).json(newProblem);
-  } catch (error) {
-    console.error('Error creating problem:', error);  // Debug log
-    res.status(400).json({
-      message: error.message,
-      details: error.errors  // Include validation errors if any
-    });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+// Update problem with new images
+router.patch('/:id', upload.array('images', 5), async (req, res) => {
+  try {
+    const problem = await Problem.findById(req.params.id);
+    if (!problem) {
+      return res.status(404).json({ message: 'Problem not found' });
+    }
+
+    // Update basic fields
+    if (req.body.title) problem.title = req.body.title;
+    if (req.body.description) problem.description = req.body.description;
+
+    // Update location if provided
+    if (req.body.latitude && req.body.longitude) {
+      problem.location = {
+        type: 'Point',
+        coordinates: [parseFloat(req.body.longitude), parseFloat(req.body.latitude)],
+        address: req.body.address || problem.location.address
+      };
+    }
+
+    // Add new images if uploaded
+    if (req.files && req.files.length > 0) {
+      const newImages = req.files.map(file => ({
+        url: file.location,
+        caption: ''
+      }));
+      problem.images = [...(problem.images || []), ...newImages];
+    }
+
+    const updatedProblem = await problem.save();
+    res.json(updatedProblem);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 });
 

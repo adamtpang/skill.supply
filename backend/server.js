@@ -20,11 +20,13 @@ const problemsRouter = require('./routes/problems');
 const commentsRouter = require('./routes/comments');
 const solutionsRouter = require('./routes/solutions');
 const bountiesRouter = require('./routes/bounties');
+const servicesRouter = require('./routes/services');
 
 app.use('/api/problems', problemsRouter);
 app.use('/api/comments', commentsRouter);
 app.use('/api/solutions', solutionsRouter);
 app.use('/api/bounties', bountiesRouter);
+app.use('/api/services', servicesRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

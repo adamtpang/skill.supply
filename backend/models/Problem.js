@@ -1,64 +1,86 @@
 const mongoose = require('mongoose');
 
-const problemSchema = new mongoose.Schema({
+const serviceSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
   },
   description: {
     type: String,
-    default: ''
+    required: true
   },
-  location: {
-    type: {
-      type: String,
-      enum: ['Point'],
+  rate: {
+    amount: {
+      type: Number,
       required: true
     },
-    coordinates: {
-      type: [Number],
-      required: true
+    currency: {
+      type: String,
+      enum: ['USDC'],
+      default: 'USDC'
     }
   },
-  author: {
-    uid: String,
+  category: {
+    type: String,
+    required: true,
+    enum: [
+      'development',
+      'design',
+      'writing',
+      'teaching',
+      'business',
+      'other'
+    ]
+  },
+  status: {
+    type: String,
+    enum: ['open', 'in_progress', 'completed'],
+    default: 'open'
+  },
+  provider: {
+    wallet: {
+      type: String,
+      required: true
+    },
     name: String,
-    photoURL: String
+    completedServices: {
+      type: Number,
+      default: 0
+    }
   },
-  totalVotes: {
-    type: Number,
-    default: 0
+  client: {
+    wallet: String,
+    name: String
   },
-  userVotes: {
-    type: Map,
-    of: String,
-    default: () => new Map()
+  escrow: {
+    status: {
+      type: String,
+      enum: ['not_funded', 'funded', 'released'],
+      default: 'not_funded'
+    },
+    transactionId: String,
+    fundedAt: Date,
+    releasedAt: Date
+  },
+  completion: {
+    providerConfirmed: {
+      type: Boolean,
+      default: false
+    },
+    clientConfirmed: {
+      type: Boolean,
+      default: false
+    },
+    completedAt: Date
   },
   createdAt: {
     type: Date,
     default: Date.now
-  },
-  relationships: [{
-    type: {
-      type: String,
-      enum: ['causes', 'caused_by', 'related_to'],
-      required: true
-    },
-    problemId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Problem',
-      required: true
-    },
-    description: String  // Optional explanation of the relationship
-  }],
-  stats: {
-    causes: { type: Number, default: 0 },     // Problems this causes
-    caused_by: { type: Number, default: 0 },  // Problems that cause this
-    related_to: { type: Number, default: 0 }  // Related problems
   }
 });
 
-// Add index for userVotes
-problemSchema.index({ 'userVotes': 1 });
+// Add indexes for searching
+serviceSchema.index({ title: 'text', description: 'text', category: 1, status: 1 });
+serviceSchema.index({ 'provider.wallet': 1, 'client.wallet': 1 });
 
-module.exports = mongoose.model('Problem', problemSchema);
+module.exports = mongoose.model('Service', serviceSchema);
