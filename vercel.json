@@ -1,15 +1,38 @@
 {
   "version": 2,
-  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build",
-  "outputDirectory": "frontend/build",
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "^/static/(.*)",
+      "dest": "/frontend/build/static/$1"
+    },
+    {
+      "src": "^/favicon.ico",
+      "dest": "/frontend/build/favicon.ico"
+    },
+    {
+      "src": "^/manifest.json",
+      "dest": "/frontend/build/manifest.json"
+    },
+    {
+      "src": "^/asset-manifest.json",
+      "dest": "/frontend/build/asset-manifest.json"
+    },
+    {
+      "src": "^/(.*)",
+      "dest": "/frontend/build/index.html"
     }
   ]
 }
