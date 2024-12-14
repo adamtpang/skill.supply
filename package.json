@@ -1,0 +1,16 @@
+{
+  "name": "skill.supply",
+  "version": "1.0.0",
+  "description": "Decentralized Service Marketplace",
+  "scripts": {
+    "install-all": "npm install && cd frontend && npm install --legacy-peer-deps && cd ../backend && npm install",
+    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "start-backend": "cd backend && npm run dev",
+    "start-frontend": "cd frontend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
