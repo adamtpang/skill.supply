@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
     await service.save();
     res.status(201).json(service);
   } catch (error) {
+    console.error('API Error:', error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -20,21 +21,15 @@ router.post('/', async (req, res) => {
 // Get all services
 router.get('/', async (req, res) => {
   try {
-    const services = await Service.find().sort({ createdAt: -1 });
-    res.json(services);
+    if (req.query.walletAddress) {
+      const services = await Service.find({ walletAddress: req.query.walletAddress }).sort({ createdAt: -1 });
+      res.status(200).json(services);
+    } else {
+      const services = await Service.find().sort({ createdAt: -1 });
+      res.status(200).json(services);
+    }
   } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// Get services by user wallet address
-router.get('/user/:walletAddress', async (req, res) => {
-  try {
-    const services = await Service.find({
-      walletAddress: req.params.walletAddress
-    }).sort({ createdAt: -1 });
-    res.json(services);
-  } catch (error) {
+    console.error('API Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
@@ -48,6 +43,7 @@ router.get('/:id', async (req, res) => {
     }
     res.json(service);
   } catch (error) {
+    console.error('API Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
@@ -77,6 +73,7 @@ router.put('/:id', async (req, res) => {
 
     res.json(updatedService);
   } catch (error) {
+    console.error('API Error:', error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -98,6 +95,7 @@ router.delete('/:id', async (req, res) => {
     await Service.findByIdAndDelete(req.params.id);
     res.json({ message: 'Service deleted successfully' });
   } catch (error) {
+    console.error('API Error:', error);
     res.status(500).json({ error: error.message });
   }
 });

@@ -98,7 +98,8 @@ const NewServiceForm = ({ onSubmit, onClose, isNeed = false }) => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create service');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to create service');
       }
 
       await onSubmit();
@@ -190,18 +191,40 @@ const WalletGuide = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <div ref={modalRef} className="bg-slate-800 p-6 rounded-lg w-full max-w-md">
-        <h3 className="text-xl font-bold text-white mb-4">Wallet Balance</h3>
+        <h3 className="text-xl font-bold text-white mb-4">Get Started with Phantom</h3>
         <div className="space-y-4 text-gray-300">
-          <p className="text-sm">To get USDC in your wallet:</p>
-          <ol className="list-decimal ml-4 space-y-2">
-            <li>Open your Phantom wallet</li>
-            <li>Click "Buy" or "Deposit"</li>
-            <li>Select USDC</li>
-            <li>Follow the simple purchase steps</li>
-          </ol>
+          <div className="bg-slate-700/50 p-4 rounded-lg">
+            <h4 className="font-medium text-white mb-2">New to Phantom?</h4>
+            <ol className="list-decimal ml-4 space-y-2 text-sm">
+              <li>Visit <a href="https://phantom.app" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">phantom.app</a></li>
+              <li>Install the browser extension</li>
+              <li>Create a new wallet</li>
+              <li>Keep your recovery phrase safe!</li>
+            </ol>
+          </div>
+
+          <div className="bg-slate-700/50 p-4 rounded-lg">
+            <h4 className="font-medium text-white mb-2">Getting USDC</h4>
+            <ol className="list-decimal ml-4 space-y-2 text-sm">
+              <li>Open your Phantom wallet</li>
+              <li>Click "Deposit"</li>
+              <li>Select "USDC"</li>
+              <li>Follow the purchase steps</li>
+            </ol>
+          </div>
+
           <p className="text-sm mt-4">
-            Need help? Check out the <a href="https://help.phantom.app" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">Phantom Guide</a>
+            Need help? Check out the{' '}
+            <a
+              href="https://help.phantom.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-purple-400 hover:text-purple-300"
+            >
+              Phantom Guide
+            </a>
           </p>
+
           <button
             onClick={onClose}
             className="w-full mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
@@ -229,8 +252,8 @@ const HeroSection = ({ onConnect }) => (
       <div className="bg-slate-800/50 p-4 rounded-xl flex items-center gap-3">
         <div className="text-2xl">1️⃣</div>
         <div className="text-left">
-          <div className="font-medium text-white">Connect</div>
-          <div className="text-sm text-gray-400">Your Phantom wallet</div>
+          <div className="font-medium text-white">Install Phantom</div>
+          <div className="text-sm text-gray-400">Your secure wallet</div>
         </div>
       </div>
       <div className="bg-slate-800/50 p-4 rounded-xl flex items-center gap-3">
@@ -249,17 +272,35 @@ const HeroSection = ({ onConnect }) => (
       </div>
     </div>
 
-    <div className="flex flex-col items-center gap-4">
-      <WalletMultiButton onClick={onConnect} />
-      <a
-        href="https://phantom.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1"
-      >
-        <span>Get Phantom</span>
-        <span className="text-xs">↗️</span>
-      </a>
+    <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
+      <div className="bg-slate-800/50 p-6 rounded-xl w-full">
+        <h3 className="text-lg font-medium text-white mb-3">Why Phantom Wallet?</h3>
+        <ul className="text-left space-y-3 text-gray-300 mb-6">
+          <li className="flex items-start gap-2">
+            <span className="text-purple-400 mt-1">✓</span>
+            <span>Secure payments with instant settlement</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-purple-400 mt-1">✓</span>
+            <span>No bank account or credit card needed</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-purple-400 mt-1">✓</span>
+            <span>Works worldwide with low transaction fees</span>
+          </li>
+        </ul>
+        <div className="flex flex-col items-center gap-4">
+          <WalletMultiButton onClick={onConnect} />
+          <a
+            href="https://phantom.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1"
+          >
+            Don't have Phantom? Install here ↗️
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 );
@@ -457,7 +498,11 @@ const Landing = () => {
       await connect();
     } catch (err) {
       console.error('Wallet connection error:', err);
-      setError('Failed to connect wallet. Please make sure Phantom is installed and try again.');
+      if (err.message?.includes('User rejected')) {
+        setError('Connection cancelled. Please try connecting your wallet again when ready.');
+      } else {
+        setError('Failed to connect wallet. Please make sure Phantom is installed and try again.');
+      }
     }
   };
 
