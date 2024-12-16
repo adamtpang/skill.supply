@@ -106,7 +106,7 @@ const NewServiceForm = ({ onSubmit, onClose, isNeed = false }) => {
       onClose();
     } catch (error) {
       console.error('Error:', error);
-      setError('Failed to post. Please try again.');
+      setError('Failed to post. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -376,12 +376,6 @@ const Navigation = ({ connected, showLanding, setShowLanding, usdcBalance, setSh
               >
                 Marketplace
               </button>
-              <button
-                onClick={() => setShowLanding(true)}
-                className={`text-sm transition-colors ${showLanding ? 'text-purple-400' : 'text-gray-400 hover:text-white'}`}
-              >
-                About
-              </button>
             </div>
           )}
         </div>
@@ -390,17 +384,17 @@ const Navigation = ({ connected, showLanding, setShowLanding, usdcBalance, setSh
           {connected && (
             <>
               <div className="hidden md:flex items-center gap-6">
+                <button
+                  onClick={() => setShowWalletGuide(true)}
+                  className="text-sm text-purple-400 hover:text-purple-300"
+                >
+                  Refill
+                </button>
                 <div className="text-white bg-slate-800/50 px-3 py-1.5 rounded-lg flex items-center gap-2">
                   <span className="text-sm text-gray-400">Balance:</span>
                   <span className="font-medium">{usdcBalance?.toFixed(2) || '0.00'}</span>
                   <span className="text-sm text-gray-400">USDC</span>
                 </div>
-                <button
-                  onClick={() => setShowWalletGuide(true)}
-                  className="text-sm text-purple-400 hover:text-purple-300"
-                >
-                  Refill Wallet
-                </button>
                 <div className="flex gap-2">
                   <button
                     onClick={() => setShowNewServiceForm(true)}
@@ -457,24 +451,50 @@ const Landing = () => {
   }, [connection, publicKey]);
 
   const fetchServices = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const response = await fetch('/api/services');
+    const maxRetries = 3;
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to fetch services');
+    for (let i = 0; i < maxRetries; i++) {
+      try {
+        setLoading(true);
+        setError(null);
+        const response = await fetch('/api/services');
+
+        if (!response.ok) {
+          const text = await response.text();
+          console.error('Server response:', {
+            status: response.status,
+            statusText: response.statusText,
+            body: text,
+            attempt: i + 1
+          });
+
+          let errorMessage;
+          try {
+            const errorData = JSON.parse(text);
+            errorMessage = errorData.message || errorData.error || 'Failed to fetch services';
+          } catch (e) {
+            errorMessage = 'Server error. Our team has been notified.';
+          }
+
+          throw new Error(errorMessage);
+        }
+
+        const data = await response.json();
+        setServices(data);
+        break; // Success, exit the retry loop
+      } catch (error) {
+        console.error(`Error fetching services (attempt ${i + 1}):`, error);
+
+        if (i === maxRetries - 1) {
+          setError(error.message || 'Failed to fetch services. Please try again later.');
+        } else {
+          // Wait before retrying (exponential backoff)
+          await new Promise(resolve => setTimeout(resolve, Math.min(1000 * Math.pow(2, i), 5000)));
+        }
       }
-
-      const data = await response.json();
-      setServices(data);
-    } catch (error) {
-      console.error('Error fetching services:', error);
-      setError(error.message);
-    } finally {
-      setLoading(false);
     }
+
+    setLoading(false);
   }, []);
 
   useEffect(() => {
