@@ -1,5 +1,59 @@
 const mongoose = require('mongoose');
 
+const bidSchema = new mongoose.Schema({
+  bidderWallet: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  message: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  status: {
+    type: String,
+    enum: ['pending', 'accepted', 'rejected'],
+    default: 'pending'
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+const userProfileSchema = new mongoose.Schema({
+  walletAddress: {
+    type: String,
+    required: true,
+    trim: true,
+    unique: true
+  },
+  completedJobs: {
+    type: Number,
+    default: 0
+  },
+  ratings: [{
+    rating: {
+      type: Number,
+      required: true,
+      min: 1,
+      max: 5
+    },
+    review: String,
+    fromWallet: String,
+    jobId: String,
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
+  }],
+  averageRating: {
+    type: Number,
+    default: 0
+  }
+});
+
 const serviceSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -16,6 +70,17 @@ const serviceSchema = new mongoose.Schema({
     required: true,
     min: 0
   },
+  location: {
+    type: {
+      type: String,
+      enum: ['Point'],
+      required: true
+    },
+    coordinates: {
+      type: [Number],
+      required: true
+    }
+  },
   walletAddress: {
     type: String,
     required: true,
@@ -24,7 +89,17 @@ const serviceSchema = new mongoose.Schema({
   type: {
     type: String,
     enum: ['service', 'need'],
-    default: 'service'
+    required: true
+  },
+  status: {
+    type: String,
+    enum: ['open', 'in_progress', 'completed'],
+    default: 'open'
+  },
+  bids: [bidSchema],
+  acceptedBid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Bid'
   },
   createdAt: {
     type: Date,
@@ -38,5 +113,10 @@ const serviceSchema = new mongoose.Schema({
 
 // Add text indexes for search
 serviceSchema.index({ title: 'text', description: 'text' });
+// Add geospatial index for location queries
+serviceSchema.index({ location: '2dsphere' });
 
-module.exports = mongoose.model('Service', serviceSchema);
+const Service = mongoose.model('Service', serviceSchema);
+const UserProfile = mongoose.model('UserProfile', userProfileSchema);
+
+module.exports = { Service, UserProfile };

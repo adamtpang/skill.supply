@@ -1,15 +1,41 @@
 const express = require('express');
 const router = express.Router();
-const Service = require('../models/Service');
+const { Service } = require('../models/Service');
+
+// Get services within 100 miles of user's location
+router.get('/', async (req, res) => {
+  try {
+    const { lat, lng } = req.query;
+
+    let query = {};
+
+    // If location is provided, filter by distance
+    if (lat && lng) {
+      query = {
+        location: {
+          $near: {
+            $geometry: {
+              type: 'Point',
+              coordinates: [parseFloat(lng), parseFloat(lat)]
+            },
+            $maxDistance: 160934 // 100 miles in meters
+          }
+        }
+      };
+    }
+
+    const services = await Service.find(query).sort({ createdAt: -1 });
+    res.json(services);
+  } catch (error) {
+    console.error('API Error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // Create a new service
 router.post('/', async (req, res) => {
   try {
-    const service = new Service({
-      ...req.body,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    });
+    const service = new Service(req.body);
     await service.save();
     res.status(201).json(service);
   } catch (error) {
@@ -18,85 +44,20 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Get all services
-router.get('/', async (req, res) => {
-  try {
-    if (req.query.walletAddress) {
-      const services = await Service.find({ walletAddress: req.query.walletAddress }).sort({ createdAt: -1 });
-      res.status(200).json(services);
-    } else {
-      const services = await Service.find().sort({ createdAt: -1 });
-      res.status(200).json(services);
-    }
-  } catch (error) {
-    console.error('API Error:', error);
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// Get a specific service
-router.get('/:id', async (req, res) => {
+// Submit a bid
+router.post('/:id/bids', async (req, res) => {
   try {
     const service = await Service.findById(req.params.id);
     if (!service) {
       return res.status(404).json({ error: 'Service not found' });
     }
-    res.json(service);
-  } catch (error) {
-    console.error('API Error:', error);
-    res.status(500).json({ error: error.message });
-  }
-});
 
-// Update a service
-router.put('/:id', async (req, res) => {
-  try {
-    const service = await Service.findById(req.params.id);
-
-    if (!service) {
-      return res.status(404).json({ error: 'Service not found' });
-    }
-
-    // Verify the wallet address matches
-    if (service.walletAddress !== req.body.walletAddress) {
-      return res.status(403).json({ error: 'Not authorized to update this service' });
-    }
-
-    const updatedService = await Service.findByIdAndUpdate(
-      req.params.id,
-      {
-        ...req.body,
-        updatedAt: new Date()
-      },
-      { new: true }
-    );
-
-    res.json(updatedService);
+    service.bids.push(req.body);
+    await service.save();
+    res.status(201).json(service);
   } catch (error) {
     console.error('API Error:', error);
     res.status(400).json({ error: error.message });
-  }
-});
-
-// Delete a service
-router.delete('/:id', async (req, res) => {
-  try {
-    const service = await Service.findById(req.params.id);
-
-    if (!service) {
-      return res.status(404).json({ error: 'Service not found' });
-    }
-
-    // Verify the wallet address matches (from query param)
-    if (service.walletAddress !== req.query.walletAddress) {
-      return res.status(403).json({ error: 'Not authorized to delete this service' });
-    }
-
-    await Service.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Service deleted successfully' });
-  } catch (error) {
-    console.error('API Error:', error);
-    res.status(500).json({ error: error.message });
   }
 });
 
