@@ -8,7 +8,7 @@ import Landing from './components/Landing';
 require('@solana/wallet-adapter-react-ui/styles.css');
 
 function App() {
-  const network = WalletAdapterNetwork.Devnet;
+  const network = WalletAdapterNetwork.Mainnet;
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
   const wallets = useMemo(

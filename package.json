@@ -1,19 +1,12 @@
 {
   "name": "skill.supply",
   "version": "1.0.0",
-  "description": "Local Service Marketplace",
+  "description": "Instant jobs marketplace on Solana",
+  "license": "MIT",
   "scripts": {
-    "install-all": "npm install && cd frontend && npm install --legacy-peer-deps && cd ../backend && npm install",
-    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
-    "start-backend": "cd backend && npm run dev",
-    "start-frontend": "cd frontend && npm start",
-    "build": "cd frontend && npm install --legacy-peer-deps && npm run build"
+    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\""
   },
   "dependencies": {
-    "mongodb": "^6.3.0",
-    "mongoose": "^7.6.3"
-  },
-  "devDependencies": {
     "concurrently": "^8.2.2"
   }
 }

@@ -1,20 +1,32 @@
 const mongoose = require('mongoose');
 
+const messageSchema = new mongoose.Schema({
+  senderWallet: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now
+  }
+});
+
 const bidSchema = new mongoose.Schema({
   bidderWallet: {
     type: String,
-    required: true,
-    trim: true
+    required: true
   },
   message: {
     type: String,
-    required: true,
-    trim: true
+    required: true
   },
-  status: {
-    type: String,
-    enum: ['pending', 'accepted', 'rejected'],
-    default: 'pending'
+  selected: {
+    type: Boolean,
+    default: false
   },
   createdAt: {
     type: Date,
@@ -22,53 +34,50 @@ const bidSchema = new mongoose.Schema({
   }
 });
 
-const userProfileSchema = new mongoose.Schema({
-  walletAddress: {
+const ratingSchema = new mongoose.Schema({
+  raterWallet: {
     type: String,
+    required: true
+  },
+  rating: {
+    type: Number,
     required: true,
-    trim: true,
-    unique: true
+    min: 1,
+    max: 5
   },
-  completedJobs: {
-    type: Number,
-    default: 0
-  },
-  ratings: [{
-    rating: {
-      type: Number,
-      required: true,
-      min: 1,
-      max: 5
-    },
-    review: String,
-    fromWallet: String,
-    jobId: String,
-    createdAt: {
-      type: Date,
-      default: Date.now
-    }
-  }],
-  averageRating: {
-    type: Number,
-    default: 0
+  review: String,
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 });
 
 const serviceSchema = new mongoose.Schema({
+  walletAddress: {
+    type: String,
+    required: true
+  },
   title: {
     type: String,
-    required: true,
-    trim: true
+    required: true
   },
   description: {
     type: String,
-    required: true,
-    trim: true
+    required: true
   },
   price: {
     type: Number,
-    required: true,
-    min: 0
+    required: true
+  },
+  type: {
+    type: String,
+    enum: ['service', 'need'],
+    required: true
+  },
+  status: {
+    type: String,
+    enum: ['pending', 'in_progress', 'completed', 'cancelled'],
+    default: 'pending'
   },
   location: {
     type: {
@@ -81,42 +90,20 @@ const serviceSchema = new mongoose.Schema({
       required: true
     }
   },
-  walletAddress: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  type: {
-    type: String,
-    enum: ['service', 'need'],
-    required: true
-  },
-  status: {
-    type: String,
-    enum: ['open', 'in_progress', 'completed'],
-    default: 'open'
+  stakedAmount: {
+    type: Number,
+    default: 0
   },
   bids: [bidSchema],
-  acceptedBid: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Bid'
-  },
+  messages: [messageSchema],
+  ratings: [ratingSchema],
   createdAt: {
-    type: Date,
-    default: Date.now
-  },
-  updatedAt: {
     type: Date,
     default: Date.now
   }
 });
 
-// Add text indexes for search
-serviceSchema.index({ title: 'text', description: 'text' });
-// Add geospatial index for location queries
+// Create geospatial index
 serviceSchema.index({ location: '2dsphere' });
 
-const Service = mongoose.model('Service', serviceSchema);
-const UserProfile = mongoose.model('UserProfile', userProfileSchema);
-
-module.exports = { Service, UserProfile };
+module.exports = mongoose.model('Service', serviceSchema);
