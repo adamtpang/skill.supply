@@ -4,6 +4,7 @@
   "description": "Instant jobs marketplace on Solana",
   "license": "MIT",
   "scripts": {
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
     "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\""
   },
   "dependencies": {
