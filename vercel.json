@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.ts" }
+  ],
+  "crons": [
+    {
+      "path": "/api/bounties/sync",
+      "schedule": "0 * * * *"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
+  "framework": "vite"
+}

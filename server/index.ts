@@ -1,45 +1,9 @@
-import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
+import { createApp } from "./app";
 import { setupVite, serveStatic, log } from "./vite";
 import axios from "axios";
 
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// Logging middleware
-app.use((req, res, next) => {
-  const start = Date.now();
-  const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
-
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
-
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
-
-      if (logLine.length > 80) {
-        logLine = logLine.slice(0, 79) + "…";
-      }
-
-      log(logLine);
-    }
-  });
-
-  next();
-});
-
 (async () => {
-  const server = await registerRoutes(app);
+  const { app, server } = await createApp();
 
   // Set up automatic bounty sync every hour
   const syncBounties = async () => {
@@ -50,8 +14,8 @@ app.use((req, res, next) => {
       log('Automatic bounty sync completed successfully');
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        log('Error during automatic bounty sync:', 
-          err.message, 
+        log('Error during automatic bounty sync:',
+          err.message,
           err.response?.data || 'No response data'
         );
       } else {
@@ -66,14 +30,6 @@ app.use((req, res, next) => {
 
   // Then sync every hour
   setInterval(syncBounties, 60 * 60 * 1000);
-
-  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-
-    res.status(status).json({ message });
-    throw err;
-  });
 
   if (app.get("env") === "development") {
     await setupVite(app, server);
