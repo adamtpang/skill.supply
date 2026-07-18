@@ -28,7 +28,7 @@ share link (`/s#…`) reproduces it with zero backend.
 
 ```bash
 npm install
-cp .env.example .env.local   # add your key
+cp .env.example .env.local   # add your key…
 npm run dev                  # http://localhost:3000
 ```
 
@@ -37,6 +37,12 @@ One env var:
 | Variable | What |
 | --- | --- |
 | `ANTHROPIC_API_KEY` | Claude API key — <https://console.anthropic.com> |
+
+…or **zero env vars on Vercel**: when `ANTHROPIC_API_KEY` is absent, the agent authenticates
+to [Vercel AI Gateway](https://vercel.com/docs/ai-gateway)'s Anthropic-compatible endpoint
+with the deployment's OIDC token (billed to the team's AI Gateway credits). For local dev on
+that path, `vercel link && vercel env pull` writes a 12-hour `VERCEL_OIDC_TOKEN` into
+`.env.local` — re-pull when it expires.
 
 ## How it works
 
