@@ -30,22 +30,26 @@ type Send = (event: AgentEvent) => void;
 /**
  * Model access, in order of preference:
  * 1. ANTHROPIC_API_KEY → the Claude API directly.
- * 2. VERCEL_OIDC_TOKEN → Vercel AI Gateway's Anthropic-compatible endpoint
- *    (auto-injected on Vercel; refresh locally with `vercel env pull`).
+ * 2. Vercel OIDC token → AI Gateway's Anthropic-compatible endpoint.
+ *    In deployments the token comes from the request context; locally from
+ *    VERCEL_OIDC_TOKEN in .env.local (refresh with `vercel env pull`, 12h TTL).
  */
-function makeClient(): Anthropic {
+async function makeClient(): Promise<Anthropic> {
   if (process.env.ANTHROPIC_API_KEY) {
     return new Anthropic();
   }
-  if (process.env.VERCEL_OIDC_TOKEN) {
+  try {
+    const { getVercelOidcToken } = await import("@vercel/functions/oidc");
+    const token = await getVercelOidcToken();
     return new Anthropic({
       baseURL: "https://ai-gateway.vercel.sh",
-      authToken: process.env.VERCEL_OIDC_TOKEN,
+      authToken: token,
     });
+  } catch {
+    throw new Error(
+      "No model access configured: set ANTHROPIC_API_KEY, or enable Vercel OIDC so the AI Gateway can authenticate."
+    );
   }
-  throw new Error(
-    "No model access configured: set ANTHROPIC_API_KEY (or deploy on Vercel with OIDC for AI Gateway)."
-  );
 }
 
 /** One structured call. Throws with a human-readable message on failure. */
@@ -108,7 +112,7 @@ export async function runAgent(rawInput: string, send: Send): Promise<void> {
     return;
   }
 
-  const client = makeClient();
+  const client = await makeClient();
   const today = new Date().toISOString().slice(0, 10);
 
   // 1 — Extract (Haiku: fast, cheap, faithful)
