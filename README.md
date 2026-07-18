@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# skill.supply
 
-## Getting Started
+**You're the supply. We make you irresistible.**
 
-First, run the development server:
+An AI career agent in a single page: paste your background (resume, LinkedIn text, or a few
+honest paragraphs) and a server-side Claude agent
+
+1. **Discovers** your ikigai–market fit — what you love × what you're great at × what
+   companies actually pay for,
+2. **Packages** you — a sharp ATS-friendly resume plus the one-liner: *you are the person
+   who ___*,
+3. **Places** you — five named targets (real companies or sharp archetypes) with honest fit
+   scores and gaps, and a tailored, non-generic intro message for target #1.
+
+No auth. No database. No payments. The finished report is compressed into the URL hash, so a
+share link (`/s#…`) reproduces it with zero backend.
+
+## Stack
+
+- Next.js (App Router) + TypeScript + Tailwind CSS + shadcn/ui
+- Claude API: `claude-haiku-4-5` for extraction, `claude-sonnet-5` for the ikigai/matching
+  reasoning and the packaging, forced to JSON via structured outputs (`messages.parse` + zod)
+- Streaming: the agent route emits NDJSON stage events so the UI shows real progress
+  (*Reading you → Finding your ikigai → Matching → Packaging → Drafting*)
+- Deployed on Vercel (`app/api/agent` runs with `maxDuration = 300`)
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # add your key
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+One env var:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | What |
+| --- | --- |
+| `ANTHROPIC_API_KEY` | Claude API key — <https://console.anthropic.com> |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How it works
 
-## Learn More
+```
+paste ──▶ POST /api/agent (NDJSON stream)
+            ├─ extract   claude-haiku-4-5   → structured facts, honesty gate (asks for more if thin)
+            ├─ ikigai+match  claude-sonnet-5 → read + 5 scored targets
+            └─ package   claude-sonnet-5 ×2 in parallel → ATS resume + intro for target #1
+        ◀── stage events … final SupplyReport JSON
+report ──▶ "Copy share link" → /s#<lz-string payload>  (whole report lives in the URL)
+```
 
-To learn more about Next.js, take a look at the following resources:
+Key files: [`lib/agent.ts`](lib/agent.ts) (the chain), [`lib/prompts.ts`](lib/prompts.ts)
+(the brains), [`lib/schema.ts`](lib/schema.ts) (zod schemas → structured outputs),
+[`app/api/agent/route.ts`](app/api/agent/route.ts) (streaming route),
+[`lib/share.ts`](lib/share.ts) (URL-hash encoding).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Non-goals (v1)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Auth, accounts, database, payments, live job-board scraping, recruiter side. The agent names
+*targets to pursue*, never claims a live opening exists — candor is the product.
