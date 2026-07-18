@@ -27,6 +27,27 @@ const MAX_INPUT_CHARS = 30000;
 
 type Send = (event: AgentEvent) => void;
 
+/**
+ * Model access, in order of preference:
+ * 1. ANTHROPIC_API_KEY → the Claude API directly.
+ * 2. VERCEL_OIDC_TOKEN → Vercel AI Gateway's Anthropic-compatible endpoint
+ *    (auto-injected on Vercel; refresh locally with `vercel env pull`).
+ */
+function makeClient(): Anthropic {
+  if (process.env.ANTHROPIC_API_KEY) {
+    return new Anthropic();
+  }
+  if (process.env.VERCEL_OIDC_TOKEN) {
+    return new Anthropic({
+      baseURL: "https://ai-gateway.vercel.sh",
+      authToken: process.env.VERCEL_OIDC_TOKEN,
+    });
+  }
+  throw new Error(
+    "No model access configured: set ANTHROPIC_API_KEY (or deploy on Vercel with OIDC for AI Gateway)."
+  );
+}
+
 /** One structured call. Throws with a human-readable message on failure. */
 async function structured<S extends z.ZodType>(
   client: Anthropic,
@@ -87,7 +108,7 @@ export async function runAgent(rawInput: string, send: Send): Promise<void> {
     return;
   }
 
-  const client = new Anthropic();
+  const client = makeClient();
   const today = new Date().toISOString().slice(0, 10);
 
   // 1 — Extract (Haiku: fast, cheap, faithful)

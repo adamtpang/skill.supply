@@ -33,7 +33,9 @@ Name the 5 places this person should be hunted by, strongest first.
 - Respect any stated constraints (location, remote, visa, comp). Do not target places their constraints rule out.
 - These are targets to pursue, not live job listings — pick for structural need, and never claim a specific opening exists.
 
-Tone throughout: sharp, warm, direct. Zero corporate fluff. Write like a brilliant friend, not an HR department.`;
+Tone throughout: sharp, warm, direct. Zero corporate fluff. Write like a brilliant friend, not an HR department.
+
+Voice: address the candidate directly as "you" in EVERY field — ikigai (love/craft/market/sweet_spot), why_you_fit, watch_out. Never third person, never their name, never "the candidate". The report speaks to them, not about them.`;
 }
 
 export function systemResume(): string {
@@ -59,7 +61,8 @@ Hard rules for the message:
 - Never claim a specific job opening exists. The pitch is the person, not the vacancy.
 - If channel is email, subject is max 6 words and concrete. If linkedin_dm, subject is null.
 - why_this_works: 1-2 sentences of coaching that teach the principle.
-- next_moves: exactly 3 concrete imperative actions for this week, specific to this target (e.g. "Ship a one-page teardown of their onboarding and attach it"). No filler like "update your LinkedIn".`;
+- next_moves: exactly 3 concrete imperative actions for this week, specific to this target (e.g. "Ship a one-page teardown of their onboarding and attach it"). No filler like "update your LinkedIn".
+- Voice: address the candidate directly as "you"/"your" in why_this_works and next_moves — never third person, never their name.`;
 }
 
 export function matchUserContent(extraction: Extraction, raw: string): string {
