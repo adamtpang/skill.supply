@@ -1,6 +1,9 @@
 import type { Extraction, IkigaiMatch } from "./schema";
 
-const PUNCTUATION_RULE = `Punctuation: never use em dashes or en dashes (the characters "—" and "–") anywhere in your output, in any field, including the resume and the message. Use commas, colons, periods, or parentheses instead.`;
+// The banned characters, spelled without literals so the codebase itself stays dash-free.
+const EM_DASH = String.fromCharCode(0x2014);
+const EN_DASH = String.fromCharCode(0x2013);
+const PUNCTUATION_RULE = `Punctuation: never use em dashes or en dashes (the characters "${EM_DASH}" and "${EN_DASH}") anywhere in your output, in any field, including the resume and the message. Use commas, colons, periods, or parentheses instead.`;
 
 export function systemExtract(): string {
   return `You are the intake analyst for skill.supply, an AI career agent that turns a person into the supply companies compete for.
