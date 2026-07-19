@@ -1,18 +1,19 @@
-# Brand — skill.supply
+# Brand: skill.supply
 
 _Status: active_
 
 ## Positioning
 
 skill.supply is an AI career agent. Tagline: **"You're the supply. We make you irresistible."**
-It treats a person as the supply side of a market and makes their value legible: ikigai–market
+It treats a person as the supply side of a market and makes their value legible: ikigai-market
 fit → packaging (resume + one-liner) → placement (5 targets + opening move).
 
 ## Voice
 
-Sharp, warm, direct. A brilliant friend who knows the market — never an HR department.
+Sharp, warm, direct. A brilliant friend who knows the market, never an HR department.
 Candor is the product: honest fit scores, honest gaps. No corporate fluff, no hype words,
-no "passionate", no "perfect fit".
+no "passionate", no "perfect fit". No em dashes or en dashes anywhere: commas, colons,
+periods, and parentheses instead (this rule is enforced in the model prompts too).
 
 ## Color
 
@@ -31,8 +32,8 @@ Rule: **never** use `--brand` for large surfaces or button fills. It marks data 
 
 ## Typography
 
-- Sans: Geist (`--font-sans`) — UI and body.
-- Mono: Geist Mono (`--font-geist-mono`) — eyebrows (11px, tracking 0.14em, uppercase),
+- Sans: Geist (`--font-sans`) for UI and body.
+- Mono: Geist Mono (`--font-geist-mono`) for eyebrows (11px, tracking 0.14em, uppercase),
   scores, timestamps, the wordmark `skill.supply`.
 - Hierarchy over decoration: tight tracking on display sizes, muted second lines.
 

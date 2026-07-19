@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-/** Step 1 — what Haiku pulls out of the raw paste. */
+/** Step 1: what Haiku pulls out of the raw paste. */
 export const ExtractionSchema = z.object({
   quality: z
     .enum(["rich", "adequate", "thin"])
@@ -44,7 +44,7 @@ export const ExtractionSchema = z.object({
 });
 export type Extraction = z.infer<typeof ExtractionSchema>;
 
-/** Step 2 — Sonnet's ikigai read + market matching. */
+/** Step 2: Sonnet's ikigai read + market matching. */
 export const IkigaiMatchSchema = z.object({
   ikigai: z.object({
     love: z.string().describe("What this person actually loves doing. 1-2 sentences, evidence-based."),
@@ -55,7 +55,7 @@ export const IkigaiMatchSchema = z.object({
     sweet_spot: z
       .string()
       .describe(
-        "The intersection — the non-obvious insight about where love x craft x market collide for this person. 2-3 sentences."
+        "The intersection: the non-obvious insight about where love x craft x market collide for this person. 2-3 sentences."
       ),
   }),
   one_liner: z
@@ -79,7 +79,7 @@ export const IkigaiMatchSchema = z.object({
         why_you_fit: z
           .string()
           .describe("1-2 sentences referencing this person's actual evidence. Never generic."),
-        fit_score: z.number().describe("Integer 0-100. Honest and spread out — not all 90s."),
+        fit_score: z.number().describe("Integer 0-100. Honest and spread out, not all 90s."),
         watch_out: z
           .string()
           .describe("The honest gap or risk for this target, plus a phrase on how to close it."),
@@ -90,14 +90,14 @@ export const IkigaiMatchSchema = z.object({
 export type IkigaiMatch = z.infer<typeof IkigaiMatchSchema>;
 export type Match = IkigaiMatch["matches"][number];
 
-/** Step 3a — the ATS resume. */
+/** Step 3a: the ATS resume. */
 export const ResumeSchema = z.object({
   resume_markdown: z
     .string()
     .describe("The complete resume as clean, ATS-friendly markdown. Nothing else in this field."),
 });
 
-/** Step 3b — the tailored intro for target #1. */
+/** Step 3b: the tailored intro for target #1. */
 export const IntroSchema = z.object({
   channel: z.enum(["email", "linkedin_dm"]).describe("Best channel for this target."),
   subject: z
@@ -112,7 +112,7 @@ export const IntroSchema = z.object({
 });
 export type Intro = z.infer<typeof IntroSchema>;
 
-/** The full shareable report — everything the results page renders. */
+/** The full shareable report: everything the results page renders. */
 export type SupplyReport = {
   v: 1;
   at: string; // ISO date the report was generated

@@ -33,7 +33,7 @@ export function CopyButton({
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard denied (rare) — select-and-copy fallback isn't worth the weight here.
+      // Clipboard denied (rare); select-and-copy fallback isn't worth the weight here.
     }
   }
 

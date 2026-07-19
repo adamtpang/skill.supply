@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 /**
  * Minimal renderer for the resume's markdown subset: #/##/### headings,
- * bullet lists, bold, italic, and horizontal rules. No raw HTML, no links —
+ * bullet lists, bold, italic, and horizontal rules. No raw HTML, no links;
  * bracketed placeholders like [you@email.com] render as-is.
  */
 
@@ -46,8 +46,8 @@ export function Markdown({ text }: { text: string }) {
       <ul key={`ul-${key++}`} className="my-2 space-y-1 pl-4">
         {bullets.map((b, i) => (
           <li key={i} className="relative pl-1 text-[0.925rem] leading-relaxed">
-            <span aria-hidden className="absolute -left-3.5 text-muted-foreground/70">
-              –
+            <span aria-hidden className="absolute -left-3.5 text-[0.7em] leading-[1.9] text-muted-foreground/70">
+              •
             </span>
             {inline(b, `li-${key}-${i}`)}
           </li>

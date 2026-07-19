@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { StageLoader, type ServerStage } from "@/components/stage-loader";
 import { SupplyReportView } from "@/components/report";
 
-const SAMPLE = `I'm Maya Chen, 27. Last 3 years I was employee #2 at a Shopify-apps startup (Retextion, ~$1.2M ARR when I left). Title said "operations" but I did everything: built our onboarding flow in Retool + Zapier which cut activation time from 9 days to 2, ran support until I hired and trained a 3-person team (CSAT 96%), wrote all our help docs, and ended up owning our churn number — got monthly logo churn from 4.1% to 2.3% by building a cancel-flow save offer and a health-score dashboard in SQL + Metabase.
+const SAMPLE = `I'm Maya Chen, 27. Last 3 years I was employee #2 at a Shopify-apps startup (Retextion, ~$1.2M ARR when I left). Title said "operations" but I did everything: built our onboarding flow in Retool + Zapier which cut activation time from 9 days to 2, ran support until I hired and trained a 3-person team (CSAT 96%), wrote all our help docs, and ended up owning our churn number: got monthly logo churn from 4.1% to 2.3% by building a cancel-flow save offer and a health-score dashboard in SQL + Metabase.
 
 Before that: 2 years as a paralegal doing commercial contracts, which I hated, except the part where I built the doc-automation templates everyone still uses.
 
@@ -17,7 +17,7 @@ What I actually love: being the first person to touch a messy process and making
 Looking for: early ops/CX role at a startup where I can own a number. US-remote or NYC. Don't want big-company process theater.`;
 
 const STEPS_STRIP = [
-  ["Discover", "An agent reads you and finds your ikigai–market fit — love × craft × what companies pay for."],
+  ["Discover", "An agent reads you and finds your ikigai-market fit: love × craft × what companies pay for."],
   ["Package", "A sharp ATS resume plus the one-liner: you are the person who ___."],
   ["Place", "Five named targets with honest fit scores, and your opening message for #1."],
 ] as const;
@@ -150,8 +150,8 @@ export function AgentFlow() {
           <span className="text-muted-foreground">We make you irresistible.</span>
         </h1>
         <p className="mt-5 max-w-xl text-[0.95rem] leading-relaxed text-muted-foreground">
-          An AI career agent that reads you, finds your ikigai–market fit, and names the five
-          companies that should be fighting to hire you — with the resume and the opening message
+          An AI career agent that reads you, finds your ikigai-market fit, and names the five
+          companies that should be fighting to hire you, with the resume and the opening message
           to make it happen.
         </p>
       </section>
@@ -189,7 +189,7 @@ export function AgentFlow() {
             }}
           >
             <label htmlFor="background" className="sr-only">
-              Your background — resume, LinkedIn text, or a few honest paragraphs
+              Your background: resume, LinkedIn text, or a few honest paragraphs
             </label>
             <Textarea
               id="background"
@@ -218,7 +218,7 @@ export function AgentFlow() {
                 )}
               </Button>
               <p className="text-xs leading-relaxed text-muted-foreground">
-                ≈ a minute · no signup · nothing stored —<br className="sm:hidden" /> your report
+                ≈ a minute · no signup · nothing stored ·<br className="sm:hidden" /> your report
                 lives in a link only you hold
               </p>
             </div>

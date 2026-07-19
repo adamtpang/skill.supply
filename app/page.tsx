@@ -21,7 +21,7 @@ export default function Home() {
 
       <footer className="border-t border-border py-6">
         <p className="text-xs leading-relaxed text-muted-foreground">
-          skill<span className="text-brand">.</span>supply — no accounts, no database; your data
+          skill<span className="text-brand">.</span>supply · no accounts, no database; your data
           stays in your link. Agent runs on Claude.
         </p>
       </footer>

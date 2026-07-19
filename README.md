@@ -5,11 +5,11 @@
 An AI career agent in a single page: paste your background (resume, LinkedIn text, or a few
 honest paragraphs) and a server-side Claude agent
 
-1. **Discovers** your ikigai–market fit — what you love × what you're great at × what
+1. **Discovers** your ikigai-market fit: what you love × what you're great at × what
    companies actually pay for,
-2. **Packages** you — a sharp ATS-friendly resume plus the one-liner: *you are the person
+2. **Packages** you: a sharp ATS-friendly resume plus the one-liner, *you are the person
    who ___*,
-3. **Places** you — five named targets (real companies or sharp archetypes) with honest fit
+3. **Places** you: five named targets (real companies or sharp archetypes) with honest fit
    scores and gaps, and a tailored, non-generic intro message for target #1.
 
 No auth. No database. No payments. The finished report is compressed into the URL hash, so a
@@ -36,13 +36,13 @@ One env var:
 
 | Variable | What |
 | --- | --- |
-| `ANTHROPIC_API_KEY` | Claude API key — <https://console.anthropic.com> |
+| `ANTHROPIC_API_KEY` | Claude API key: <https://console.anthropic.com> |
 
 …or **zero env vars on Vercel**: when `ANTHROPIC_API_KEY` is absent, the agent authenticates
 to [Vercel AI Gateway](https://vercel.com/docs/ai-gateway)'s Anthropic-compatible endpoint
 with the deployment's OIDC token (billed to the team's AI Gateway credits). For local dev on
 that path, `vercel link && vercel env pull` writes a 12-hour `VERCEL_OIDC_TOKEN` into
-`.env.local` — re-pull when it expires.
+`.env.local`; re-pull when it expires.
 
 ## How it works
 
@@ -63,4 +63,4 @@ Key files: [`lib/agent.ts`](lib/agent.ts) (the chain), [`lib/prompts.ts`](lib/pr
 ## Non-goals (v1)
 
 Auth, accounts, database, payments, live job-board scraping, recruiter side. The agent names
-*targets to pursue*, never claims a live opening exists — candor is the product.
+*targets to pursue*, never claims a live opening exists. Candor is the product.

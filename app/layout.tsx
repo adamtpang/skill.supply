@@ -15,24 +15,24 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://skill.supply"),
   title: {
-    default: "skill.supply — You're the supply. We make you irresistible.",
+    default: "skill.supply · You're the supply. We make you irresistible.",
     template: "%s · skill.supply",
   },
   description:
-    "An AI career agent: paste your background, get your ikigai–market fit, a sharp ATS resume, five named targets with honest fit scores, and your opening move. No signup, nothing stored.",
+    "An AI career agent: paste your background, get your ikigai-market fit, a sharp ATS resume, five named targets with honest fit scores, and your opening move. No signup, nothing stored.",
   openGraph: {
-    title: "skill.supply — You're the supply.",
+    title: "skill.supply · You're the supply.",
     description:
-      "An AI career agent that finds your ikigai–market fit, packages you, and names the five companies that should be fighting to hire you.",
+      "An AI career agent that finds your ikigai-market fit, packages you, and names the five companies that should be fighting to hire you.",
     url: "https://skill.supply",
     siteName: "skill.supply",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "skill.supply — You're the supply.",
+    title: "skill.supply · You're the supply.",
     description:
-      "Paste your background. An AI career agent finds your ikigai–market fit, packages you, and names your five targets.",
+      "Paste your background. An AI career agent finds your ikigai-market fit, packages you, and names your five targets.",
   },
 };
 

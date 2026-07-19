@@ -51,7 +51,7 @@
 }
 
 :root {
-  /* skill.supply brand accent — indigo, used for data (scores, marks), never for chrome */
+  /* skill.supply brand accent: indigo, used for data (scores, marks), never for chrome */
   --brand: oklch(0.511 0.230 277);
   --brand-foreground: oklch(0.985 0 0);
   --background: oklch(1 0 0);

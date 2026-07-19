@@ -79,7 +79,7 @@ async function structured<S extends z.ZodType>(
     throw new Error("The model declined to analyze this input. Try rewording your background.");
   }
   if (response.stop_reason === "max_tokens" || response.parsed_output == null) {
-    throw new Error("The agent lost its train of thought. Run it again — this is usually transient.");
+    throw new Error("The agent lost its train of thought. Run it again; this is usually transient.");
   }
   return response.parsed_output as z.infer<S>;
 }
@@ -91,7 +91,7 @@ export async function runAgent(rawInput: string, send: Send): Promise<void> {
     send({
       type: "need_more",
       question:
-        "That's just a link — I can't crawl LinkedIn from here. Open your profile, copy the actual text (About + Experience), and paste it in.",
+        "That's just a link, and I can't crawl LinkedIn from here. Open your profile, copy the actual text (About + Experience), and paste it in.",
     });
     return;
   }
@@ -99,7 +99,7 @@ export async function runAgent(rawInput: string, send: Send): Promise<void> {
     send({
       type: "need_more",
       question:
-        "Give me more to work with — paste your resume, your LinkedIn About + Experience, or just three honest paragraphs about what you've built and what you love doing.",
+        "Give me more to work with: paste your resume, your LinkedIn About + Experience, or just three honest paragraphs about what you've built and what you love doing.",
     });
     return;
   }
@@ -107,7 +107,7 @@ export async function runAgent(rawInput: string, send: Send): Promise<void> {
     send({
       type: "need_more",
       question:
-        "That's more than I can hold at once. Trim to the good parts — roughly the last 10 years — and paste again.",
+        "That's more than I can hold at once. Trim to the good parts (roughly the last 10 years) and paste again.",
     });
     return;
   }
@@ -115,7 +115,7 @@ export async function runAgent(rawInput: string, send: Send): Promise<void> {
   const client = await makeClient();
   const today = new Date().toISOString().slice(0, 10);
 
-  // 1 — Extract (Haiku: fast, cheap, faithful)
+  // 1: Extract (Haiku: fast, cheap, faithful)
   send({ type: "stage", stage: "reading" });
   const extraction = await structured(client, {
     model: EXTRACT_MODEL,
@@ -130,13 +130,13 @@ export async function runAgent(rawInput: string, send: Send): Promise<void> {
       type: "need_more",
       question:
         extraction.followup_question ||
-        "Tell me one concrete thing you've built or achieved that you're proud of — with a number in it if you have one.",
+        "Tell me one concrete thing you've built or achieved that you're proud of, with a number in it if you have one.",
     });
     return;
   }
   send({ type: "profile", name: extraction.name, headline: extraction.headline });
 
-  // 2 — Ikigai + market match (Sonnet, full reasoning — the heart)
+  // 2: Ikigai + market match (Sonnet, full reasoning, the heart)
   send({ type: "stage", stage: "ikigai" });
   const match = await structured(client, {
     model: REASON_MODEL,
@@ -158,7 +158,7 @@ export async function runAgent(rawInput: string, send: Send): Promise<void> {
     positioning_tagline: match.positioning_tagline,
   });
 
-  // 3 — Package: resume + opening move, in parallel
+  // 3: Package (resume + opening move, in parallel)
   send({ type: "stage", stage: "packaging" });
   const [resume, intro] = await Promise.all([
     structured(client, {

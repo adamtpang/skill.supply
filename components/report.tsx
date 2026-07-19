@@ -139,13 +139,13 @@ export function SupplyReportView({
               </div>
               <p className="mt-3 text-sm leading-relaxed">{m.why_you_fit}</p>
               <p className="mt-2 text-[0.8rem] leading-relaxed text-muted-foreground">
-                <span className="font-medium text-foreground/70">Honest gap —</span> {m.watch_out}
+                <span className="font-medium text-foreground/70">Honest gap:</span> {m.watch_out}
               </p>
             </li>
           ))}
         </ol>
         <p className="mt-3 text-xs text-muted-foreground">
-          Targets, not job listings — picked for structural need, ranked by honest fit.
+          Targets, not job listings. Picked for structural need, ranked by honest fit.
         </p>
       </Section>
 
@@ -195,7 +195,7 @@ export function SupplyReportView({
           <p className="text-[0.925rem] leading-relaxed whitespace-pre-wrap">{intro.message}</p>
         </div>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          <span className="font-medium text-foreground/70">Why this works — </span>
+          <span className="font-medium text-foreground/70">Why this works: </span>
           {intro.why_this_works}
         </p>
         <div className="mt-5">
@@ -231,7 +231,7 @@ export function SupplyReportView({
           <div className="flex flex-wrap items-center gap-3">
             <Button type="button" size="lg" onClick={copyLink}>
               <Link2 aria-hidden />
-              {linkCopied ? "Link copied — go post it" : "Copy share link"}
+              {linkCopied ? "Link copied. Go post it" : "Copy share link"}
             </Button>
             {onRestart && (
               <Button type="button" variant="outline" size="lg" onClick={onRestart}>
