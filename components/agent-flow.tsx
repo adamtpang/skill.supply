@@ -154,6 +154,13 @@ export function AgentFlow() {
           companies that should be fighting to hire you, with the resume and the opening message
           to make it happen.
         </p>
+        <a
+          href="/companies"
+          className="mt-5 inline-flex items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+        >
+          Or explore the best companies to work for
+          <ArrowRight className="size-4" aria-hidden />
+        </a>
       </section>
 
       {/* Flow */}

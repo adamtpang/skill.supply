@@ -6,18 +6,23 @@ import {
   IkigaiMatchSchema,
   ResumeSchema,
   IntroSchema,
+  WayInSchema,
   type AgentEvent,
   type SupplyReport,
+  type WayInEvent,
 } from "./schema";
 import {
   systemExtract,
   systemMatch,
   systemResume,
   systemIntro,
+  systemGetIn,
   matchUserContent,
   resumeUserContent,
   introUserContent,
+  getInUserContent,
 } from "./prompts";
+import type { Company } from "./companies";
 
 const EXTRACT_MODEL = "claude-haiku-4-5";
 const REASON_MODEL = "claude-sonnet-5";
@@ -193,6 +198,50 @@ export async function runAgent(rawInput: string, send: Send): Promise<void> {
   };
 
   send({ type: "result", report });
+}
+
+/** Company-first flow: draft this person's honest way into one chosen company. */
+export async function runGetIn(
+  company: Company,
+  rawInput: string,
+  send: (event: WayInEvent) => void
+): Promise<void> {
+  const input = rawInput.trim();
+
+  if (input.length < MIN_INPUT_CHARS) {
+    send({
+      type: "need_more",
+      question: `Give me enough to work with: paste your resume or a few honest paragraphs about what you have built and what you are great at, and I will draft your way into ${company.name}.`,
+    });
+    return;
+  }
+  if (input.length > MAX_INPUT_CHARS) {
+    send({
+      type: "need_more",
+      question: "That is more than I can hold at once. Trim to the good parts and paste again.",
+    });
+    return;
+  }
+
+  const client = await makeClient();
+
+  send({ type: "stage", stage: "reading" });
+  send({ type: "stage", stage: "targeting" });
+  send({ type: "stage", stage: "drafting" });
+
+  const wayIn = await structured(client, {
+    model: REASON_MODEL,
+    system: systemGetIn(company),
+    content: getInUserContent(company, input),
+    schema: WayInSchema,
+    maxTokens: 6000,
+    effort: "medium",
+  });
+
+  wayIn.fit_score = Math.max(0, Math.min(100, Math.round(wayIn.fit_score)));
+  wayIn.next_moves = wayIn.next_moves.slice(0, 3);
+
+  send({ type: "result", wayIn });
 }
 
 /** Map any thrown error to a message safe and useful to show the user. */

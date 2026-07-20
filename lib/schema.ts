@@ -112,6 +112,42 @@ export const IntroSchema = z.object({
 });
 export type Intro = z.infer<typeof IntroSchema>;
 
+/** The "get me in" packet for one chosen company. */
+export const WayInSchema = z.object({
+  fit_score: z.number().describe("Integer 0-100. Honest fit of THIS person for THIS company. Spread, not all 90s."),
+  fit_snapshot: z
+    .string()
+    .describe(
+      "2-3 sentences, second person, on how you fit this company and where the gap is. Honest, references their evidence and the company's actual need."
+    ),
+  angle: z
+    .string()
+    .describe(
+      "The specific wedge: which team or role to aim at and the exact thing they need that this person offers. Never generic."
+    ),
+  intro: z.object({
+    channel: z.enum(["email", "linkedin_dm"]),
+    subject: z.string().nullable().describe("Email subject max 6 words if channel is email, else null."),
+    message: z.string().describe("The tailored intro to this company, max ~170 words, plain text, sounds human."),
+  }),
+  proof_move: z
+    .string()
+    .describe(
+      "The single proof-of-work artifact to build this week that would get this company's attention. Concrete and specific to them."
+    ),
+  next_moves: z
+    .array(z.string())
+    .describe("Exactly 3 concrete imperative actions to break in, specific to this company."),
+});
+export type WayIn = z.infer<typeof WayInSchema>;
+
+/** Events streamed from the get-in route. */
+export type WayInEvent =
+  | { type: "stage"; stage: "reading" | "targeting" | "drafting" }
+  | { type: "result"; wayIn: WayIn }
+  | { type: "need_more"; question: string }
+  | { type: "error"; message: string };
+
 /** The full shareable report: everything the results page renders. */
 export type SupplyReport = {
   v: 1;

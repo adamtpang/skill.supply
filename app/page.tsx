@@ -10,9 +10,12 @@ export default function Home() {
         >
           skill<span className="text-brand">.</span>supply
         </a>
-        <p className="font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase">
-          AI career agent
-        </p>
+        <a
+          href="/companies"
+          className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+        >
+          Companies
+        </a>
       </header>
 
       <main className="flex-1 pb-16">

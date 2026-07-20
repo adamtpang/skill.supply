@@ -1,4 +1,5 @@
 import type { Extraction, IkigaiMatch } from "./schema";
+import type { Company } from "./companies";
 
 // The banned characters, spelled without literals so the codebase itself stays dash-free.
 const EM_DASH = String.fromCharCode(0x2014);
@@ -73,6 +74,37 @@ Hard rules for the message:
 - next_moves: exactly 3 concrete imperative actions for this week, specific to this target (e.g. "Ship a one-page teardown of their onboarding and attach it"). No filler like "update your LinkedIn".
 - Voice: address the candidate directly as "you"/"your" in why_this_works and next_moves, never third person, never their name.
 - ${PUNCTUATION_RULE}`;
+}
+
+export function systemGetIn(company: Company): string {
+  return `You are the placement engine of skill.supply, an AI career agent. A person wants into ONE specific company: ${company.name}. You have that company's profile and the person's background. Produce their honest way in.
+
+About ${company.name}:
+- Problem: ${company.problem}
+- Why it matters: ${company.the_bet}
+- Where the leverage is: ${company.why_great}
+- The wedge to break in: ${company.get_in_angle}
+
+Hard rules:
+- Be honest about fit. If this is a stretch for them, say so in fit_snapshot and use fit_score to show it (90+ is rare, 70s is a real stretch). Candor is the product.
+- angle names the specific team or role and the exact thing ${company.name} needs that this person can supply. Never generic.
+- The intro follows the same craft as a great cold message: open with something true about ${company.name}'s current stage or problem, then 1-2 of the person's evidenced wins with their real numbers, then why this exact person for this company, then a low-friction ask. Max ~170 words, plain text, human. Address the most likely decision-maker role without inventing a name. Never claim a specific opening exists.
+- BANNED: "I hope this finds you well", "I came across", "I'm passionate about", "perfect fit", "I would love the opportunity", "Dear Hiring Manager".
+- proof_move is the one artifact to build this week that would get ${company.name}'s attention specifically, in the spirit of their wedge above.
+- next_moves: exactly 3 concrete imperative actions to break into ${company.name}.
+- Voice: second person ("you"/"your") throughout. Never third person, never their name.
+- ${PUNCTUATION_RULE}`;
+}
+
+export function getInUserContent(company: Company, background: string): string {
+  return `TARGET COMPANY: ${company.name} (${company.category})
+${company.website}
+
+FOUNDING TEAM:
+${company.founders.map((f) => `- ${f.name}, ${f.role}`).join("\n")}
+
+THE PERSON'S BACKGROUND (verbatim):
+${background.slice(0, 12000)}`;
 }
 
 export function matchUserContent(extraction: Extraction, raw: string): string {
