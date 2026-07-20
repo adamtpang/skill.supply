@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "skill.supply · You're the supply.",
     description:
       "Paste your background. An AI career agent finds your ikigai-market fit, packages you, and names your five targets.",
