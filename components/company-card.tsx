@@ -1,15 +1,28 @@
 import { ArrowRight } from "lucide-react";
 import type { Company } from "@/lib/companies";
 
-export function CompanyCard({ company }: { company: Company }) {
+export function CompanyCard({
+  company,
+  openRoles = 0,
+}: {
+  company: Company;
+  openRoles?: number;
+}) {
   return (
     <a
       href={`/companies/${company.slug}`}
       className="group flex flex-col rounded-xl border border-border bg-card p-5 outline-none transition-colors hover:border-foreground/25 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
     >
-      <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
-        {company.category}
-      </p>
+      <div className="flex items-baseline justify-between gap-3">
+        <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+          {company.category}
+        </p>
+        {openRoles > 0 && (
+          <p className="shrink-0 font-mono text-[11px] tabular-nums text-brand">
+            {openRoles} open
+          </p>
+        )}
+      </div>
       <h2 className="mt-1 text-lg font-semibold tracking-tight">{company.name}</h2>
       <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{company.problem}</p>
 

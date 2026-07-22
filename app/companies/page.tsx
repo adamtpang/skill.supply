@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { COMPANIES, AS_OF } from "@/lib/companies";
+import { fetchJobCounts } from "@/lib/jobs";
 import { CompanyCard } from "@/components/company-card";
 
 export const metadata: Metadata = {
@@ -9,7 +10,10 @@ export const metadata: Metadata = {
     "A curated directory of high-potential companies to work for in the age of AI: the problem they solve, the founding team, and the stats. Then an AI agent drafts your way in.",
 };
 
-export default function CompaniesPage() {
+export default async function CompaniesPage() {
+  const counts = await fetchJobCounts(COMPANIES.map((c) => c.slug));
+  const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-5 sm:px-8">
       <header className="flex items-center justify-between pt-6">
@@ -40,11 +44,17 @@ export default function CompaniesPage() {
             High-potential companies in the age of AI: what they solve, who founded them, and the
             stats. Pick one and an AI agent drafts your honest way in.
           </p>
+          {total > 0 && (
+            <p className="mt-4 font-mono text-xs tracking-wide text-muted-foreground">
+              <span className="text-brand">{total.toLocaleString()}</span> open roles live right now
+              across {COMPANIES.length} companies
+            </p>
+          )}
         </section>
 
         <div className="grid gap-4 sm:grid-cols-2">
           {COMPANIES.map((c) => (
-            <CompanyCard key={c.slug} company={c} />
+            <CompanyCard key={c.slug} company={c} openRoles={counts[c.slug] ?? 0} />
           ))}
         </div>
 

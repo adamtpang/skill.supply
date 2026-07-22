@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { COMPANIES, getCompany } from "@/lib/companies";
+import { fetchJobs } from "@/lib/jobs";
 import { GetInPanel } from "@/components/get-in-panel";
 
 export function generateStaticParams() {
@@ -26,6 +27,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const company = getCompany(slug);
   if (!company) notFound();
+  const jobs = await fetchJobs(slug);
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
@@ -105,6 +107,49 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
             ))}
           </ul>
         </section>
+
+        {/* Live roles, straight from their public job board */}
+        {jobs.length > 0 && (
+          <section className="mt-8">
+            <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+              <h2 className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+                Open roles
+              </h2>
+              <p className="font-mono text-xs tabular-nums text-brand">
+                {jobs.length} live
+              </p>
+            </div>
+            <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-card">
+              {jobs.slice(0, 8).map((job) => (
+                <li key={job.id}>
+                  <a
+                    href={job.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-baseline justify-between gap-4 p-4 outline-none transition-colors hover:bg-muted/50 focus-visible:bg-muted/50"
+                  >
+                    <span className="min-w-0">
+                      <span className="block truncate text-sm font-medium">{job.title}</span>
+                      {(job.location || job.team) && (
+                        <span className="block truncate text-xs text-muted-foreground">
+                          {[job.team, job.location].filter(Boolean).join(" · ")}
+                        </span>
+                      )}
+                    </span>
+                    <ArrowUpRight
+                      className="size-3.5 shrink-0 text-muted-foreground"
+                      aria-hidden
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Pulled live from their public job board. Do not apply cold: use the agent below to
+              build your way in.
+            </p>
+          </section>
+        )}
 
         {/* Get in */}
         <section className="mt-12 border-t border-border pt-8">
