@@ -138,6 +138,34 @@ export const WayInSchema = z.object({
   next_moves: z
     .array(z.string())
     .describe("Exactly 3 concrete imperative actions to break in, specific to this company."),
+  readiness: z
+    .object({
+      score: z
+        .number()
+        .describe("Integer 0-100: how ready you are TODAY to clear this company's bar. Honest, not flattering."),
+      eta_weeks: z
+        .number()
+        .describe(
+          "Focused weeks of real work to become a genuinely strong candidate here. 0 if ready now. Be honest even when the answer is 26."
+        ),
+      verdict: z
+        .string()
+        .describe(
+          "One direct sentence on where you stand, e.g. 'Ready now, the gap is access, not ability' or 'About 8 focused weeks out, and the missing piece is shipped evals.'"
+        ),
+      gaps: z
+        .array(
+          z.object({
+            gap: z.string().describe("The specific thing missing between you and this company's bar."),
+            close_it: z
+              .string()
+              .describe("The concrete way to close it: what to build, read, or ship. Nameable and checkable."),
+            weeks: z.number().describe("Focused weeks to close this one gap."),
+          })
+        )
+        .describe("1 to 4 gaps, ordered by what unlocks the most. Empty if genuinely ready now."),
+    })
+    .describe("The honest distance between this person and being the obvious hire here, plus the path to close it."),
 });
 export type WayIn = z.infer<typeof WayInSchema>;
 

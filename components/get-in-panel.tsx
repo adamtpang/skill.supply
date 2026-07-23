@@ -203,6 +203,47 @@ function WayInResult({
         <p className="text-[0.925rem] leading-relaxed">{wayIn.angle}</p>
       </div>
 
+      {wayIn.readiness && (
+        <div className="rounded-xl border border-border bg-card p-5 sm:p-6">
+          <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+              Time to become their obvious hire
+            </h3>
+            <p className="font-mono text-sm tabular-nums text-brand">
+              {wayIn.readiness.score}/100 ready today
+            </p>
+          </div>
+
+          <p className="flex flex-wrap items-baseline gap-2 text-[0.925rem] leading-relaxed">
+            <span className="font-mono text-3xl leading-none font-medium tabular-nums text-brand">
+              {wayIn.readiness.eta_weeks === 0 ? "Now" : `${wayIn.readiness.eta_weeks}w`}
+            </span>
+            <span>{wayIn.readiness.verdict}</span>
+          </p>
+
+          {wayIn.readiness.gaps.length > 0 && (
+            <ol className="mt-4 space-y-3 border-t border-border pt-4">
+              {wayIn.readiness.gaps.map((g, i) => (
+                <li key={i} className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
+                  <span className="font-mono text-xs leading-5 tabular-nums text-brand">
+                    {g.weeks}w
+                  </span>
+                  <span className="text-sm leading-relaxed font-medium">{g.gap}</span>
+                  <span aria-hidden />
+                  <span className="text-[0.8rem] leading-relaxed text-muted-foreground">
+                    {g.close_it}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          )}
+          <p className="mt-4 text-xs text-muted-foreground">
+            This is your course of study for {companyName}. Close these and you are not applying,
+            you are the obvious hire.
+          </p>
+        </div>
+      )}
+
       <div>
         <div className="mb-2 flex items-center justify-between gap-3">
           <h3 className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">

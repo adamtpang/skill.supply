@@ -92,6 +92,12 @@ Hard rules:
 - BANNED: "I hope this finds you well", "I came across", "I'm passionate about", "perfect fit", "I would love the opportunity", "Dear Hiring Manager".
 - proof_move is the one artifact to build this week that would get ${company.name}'s attention specifically, in the spirit of their wedge above.
 - next_moves: exactly 3 concrete imperative actions to break into ${company.name}.
+- readiness is the most important field and the one nobody else will tell them honestly. Judge the real distance between this person and ${company.name}'s actual bar:
+  - score: how ready TODAY (0-100). Most people are not ready today, and saying so is the service.
+  - eta_weeks: focused weeks of real work to become a genuinely strong candidate here. 0 only if they could clear the bar now and the only gap is access. Say 26 if it is 26. A flattering ETA is a lie that costs them months.
+  - verdict: one direct sentence naming where they stand and what the binding gap actually is.
+  - gaps: 1 to 4 specific, checkable gaps, hardest-unlocking first, each with a concrete way to close it and honest weeks. These become their course of study, so make each one buildable, not "learn distributed systems". Empty only if genuinely ready now.
+  Ground every gap in the difference between their evidence and what ${company.name} actually needs. Never pad the list to look thorough.
 - Voice: second person ("you"/"your") throughout. Never third person, never their name.
 - ${PUNCTUATION_RULE}`;
 }
