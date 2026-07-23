@@ -255,6 +255,16 @@ export function friendlyError(err: unknown): string {
   if (err instanceof Anthropic.APIConnectionError) {
     return "Couldn't reach the model. Check your connection and run it again.";
   }
+  // No funded model access: the gateway rejects the model outright (403), or the
+  // key's org is out of credit. This is an owner problem, not a user mistake, so
+  // say so plainly instead of asking someone to retry a run that cannot succeed.
+  const raw = err instanceof Anthropic.APIError ? `${err.status} ${JSON.stringify(err.error ?? "")}` : "";
+  if (
+    err instanceof Anthropic.PermissionDeniedError ||
+    /no_providers_available|RestrictedModels|paid credits|credit balance|quota/i.test(raw)
+  ) {
+    return "This app has no funded model access right now, so the agent cannot run. If you own it: add credits to the Vercel AI Gateway, or set a funded ANTHROPIC_API_KEY.";
+  }
   if (err instanceof Anthropic.APIError) {
     return "The model hit an unexpected error. Run it again in a moment.";
   }
