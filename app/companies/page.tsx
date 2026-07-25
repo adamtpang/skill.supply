@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { COMPANIES, AS_OF } from "@/lib/companies";
 import { fetchJobCounts } from "@/lib/jobs";
 import { CompanyCard } from "@/components/company-card";
+import { CompanySearch } from "@/components/company-search";
 
 export const metadata: Metadata = {
   title: "The best companies to work for",
@@ -52,6 +53,13 @@ export default async function CompaniesPage() {
           )}
         </section>
 
+        <section className="mb-10">
+          <CompanySearch />
+        </section>
+
+        <h2 className="mb-4 font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+          Hand-picked
+        </h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {COMPANIES.map((c) => (
             <CompanyCard key={c.slug} company={c} openRoles={counts[c.slug] ?? 0} />
