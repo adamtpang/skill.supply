@@ -1,21 +1,42 @@
 import { AgentFlow } from "@/components/agent-flow";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
-      <header className="flex items-center justify-between pt-6">
-        <a
+      <header className="flex items-center justify-between gap-4 pt-6">
+        <Link
           href="/"
           className="rounded font-mono text-sm font-semibold tracking-tight outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
         >
           skill<span className="text-brand">.</span>supply
-        </a>
-        <a
-          href="/companies"
-          className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
-        >
-          Companies
-        </a>
+        </Link>
+        <nav className="flex items-center gap-4" aria-label="Market navigation">
+          <Link
+            href="/apply"
+            className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Apply
+          </Link>
+          <Link
+            href="/skills"
+            className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Skills
+          </Link>
+          <Link
+            href="/companies"
+            className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Companies
+          </Link>
+          <Link
+            href="/meta"
+            className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Meta
+          </Link>
+        </nav>
       </header>
 
       <main className="flex-1 pb-16">
