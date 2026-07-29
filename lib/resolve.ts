@@ -49,12 +49,35 @@ function probes(slug: string): Probe[] {
 function normalize(raw: Record<string, unknown>, provider: Resolved["provider"]): Job | null {
   const str = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : null);
 
+  // Strip markup so a job description is model-readable plain text.
+  const plain = (v: unknown): string | null => {
+    const s = str(v);
+    if (!s) return null;
+    return s
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&nbsp;|&#160;/gi, " ")
+      .replace(/&amp;/gi, "&")
+      .replace(/&lt;/gi, "<")
+      .replace(/&gt;/gi, ">")
+      .replace(/&quot;|&#34;/gi, '"')
+      .replace(/&#39;|&apos;/gi, "'")
+      .replace(/\s+/g, " ")
+      .trim();
+  };
+
   if (provider === "greenhouse") {
     const title = str(raw.title);
     const url = str(raw.absolute_url);
     if (!title || !url) return null;
     const loc = raw.location as { name?: string } | undefined;
-    return { id: String(raw.id ?? url), title, url, location: loc?.name ?? null, team: null };
+    return {
+      id: String(raw.id ?? url),
+      title,
+      url,
+      location: loc?.name ?? null,
+      team: null,
+      description: plain(raw.content),
+    };
   }
 
   if (provider === "ashby") {
@@ -68,6 +91,7 @@ function normalize(raw: Record<string, unknown>, provider: Resolved["provider"])
       url,
       location: str(raw.location),
       team: str(raw.department) ?? str(raw.team),
+      description: plain(raw.descriptionPlain) ?? plain(raw.descriptionHtml),
     };
   }
 
@@ -82,12 +106,16 @@ function normalize(raw: Record<string, unknown>, provider: Resolved["provider"])
     url,
     location: str(cats.location),
     team: str(cats.team),
+    description: plain(raw.descriptionPlain) ?? plain(raw.description),
   };
 }
 
 async function tryProbe(slug: string, probe: Probe): Promise<Resolved | null> {
   try {
-    const res = await fetch(probe.url, {
+    // Greenhouse only returns descriptions when asked for them.
+    const url =
+      probe.provider === "greenhouse" ? `${probe.url}?content=true` : probe.url;
+    const res = await fetch(url, {
       headers: { "user-agent": "skill.supply" },
       next: { revalidate: 3600 },
     });

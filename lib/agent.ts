@@ -23,6 +23,16 @@ import {
   getInUserContent,
 } from "./prompts";
 import type { Company } from "./companies";
+import {
+  DreamJobSchema,
+  JudgementSchema,
+  systemDream,
+  systemJudge,
+  dreamUserContent,
+  judgeUserContent,
+  type DreamJob,
+  type Judgement,
+} from "./dream";
 
 const EXTRACT_MODEL = "claude-haiku-4-5";
 const REASON_MODEL = "claude-sonnet-5";
@@ -242,6 +252,40 @@ export async function runGetIn(
   wayIn.next_moves = wayIn.next_moves.slice(0, 3);
 
   send({ type: "result", wayIn });
+}
+
+/** Write the job description this person should be hired into. */
+export async function runDream(background: string, wishes: string): Promise<DreamJob> {
+  const client = await makeClient();
+  return structured(client, {
+    model: REASON_MODEL,
+    system: systemDream(),
+    content: dreamUserContent(background, wishes),
+    schema: DreamJobSchema,
+    maxTokens: 6000,
+  });
+}
+
+/** Score real, live postings against the dream JD. Honest, spread, sparing with "chase". */
+export async function runJudge(
+  dream: DreamJob,
+  company: string,
+  jobs: { id: string; title: string; location: string | null; description?: string | null }[]
+): Promise<Judgement> {
+  const client = await makeClient();
+  const judged = await structured(client, {
+    model: REASON_MODEL,
+    system: systemJudge(),
+    content: judgeUserContent(dream, company, jobs),
+    schema: JudgementSchema,
+    maxTokens: 8000,
+    effort: "medium",
+  });
+
+  judged.verdicts = judged.verdicts
+    .map((v) => ({ ...v, score: Math.max(0, Math.min(100, Math.round(v.score))) }))
+    .sort((a, b) => b.score - a.score);
+  return judged;
 }
 
 /** Map any thrown error to a message safe and useful to show the user. */

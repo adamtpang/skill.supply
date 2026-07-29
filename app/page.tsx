@@ -31,6 +31,12 @@ export default function Home() {
             Companies
           </Link>
           <Link
+            href="/dream"
+            className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Dream
+          </Link>
+          <Link
             href="/meta"
             className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
           >
