@@ -1,0 +1,733 @@
+{
+  "generatedAt": "2026-07-29T11:24:42.594Z",
+  "companies": [
+    {
+      "rank": 1,
+      "name": "Apple",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 2,
+      "name": "NVIDIA",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 3,
+      "name": "Alphabet (Google)",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 4,
+      "name": "Microsoft",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 5,
+      "name": "Amazon",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 6,
+      "name": "TSMC",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 7,
+      "name": "Broadcom",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 8,
+      "name": "Saudi Aramco",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 9,
+      "name": "SpaceX",
+      "symbol": null,
+      "marketCap": null,
+      "board": {
+        "provider": "greenhouse",
+        "slug": "spacex",
+        "jobs": 2052
+      }
+    },
+    {
+      "rank": 10,
+      "name": "Meta Platforms (Facebook)",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 11,
+      "name": "Tesla",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 12,
+      "name": "Berkshire Hathaway",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 13,
+      "name": "Eli Lilly",
+      "symbol": null,
+      "marketCap": null,
+      "board": {
+        "provider": "ashby",
+        "slug": "eli",
+        "jobs": 2
+      }
+    },
+    {
+      "rank": 14,
+      "name": "JPMorgan Chase",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 15,
+      "name": "Samsung",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 16,
+      "name": "Micron Technology",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 17,
+      "name": "Walmart",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 18,
+      "name": "AMD",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 19,
+      "name": "Visa",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 20,
+      "name": "SK Hynix",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 21,
+      "name": "Johnson & Johnson",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 22,
+      "name": "Exxon Mobil",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 23,
+      "name": "ASML",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 24,
+      "name": "CXMT",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 25,
+      "name": "Tencent",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 26,
+      "name": "Mastercard",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 27,
+      "name": "AbbVie",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 28,
+      "name": "Cisco",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 29,
+      "name": "Bank of America",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 30,
+      "name": "Intel",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 31,
+      "name": "Costco",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 32,
+      "name": "China Construction Bank",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 33,
+      "name": "UnitedHealth",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 34,
+      "name": "Caterpillar",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 35,
+      "name": "Coca-Cola",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 36,
+      "name": "Applied Materials",
+      "symbol": null,
+      "marketCap": null,
+      "board": {
+        "provider": "ashby",
+        "slug": "applied",
+        "jobs": 265
+      }
+    },
+    {
+      "rank": 37,
+      "name": "General Electric",
+      "symbol": null,
+      "marketCap": null,
+      "board": {
+        "provider": "greenhouse",
+        "slug": "general",
+        "jobs": 1
+      }
+    },
+    {
+      "rank": 38,
+      "name": "Chevron",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 39,
+      "name": "Roche",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 40,
+      "name": "Agricultural Bank of China",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 41,
+      "name": "HSBC",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 42,
+      "name": "Procter & Gamble",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 43,
+      "name": "Oracle",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 44,
+      "name": "Home Depot",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 45,
+      "name": "ICBC",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 46,
+      "name": "Lam Research",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 47,
+      "name": "Morgan Stanley",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 48,
+      "name": "Merck",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 49,
+      "name": "Philip Morris International",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 50,
+      "name": "Goldman Sachs",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 51,
+      "name": "Novartis",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 52,
+      "name": "Netflix",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 53,
+      "name": "Palantir",
+      "symbol": null,
+      "marketCap": null,
+      "board": {
+        "provider": "lever",
+        "slug": "palantir",
+        "jobs": 287
+      }
+    },
+    {
+      "rank": 54,
+      "name": "Royal Bank Of Canada",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 55,
+      "name": "RTX",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 56,
+      "name": "Bank of China",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 57,
+      "name": "Alibaba",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 58,
+      "name": "CATL",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 59,
+      "name": "AstraZeneca",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 60,
+      "name": "LVMH",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 61,
+      "name": "Wells Fargo",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 62,
+      "name": "Arm Holdings",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 63,
+      "name": "Palo Alto Networks",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 64,
+      "name": "Nestlé",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 65,
+      "name": "Dell",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 66,
+      "name": "Texas Instruments",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 67,
+      "name": "Mitsubishi UFJ Financial",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 68,
+      "name": "GE Vernova",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 69,
+      "name": "KLA",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 70,
+      "name": "Kweichow Moutai",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 71,
+      "name": "Shell",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 72,
+      "name": "Siemens",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 73,
+      "name": "Linde",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 74,
+      "name": "China Mobile",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 75,
+      "name": "PetroChina",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 76,
+      "name": "L'Oréal",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 77,
+      "name": "American Express",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 78,
+      "name": "International Holding Company",
+      "symbol": null,
+      "marketCap": null,
+      "board": {
+        "provider": "greenhouse",
+        "slug": "international",
+        "jobs": 1
+      }
+    },
+    {
+      "rank": 79,
+      "name": "Novo Nordisk",
+      "symbol": null,
+      "marketCap": null,
+      "board": {
+        "provider": "ashby",
+        "slug": "novo",
+        "jobs": 9
+      }
+    },
+    {
+      "rank": 80,
+      "name": "Citigroup",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 81,
+      "name": "Toyota",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 82,
+      "name": "IBM",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 83,
+      "name": "Thermo Fisher Scientific",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 84,
+      "name": "Arista Networks",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 85,
+      "name": "BHP Group",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 86,
+      "name": "Amgen",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 87,
+      "name": "Commonwealth Bank",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 88,
+      "name": "SAP",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 89,
+      "name": "Verizon",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 90,
+      "name": "Santander",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 91,
+      "name": "Toronto Dominion Bank",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 92,
+      "name": "Prosus",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 93,
+      "name": "Inditex",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 94,
+      "name": "T-Mobile US",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 95,
+      "name": "Pepsico",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 96,
+      "name": "McDonald",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 97,
+      "name": "Airbus",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 98,
+      "name": "TotalEnergies",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 99,
+      "name": "Abbott Laboratories",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    },
+    {
+      "rank": 100,
+      "name": "Nextera Energy",
+      "symbol": null,
+      "marketCap": null,
+      "board": null
+    }
+  ]
+}

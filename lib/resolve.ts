@@ -10,11 +10,12 @@
  * and we say so honestly instead of pretending the index is complete.
  */
 import type { Job } from "./jobs";
+import { findTenant, fetchWorkdayJobs } from "./workday";
 
 export type Resolved = {
   query: string;
   name: string;
-  provider: "greenhouse" | "ashby" | "lever";
+  provider: "greenhouse" | "ashby" | "lever" | "workday";
   board: string;
   jobs: Job[];
 };
@@ -136,6 +137,23 @@ async function tryProbe(slug: string, probe: Probe): Promise<Resolved | null> {
 export async function resolveCompany(input: string): Promise<Resolved | null> {
   const slugs = slugCandidates(input);
   if (slugs.length === 0) return null;
+
+  // Most of the largest employers run Workday, whose careers page is a JS app
+  // but whose underlying JSON endpoint is public. Check that first.
+  for (const slug of slugs) {
+    const tenant = findTenant(slug);
+    if (!tenant) continue;
+    const jobs = await fetchWorkdayJobs(tenant);
+    if (jobs.length > 0) {
+      return {
+        query: input,
+        name: tenant.name,
+        provider: "workday",
+        board: `${tenant.tenant}/${tenant.site}`,
+        jobs,
+      };
+    }
+  }
 
   for (const slug of slugs) {
     const results = await Promise.all(probes(slug).map((p) => tryProbe(slug, p)));

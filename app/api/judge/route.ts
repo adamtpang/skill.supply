@@ -1,6 +1,7 @@
 import { runJudge, friendlyError } from "@/lib/agent";
 import { resolveCompany } from "@/lib/resolve";
 import { DreamJobSchema } from "@/lib/dream";
+import { findTenant, hydrateWorkdayDescriptions } from "@/lib/workday";
 
 export const runtime = "nodejs";
 export const maxDuration = 180;
@@ -63,8 +64,15 @@ export async function POST(req: Request) {
     return (b.description?.length ?? 0) - (a.description?.length ?? 0);
   });
 
+  // Workday lists titles only, so pull descriptions for just the roles we score.
+  let shortlist = candidates.slice(0, MAX_ROLES);
+  if (resolved.provider === "workday") {
+    const tenant = findTenant(resolved.name);
+    if (tenant) shortlist = await hydrateWorkdayDescriptions(tenant, shortlist);
+  }
+
   try {
-    const judged = await runJudge(parsed.data, resolved.name, candidates.slice(0, MAX_ROLES));
+    const judged = await runJudge(parsed.data, resolved.name, shortlist);
     const byId = new Map(resolved.jobs.map((j) => [j.id, j]));
     const verdicts = judged.verdicts.map((v) => ({
       ...v,
