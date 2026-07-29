@@ -1,0 +1,1133 @@
+{
+  "generatedAt": "2026-07-29T12:02:34.777Z",
+  "companies": [
+    {
+      "rank": 1,
+      "name": "Apple",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.apple.com/en-us/search",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 2,
+      "name": "NVIDIA",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 3,
+      "name": "Alphabet (Google)",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.google.com/about/careers/applications/jobs/results/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 4,
+      "name": "Microsoft",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.careers.microsoft.com/global/en/search",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 5,
+      "name": "Amazon",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.amazon.jobs/en/search",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 6,
+      "name": "TSMC",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.tsmc.com/careers/JobSearch",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 7,
+      "name": "Broadcom",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://broadcom.wd1.myworkdayjobs.com/External_Career",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 8,
+      "name": "Saudi Aramco",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.aramco.com/en/careers",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 9,
+      "name": "SpaceX",
+      "symbol": null,
+      "board": {
+        "provider": "greenhouse",
+        "slug": "spacex",
+        "jobs": 2052
+      },
+      "careers": {
+        "url": "https://www.spacex.com/careers/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 10,
+      "name": "Meta Platforms (Facebook)",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 11,
+      "name": "Tesla",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.tesla.com/careers/search/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 12,
+      "name": "Berkshire Hathaway",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.berkshirehathaway.com/careers/careers.html",
+        "verified": false,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 13,
+      "name": "Eli Lilly",
+      "symbol": null,
+      "board": {
+        "provider": "ashby",
+        "slug": "eli",
+        "jobs": 2
+      },
+      "careers": {
+        "url": "https://careers.lilly.com/us/en",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 14,
+      "name": "JPMorgan Chase",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.jpmorgan.com/global/en/home",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 15,
+      "name": "Samsung",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.samsung.com/us/careers/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 16,
+      "name": "Micron Technology",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.micron.com/about/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 17,
+      "name": "Walmart",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.walmart.com/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 18,
+      "name": "AMD",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.amd.com/careers-home/jobs",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 19,
+      "name": "Visa",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://corporate.visa.com/en/jobs/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 20,
+      "name": "SK Hynix",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.skhynix.com/careers/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 21,
+      "name": "Johnson & Johnson",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.careers.jnj.com/en/jobs/",
+        "verified": false,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 22,
+      "name": "Exxon Mobil",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.exxonmobil.com/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 23,
+      "name": "ASML",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.asml.com/en/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 24,
+      "name": "CXMT",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 25,
+      "name": "Tencent",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.tencent.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 26,
+      "name": "Mastercard",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.mastercard.com/us/en/search-results",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 27,
+      "name": "AbbVie",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.abbvie.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 28,
+      "name": "Cisco",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.cisco.com/jobs/SearchJobs",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 29,
+      "name": "Bank of America",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.bankofamerica.com/en-us",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 30,
+      "name": "Intel",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.intel.com/en/search-jobs",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 31,
+      "name": "Costco",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.costco.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 32,
+      "name": "China Construction Bank",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.namepros.com/parked/chinaconstructionbank.com?domain=www.chinaconstructionbank.com&path=%2Fcareers&v=20250711",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 33,
+      "name": "UnitedHealth",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 34,
+      "name": "Caterpillar",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.caterpillar.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 35,
+      "name": "Coca-Cola",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 36,
+      "name": "Applied Materials",
+      "symbol": null,
+      "board": {
+        "provider": "ashby",
+        "slug": "applied",
+        "jobs": 265
+      },
+      "careers": {
+        "url": "https://careers.appliedmaterials.com/careers",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 37,
+      "name": "General Electric",
+      "symbol": null,
+      "board": {
+        "provider": "greenhouse",
+        "slug": "general",
+        "jobs": 1
+      },
+      "careers": {
+        "url": "https://jobs.gecareers.com/global/en/search-results",
+        "verified": false,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 38,
+      "name": "Chevron",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.chevron.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 39,
+      "name": "Roche",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.roche.com/global/en",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 40,
+      "name": "Agricultural Bank of China",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.namepros.com/parked/agriculturalbankofchina.com?domain=www.agriculturalbankofchina.com&path=%2Fcareers&v=20250711",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 41,
+      "name": "HSBC",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.hsbc.com/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 42,
+      "name": "Procter & Gamble",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 43,
+      "name": "Oracle",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.oracle.com/jobs/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 44,
+      "name": "Home Depot",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.homedepot.com/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 45,
+      "name": "ICBC",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.icbc.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 46,
+      "name": "Lam Research",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.lamresearch.com/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 47,
+      "name": "Morgan Stanley",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.morganstanley.com/people",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 48,
+      "name": "Merck",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.merck.com/us/en",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 49,
+      "name": "Philip Morris International",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.pmi.com/careers",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 50,
+      "name": "Goldman Sachs",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.goldmansachs.com/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 51,
+      "name": "Novartis",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.novartis.com/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 52,
+      "name": "Netflix",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://explore.jobs.netflix.net/careers",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 53,
+      "name": "Palantir",
+      "symbol": null,
+      "board": {
+        "provider": "lever",
+        "slug": "palantir",
+        "jobs": 287
+      },
+      "careers": {
+        "url": "https://jobs.lever.co/palantir",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 54,
+      "name": "Royal Bank Of Canada",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 55,
+      "name": "RTX",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.rtx.com/global/en",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 56,
+      "name": "Bank of China",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.boc.cn/en/aboutboc/ab7/",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 57,
+      "name": "Alibaba",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://talent.alibaba.com/en/home",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 58,
+      "name": "CATL",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.catl.com/404/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 59,
+      "name": "AstraZeneca",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.astrazeneca.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 60,
+      "name": "LVMH",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 61,
+      "name": "Wells Fargo",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.wellsfargojobs.com/en/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 62,
+      "name": "Arm Holdings",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.arm.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 63,
+      "name": "Palo Alto Networks",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.paloaltonetworks.com/en",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 64,
+      "name": "Nestlé",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.nestle.com/jobs",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 65,
+      "name": "Dell",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://iawmqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 66,
+      "name": "Texas Instruments",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.texas.com/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 67,
+      "name": "Mitsubishi UFJ Financial",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 68,
+      "name": "GE Vernova",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.gevernova.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 69,
+      "name": "KLA",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.kla.com/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 70,
+      "name": "Kweichow Moutai",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 71,
+      "name": "Shell",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://shell.wd3.myworkdayjobs.com/shellcareers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 72,
+      "name": "Siemens",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.siemens.com/en_US/externaljobs",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 73,
+      "name": "Linde",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 74,
+      "name": "China Mobile",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.chinamobileltd.com/en/about/careers.php",
+        "verified": false,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 75,
+      "name": "PetroChina",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.petrochina.com.cn/ptr/rlzy/",
+        "verified": false,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 76,
+      "name": "L'Oréal",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.loreal.com/en_US/jobs",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 77,
+      "name": "American Express",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.americanexpress.com/en/sites/CX_1",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 78,
+      "name": "International Holding Company",
+      "symbol": null,
+      "board": {
+        "provider": "greenhouse",
+        "slug": "international",
+        "jobs": 1
+      },
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 79,
+      "name": "Novo Nordisk",
+      "symbol": null,
+      "board": {
+        "provider": "ashby",
+        "slug": "novo",
+        "jobs": 9
+      },
+      "careers": {
+        "url": "https://www.novonordisk.com/careers.html",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 80,
+      "name": "Citigroup",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.citi.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 81,
+      "name": "Toyota",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.toyota.com/us/en",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 82,
+      "name": "IBM",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.ibm.com/careers/search",
+        "verified": true,
+        "source": "curated"
+      }
+    },
+    {
+      "rank": 83,
+      "name": "Thermo Fisher Scientific",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.thermofisher.com/global/en",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 84,
+      "name": "Arista Networks",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.arista.com/en/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 85,
+      "name": "BHP Group",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.bhp.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 86,
+      "name": "Amgen",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.amgen.com/en",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 87,
+      "name": "Commonwealth Bank",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.commonwealthbank.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 88,
+      "name": "SAP",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.sap.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 89,
+      "name": "Verizon",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://mycareer.verizon.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 90,
+      "name": "Santander",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.santander.com/en/careers",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 91,
+      "name": "Toronto Dominion Bank",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 92,
+      "name": "Prosus",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.eu.lever.co/prosus",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 93,
+      "name": "Inditex",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.inditex.com/itxcomweb/my/en/home",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 94,
+      "name": "T-Mobile US",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.t-mobile.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 95,
+      "name": "Pepsico",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.pepsicojobs.com/main/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 96,
+      "name": "McDonald",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.mcdonalds.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 97,
+      "name": "Airbus",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": null,
+        "verified": false,
+        "source": "none"
+      }
+    },
+    {
+      "rank": 98,
+      "name": "TotalEnergies",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://careers.totalenergies.com/en",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 99,
+      "name": "Abbott Laboratories",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://www.jobs.abbott/us/en",
+        "verified": true,
+        "source": "pattern"
+      }
+    },
+    {
+      "rank": 100,
+      "name": "Nextera Energy",
+      "symbol": null,
+      "board": null,
+      "careers": {
+        "url": "https://jobs.nexteraenergy.com/",
+        "verified": true,
+        "source": "pattern"
+      }
+    }
+  ]
+}
