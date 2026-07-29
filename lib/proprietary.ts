@@ -21,28 +21,32 @@ async function fetchAmazon(limit: number): Promise<Job[]> {
     );
     if (!res.ok) return [];
     const data = (await res.json()) as { jobs?: Record<string, unknown>[] };
-    return (data.jobs ?? [])
-      .map((j) => {
-        const title = typeof j.title === "string" ? j.title.trim() : null;
-        const path = typeof j.job_path === "string" ? j.job_path : null;
-        if (!title || !path) return null;
-        const description =
-          [j.description, j.basic_qualifications]
-            .filter((v): v is string => typeof v === "string")
-            .join(" ")
-            .replace(/<[^>]+>/g, " ")
-            .replace(/\s+/g, " ")
-            .trim() || null;
-        return {
-          id: path,
-          title,
-          url: `https://www.amazon.jobs${path}`,
-          location: typeof j.location === "string" ? j.location : null,
-          team: typeof j.business_category === "string" ? j.business_category : null,
-          description,
-        } satisfies Job;
-      })
-      .filter((j): j is Job => j !== null);
+    const out: Job[] = [];
+
+    for (const j of data.jobs ?? []) {
+      const title = typeof j.title === "string" ? j.title.trim() : null;
+      const path = typeof j.job_path === "string" ? j.job_path : null;
+      if (!title || !path) continue;
+
+      const description =
+        [j.description, j.basic_qualifications]
+          .filter((v): v is string => typeof v === "string")
+          .join(" ")
+          .replace(/<[^>]+>/g, " ")
+          .replace(/\s+/g, " ")
+          .trim() || null;
+
+      out.push({
+        id: path,
+        title,
+        url: `https://www.amazon.jobs${path}`,
+        location: typeof j.location === "string" ? j.location : null,
+        team: typeof j.business_category === "string" ? j.business_category : null,
+        description,
+      });
+    }
+
+    return out;
   } catch {
     return [];
   }
