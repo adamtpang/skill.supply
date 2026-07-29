@@ -21,12 +21,30 @@
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
-const KEY = process.env.FIRECRAWL_API_KEY;
+/**
+ * Read the key from .env.local so it never has to be pasted into a shell (where
+ * it would land in shell history). .env.local is gitignored, so the key stays on
+ * this machine and out of the repo.
+ */
+function loadKey() {
+  if (process.env.FIRECRAWL_API_KEY) return process.env.FIRECRAWL_API_KEY.trim();
+  const envFile = new URL("../.env.local", import.meta.url);
+  if (!existsSync(envFile)) return null;
+  for (const line of readFileSync(envFile, "utf8").split("\n")) {
+    const m = line.match(/^\s*FIRECRAWL_API_KEY\s*=\s*(.+?)\s*$/);
+    if (m) return m[1].replace(/^["']|["']$/g, "");
+  }
+  return null;
+}
+
+const KEY = loadKey();
 if (!KEY) {
   console.error(
-    "Set FIRECRAWL_API_KEY first.\n" +
-      "  Get one at https://firecrawl.dev (free tier covers a one-time run)\n" +
-      "  export FIRECRAWL_API_KEY=fc-..."
+    "No Firecrawl key found.\n\n" +
+      "Add this line to .env.local in the repo root (the file is gitignored):\n" +
+      "  FIRECRAWL_API_KEY=fc-your-key-here\n\n" +
+      "Then run this script again. Nothing needs to go into Vercel: discovery\n" +
+      "runs locally, once, and the results are committed as plain data."
   );
   process.exit(1);
 }
