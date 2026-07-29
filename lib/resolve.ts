@@ -11,11 +11,12 @@
  */
 import type { Job } from "./jobs";
 import { findTenant, fetchWorkdayJobs } from "./workday";
+import { findProprietary } from "./proprietary";
 
 export type Resolved = {
   query: string;
   name: string;
-  provider: "greenhouse" | "ashby" | "lever" | "workday";
+  provider: "greenhouse" | "ashby" | "lever" | "workday" | "proprietary";
   board: string;
   jobs: Job[];
 };
@@ -137,6 +138,16 @@ async function tryProbe(slug: string, probe: Probe): Promise<Resolved | null> {
 export async function resolveCompany(input: string): Promise<Resolved | null> {
   const slugs = slugCandidates(input);
   if (slugs.length === 0) return null;
+
+  // A few giants run their own applicant system but still serve public JSON.
+  for (const slug of slugs) {
+    const own = findProprietary(slug);
+    if (!own) continue;
+    const jobs = await own.fetchJobs(60);
+    if (jobs.length > 0) {
+      return { query: input, name: own.name, provider: "proprietary", board: slug, jobs };
+    }
+  }
 
   // Most of the largest employers run Workday, whose careers page is a JS app
   // but whose underlying JSON endpoint is public. Check that first.

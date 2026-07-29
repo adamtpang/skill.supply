@@ -62,7 +62,12 @@ const PATTERNS = [
   { provider: "icims", re: /([a-z0-9-]+)\.icims\.com/g },
 ];
 
-async function scrape(url) {
+/**
+ * A 5xx from Firecrawl usually means the TARGET site refused to render (bot
+ * protection, or the URL does not exist), not that Firecrawl is down. Retry
+ * once, then move on to the next candidate URL rather than failing the company.
+ */
+async function scrape(url, attempt = 1) {
   const res = await fetch("https://api.firecrawl.dev/v1/scrape", {
     method: "POST",
     headers: { "content-type": "application/json", authorization: `Bearer ${KEY}` },
@@ -70,11 +75,25 @@ async function scrape(url) {
       url,
       formats: ["html", "links"],
       onlyMainContent: false,
-      waitFor: 3000,
+      waitFor: 3500,
       timeout: 45000,
     }),
   });
-  if (!res.ok) throw new Error(`Firecrawl HTTP ${res.status}: ${(await res.text()).slice(0, 120)}`);
+
+  if (res.status >= 500 && attempt === 1) {
+    await new Promise((r) => setTimeout(r, 2000));
+    return scrape(url, 2);
+  }
+  if (!res.ok) {
+    const reason =
+      res.status === 402
+        ? "out of Firecrawl credits"
+        : res.status >= 500
+          ? "target site blocked the render"
+          : `HTTP ${res.status}`;
+    throw new Error(reason);
+  }
+
   const body = await res.json();
   const data = body?.data ?? {};
   return [data.html ?? "", (data.links ?? []).join(" ")].join(" ");
@@ -101,27 +120,56 @@ function extract(text) {
   });
 }
 
-/** Careers pages worth trying, in order. */
+/**
+ * Careers pages worth trying, in order.
+ *
+ * Deliberately NOT a search engine: Google and Bing block automated renders, so
+ * Firecrawl returns 502 on them and burns a credit for nothing. Go straight at
+ * the company's own careers domains.
+ */
 function candidateUrls(name) {
-  const slug = name.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const slug = name
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, "")
+    .replace(/[^a-z0-9]/g, "");
   return [
-    `https://www.google.com/search?q=${encodeURIComponent(name + " careers job openings")}`,
     `https://careers.${slug}.com/`,
+    `https://jobs.${slug}.com/`,
     `https://www.${slug}.com/careers`,
+    `https://www.${slug}.com/en/careers`,
   ];
 }
 
+/**
+ * Companies that run their own applicant system rather than a third-party ATS.
+ * Discovery cannot find a board URL for these because none exists, so skip them
+ * and save the credits. They need a per-company adapter instead (Amazon's public
+ * search.json is the model).
+ */
+const OWN_SYSTEM = new Set([
+  "apple", "google", "alphabetgoogle", "meta", "metaplatforms", "facebook",
+  "microsoft", "amazon", "netflix", "tesla", "berkshirehathaway",
+]);
+
 async function discover(name) {
+  const key = name.toLowerCase().replace(/[^a-z0-9]/g, "");
+  if (OWN_SYSTEM.has(key)) {
+    return { name, url: null, boards: [], skipped: "runs its own applicant system, no ATS to find" };
+  }
+
+  const reasons = [];
   for (const url of candidateUrls(name)) {
     try {
       const text = await scrape(url);
       const hits = extract(text);
       if (hits.length > 0) return { name, url, boards: hits };
     } catch (e) {
-      process.stdout.write(` (${String(e.message).slice(0, 40)})`);
+      reasons.push(String(e.message));
+      // Out of credits is fatal for the whole run, not just this company.
+      if (String(e.message).includes("credits")) throw e;
     }
   }
-  return { name, url: null, boards: [] };
+  return { name, url: null, boards: [], reason: reasons[0] ?? "no board link on any careers page" };
 }
 
 async function main() {
@@ -150,7 +198,7 @@ async function main() {
     console.log(
       r.boards.length > 0
         ? ` ${r.boards.map((b) => (b.provider === "workday" ? `workday ${b.tenant}.${b.wd}/${b.site}` : `${b.provider}:${b.board}`)).join(", ")}`
-        : " nothing found"
+        : ` ${r.skipped ?? r.reason ?? "nothing found"}`
     );
   }
 
