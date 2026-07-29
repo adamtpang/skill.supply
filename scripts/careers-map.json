@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T12:02:34.777Z",
+  "generatedAt": "2026-07-29T12:06:20.691Z",
   "companies": [
     {
       "rank": 1,
@@ -182,7 +182,7 @@
       "careers": {
         "url": "https://www.micron.com/about/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -236,7 +236,7 @@
       "board": null,
       "careers": {
         "url": "https://www.careers.jnj.com/en/jobs/",
-        "verified": false,
+        "verified": true,
         "source": "curated"
       }
     },
@@ -257,9 +257,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://www.asml.com/en/careers",
+        "url": "https://www.asml.com/en/careers/saved-jobs",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -268,9 +268,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": null,
-        "verified": false,
-        "source": "none"
+        "url": "https://cxmt.zhiye.com/social/jobs",
+        "verified": true,
+        "source": "homepage"
       }
     },
     {
@@ -279,9 +279,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.tencent.com/",
+        "url": "https://careers.tencent.com/en-us/home.html",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -345,9 +345,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.costco.com/",
+        "url": "https://www.costco.com/jobs.html",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -378,9 +378,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.caterpillar.com/",
+        "url": "https://www.caterpillar.com/en/careers.html",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -389,9 +389,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": null,
-        "verified": false,
-        "source": "none"
+        "url": "https://www.coca-colacompany.com/careers",
+        "verified": true,
+        "source": "homepage"
       }
     },
     {
@@ -430,9 +430,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.chevron.com/",
+        "url": "https://www.chevron.com/who-we-are/contact/jobs",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -441,9 +441,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.roche.com/global/en",
+        "url": "https://careers.roche.com",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -465,7 +465,7 @@
       "careers": {
         "url": "https://www.hsbc.com/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -507,9 +507,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.icbc.com/",
+        "url": "https://www.icbc.com/about-icbc/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -518,9 +518,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.lamresearch.com/careers",
+        "url": "https://www.lamresearch.com/careers/careers-overview/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -529,9 +529,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://www.morganstanley.com/people",
+        "url": "https://www.morganstanley.com/careers/career-opportunities-search?opportunity=sg",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -542,7 +542,7 @@
       "careers": {
         "url": "https://jobs.merck.com/us/en",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -564,7 +564,7 @@
       "careers": {
         "url": "https://www.goldmansachs.com/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -575,7 +575,7 @@
       "careers": {
         "url": "https://www.novartis.com/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -623,7 +623,7 @@
       "careers": {
         "url": "https://careers.rtx.com/global/en",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -654,9 +654,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://www.catl.com/404/",
+        "url": "https://talent.catl.com/social-recruitment/catlhr/96144/#/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -667,7 +667,7 @@
       "careers": {
         "url": "https://careers.astrazeneca.com/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -676,9 +676,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": null,
-        "verified": false,
-        "source": "none"
+        "url": "https://www.lvmh.com/en/join-us/work-at-lvmh",
+        "verified": true,
+        "source": "homepage"
       }
     },
     {
@@ -687,9 +687,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://www.wellsfargojobs.com/en/",
+        "url": "https://www.wellsfargo.com/about/careers/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -700,7 +700,7 @@
       "careers": {
         "url": "https://careers.arm.com/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -709,9 +709,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://jobs.paloaltonetworks.com/en",
+        "url": "https://jobs.paloaltonetworks.com/en/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -731,9 +731,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://iawmqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/careers",
+        "url": "https://jobs.dell.com/malaysia",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -764,9 +764,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.gevernova.com/",
+        "url": "https://careers.gevernova.com",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -775,9 +775,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://www.kla.com/careers",
+        "url": "https://www.kla.com/careers/events",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -797,9 +797,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://shell.wd3.myworkdayjobs.com/shellcareers",
+        "url": "https://www.shells.com/l/en-US/page/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -808,9 +808,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://jobs.siemens.com/en_US/externaljobs",
+        "url": "https://www.siemens.com/en-us/company/jobs/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -819,9 +819,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": null,
-        "verified": false,
-        "source": "none"
+        "url": "https://www.lindecareers.com",
+        "verified": true,
+        "source": "homepage"
       }
     },
     {
@@ -915,9 +915,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.toyota.com/us/en",
+        "url": "https://careers.toyota.com/us/en/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -939,7 +939,7 @@
       "careers": {
         "url": "https://jobs.thermofisher.com/global/en",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -950,7 +950,7 @@
       "careers": {
         "url": "https://www.arista.com/en/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -959,9 +959,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.bhp.com/",
+        "url": "https://www.bhp.com/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -970,9 +970,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.amgen.com/en",
+        "url": "http://careers.amgen.com/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -992,9 +992,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://jobs.sap.com/",
+        "url": "https://jobs.sap.com/?utm_source=CareerSite&amp;utm_campaign=CorpSite_FT",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -1005,7 +1005,7 @@
       "careers": {
         "url": "https://mycareer.verizon.com/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -1016,7 +1016,7 @@
       "careers": {
         "url": "https://www.santander.com/en/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -1036,9 +1036,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://jobs.eu.lever.co/prosus",
+        "url": "https://prosus-talent-lab.com/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -1047,9 +1047,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://www.inditex.com/itxcomweb/my/en/home",
+        "url": "https://www.inditex.com/itxcomweb/my/en/talent/life-at-inditex",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -1058,9 +1058,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.t-mobile.com/",
+        "url": "https://www.t-mobile.com/resources/how-to-join-us?INTNAV=tNav%3AJoin",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -1069,9 +1069,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://www.pepsicojobs.com/main/",
+        "url": "https://www.pepsico.com/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -1082,7 +1082,7 @@
       "careers": {
         "url": "https://careers.mcdonalds.com/",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -1102,9 +1102,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://careers.totalenergies.com/en",
+        "url": "https://totalenergies.com/careers",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     },
     {
@@ -1124,9 +1124,9 @@
       "symbol": null,
       "board": null,
       "careers": {
-        "url": "https://jobs.nexteraenergy.com/",
+        "url": "https://www.nexteraenergy.com/careers/search-jobs.html",
         "verified": true,
-        "source": "pattern"
+        "source": "homepage"
       }
     }
   ]

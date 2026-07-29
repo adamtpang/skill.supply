@@ -147,6 +147,49 @@ async function alive(url, name, { strict = true } = {}) {
   return null;
 }
 
+/**
+ * Every company links its careers page from its own homepage, usually in the
+ * footer. That is cheaper and far more reliable than guessing subdomains, so it
+ * runs before pattern guessing and needs no crawler.
+ */
+const CAREERS_LINK =
+  /href=["']([^"']*(?:careers?|jobs|join-us|work-with-us|working-at|life-at|talent|recruit)[^"']*)["']/gi;
+
+async function careersFromHomepage(name) {
+  const slugs = slugVariants(name);
+  const homes = [];
+  for (const slug of slugs) homes.push(`https://www.${slug}.com/`, `https://${slug}.com/`);
+
+  for (const home of homes.slice(0, 4)) {
+    try {
+      const res = await fetch(home, {
+        headers: { "user-agent": UA, accept: "text/html" },
+        redirect: "follow",
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!res.ok) continue;
+      const html = await res.text();
+      if (!mentionsCompany(html, name)) continue;
+
+      const links = [...new Set([...html.matchAll(CAREERS_LINK)].map((m) => m[1]))]
+        .filter((u) => !/blog|news|press|story|article|\.pdf|privacy|cookie/i.test(u))
+        .map((u) => {
+          try {
+            return u.startsWith("http") ? u : new URL(u, res.url).href;
+          } catch {
+            return null;
+          }
+        })
+        .filter((u) => u && /careers?|jobs|join-us|work-with-us|talent|recruit/i.test(u));
+
+      if (links[0]) return links[0];
+    } catch {
+      /* try the next homepage variant */
+    }
+  }
+  return null;
+}
+
 async function findCareers(company) {
   const key = deaccent(company.name.toLowerCase()).replace(/[^a-z0-9]/g, "");
   if (OVERRIDES[key]) {
@@ -154,6 +197,11 @@ async function findCareers(company) {
     const check = await alive(OVERRIDES[key], company.name, { strict: false });
     return { url: OVERRIDES[key], verified: Boolean(check), source: "curated" };
   }
+  // Tier 1: the company's own homepage tells us where its careers page is.
+  const fromHome = await careersFromHomepage(company.name);
+  if (fromHome) return { url: fromHome, verified: true, source: "homepage" };
+
+  // Tier 2: guess the usual careers hosts, verified against the company name.
   for (const url of candidates(company.name)) {
     const check = await alive(url, company.name);
     if (check) return { url: check.url, verified: true, source: "pattern" };
