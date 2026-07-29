@@ -36,11 +36,31 @@ export async function POST(req: Request) {
     );
   }
 
-  // Prefer roles that carry real description text, since a title alone scores poorly.
+  // A big company can have 400 openings, and we only score a handful. Picking
+  // them by description length would score whichever posting happened to be
+  // wordiest, so rank by how plausibly the TITLE matches the dream JD first.
+  const stop = new Set([
+    "the", "and", "for", "with", "you", "your", "that", "this", "into", "from",
+    "not", "who", "are", "her", "his", "our", "their", "them", "than", "when",
+    "would", "will", "have", "has", "own", "owns", "role", "job", "work", "team",
+    "company", "product", "products", "stage", "early", "like", "real", "one",
+  ]);
+  const terms = new Set(
+    `${parsed.data.title} ${parsed.data.problems.join(" ")} ${parsed.data.must_haves.join(" ")}`
+      .toLowerCase()
+      .split(/[^a-z0-9+#.]+/)
+      .filter((w) => w.length > 2 && !stop.has(w))
+  );
+
+  const relevance = (title: string) => {
+    const words = title.toLowerCase().split(/[^a-z0-9+#.]+/);
+    return words.reduce((n, w) => (terms.has(w) ? n + 1 : n), 0);
+  };
+
   const candidates = [...resolved.jobs].sort((a, b) => {
-    const al = a.description?.length ?? 0;
-    const bl = b.description?.length ?? 0;
-    return bl - al;
+    const byRelevance = relevance(b.title) - relevance(a.title);
+    if (byRelevance !== 0) return byRelevance;
+    return (b.description?.length ?? 0) - (a.description?.length ?? 0);
   });
 
   try {
