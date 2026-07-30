@@ -137,9 +137,32 @@ const ROLE_WORD =
 const CATEGORY_LIKE =
   /^(new jobs?|featured|all|browse|explore|categories|departments?|locations?|teams?|students?|graduates?|professionals?|experienced|early career|university|sales|marketing|engineering|finance|operations|legal|human resources|product development|product and research|corporate|technology|design|support|other)$/i;
 
+/**
+ * Prose that is not a job title.
+ *
+ * Point this at the wrong page and schema extraction will happily return
+ * article headlines as roles: Bank of China's history section produced forty
+ * "jobs" like "The Republic of China and Bank of China: Keeping Pace with...".
+ * Job titles are short noun phrases, so reject anything that reads like a
+ * sentence, carries a date range, or asks a question.
+ */
+function readsLikeProse(t) {
+  if (t.length > 70) return true;
+  if (t.split(/\s+/).length > 10) return true;
+  if (/\((?:1[89]|20)\d{2}/.test(t)) return true; // "(1912-1928)"
+  if (/[?!]/.test(t)) return true;
+  if (/:\s+\S+\s+\S+\s+\S+/.test(t)) return true; // "Something: three or more words"
+  // Sentence connectives are common in headlines, rare in job titles.
+  if (/\b(the|of|to|for|with|from|its|their)\b.*\b(the|of|to|for|with|from|its|their)\b/i.test(t)) {
+    return !ROLE_WORD.test(t);
+  }
+  return false;
+}
+
 function looksLikeRole(title) {
   const t = title.trim();
   if (t.length < 4 || BAD_TITLE.test(t) || CATEGORY_LIKE.test(t)) return false;
+  if (readsLikeProse(t)) return false;
   // Multi-word titles are usually real; single words must name a role.
   return t.split(/\s+/).length >= 3 || ROLE_WORD.test(t);
 }
@@ -247,8 +270,15 @@ async function main() {
   const out = { ...previous };
   let totalJobs = 0;
 
+  /** A careers URL pointing into an about, history, or news section is wrong. */
+  const NOT_A_CAREERS_PAGE = /\/(about|history|news|press|media|investor|sustainability)\b/i;
+
   for (const c of targets) {
     process.stdout.write(c.name.padEnd(26).slice(0, 26));
+    if (NOT_A_CAREERS_PAGE.test(c.careers.url) && !/career|job|recruit|talent/i.test(c.careers.url)) {
+      console.log("   skipped, that URL is not a careers page");
+      continue;
+    }
     try {
       const data = await scrape(c.careers.url);
       const raw = SMART ? extractSmart(data, c.careers.url) : extractFromMarkdown(data, c.careers.url);

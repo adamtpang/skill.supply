@@ -42,7 +42,11 @@ const OVERRIDES = {
   elililly: "https://careers.lilly.com/us/en",
   loreal: "https://careers.loreal.com/en_US/jobs",
   chinamobile: "https://www.chinamobileltd.com/en/about/careers.php",
-  bankofchina: "https://www.boc.cn/en/aboutboc/ab7/",
+  // Bank of China publishes recruitment only on its Chinese-language site and
+  // not at a stable English URL. Leaving it unmapped beats pointing at
+  // /aboutboc/ab7/, which is their corporate history and produced 40 articles
+  // masquerading as job postings.
+  bankofchina: null,
   petrochina: "https://www.petrochina.com.cn/ptr/rlzy/",
   philipmorrisinternational: "https://www.pmi.com/careers",
   spacex: "https://www.spacex.com/careers/",

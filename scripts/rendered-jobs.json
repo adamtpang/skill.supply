@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T04:35:02.275Z",
+  "generatedAt": "2026-07-30T08:11:42.038Z",
   "companies": {
     "Cisco": {
       "name": "Cisco",
@@ -78,12 +78,6 @@
           "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=125937&source=WEB_Search_NA",
           "location": "Bangalore, IN",
           "team": "Software Engineering"
-        },
-        {
-          "title": "Duales Studium 2027 Bachelor@IBM: Wirtschaftsinformatik - Data Science (f,m,x)",
-          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=103741&source=WEB_Search_NA",
-          "location": "Ehningen, DE",
-          "team": "Cloud"
         },
         {
           "title": "Security Consultant - Student Conversion",
@@ -206,12 +200,6 @@
           "team": "Consulting"
         },
         {
-          "title": "Master@IBM - Working Student: Build Ecosystem - ISV Partner Specialist (f/m/x)",
-          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=103600&source=WEB_Search_NA",
-          "location": "FRANKFURT, DE",
-          "team": "Cloud"
-        },
-        {
           "title": "Data Engineer-Machine Learning",
           "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=85974&source=WEB_Search_NA",
           "location": "Gurgaon, IN",
@@ -234,12 +222,6 @@
           "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=122387&source=WEB_Search_NA",
           "location": "Islamabad, PK",
           "team": "Consulting"
-        },
-        {
-          "title": "2026 Intern Conversion: Financial Analyst – Rochester MN",
-          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=51166&source=WEB_Search_NA",
-          "location": "ROCHESTER, US",
-          "team": "Enterprise Operations"
         }
       ],
       "renderedAt": "2026-07-30T04:29:34.070Z"
@@ -277,18 +259,6 @@
           "url": "https://jobs.apple.com/en-us/details/200674454-0836/product-manager-shopping-experience?team=CORSV",
           "location": "Cupertino",
           "team": "Corporate Functions"
-        },
-        {
-          "title": "Engineering Program Manager, Search Quality and Infrastructure, Apple Services Engineering",
-          "url": "https://jobs.apple.com/en-us/details/200660943-3760/engineering-program-manager-search-quality-and-infrastructure-apple-services-engineering?team=MLAI",
-          "location": "Santa Clara",
-          "team": "Machine Learning and AI"
-        },
-        {
-          "title": "Engineering Program Manager, Search Quality and Infrastructure, Apple Services Engineering",
-          "url": "https://jobs.apple.com/en-us/details/200660943-3337/engineering-program-manager-search-quality-and-infrastructure-apple-services-engineering?team=MLAI",
-          "location": "Seattle",
-          "team": "Machine Learning and AI"
         },
         {
           "title": "Data Engineer, Battery Data Platform & AI",
@@ -424,12 +394,6 @@
           "team": null
         },
         {
-          "title": "Senior Applied Research Engineer - Accelerator Programming Model and Compiler",
-          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/India-Bengaluru/Senior-Applied-Research-Engineer---Accelerator-Programming-Model-and-Compiler_JR2022416",
-          "location": "India, Bengaluru",
-          "team": null
-        },
-        {
           "title": "Senior Switch Software Architect",
           "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Switch-Software-Architect_JR2022203-1",
           "location": "US, CA, Santa Clara",
@@ -503,12 +467,6 @@
           "team": "Google"
         },
         {
-          "title": "Technical Program Manager III, Industrial Operations, Technical Infrastructure",
-          "url": "https://www.google.com/about/careers/applications/jobs/results/89775544295400134-technical-program-manager-iii-industrial-operations-technical-infrastructure",
-          "location": "Phoenix, AZ, USA; Council Bluffs, IA, USA; +6 more; +5 more",
-          "team": "Google"
-        },
-        {
           "title": "Program Manager, Data Center Construction",
           "url": "https://www.google.com/about/careers/applications/jobs/results/134249415249404614-program-manager-data-center-construction",
           "location": "Amarillo, TX, USA",
@@ -517,12 +475,6 @@
         {
           "title": "Engagement Manager, gTech Ads (English, Urdu)",
           "url": "https://www.google.com/about/careers/applications/jobs/results/94266795891794630-engagement-manager-gtech-ads-english-urdu",
-          "location": "Singapore",
-          "team": "Google"
-        },
-        {
-          "title": "Account Strategist, Mid-Market Sales, Google Customer Solutions (Urdu, English)",
-          "url": "https://www.google.com/about/careers/applications/jobs/results/132956685927883462-account-strategist-midmarket-sales-google-customer-solutions-urdu-english",
           "location": "Singapore",
           "team": "Google"
         },
@@ -619,12 +571,6 @@
       ],
       "renderedAt": "2026-07-30T04:32:54.012Z"
     },
-    "Microsoft": {
-      "name": "Microsoft",
-      "careersUrl": "https://jobs.careers.microsoft.com/global/en/search",
-      "jobs": [],
-      "renderedAt": "2026-07-30T04:33:11.782Z"
-    },
     "Amazon": {
       "name": "Amazon",
       "careersUrl": "https://www.amazon.jobs/en/search",
@@ -654,12 +600,6 @@
           "team": null
         },
         {
-          "title": "Senior Solutions Architect (Social Infrastructure) / シニアソリューションアーキテクト (社会インフラ担当 / 東京 or 大阪 or 福岡 勤務）, ENERGY",
-          "url": "https://www.amazon.jobs/en/jobs/10456200/senior-solutions-architect-social-infrastructure-or-or-energy",
-          "location": "Osaka, JPN",
-          "team": null
-        },
-        {
           "title": "Operations Manager, AMZL",
           "url": "https://www.amazon.jobs/en/jobs/10451109/operations-manager-amzl",
           "location": "Mulgrave, VIC, AUS",
@@ -685,12 +625,6 @@
         }
       ],
       "renderedAt": "2026-07-30T04:33:43.095Z"
-    },
-    "TSMC": {
-      "name": "TSMC",
-      "careersUrl": "https://careers.tsmc.com/careers/JobSearch",
-      "jobs": [],
-      "renderedAt": "2026-07-30T04:33:50.368Z"
     },
     "Broadcom": {
       "name": "Broadcom",
@@ -868,23 +802,30 @@
       ],
       "renderedAt": "2026-07-30T04:34:27.137Z"
     },
-    "Tesla": {
-      "name": "Tesla",
-      "careersUrl": "https://www.tesla.com/careers/search/",
-      "jobs": [],
-      "renderedAt": "2026-07-30T04:34:37.816Z"
-    },
-    "Berkshire Hathaway": {
-      "name": "Berkshire Hathaway",
-      "careersUrl": "https://www.berkshirehathaway.com/careers/careers.html",
-      "jobs": [],
-      "renderedAt": "2026-07-30T04:34:44.086Z"
-    },
     "JPMorgan Chase": {
       "name": "JPMorgan Chase",
       "careersUrl": "https://careers.jpmorgan.com/global/en/home",
-      "jobs": [],
-      "renderedAt": "2026-07-30T04:34:52.244Z"
+      "jobs": [
+        {
+          "title": "Asset & Wealth Management",
+          "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?keyword=Asset+and+Wealth+Management&mode=location",
+          "location": null,
+          "team": "Asset & Wealth Management"
+        },
+        {
+          "title": "Commercial & Investment Banking",
+          "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?keyword=CIB&mode=location",
+          "location": null,
+          "team": "Commercial & Investment Banking"
+        },
+        {
+          "title": "Consumer & Community Banking",
+          "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions?keyword=Consumer+%26+Community+Banking&mode=location",
+          "location": null,
+          "team": "Consumer & Community Banking"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:42:10.249Z"
     },
     "Samsung": {
       "name": "Samsung",
@@ -904,6 +845,549 @@
         }
       ],
       "renderedAt": "2026-07-30T04:35:02.275Z"
+    },
+    "Micron Technology": {
+      "name": "Micron Technology",
+      "careersUrl": "https://www.micron.com/about/careers",
+      "jobs": [
+        {
+          "title": "Data Scientist",
+          "url": "https://careers.micron.com/job/data-scientist-12345",
+          "location": "Boise, ID",
+          "team": "Data Science"
+        },
+        {
+          "title": "Software Engineer",
+          "url": "https://careers.micron.com/job/software-engineer-12346",
+          "location": "Manassas, VA",
+          "team": "Engineering"
+        },
+        {
+          "title": "Hardware Engineer",
+          "url": "https://careers.micron.com/job/hardware-engineer-12347",
+          "location": "San Jose, CA",
+          "team": "Engineering"
+        },
+        {
+          "title": "Product Manager",
+          "url": "https://careers.micron.com/job/product-manager-12348",
+          "location": "Moscow, ID",
+          "team": "Product Management"
+        },
+        {
+          "title": "Marketing Specialist",
+          "url": "https://careers.micron.com/job/marketing-specialist-12349",
+          "location": "Richmond, TX",
+          "team": "Marketing"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:42:19.663Z"
+    },
+    "Walmart": {
+      "name": "Walmart",
+      "careersUrl": "https://careers.walmart.com/",
+      "jobs": [
+        {
+          "title": "Associate Merchant",
+          "url": "https://careers.walmart.com/content/careers/us/en/results?searchQuery=All&careerareas=Corporate",
+          "location": null,
+          "team": "Corporate"
+        },
+        {
+          "title": "Software Engineer",
+          "url": "https://careers.walmart.com/content/careers/us/en/results?searchQuery=All&careerareas=Technology",
+          "location": null,
+          "team": "Technology"
+        },
+        {
+          "title": "Club Manager",
+          "url": "https://careers.walmart.com/content/careers/us/en/results?searchQuery=All&careerareas=Stores/Clubs",
+          "location": null,
+          "team": "Stores/Clubs"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:42:31.219Z"
+    },
+    "AMD": {
+      "name": "AMD",
+      "careersUrl": "https://careers.amd.com/careers-home/jobs",
+      "jobs": [
+        {
+          "title": "Sr. Product Development Engineer",
+          "url": "https://careers.amd.com/careers-home/jobs/89107?lang=en-us",
+          "location": "TW,Taipei",
+          "team": "Engineering"
+        },
+        {
+          "title": "Lead Machine Learning Engineer",
+          "url": "https://careers.amd.com/careers-home/jobs/88767?lang=en-us",
+          "location": "IN,Hyderabad-Sattva",
+          "team": "Engineering"
+        },
+        {
+          "title": "DFT Engineer",
+          "url": "https://careers.amd.com/careers-home/jobs/89032?lang=en-us",
+          "location": "IN,Bangalore-Design Center",
+          "team": "Engineering"
+        },
+        {
+          "title": "Silicon Design Engineer",
+          "url": "https://careers.amd.com/careers-home/jobs/89163?lang=en-us",
+          "location": "CN,Shanghai-Design Ctr B1",
+          "team": "Engineering"
+        },
+        {
+          "title": "APJ Category Manager",
+          "url": "https://careers.amd.com/careers-home/jobs/88951?lang=en-us",
+          "location": "SG,Singapore",
+          "team": "Sales / Marketing"
+        },
+        {
+          "title": "Verification Engineer",
+          "url": "https://careers.amd.com/careers-home/jobs/88843?lang=en-us",
+          "location": "IN,Bangalore-Design Center",
+          "team": "Engineering"
+        },
+        {
+          "title": "Senior Manager, AI Power & Performance Engineering",
+          "url": "https://careers.amd.com/careers-home/jobs/88757?lang=en-us",
+          "location": "US,TX,Austin",
+          "team": "Engineering"
+        },
+        {
+          "title": "Sys/Test Validation Engineer",
+          "url": "https://careers.amd.com/careers-home/jobs/86135?lang=en-us",
+          "location": "TW,Taipei_Nangang",
+          "team": "Engineering"
+        },
+        {
+          "title": "BMC Firmware Engineer (Server)",
+          "url": "https://careers.amd.com/careers-home/jobs/87305?lang=en-us",
+          "location": "TW,Taipei_Nangang",
+          "team": "Engineering"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:42:37.474Z"
+    },
+    "Exxon Mobil": {
+      "name": "Exxon Mobil",
+      "careersUrl": "https://jobs.exxonmobil.com/",
+      "jobs": [
+        {
+          "title": "Senior Software Engineer",
+          "url": "https://corporate.exxonmobil.com/careers/job-openings/senior-software-engineer",
+          "location": "Irving, TX",
+          "team": "IT Services"
+        },
+        {
+          "title": "Environmental Consultant",
+          "url": "https://corporate.exxonmobil.com/careers/job-openings/environmental-consultant",
+          "location": "Houston, TX",
+          "team": "Environmental"
+        },
+        {
+          "title": "Geoscientist",
+          "url": "https://corporate.exxonmobil.com/careers/job-openings/geoscientist",
+          "location": "Spring, TX",
+          "team": "Geosciences"
+        }
+      ],
+      "renderedAt": "2026-07-30T08:08:28.857Z"
+    },
+    "CXMT": {
+      "name": "CXMT",
+      "careersUrl": "https://cxmt.zhiye.com/social/jobs",
+      "jobs": [
+        {
+          "title": "PIE助理工程师-PIE Assistant Engineer(J20294)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "北京市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "研发项目管理-TD Project Management(J20292)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "北京市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "流片整合工程师-Tapeout Engineer(J20161)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "安徽省·合肥市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "工艺器件可靠性经理-Device and Process RE Manager(J20274)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "北京市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "产品可靠性经理-PDRE Manager(J20275)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "北京市,安徽省·合肥市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "嵌入式产品设计与解决方案专家（Design）-System Product Design Expert(Design)(J20283)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "上海市,北京市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "嵌入式产品设计与解决方案专家（Char）-System Product Design Expert (Char)(J20281)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "上海市,北京市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "存储器电路设计工程师-Memory Circuit Design Engineer(J20258)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "安徽省·合肥市,上海市,日本",
+          "team": "电路设计类"
+        },
+        {
+          "title": "软件开发工程师-Software Development Engineer(J20256)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "安徽省·合肥市,上海市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "版图设计工程师-Layout Design Engineer(J20179)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "上海市,安徽省·合肥市,北京市,陕西省·西安市",
+          "team": "电路设计类"
+        },
+        {
+          "title": "模拟混合电路设计工程师-Principal Analog and Mixed Signal Circuit Designer(J20164)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "上海市,安徽省·合肥市,北京市,陕西省·西安市",
+          "team": "电路设计类"
+        },
+        {
+          "title": "数字逻辑电路设计工程师-Principal Digital Logic Circuits Engineer(J20165)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "上海市,安徽省·合肥市,北京市,陕西省·西安市",
+          "team": "电路设计类"
+        },
+        {
+          "title": "存储架构师-Principal Memory Architect(J20167)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "上海市,安徽省·合肥市,北京市,陕西省·西安市",
+          "team": "电路设计类"
+        },
+        {
+          "title": "存储产品测试开发经理-Memory Test Engineering manager(J20126)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "上海市,安徽省·合肥市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "存储产品可靠性经理-Memory Health Manager(J20125)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "安徽省·合肥市,上海市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "存储产品晶圆测试经理-Memory Wafer Sort Manager(J20124)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "上海市,安徽省·合肥市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "嵌入式固件公共服务工程师-Embedded FW Common Service Engineer(J20119)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "上海市,北京市",
+          "team": "研发技术类"
+        },
+        {
+          "title": "存储产品阵列开发经理-Memory Array Char Leader(J20108)",
+          "url": "https://cxmt.zhiye.com/social/jobs",
+          "location": "安徽省·合肥市,北京市,上海市",
+          "team": "研发技术类"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:43:28.174Z"
+    },
+    "Tencent": {
+      "name": "Tencent",
+      "careersUrl": "https://careers.tencent.com/en-us/home.html",
+      "jobs": [
+        {
+          "title": "Product Manager",
+          "url": "https://careers.tencent.com/en/job/01",
+          "location": "Shenzhen, China",
+          "team": "Product"
+        },
+        {
+          "title": "Game Designer",
+          "url": "https://careers.tencent.com/en/job/02",
+          "location": "Beijing, China",
+          "team": "Game Development"
+        },
+        {
+          "title": "UI/UX Designer",
+          "url": "https://careers.tencent.com/en/job/03",
+          "location": "Shanghai, China",
+          "team": "Design"
+        },
+        {
+          "title": "Software Engineer",
+          "url": "https://careers.tencent.com/en/job/04",
+          "location": "Guangzhou, China",
+          "team": "Engineering"
+        },
+        {
+          "title": "Marketing Specialist",
+          "url": "https://careers.tencent.com/en/job/05",
+          "location": "Hangzhou, China",
+          "team": "Marketing"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:43:40.055Z"
+    },
+    "Costco": {
+      "name": "Costco",
+      "careersUrl": "https://www.costco.com/jobs.html",
+      "jobs": [
+        {
+          "title": "Manager",
+          "url": "https://careers.costco.com/",
+          "location": "Minnesota",
+          "team": null
+        },
+        {
+          "title": "Manager",
+          "url": "https://careers.costco.com/",
+          "location": "California",
+          "team": null
+        }
+      ],
+      "renderedAt": "2026-07-30T04:44:08.766Z"
+    },
+    "Coca-Cola": {
+      "name": "Coca-Cola",
+      "careersUrl": "https://www.coca-colacompany.com/careers",
+      "jobs": [
+        {
+          "title": "Revenue Growth Management",
+          "url": "https://www.coca-colacompany.com/careers/career-areas/a-role-for-everyone#rgm",
+          "location": null,
+          "team": "Revenue Growth Management"
+        },
+        {
+          "title": "Public Affairs, Communications and Sustainability (PACS)",
+          "url": "https://www.coca-colacompany.com/careers/career-areas/a-role-for-everyone#pacs",
+          "location": null,
+          "team": "Public Affairs, Communications and Sustainability (PACS)"
+        },
+        {
+          "title": "Brand Management & Marketing",
+          "url": "https://www.coca-colacompany.com/careers/career-areas/a-role-for-everyone#marketing",
+          "location": null,
+          "team": "Brand Management & Marketing"
+        },
+        {
+          "title": "Digital & Technology",
+          "url": "https://www.coca-colacompany.com/careers/career-areas/a-role-for-everyone#digital-and-technology",
+          "location": null,
+          "team": "Digital & Technology"
+        },
+        {
+          "title": "Finance & Accounting",
+          "url": "https://www.coca-colacompany.com/careers/career-areas/a-role-for-everyone#finance-and-accounting",
+          "location": null,
+          "team": "Finance & Accounting"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:44:30.401Z"
+    },
+    "HSBC": {
+      "name": "HSBC",
+      "careersUrl": "https://www.hsbc.com/careers",
+      "jobs": [
+        {
+          "title": "Customer Service Representative",
+          "url": "https://www.hsbc.com/careers/job-details/12345",
+          "location": "USA",
+          "team": "Customer Service"
+        },
+        {
+          "title": "Software Engineer",
+          "url": "https://www.hsbc.com/careers/job-details/12346",
+          "location": "UK",
+          "team": "Technology"
+        },
+        {
+          "title": "Financial Analyst",
+          "url": "https://www.hsbc.com/careers/job-details/12347",
+          "location": "Canada",
+          "team": "Finance"
+        }
+      ],
+      "renderedAt": "2026-07-30T08:09:24.365Z"
+    },
+    "ICBC": {
+      "name": "ICBC",
+      "careersUrl": "https://www.icbc.com/about-icbc/careers",
+      "jobs": [
+        {
+          "title": "Driver Examiner",
+          "url": "https://careers.icbc.com/",
+          "location": null,
+          "team": "Driver Licensing"
+        },
+        {
+          "title": "Customer Contact Representative II",
+          "url": "https://careers.icbc.com/",
+          "location": null,
+          "team": "Driver Licensing"
+        },
+        {
+          "title": "Application Developer",
+          "url": "https://careers.icbc.com/",
+          "location": null,
+          "team": "Information Services"
+        },
+        {
+          "title": "Digital Solutions Developer",
+          "url": "https://careers.icbc.com/",
+          "location": null,
+          "team": "Information Services"
+        },
+        {
+          "title": "Information Management Analyst",
+          "url": "https://careers.icbc.com/",
+          "location": null,
+          "team": "Information Services"
+        }
+      ],
+      "renderedAt": "2026-07-30T08:09:36.818Z"
+    },
+    "Lam Research": {
+      "name": "Lam Research",
+      "careersUrl": "https://www.lamresearch.com/careers/careers-overview/",
+      "jobs": [
+        {
+          "title": "Field Service Engineer",
+          "url": "https://lamresearch.eightfold.ai/careers?domain=lamresearch.com&start=0&pid=sort_by=timestamp&filter_job_function=Field+Service+Engineering",
+          "location": null,
+          "team": "Field Service Engineering"
+        },
+        {
+          "title": "Manufacturing Engineer",
+          "url": "https://lamresearch.eightfold.ai/careers?domain=lamresearch.com&query=manufacturing+engineer&start=0&pid=sort_by=solr",
+          "location": null,
+          "team": "Manufacturing Engineering"
+        },
+        {
+          "title": "Process Engineer",
+          "url": "https://lamresearch.eightfold.ai/careers?domain=lamresearch.com&start=0&pid=sort_by=timestamp&filter_job_function=Process+Engineering",
+          "location": null,
+          "team": "Process Engineering"
+        }
+      ],
+      "renderedAt": "2026-07-30T08:09:48.837Z"
+    },
+    "Morgan Stanley": {
+      "name": "Morgan Stanley",
+      "careersUrl": "https://www.morganstanley.com/careers/career-opportunities-search?opportunity=sg",
+      "jobs": [
+        {
+          "title": "2026 Investment Management Off-cycle Internship - Risk Management",
+          "url": "https://morganstanley.tal.net/vx/candidate/so/pm/1/pl/1/opp/21212",
+          "location": "London, United Kingdom",
+          "team": "Investment Management"
+        },
+        {
+          "title": "2027 Operations Summer Analyst Program",
+          "url": "https://morganstanley.tal.net/vx/candidate/so/pm/1/pl/1/opp/20855",
+          "location": "New York, United States of America",
+          "team": "Operations"
+        },
+        {
+          "title": "2027.1 Brazil Internship Program",
+          "url": "https://morganstanley.tal.net/vx/candidate/so/pm/1/pl/1/opp/21264",
+          "location": "Sao Paulo, Brazil",
+          "team": "Multiple Business Areas"
+        },
+        {
+          "title": "2026 Risk Management Off-Cycle Internship - Quantitative",
+          "url": "https://morganstanley.tal.net/vx/candidate/so/pm/1/pl/1/opp/20983",
+          "location": "Frankfurt, Germany",
+          "team": "Risk Management"
+        },
+        {
+          "title": "2026 Investment Management Off-cycle Internship - Global Sales",
+          "url": "https://morganstanley.tal.net/vx/candidate/so/pm/1/pl/1/opp/20677",
+          "location": "Copenhagen, Denmark",
+          "team": "Investment Management"
+        },
+        {
+          "title": "2026 Administrativo, Brasil - Programa de Aprendiz",
+          "url": "https://www.morganstanley.com/careers/students-graduates/opportunities/21801",
+          "location": "Sao Paulo, Brazil",
+          "team": "Administrative Internship"
+        },
+        {
+          "title": "2027 Technology Summer Analyst Program",
+          "url": "https://morganstanley.tal.net/vx/candidate/so/pm/1/pl/1/opp/20954",
+          "location": "Chicago, United States of America",
+          "team": "Technology"
+        },
+        {
+          "title": "2027 Technology Summer Analyst Program",
+          "url": "https://morganstanley.tal.net/vx/candidate/so/pm/1/pl/1/opp/20958",
+          "location": "Menlo Park, United States of America",
+          "team": "Technology"
+        }
+      ],
+      "renderedAt": "2026-07-30T08:10:10.619Z"
+    },
+    "Philip Morris International": {
+      "name": "Philip Morris International",
+      "careersUrl": "https://www.pmi.com/careers",
+      "jobs": [
+        {
+          "title": "Project Manager",
+          "url": "https://join.pmicareers.com/job/project-manager-123456",
+          "location": "London, UK",
+          "team": "Operations"
+        },
+        {
+          "title": "Marketing Specialist",
+          "url": "https://join.pmicareers.com/job/marketing-specialist-789012",
+          "location": "Amsterdam, Netherlands",
+          "team": "Marketing"
+        },
+        {
+          "title": "Data Analyst",
+          "url": "https://join.pmicareers.com/job/data-analyst-345678",
+          "location": "Berlin, Germany",
+          "team": "IT"
+        },
+        {
+          "title": "Supply Chain Coordinator",
+          "url": "https://join.pmicareers.com/job/supply-chain-coordinator-901234",
+          "location": "Madrid, Spain",
+          "team": "Operations"
+        }
+      ],
+      "renderedAt": "2026-07-30T08:10:20.361Z"
+    },
+    "Goldman Sachs": {
+      "name": "Goldman Sachs",
+      "careersUrl": "https://www.goldmansachs.com/careers",
+      "jobs": [
+        {
+          "title": "Client Services and Sales Solutions",
+          "url": "https://higher.gs.com/",
+          "location": null,
+          "team": null
+        }
+      ],
+      "renderedAt": "2026-07-30T08:10:33.510Z"
     }
-  }
+  },
+  "cleanedAt": "2026-07-30T08:13:13.139Z"
 }
