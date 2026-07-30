@@ -62,13 +62,40 @@ export async function POST(req: Request) {
   const queries = deriveQueries(dream);
   const batches = await Promise.all(queries.map((q) => searchAggregators(q, 25)));
 
+  /**
+   * The same role is often posted once per city, so an exact-title key lets ten
+   * copies of one job through and they eat the whole scoring budget. Strip the
+   * trailing location qualifier before comparing.
+   */
+  const roleKey = (job: AggregatedJob) =>
+    `${job.company.toLowerCase()}|${job.title
+      .toLowerCase()
+      .replace(/\([^)]*\)/g, " ")
+      .replace(/\s*[-–,|]\s*(remote|hybrid|onsite|us|usa|uk|emea|apac|latam|europe|worldwide|anywhere).*$/i, " ")
+      .replace(/\s+/g, " ")
+      .trim()}`;
+
   // Merge across queries, keeping the first (best-ranked) sighting of each role.
   const byKey = new Map<string, AggregatedJob>();
   for (const job of batches.flat()) {
-    const key = `${job.company.toLowerCase()}|${job.title.toLowerCase()}`;
+    const key = roleKey(job);
     if (!byKey.has(key)) byKey.set(key, job);
   }
-  const found = [...byKey.values()];
+
+  /**
+   * One employer posting many roles should not crowd out the rest of the market
+   * either, so allow at most a few per company in the scored set.
+   */
+  const MAX_PER_COMPANY = 3;
+  const perCompany = new Map<string, number>();
+  const found: AggregatedJob[] = [];
+  for (const job of byKey.values()) {
+    const c = job.company.toLowerCase();
+    const n = perCompany.get(c) ?? 0;
+    if (n >= MAX_PER_COMPANY) continue;
+    perCompany.set(c, n + 1);
+    found.push(job);
+  }
 
   if (found.length === 0) {
     return Response.json({
