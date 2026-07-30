@@ -1,0 +1,649 @@
+{
+  "generatedAt": "2026-07-29T12:55:15.929Z",
+  "results": [
+    {
+      "name": "Apple",
+      "url": null,
+      "boards": [],
+      "skipped": "runs its own applicant system, no ATS to find"
+    },
+    {
+      "name": "NVIDIA",
+      "url": "https://jobs.nvidia.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "nvidia",
+          "wd": "wd5",
+          "site": "NVIDIAExternalCareerSite"
+        }
+      ]
+    },
+    {
+      "name": "Alphabet (Google)",
+      "url": null,
+      "boards": [],
+      "skipped": "runs its own applicant system, no ATS to find"
+    },
+    {
+      "name": "Microsoft",
+      "url": null,
+      "boards": [],
+      "skipped": "runs its own applicant system, no ATS to find"
+    },
+    {
+      "name": "Amazon",
+      "url": null,
+      "boards": [],
+      "skipped": "runs its own applicant system, no ATS to find"
+    },
+    {
+      "name": "TSMC",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 408"
+    },
+    {
+      "name": "Broadcom",
+      "url": "https://www.broadcom.com/careers",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "broadcom",
+          "wd": "wd1",
+          "site": "External_Career"
+        }
+      ]
+    },
+    {
+      "name": "Saudi Aramco",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Meta Platforms (Facebook)",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Tesla",
+      "url": null,
+      "boards": [],
+      "skipped": "runs its own applicant system, no ATS to find"
+    },
+    {
+      "name": "Berkshire Hathaway",
+      "url": null,
+      "boards": [],
+      "skipped": "runs its own applicant system, no ATS to find"
+    },
+    {
+      "name": "JPMorgan Chase",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Samsung",
+      "url": "https://www.samsung.com/careers",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "sec",
+          "wd": "wd3",
+          "site": "Samsung_Careers"
+        }
+      ]
+    },
+    {
+      "name": "Micron Technology",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 408"
+    },
+    {
+      "name": "Walmart",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "AMD",
+      "url": "https://careers.amd.com/",
+      "boards": [
+        {
+          "provider": "icims",
+          "board": "careers-amd"
+        },
+        {
+          "provider": "icims",
+          "board": "global-external-amd"
+        }
+      ]
+    },
+    {
+      "name": "Visa",
+      "url": "https://www.visa.com/careers",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "visa",
+          "wd": "wd5",
+          "site": "Visa"
+        }
+      ]
+    },
+    {
+      "name": "SK Hynix",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 408"
+    },
+    {
+      "name": "Johnson & Johnson",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Exxon Mobil",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 408"
+    },
+    {
+      "name": "ASML",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "CXMT",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Tencent",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Mastercard",
+      "url": "https://careers.mastercard.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "mastercard",
+          "wd": "wd1",
+          "site": "CorporateCareers"
+        }
+      ]
+    },
+    {
+      "name": "AbbVie",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Cisco",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Bank of America",
+      "url": "https://careers.bankofamerica.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "ghr",
+          "wd": "wd1",
+          "site": "en-us"
+        }
+      ]
+    },
+    {
+      "name": "Intel",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 408"
+    },
+    {
+      "name": "Costco",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "China Construction Bank",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 408"
+    },
+    {
+      "name": "UnitedHealth",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Caterpillar",
+      "url": "https://www.caterpillar.com/careers",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "cat",
+          "wd": "wd5",
+          "site": "CaterpillarCareers"
+        }
+      ]
+    },
+    {
+      "name": "Coca-Cola",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Chevron",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Roche",
+      "url": "https://careers.roche.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "roche",
+          "wd": "wd3",
+          "site": "roche-ext"
+        }
+      ]
+    },
+    {
+      "name": "Agricultural Bank of China",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 408"
+    },
+    {
+      "name": "HSBC",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Procter & Gamble",
+      "url": null,
+      "boards": [],
+      "reason": "target site blocked the render"
+    },
+    {
+      "name": "Oracle",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Home Depot",
+      "url": "https://careers.homedepot.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "homedepot",
+          "wd": "wd5",
+          "site": "CareerDepot"
+        }
+      ]
+    },
+    {
+      "name": "ICBC",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Lam Research",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Morgan Stanley",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Merck",
+      "url": "https://jobs.merck.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "msd",
+          "wd": "wd5",
+          "site": "SearchJobs"
+        }
+      ]
+    },
+    {
+      "name": "Philip Morris International",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Goldman Sachs",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Novartis",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Netflix",
+      "url": null,
+      "boards": [],
+      "skipped": "runs its own applicant system, no ATS to find"
+    },
+    {
+      "name": "Royal Bank Of Canada",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "RTX",
+      "url": "https://careers.rtx.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "globalhr",
+          "wd": "wd5",
+          "site": "REC_RTX_Ext_Gateway"
+        }
+      ]
+    },
+    {
+      "name": "Bank of China",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Alibaba",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "CATL",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "AstraZeneca",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "LVMH",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Wells Fargo",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Arm Holdings",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Palo Alto Networks",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Nestlé",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Dell",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Texas Instruments",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Mitsubishi UFJ Financial",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "GE Vernova",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "KLA",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Kweichow Moutai",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Shell",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Siemens",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Linde",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "China Mobile",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "PetroChina",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "L'Oréal",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "American Express",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Citigroup",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Toyota",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "IBM",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Thermo Fisher Scientific",
+      "url": null,
+      "boards": [],
+      "reason": "target site blocked the render"
+    },
+    {
+      "name": "Arista Networks",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "BHP Group",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Amgen",
+      "url": "https://careers.amgen.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "amgen",
+          "wd": "wd1",
+          "site": "Careers"
+        }
+      ]
+    },
+    {
+      "name": "Commonwealth Bank",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "SAP",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Verizon",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Santander",
+      "url": "https://careers.santander.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "santander",
+          "wd": "wd3",
+          "site": "SantanderCareers"
+        }
+      ]
+    },
+    {
+      "name": "Toronto Dominion Bank",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Prosus",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Inditex",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "T-Mobile US",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "Pepsico",
+      "url": null,
+      "boards": [],
+      "reason": "no board link on any careers page"
+    },
+    {
+      "name": "McDonald",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Airbus",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "TotalEnergies",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Abbott Laboratories",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    },
+    {
+      "name": "Nextera Energy",
+      "url": null,
+      "boards": [],
+      "reason": "HTTP 429"
+    }
+  ]
+}

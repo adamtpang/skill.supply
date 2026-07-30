@@ -50,7 +50,19 @@ if (!KEY) {
 }
 
 const INDEX = new URL("./marketcap-index.json", import.meta.url);
+const CAREERS = new URL("./careers-map.json", import.meta.url);
 const OUT = new URL("./discovered-boards.json", import.meta.url);
+
+/**
+ * We already verified a real careers URL for most of the top 100 (see
+ * map-careers.mjs). Use it instead of guessing: one credit per company instead
+ * of four, aimed at a page we know exists.
+ */
+const VERIFIED_CAREERS = (() => {
+  if (!existsSync(CAREERS)) return new Map();
+  const { companies } = JSON.parse(readFileSync(CAREERS, "utf8"));
+  return new Map(companies.filter((c) => c.careers?.url).map((c) => [c.name, c.careers.url]));
+})();
 
 /** Patterns that identify a real job board inside rendered page content. */
 const PATTERNS = [
@@ -63,11 +75,27 @@ const PATTERNS = [
 ];
 
 /**
+ * Firecrawl's free tier rate-limits hard, and a burst of requests gets a wall of
+ * 429s that silently skips companies. So space every call out and back off when
+ * asked to, honouring Retry-After when the API sends it.
+ */
+const MIN_GAP_MS = Number(process.env.FIRECRAWL_GAP_MS ?? 7000);
+let nextSlot = 0;
+
+async function throttle() {
+  const now = Date.now();
+  const wait = Math.max(0, nextSlot - now);
+  nextSlot = Math.max(now, nextSlot) + MIN_GAP_MS;
+  if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+}
+
+/**
  * A 5xx from Firecrawl usually means the TARGET site refused to render (bot
  * protection, or the URL does not exist), not that Firecrawl is down. Retry
  * once, then move on to the next candidate URL rather than failing the company.
  */
 async function scrape(url, attempt = 1) {
+  await throttle();
   const res = await fetch("https://api.firecrawl.dev/v1/scrape", {
     method: "POST",
     headers: { "content-type": "application/json", authorization: `Bearer ${KEY}` },
@@ -80,6 +108,15 @@ async function scrape(url, attempt = 1) {
     }),
   });
 
+  // Rate limited: wait it out and retry, up to a few times. These are companies
+  // we would otherwise never test at all.
+  if (res.status === 429 && attempt <= 4) {
+    const retryAfter = Number(res.headers.get("retry-after"));
+    const backoff = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 15000 * attempt;
+    process.stdout.write(` [rate limited, waiting ${Math.round(backoff / 1000)}s]`);
+    await new Promise((r) => setTimeout(r, backoff));
+    return scrape(url, attempt + 1);
+  }
   if (res.status >= 500 && attempt === 1) {
     await new Promise((r) => setTimeout(r, 2000));
     return scrape(url, 2);
@@ -128,6 +165,9 @@ function extract(text) {
  * the company's own careers domains.
  */
 function candidateUrls(name) {
+  const verified = VERIFIED_CAREERS.get(name);
+  if (verified) return [verified];
+
   const slug = name
     .toLowerCase()
     .replace(/\([^)]*\)/g, "")
@@ -136,7 +176,6 @@ function candidateUrls(name) {
     `https://careers.${slug}.com/`,
     `https://jobs.${slug}.com/`,
     `https://www.${slug}.com/careers`,
-    `https://www.${slug}.com/en/careers`,
   ];
 }
 

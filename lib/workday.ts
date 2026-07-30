@@ -25,6 +25,16 @@ export const WORKDAY_TENANTS: Record<string, WorkdayTenant> = {
   intel: { tenant: "intel", wd: "wd1", site: "External", name: "Intel" },
   pfizer: { tenant: "pfizer", wd: "wd1", site: "PfizerCareers", name: "Pfizer" },
   broadcom: { tenant: "broadcom", wd: "wd1", site: "External_Career", name: "Broadcom" },
+  // Discovered by crawling careers pages, then verified against the live API.
+  samsung: { tenant: "sec", wd: "wd3", site: "Samsung_Careers", name: "Samsung" },
+  visa: { tenant: "visa", wd: "wd5", site: "Visa", name: "Visa" },
+  caterpillar: { tenant: "cat", wd: "wd5", site: "CaterpillarCareers", name: "Caterpillar" },
+  roche: { tenant: "roche", wd: "wd3", site: "roche-ext", name: "Roche" },
+  homedepot: { tenant: "homedepot", wd: "wd5", site: "CareerDepot", name: "Home Depot" },
+  merck: { tenant: "msd", wd: "wd5", site: "SearchJobs", name: "Merck" },
+  rtx: { tenant: "globalhr", wd: "wd5", site: "REC_RTX_Ext_Gateway", name: "RTX" },
+  amgen: { tenant: "amgen", wd: "wd1", site: "Careers", name: "Amgen" },
+  santander: { tenant: "santander", wd: "wd3", site: "SantanderCareers", name: "Santander" },
 };
 
 const PAGE_SIZE = 20;
