@@ -1,4 +1,6 @@
 import { AgentFlow } from "@/components/agent-flow";
+import { FoundingOffer } from "@/components/founding-offer";
+import { PlacementStories } from "@/components/placement-stories";
 import Link from "next/link";
 
 export default function Home() {
@@ -47,6 +49,8 @@ export default function Home() {
 
       <main className="flex-1 pb-16">
         <AgentFlow />
+        <PlacementStories />
+        <FoundingOffer />
       </main>
 
       <footer className="border-t border-border py-6">
