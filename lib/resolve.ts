@@ -13,11 +13,12 @@ import type { Job } from "./jobs";
 import { findTenant, fetchWorkdayJobs } from "./workday";
 import { findProprietary } from "./proprietary";
 import { findRendered } from "./rendered";
+import { findCompanyJobs } from "./aggregator";
 
 export type Resolved = {
   query: string;
   name: string;
-  provider: "greenhouse" | "ashby" | "lever" | "workday" | "proprietary" | "rendered";
+  provider: "greenhouse" | "ashby" | "lever" | "workday" | "proprietary" | "rendered" | "aggregator";
   board: string;
   jobs: Job[];
   /** Set only for the rendered tier: when the snapshot was captured. */
@@ -176,8 +177,8 @@ export async function resolveCompany(input: string): Promise<Resolved | null> {
     if (hit) return { ...hit, query: input, name: input.trim() };
   }
 
-  // Last resort: roles read off a careers page that serves no API. This is a
-  // snapshot rather than live data, so it only runs once every API tier missed.
+  // Roles read off a careers page that serves no API. A snapshot rather than
+  // live data, so it only runs once every direct pipe has missed.
   const snapshot = findRendered(input);
   if (snapshot) {
     return {
@@ -188,6 +189,19 @@ export async function resolveCompany(input: string): Promise<Resolved | null> {
       jobs: snapshot.jobs,
       capturedAt: snapshot.capturedAt,
       careersUrl: snapshot.careersUrl,
+    };
+  }
+
+  // True last resort: ask the aggregators. Coverage of any one employer is
+  // patchy, but it means a company we have never wired can still return roles.
+  const aggregated = await findCompanyJobs(input, 40);
+  if (aggregated.length > 0) {
+    return {
+      query: input,
+      name: aggregated[0].company,
+      provider: "aggregator",
+      board: [...new Set(aggregated.map((j) => j.source))].join(", "),
+      jobs: aggregated,
     };
   }
 
