@@ -197,6 +197,123 @@ const jobicy: Provider = {
   },
 };
 
+/**
+ * Hacker News "Ask HN: Who is hiring?".
+ *
+ * The best free source of seed-stage and founding roles anywhere: founders post
+ * their own openings, monthly, with equity and comp stated in plain text. Those
+ * jobs rarely reach a conventional aggregator, which is exactly the gap our
+ * dream-JD hunt kept hitting.
+ *
+ * Each top-level comment is one posting. The convention is
+ * "Company | Role | Location | Comp | URL", loosely followed, so parse
+ * defensively and keep the whole comment as the description, which is richer
+ * than most job boards provide.
+ */
+const hnWhoIsHiring: Provider = {
+  name: "hn-whoishiring",
+  async fetchJobs(query, limit) {
+    const search = (await getJson(
+      "https://hn.algolia.com/api/v1/search_by_date?tags=story,author_whoishiring&query=hiring&hitsPerPage=1"
+    )) as { hits?: { objectID?: string; title?: string }[] } | null;
+
+    const threadId = search?.hits?.find((h) => /who is hiring/i.test(h.title ?? ""))?.objectID;
+    if (!threadId) return [];
+
+    const thread = (await getJson(`https://hn.algolia.com/api/v1/items/${threadId}`)) as {
+      children?: { id?: number; author?: string; text?: string }[];
+    } | null;
+
+    const out: AggregatedJob[] = [];
+    for (const c of thread?.children ?? []) {
+      if (!c.text) continue;
+
+      const text = c.text
+        .replace(/<p>/gi, "\n")
+        .replace(/<[^>]+>/g, " ")
+        .replace(/&#x2F;/g, "/")
+        .replace(/&#x27;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/[ \t]+/g, " ")
+        .trim();
+      if (text.length < 40) continue;
+
+      const headline = text.split("\n")[0].trim();
+      const parts = headline
+        .split(/\s*[|•]\s*|\s+[-–—]\s+/)
+        .map((p) => p.trim())
+        .filter(Boolean);
+      if (parts.length === 0) continue;
+
+      const company = parts[0].replace(/\s*\([^)]*\)\s*$/, "").slice(0, 60);
+      if (!company || company.length < 2) continue;
+
+      // The role is whichever segment names a job, else the next segment along.
+      const ROLE =
+        /(engineer|developer|scientist|designer|manager|founding|lead|architect|analyst|researcher|devops|sre|full[- ]?stack|frontend|backend|product|ops|marketer|sales|intern)/i;
+      const title = (parts.slice(1).find((p) => ROLE.test(p)) ?? parts[1] ?? "Open role").slice(0, 90);
+
+      const remote = /\bremote\b/i.test(headline);
+      const location =
+        parts.slice(1).find((p) => /remote|onsite|hybrid|,\s*[A-Z]{2}\b|USA|US only|Europe|UK|SF|NYC|London|Berlin/i.test(p)) ??
+        (remote ? "Remote" : null);
+
+      const link = text.match(/https?:\/\/[^\s)"']+/)?.[0] ?? null;
+
+      if (!matches(query, title, company, text)) continue;
+
+      out.push({
+        id: `hn:${c.id ?? `${company}-${title}`}`,
+        title,
+        url: link ?? `https://news.ycombinator.com/item?id=${c.id}`,
+        company,
+        location,
+        team: null,
+        // The full comment is the job description, and a good one.
+        description: text.slice(0, 2500),
+        source: "hn-whoishiring",
+        postedAt: null,
+      });
+      if (out.length >= limit) break;
+    }
+    return out;
+  },
+};
+
+/** RemoteOK: startup-heavy, free, no key. */
+const remoteok: Provider = {
+  name: "remoteok",
+  async fetchJobs(query, limit) {
+    const data = await getJson("https://remoteok.com/api");
+    const rows = Array.isArray(data) ? (data as Record<string, unknown>[]) : [];
+    const out: AggregatedJob[] = [];
+    for (const r of rows) {
+      // The first element is a legal notice, not a job.
+      const title = str(r.position);
+      const company = str(r.company);
+      const url = str(r.url) ?? str(r.apply_url);
+      if (!title || !company || !url) continue;
+      if (!matches(query, title, company, str(r.description))) continue;
+      out.push({
+        id: `remoteok:${r.id ?? url}`,
+        title,
+        url,
+        company,
+        location: str(r.location) ?? "Remote",
+        team: Array.isArray(r.tags) ? String(r.tags[0]) : null,
+        description: plain(r.description),
+        source: "remoteok",
+        postedAt: str(r.date),
+      });
+      if (out.length >= limit) break;
+    }
+    return out;
+  },
+};
+
 /** Adzuna: broad, non-remote-biased, and free at about 1,000 calls a month. */
 const adzuna: Provider = {
   name: "adzuna",
@@ -276,7 +393,17 @@ const theirstack: Provider = {
   },
 };
 
-const PROVIDERS: Provider[] = [arbeitnow, remotive, themuse, jobicy, adzuna, theirstack];
+const PROVIDERS: Provider[] = [
+  // Seed-stage first: these carry the founding roles the big boards never see.
+  hnWhoIsHiring,
+  remoteok,
+  arbeitnow,
+  remotive,
+  themuse,
+  jobicy,
+  adzuna,
+  theirstack,
+];
 
 /** Which providers are usable right now, given the keys present. */
 export function activeProviders(): string[] {
