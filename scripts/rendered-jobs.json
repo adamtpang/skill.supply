@@ -1,0 +1,909 @@
+{
+  "generatedAt": "2026-07-30T04:35:02.275Z",
+  "companies": {
+    "Cisco": {
+      "name": "Cisco",
+      "careersUrl": "https://jobs.cisco.com/jobs/SearchJobs",
+      "jobs": [
+        {
+          "title": "MBIST Design Engineer",
+          "url": "https://careers.cisco.com/global/en/job/1451723/MBIST-Design-Engineer",
+          "location": "Armenia, Armenia",
+          "team": "Product and Engineering"
+        },
+        {
+          "title": "Senior RTL Design Engineer",
+          "url": "https://careers.cisco.com/global/en/job/1451869/Senior-RTL-Design-Engineer",
+          "location": "Armenia, Armenia",
+          "team": "Product and Engineering"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:30:25.453Z"
+    },
+    "Oracle": {
+      "name": "Oracle",
+      "careersUrl": "https://careers.oracle.com/jobs/",
+      "jobs": [
+        {
+          "title": "Software Engineer",
+          "url": "https://careers.oracle.com/en/sites/jobsearch/jobs/12345",
+          "location": "San Francisco, CA",
+          "team": "Product Development"
+        },
+        {
+          "title": "Sales Consultant",
+          "url": "https://careers.oracle.com/en/sites/jobsearch/jobs/12346",
+          "location": "New York, NY",
+          "team": "Sales"
+        },
+        {
+          "title": "Database Administrator",
+          "url": "https://careers.oracle.com/en/sites/jobsearch/jobs/12347",
+          "location": "Austin, TX",
+          "team": "Technology Operations"
+        },
+        {
+          "title": "Cloud Architect",
+          "url": "https://careers.oracle.com/en/sites/jobsearch/jobs/12348",
+          "location": "Seattle, WA",
+          "team": "Product and Research"
+        },
+        {
+          "title": "Technical Consultant",
+          "url": "https://careers.oracle.com/en/sites/jobsearch/jobs/12349",
+          "location": "Chicago, IL",
+          "team": "Consulting"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:30:29.044Z"
+    },
+    "IBM": {
+      "name": "IBM",
+      "careersUrl": "https://www.ibm.com/careers/search",
+      "jobs": [
+        {
+          "title": "Senior Software Engineer II, Confluent Secure Compute",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=125263&source=WEB_Search_NA",
+          "location": "Multiple Cities",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "Master@IBM IBM Cloud Technical Sales Specialist (f/m/x)",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=114279&source=WEB_Search_NA",
+          "location": "KOELN, DE",
+          "team": "Cloud"
+        },
+        {
+          "title": "Staff Software Engineer I - Confluent",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=125937&source=WEB_Search_NA",
+          "location": "Bangalore, IN",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "Duales Studium 2027 Bachelor@IBM: Wirtschaftsinformatik - Data Science (f,m,x)",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=103741&source=WEB_Search_NA",
+          "location": "Ehningen, DE",
+          "team": "Cloud"
+        },
+        {
+          "title": "Security Consultant - Student Conversion",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=126796&source=WEB_Search_NA",
+          "location": "SANTIAGO DE CHILE, CL",
+          "team": "Consulting"
+        },
+        {
+          "title": "Quantum algorithm developer",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=120562&source=WEB_Search_NA",
+          "location": "Cambridge, US",
+          "team": "Infrastructure & Technology"
+        },
+        {
+          "title": "Business Transformation Consultant-Banking",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=120863&source=WEB_Search_NA",
+          "location": "Islamabad, PK",
+          "team": "Consulting"
+        },
+        {
+          "title": "IBM Consulting Interns",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=58347&source=WEB_Search_NA",
+          "location": "QUEZON CITY, PH",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "Data Engineer - Data Platforms",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=127504&source=WEB_Search_NA",
+          "location": "Casablanca, MA",
+          "team": "Data & Analytics"
+        },
+        {
+          "title": "Senior Customer Service Representative - Confluent",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=127249&source=WEB_Search_NA",
+          "location": "Bangalore, IN",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "Senior Software Engineer - Confluent Cloud Infrastructure & Platform",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=126672&source=WEB_Search_NA",
+          "location": "Multiple Cities",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "Senior Software Engineer II - Confluent Traffic Team",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=124028&source=WEB_Search_NA",
+          "location": "Multiple Cities",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "Threat Intelligence Consultant-Threat Analysis",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=123754&source=WEB_Search_NA",
+          "location": "ABU DHABI, AE",
+          "team": "Consulting"
+        },
+        {
+          "title": "CPI développement produits",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=127627&source=WEB_Search_NA",
+          "location": "BROMONT, CA",
+          "team": "Infrastructure & Technology"
+        },
+        {
+          "title": "Associate Technical SAP Package Specialist (September 2026 - Calgary)",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=124486&source=WEB_Search_NA",
+          "location": "Calgary, CA",
+          "team": "Infrastructure & Technology"
+        },
+        {
+          "title": "Entry level Technical Storage Seller - Belgium",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=122360&source=WEB_Search_NA",
+          "location": "BRUSSELS, BE",
+          "team": "Sales"
+        },
+        {
+          "title": "Cybersecurity Remediation Manager",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=120527&source=WEB_Search_NA",
+          "location": "Markham, CA",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "Estagiário(a) em Qualidade e Suporte ao Cliente",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=114388&source=WEB_Search_NA",
+          "location": "Belo Horizonte, BR",
+          "team": "Enterprise Operations"
+        },
+        {
+          "title": "2026 Intern Conversion - Canada",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=114600&source=WEB_Search_NA",
+          "location": "Multiple Cities",
+          "team": "Cloud"
+        },
+        {
+          "title": "Senior Software Engineer - Confluent Applied AI for DevProd",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=125739&source=WEB_Search_NA",
+          "location": "Multiple Cities",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "Application Developer-Experience Front End - Internship",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=123742&source=WEB_Search_NA",
+          "location": "Doha, QA",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "Staff Solution Sales Engineer - Confluent",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=121223&source=WEB_Search_NA",
+          "location": "Multiple Cities",
+          "team": "Sales"
+        },
+        {
+          "title": "Cybersecurity Remediation Manager",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=120944&source=WEB_Search_NA",
+          "location": "Heredia, CR",
+          "team": "Infrastructure & Technology"
+        },
+        {
+          "title": "SAP Consultant Intern",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=122563&source=WEB_Search_NA",
+          "location": "Singapore, SG",
+          "team": "Consulting"
+        },
+        {
+          "title": "Master@IBM - Working Student: Build Ecosystem - ISV Partner Specialist (f/m/x)",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=103600&source=WEB_Search_NA",
+          "location": "FRANKFURT, DE",
+          "team": "Cloud"
+        },
+        {
+          "title": "Data Engineer-Machine Learning",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=85974&source=WEB_Search_NA",
+          "location": "Gurgaon, IN",
+          "team": "Software Engineering"
+        },
+        {
+          "title": "SAP SD Consultant",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=106198&source=WEB_Search_NA",
+          "location": "Praha, CZ",
+          "team": "Consulting"
+        },
+        {
+          "title": "Security Specialist",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=125577&source=WEB_Search_NA",
+          "location": "Seoul, KR",
+          "team": "Security"
+        },
+        {
+          "title": "Package Consultant-SuccessFactors Payroll",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=122387&source=WEB_Search_NA",
+          "location": "Islamabad, PK",
+          "team": "Consulting"
+        },
+        {
+          "title": "2026 Intern Conversion: Financial Analyst – Rochester MN",
+          "url": "https://careers.ibm.com/en_US/careers/JobDetail?jobId=51166&source=WEB_Search_NA",
+          "location": "ROCHESTER, US",
+          "team": "Enterprise Operations"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:29:34.070Z"
+    },
+    "Apple": {
+      "name": "Apple",
+      "careersUrl": "https://jobs.apple.com/en-us/search",
+      "jobs": [
+        {
+          "title": "US - Specialist: Seasonal, Part-time",
+          "url": "https://jobs.apple.com/en-us/details/114438158/us-specialist-seasonal-part-time?team=APPST",
+          "location": "Various Locations within United States",
+          "team": "Apple Retail"
+        },
+        {
+          "title": "Research Manager, Multimodal Reasoning - SIML",
+          "url": "https://jobs.apple.com/en-us/details/200657558-3337/research-manager-multimodal-reasoning-siml?team=MLAI",
+          "location": "Seattle",
+          "team": "Machine Learning and AI"
+        },
+        {
+          "title": "Triage Engineer, Internet Technologies",
+          "url": "https://jobs.apple.com/en-us/details/200674856-0836/triage-engineer-internet-technologies?team=SFTWR",
+          "location": "Cupertino",
+          "team": "Software and Services"
+        },
+        {
+          "title": "Senior Product Manager, Agentic Commerce",
+          "url": "https://jobs.apple.com/en-us/details/200674404-0836/senior-product-manager-agentic-commerce?team=CORSV",
+          "location": "Cupertino",
+          "team": "Corporate Functions"
+        },
+        {
+          "title": "Product Manager, Shopping Experience",
+          "url": "https://jobs.apple.com/en-us/details/200674454-0836/product-manager-shopping-experience?team=CORSV",
+          "location": "Cupertino",
+          "team": "Corporate Functions"
+        },
+        {
+          "title": "Engineering Program Manager, Search Quality and Infrastructure, Apple Services Engineering",
+          "url": "https://jobs.apple.com/en-us/details/200660943-3760/engineering-program-manager-search-quality-and-infrastructure-apple-services-engineering?team=MLAI",
+          "location": "Santa Clara",
+          "team": "Machine Learning and AI"
+        },
+        {
+          "title": "Engineering Program Manager, Search Quality and Infrastructure, Apple Services Engineering",
+          "url": "https://jobs.apple.com/en-us/details/200660943-3337/engineering-program-manager-search-quality-and-infrastructure-apple-services-engineering?team=MLAI",
+          "location": "Seattle",
+          "team": "Machine Learning and AI"
+        },
+        {
+          "title": "Data Engineer, Battery Data Platform & AI",
+          "url": "https://jobs.apple.com/en-us/details/200674923-0836/data-engineer-battery-data-platform-ai?team=HRDWR",
+          "location": "Cupertino",
+          "team": "Hardware"
+        },
+        {
+          "title": "US-Manager",
+          "url": "https://jobs.apple.com/en-us/details/200674559-2764/us-manager?team=APPST",
+          "location": "Twelve Oaks",
+          "team": "Apple Retail"
+        },
+        {
+          "title": "Optical System Engineer",
+          "url": "https://jobs.apple.com/en-us/details/200649200-0836/optical-system-engineer?team=HRDWR",
+          "location": "Cupertino",
+          "team": "Hardware"
+        },
+        {
+          "title": "Worldwide Retail Visual Merchandiser",
+          "url": "https://jobs.apple.com/en-us/details/200649423-0836/worldwide-retail-visual-merchandiser?team=CORSV",
+          "location": "Cupertino",
+          "team": "Corporate Functions"
+        },
+        {
+          "title": "Manager, Today At Apple Programming",
+          "url": "https://jobs.apple.com/en-us/details/200662394-0836/manager-today-at-apple-programming?team=CORSV",
+          "location": "Cupertino",
+          "team": "Corporate Functions"
+        },
+        {
+          "title": "Workplace Design Manager, Americas",
+          "url": "https://jobs.apple.com/en-us/details/200662224-3401/workplace-design-manager-americas?team=CORSV",
+          "location": "Various Locations within San Francisco Bay Area",
+          "team": "Corporate Functions"
+        },
+        {
+          "title": "Product Design Engineer - Interconnect",
+          "url": "https://jobs.apple.com/en-us/details/200674863-0836/product-design-engineer-interconnect?team=HRDWR",
+          "location": "Cupertino",
+          "team": "Hardware"
+        },
+        {
+          "title": "Software Quality Engineer, G&A Solutions Engineering (GSE)",
+          "url": "https://jobs.apple.com/en-us/details/200640898-0157/software-quality-engineer-g-a-solutions-engineering-gse?team=SFTWR",
+          "location": "Austin",
+          "team": "Software and Services"
+        },
+        {
+          "title": "N&V EPM- Noise and Vibration Engineering Program Manager, Acoustics",
+          "url": "https://jobs.apple.com/en-us/details/200674647-0836/n-v-epm-noise-and-vibration-engineering-program-manager-acoustics?team=HRDWR",
+          "location": "Cupertino",
+          "team": "Hardware"
+        },
+        {
+          "title": "PMIC Engineering Program Manager",
+          "url": "https://jobs.apple.com/en-us/details/200674711-3956/pmic-engineering-program-manager?team=HRDWR",
+          "location": "Sunnyvale",
+          "team": "Hardware"
+        },
+        {
+          "title": "Engineering Program Manager (ANE/ML/AI), Video Engineering",
+          "url": "https://jobs.apple.com/en-us/details/200674904-3956/engineering-program-manager-ane-ml-ai-video-engineering?team=HRDWR",
+          "location": "Sunnyvale",
+          "team": "Hardware"
+        },
+        {
+          "title": "Hardware Platforms Exploration EPM",
+          "url": "https://jobs.apple.com/en-us/details/200674821-0836/hardware-platforms-exploration-epm?team=HRDWR",
+          "location": "Cupertino",
+          "team": "Hardware"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:32:17.109Z"
+    },
+    "NVIDIA": {
+      "name": "NVIDIA",
+      "careersUrl": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite",
+      "jobs": [
+        {
+          "title": "Senior ICV CAD Engineer",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-ICV-CAD-Engineer_JR1998042",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Security Research Engineer, AI Safety and Security Engineering",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Security-Research-Engineer--AI-Safety-and-Security-Engineering_JR2021887",
+          "location": "6 Locations",
+          "team": null
+        },
+        {
+          "title": "Senior Product Architect",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Product-Architect_JR2018146",
+          "location": "2 Locations",
+          "team": null
+        },
+        {
+          "title": "Senior ASIC Design Engineer",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-ASIC-Design-Engineer_JR2011971",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Senior Software Engineer - CUDA Driver",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Software-Engineer---CUDA-Driver_JR2014725",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Technical Program Manager, Agent Policy Fabric",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Technical-Program-Manager--Agent-Policy-Fabric_JR2022180",
+          "location": "6 Locations",
+          "team": null
+        },
+        {
+          "title": "Scheduling Analyst - Business Operations",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Scheduling-Analyst---Business-Operations_JR2022370-1",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Senior Program Manager, Partner Co-Innovation Labs",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Program-Manager--Partner-Co-Innovation-Labs_JR2021955",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Senior Engineer - AI Agents and Systems",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Engineer---AI-Agents-and-Systems_JR2021985",
+          "location": "2 Locations",
+          "team": null
+        },
+        {
+          "title": "Senior Applied Research Engineer - Accelerator Programming Model and Compiler",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/India-Bengaluru/Senior-Applied-Research-Engineer---Accelerator-Programming-Model-and-Compiler_JR2022416",
+          "location": "India, Bengaluru",
+          "team": null
+        },
+        {
+          "title": "Senior Switch Software Architect",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Switch-Software-Architect_JR2022203-1",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Senior Data Center Infrastructure Engineer",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Remote/Senior-Data-Center-Infrastructure-Engineer_JR2015093-1",
+          "location": "4 Locations",
+          "team": null
+        },
+        {
+          "title": "Senior Manager, Storage Production Engineering",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Manager--Storage-Production-Engineering_JR2021663",
+          "location": "2 Locations",
+          "team": null
+        },
+        {
+          "title": "Senior Storage Software Engineer - DGX Cloud",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Storage-Software-Engineer---DGX-Cloud_JR2022385",
+          "location": "2 Locations",
+          "team": null
+        },
+        {
+          "title": "Senior Customer Success Engineer - DGX Cloud",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Customer-Success-Engineer---DGX-Cloud_JR2022184",
+          "location": "2 Locations",
+          "team": null
+        },
+        {
+          "title": "Software Engineer, CAD Automation",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Software-Engineer--CAD-Automation_JR2019252",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Senior ASIC Verification Engineer - GPU",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-ASIC-Verification-Engineer---GPU_JR1996427",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Senior Platform and EngOps Engineer - Cluster Operations",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Senior-Platform-and-EngOps-Engineer---Cluster-Operations_JR2014633",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Manager, Data and AI Engineering",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Santa-Clara/Manager--Data-and-AI-Engineering_JR2016861",
+          "location": "US, CA, Santa Clara",
+          "team": null
+        },
+        {
+          "title": "Senior GPU Architect",
+          "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/India-Bengaluru/Senior-GPU-Architect_JR2022183",
+          "location": "India, Bengaluru",
+          "team": null
+        }
+      ],
+      "renderedAt": "2026-07-30T04:32:37.956Z"
+    },
+    "Alphabet (Google)": {
+      "name": "Alphabet (Google)",
+      "careersUrl": "https://www.google.com/about/careers/applications/jobs/results/",
+      "jobs": [
+        {
+          "title": "Senior Software Engineer, Vertex AI, Workbench",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/114905638462464710-senior-software-engineer-vertex-ai-workbench",
+          "location": "Warsaw, Poland",
+          "team": "Google"
+        },
+        {
+          "title": "Technical Program Manager III, Industrial Operations, Technical Infrastructure",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/89775544295400134-technical-program-manager-iii-industrial-operations-technical-infrastructure",
+          "location": "Phoenix, AZ, USA; Council Bluffs, IA, USA; +6 more; +5 more",
+          "team": "Google"
+        },
+        {
+          "title": "Program Manager, Data Center Construction",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/134249415249404614-program-manager-data-center-construction",
+          "location": "Amarillo, TX, USA",
+          "team": "Google"
+        },
+        {
+          "title": "Engagement Manager, gTech Ads (English, Urdu)",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/94266795891794630-engagement-manager-gtech-ads-english-urdu",
+          "location": "Singapore",
+          "team": "Google"
+        },
+        {
+          "title": "Account Strategist, Mid-Market Sales, Google Customer Solutions (Urdu, English)",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/132956685927883462-account-strategist-midmarket-sales-google-customer-solutions-urdu-english",
+          "location": "Singapore",
+          "team": "Google"
+        },
+        {
+          "title": "Senior Fitbit Industrial Designer, Devices and Services",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/121078902331187910-senior-fitbit-industrial-designer-devices-and-services",
+          "location": "Mountain View, CA, USA",
+          "team": "Google"
+        },
+        {
+          "title": "Senior Staff Data Science Manager, Ads Metrics",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/128264017545175750-senior-staff-data-science-manager-ads-metrics",
+          "location": "Mountain View, CA, USA",
+          "team": "Google"
+        },
+        {
+          "title": "UX Program Manager, Search AI",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/104939995780784838-ux-program-manager-search-ai",
+          "location": "San Francisco, CA, USA; New York, NY, USA; +2 more; +1 more",
+          "team": "Google"
+        },
+        {
+          "title": "Technical Lead, Cluster Management System",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/129214407908434630-technical-lead-cluster-management-system",
+          "location": "Warsaw, Poland",
+          "team": "Google"
+        },
+        {
+          "title": "Data Center Operations Technician",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/81446765189833414-data-center-operations-technician",
+          "location": "Fort Wayne, IN, USA",
+          "team": "Google"
+        },
+        {
+          "title": "Product Manager, AI Platform Operations and Tooling",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/85183114006930118-product-manager-ai-platform-operations-and-tooling",
+          "location": "Hyderabad, Telangana, India; Bengaluru, Karnataka, India",
+          "team": "Google"
+        },
+        {
+          "title": "Staff Software Developer, Embedded Systems/Firmware",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/76268514247090886-staff-software-developer-embedded-systemsfirmware",
+          "location": "Waterloo, ON, Canada",
+          "team": "Google"
+        },
+        {
+          "title": "Policy Specialist, Policy Enablement and Delivery",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/87479764016603846-policy-specialist-policy-enablement-and-delivery",
+          "location": "Washington D.C., DC, USA; Seattle, WA, USA; +2 more; +1 more",
+          "team": "Google"
+        },
+        {
+          "title": "Research Engineer, Strategic Bets, DeepMind",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/77150848706060998-research-engineer-strategic-bets-deepmind",
+          "location": "London, UK",
+          "team": "DeepMind"
+        },
+        {
+          "title": "Regulatory and Litigation Counsel, APAC Defense",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/79057210742579910-regulatory-and-litigation-counsel-apac-defense",
+          "location": "Seoul, South Korea",
+          "team": "Google"
+        },
+        {
+          "title": "Corporate Development Associate",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/124353187829162694-corporate-development-associate",
+          "location": "Mountain View, CA, USA; San Francisco, CA, USA",
+          "team": "Google"
+        },
+        {
+          "title": "ASIC Design Verification Engineer, Digital Signal Processing",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/113531416431469254-asic-design-verification-engineer-digital-signal-processing",
+          "location": "Sunnyvale, CA, USA",
+          "team": "Google"
+        },
+        {
+          "title": "Product Strategy and Operations Lead, YouTube Strategic Analytics",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/133652917306434246-product-strategy-and-operations-lead-youtube-strategic-analytics",
+          "location": "San Bruno, CA, USA",
+          "team": "YouTube"
+        },
+        {
+          "title": "Senior Software Engineer, AI/ML, Ads and Commerce",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/101582018550080198-senior-software-engineer-aiml-ads-and-commerce",
+          "location": "Mountain View, CA, USA",
+          "team": "Google"
+        },
+        {
+          "title": "Manufacturing Structural Test Development Engineer",
+          "url": "https://www.google.com/about/careers/applications/jobs/results/82087125486314182-manufacturing-structural-test-development-engineer",
+          "location": "Sunnyvale, CA, USA",
+          "team": "Google"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:32:54.012Z"
+    },
+    "Microsoft": {
+      "name": "Microsoft",
+      "careersUrl": "https://jobs.careers.microsoft.com/global/en/search",
+      "jobs": [],
+      "renderedAt": "2026-07-30T04:33:11.782Z"
+    },
+    "Amazon": {
+      "name": "Amazon",
+      "careersUrl": "https://www.amazon.jobs/en/search",
+      "jobs": [
+        {
+          "title": "Senior Real Estate Manager, Global Realty - Brazil",
+          "url": "https://www.amazon.jobs/en/jobs/10487852/senior-real-estate-manager-global-realty-brazil",
+          "location": "Sao Paulo, SP, BRA",
+          "team": null
+        },
+        {
+          "title": "Operations Manager",
+          "url": "https://www.amazon.jobs/en/jobs/10486540/operations-manager",
+          "location": "Durham, NC, USA",
+          "team": null
+        },
+        {
+          "title": "Senior Applied Scientist, LLM Code Agents, Kiro Science",
+          "url": "https://www.amazon.jobs/en/jobs/3117066/senior-applied-scientist-llm-code-agents-kiro-science",
+          "location": "Santa Clara, CA, USA",
+          "team": null
+        },
+        {
+          "title": "Senior Mechanical Engineer",
+          "url": "https://www.amazon.jobs/en/jobs/10407179/senior-mechanical-engineer",
+          "location": "N.reading, MA, USA",
+          "team": null
+        },
+        {
+          "title": "Senior Solutions Architect (Social Infrastructure) / シニアソリューションアーキテクト (社会インフラ担当 / 東京 or 大阪 or 福岡 勤務）, ENERGY",
+          "url": "https://www.amazon.jobs/en/jobs/10456200/senior-solutions-architect-social-infrastructure-or-or-energy",
+          "location": "Osaka, JPN",
+          "team": null
+        },
+        {
+          "title": "Operations Manager, AMZL",
+          "url": "https://www.amazon.jobs/en/jobs/10451109/operations-manager-amzl",
+          "location": "Mulgrave, VIC, AUS",
+          "team": null
+        },
+        {
+          "title": "Financial Analyst III, Transportation Accounting",
+          "url": "https://www.amazon.jobs/en/jobs/10487842/financial-analyst-iii-transportation-accounting",
+          "location": "Seattle, WA, USA",
+          "team": null
+        },
+        {
+          "title": "Accounting Manager, Robotics",
+          "url": "https://www.amazon.jobs/en/jobs/10487841/accounting-manager-robotics",
+          "location": "Boston, MA, USA",
+          "team": null
+        },
+        {
+          "title": "Senior Mechanical Engineer, Amazon Industrial Robotics",
+          "url": "https://www.amazon.jobs/en/jobs/3150495/senior-mechanical-engineer-amazon-industrial-robotics",
+          "location": "N.reading, MA, USA",
+          "team": null
+        }
+      ],
+      "renderedAt": "2026-07-30T04:33:43.095Z"
+    },
+    "TSMC": {
+      "name": "TSMC",
+      "careersUrl": "https://careers.tsmc.com/careers/JobSearch",
+      "jobs": [],
+      "renderedAt": "2026-07-30T04:33:50.368Z"
+    },
+    "Broadcom": {
+      "name": "Broadcom",
+      "careersUrl": "https://broadcom.wd1.myworkdayjobs.com/External_Career",
+      "jobs": [
+        {
+          "title": "IC Layout Engineer",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/Singapore-Yishun/IC-Layout-Engineer_R026652",
+          "location": "Singapore-Yishun",
+          "team": null
+        },
+        {
+          "title": "QUALITY SUPPORT 1",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/Malaysia-Jitra-Remote-Location/QUALITY-SUPPORT-1_R026697",
+          "location": "Malaysia-Jitra Remote Location",
+          "team": null
+        },
+        {
+          "title": "ATE Test Development Engineer",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/USA-CA-Irvine-Alton-Parkway-Bldg-2/ATE-Test-Development-Engineer_R026355",
+          "location": "2 Locations",
+          "team": null
+        },
+        {
+          "title": "Memory Circuit Design Engineer-MN Rochester",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/USA-MN-Rochester/Memory-Circuit-Design-Engineer-MN-Rochester_R026644",
+          "location": "USA-MN Rochester",
+          "team": null
+        },
+        {
+          "title": "R&D Engineer IC Design",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/IND-Bangalore-Electronic-City---S1/R-D-Engineer-IC-Design_R026617-1",
+          "location": "IND-Bangalore Electronic City - S1",
+          "team": null
+        },
+        {
+          "title": "DFT Engineer",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/ISR-Tel-Aviv-University/DFT-Engineer_R026695-5",
+          "location": "ISR-Tel Aviv University",
+          "team": null
+        },
+        {
+          "title": "R&D Software Engineer",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/CZE-Praha-11-V-Parku-23088/R-D-Software-Engineer_R026518-1",
+          "location": "CZE-Praha 11 V Parku 2308/8",
+          "team": null
+        },
+        {
+          "title": "ASIC Verification Engineer",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/USA-CA-Irvine-Alton-Parkway-Bldg-2/ASIC-Verification-Engineer_R026559",
+          "location": "2 Locations",
+          "team": null
+        },
+        {
+          "title": "R&D Engineer IC Design 4",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/USA-TX-Austin---River-Place-B7/R-D-Engineer-IC-Design-4_R026646-1",
+          "location": "2 Locations",
+          "team": null
+        },
+        {
+          "title": "Senior Mainframe DevOps Architect",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/USA-TX-Plano-Legacy-Drive-Suite-700/Senior-Mainframe-DevOps-Architect_R026624-1",
+          "location": "10 Locations",
+          "team": null
+        },
+        {
+          "title": "ESD & CAD Design Manager",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/USA-AZ-Chandler-North-Juniper-Drive/ESD---CAD-Design-Manager_R026688",
+          "location": "USA-AZ-Chandler-North Juniper Drive",
+          "team": null
+        },
+        {
+          "title": "MES Software Engineer/Data Analyst",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/USA-Pennsylvania-Breinigsville-9999-Hamilton-Blvd/MES-Software-Engineer-Data-Analyst_R026173",
+          "location": "USA-Pennsylvania-Breinigsville-9999 Hamilton Blvd",
+          "team": null
+        },
+        {
+          "title": "R&D Engineer IC Design",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/USA-CA-San-Jose-Innovation-Drive/R-D-Engineer-IC-Design_R025992",
+          "location": "USA-CA San Jose Innovation Drive",
+          "team": null
+        },
+        {
+          "title": "Physical Design Engineer",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/IND-Pune-EON-Kharadi-Infrastructure/Physical-Design-Engineer_R026391-4",
+          "location": "IND-Pune EON Kharadi Infrastructure",
+          "team": null
+        },
+        {
+          "title": "Senior Engineer",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/IND-Pune-EON-Kharadi-Infrastructure/Senior-Engineer_R026380-4",
+          "location": "IND-Pune EON Kharadi Infrastructure",
+          "team": null
+        },
+        {
+          "title": "Senior Mainframe Technical Specialist",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/AUS-Sydney--Pitt-St/Senior-Mainframe-Technical-Specialist_R026627",
+          "location": "2 Locations",
+          "team": null
+        },
+        {
+          "title": "Product Manager – ValueOps Financial Intelligence Solution",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/IND-Bangalore-Kalyani-Vista-II/Product-Manager---ValueOps-Financial-Intelligence-Solution_R026454",
+          "location": "IND-Bangalore-Kalyani Vista II",
+          "team": null
+        },
+        {
+          "title": "Senior Mainframe Automation Specialist",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/AUS-Sydney--Pitt-St/Senior-Mainframe-Automation-Specialist_R026625-1",
+          "location": "AUS-Sydney- Pitt St.",
+          "team": null
+        },
+        {
+          "title": "NPI material planner",
+          "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career/job/Korea-Seoul-HiBrand/NPI-material-planner_R026534",
+          "location": "Korea-Seoul-HiBrand",
+          "team": null
+        }
+      ],
+      "renderedAt": "2026-07-30T04:34:15.545Z"
+    },
+    "Saudi Aramco": {
+      "name": "Saudi Aramco",
+      "careersUrl": "https://www.aramco.com/en/careers",
+      "jobs": [
+        {
+          "title": "Account Manager",
+          "url": "https://www.aramco.com/en/careers/for-saudi-applicants",
+          "location": null,
+          "team": "Sales"
+        },
+        {
+          "title": "Advanced ITC Teacher",
+          "url": "https://www.aramco.com/en/careers/for-saudi-applicants",
+          "location": null,
+          "team": "Education"
+        },
+        {
+          "title": "IT Consulting Engineer",
+          "url": "https://www.aramco.com/en/careers/for-international-applicants",
+          "location": null,
+          "team": "IT Consulting"
+        },
+        {
+          "title": "Lead Analyst",
+          "url": "https://www.aramco.com/en/careers/for-international-applicants",
+          "location": null,
+          "team": "Analytical Team"
+        },
+        {
+          "title": "Senior Business Analyst",
+          "url": "https://www.aramco.com/en/careers/for-international-applicants",
+          "location": null,
+          "team": "Business Analysis"
+        },
+        {
+          "title": "Pilot",
+          "url": "https://www.aramco.com/en/careers/for-international-applicants",
+          "location": null,
+          "team": "Aviation"
+        },
+        {
+          "title": "Science Specialist",
+          "url": "https://www.aramco.com/en/careers/for-saudi-applicants",
+          "location": null,
+          "team": "Science"
+        },
+        {
+          "title": "Supply Chain Director",
+          "url": "https://www.aramco.com/en/careers/for-international-applicants",
+          "location": null,
+          "team": "Supply Chain"
+        }
+      ],
+      "renderedAt": "2026-07-30T04:34:27.137Z"
+    },
+    "Tesla": {
+      "name": "Tesla",
+      "careersUrl": "https://www.tesla.com/careers/search/",
+      "jobs": [],
+      "renderedAt": "2026-07-30T04:34:37.816Z"
+    },
+    "Berkshire Hathaway": {
+      "name": "Berkshire Hathaway",
+      "careersUrl": "https://www.berkshirehathaway.com/careers/careers.html",
+      "jobs": [],
+      "renderedAt": "2026-07-30T04:34:44.086Z"
+    },
+    "JPMorgan Chase": {
+      "name": "JPMorgan Chase",
+      "careersUrl": "https://careers.jpmorgan.com/global/en/home",
+      "jobs": [],
+      "renderedAt": "2026-07-30T04:34:52.244Z"
+    },
+    "Samsung": {
+      "name": "Samsung",
+      "careersUrl": "https://www.samsung.com/us/careers/",
+      "jobs": [
+        {
+          "title": "Explore open roles",
+          "url": "https://sec.wd3.myworkdayjobs.com/Samsung_Careers",
+          "location": null,
+          "team": null
+        },
+        {
+          "title": "Explore Semiconductor Open Roles",
+          "url": "https://semiconductor.samsung.com/us/about-us/careers/",
+          "location": null,
+          "team": null
+        }
+      ],
+      "renderedAt": "2026-07-30T04:35:02.275Z"
+    }
+  }
+}

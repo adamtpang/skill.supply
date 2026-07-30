@@ -12,13 +12,17 @@
 import type { Job } from "./jobs";
 import { findTenant, fetchWorkdayJobs } from "./workday";
 import { findProprietary } from "./proprietary";
+import { findRendered } from "./rendered";
 
 export type Resolved = {
   query: string;
   name: string;
-  provider: "greenhouse" | "ashby" | "lever" | "workday" | "proprietary";
+  provider: "greenhouse" | "ashby" | "lever" | "workday" | "proprietary" | "rendered";
   board: string;
   jobs: Job[];
+  /** Set only for the rendered tier: when the snapshot was captured. */
+  capturedAt?: string;
+  careersUrl?: string;
 };
 
 /** Name to candidate slugs: "AppLovin" -> applovin, app-lovin, applovincorp. */
@@ -171,5 +175,21 @@ export async function resolveCompany(input: string): Promise<Resolved | null> {
     const hit = results.find((r): r is Resolved => r !== null);
     if (hit) return { ...hit, query: input, name: input.trim() };
   }
+
+  // Last resort: roles read off a careers page that serves no API. This is a
+  // snapshot rather than live data, so it only runs once every API tier missed.
+  const snapshot = findRendered(input);
+  if (snapshot) {
+    return {
+      query: input,
+      name: snapshot.name,
+      provider: "rendered",
+      board: snapshot.careersUrl,
+      jobs: snapshot.jobs,
+      capturedAt: snapshot.capturedAt,
+      careersUrl: snapshot.careersUrl,
+    };
+  }
+
   return null;
 }
