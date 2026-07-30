@@ -7,7 +7,8 @@ import type { Job } from "@/lib/jobs";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
-type ScoredVerdict = Verdict & { job: Job | null };
+type ScoredJob = Job & { company?: string; source?: string };
+type ScoredVerdict = Verdict & { job: ScoredJob | null };
 type JudgeState =
   | { kind: "idle" }
   | { kind: "running"; company: string }
@@ -110,6 +111,41 @@ export function DreamPanel() {
       setJudge({
         kind: "error",
         message: err instanceof Error ? err.message : "Could not score that company.",
+      });
+    }
+  }
+
+  /** Search every aggregator for roles matching the dream JD, then score them. */
+  async function huntEverywhere() {
+    if (!dream || judge.kind === "running") return;
+    setJudge({ kind: "running", company: "every board we can reach" });
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+    try {
+      const res = await fetch("/api/hunt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ dream }),
+        signal: controller.signal,
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error ?? `HTTP ${res.status}`);
+      if (data.found === false) {
+        setJudge({ kind: "none", message: data.message });
+        return;
+      }
+      setJudge({
+        kind: "done",
+        company: "the open market",
+        total: data.searched,
+        verdicts: data.verdicts as ScoredVerdict[],
+      });
+    } catch (err) {
+      if (controller.signal.aborted) return;
+      setJudge({
+        kind: "error",
+        message: err instanceof Error ? err.message : "Could not search the boards.",
       });
     }
   }
@@ -252,12 +288,33 @@ export function DreamPanel() {
       {/* The filter */}
       <section>
         <h2 className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
-          Judge a company against it
+          Judge the market against it
         </h2>
         <p className="mt-2 mb-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          Every live role at any company, scored against your dream JD. Most will not match, and
-          the point is knowing which ones do.
+          Hunt every board we can reach, or check one company by name. Either way each role is
+          scored against your dream JD, and most will not match. Knowing which ones do is the
+          point.
         </p>
+
+        <div className="mb-4">
+          <Button
+            type="button"
+            size="lg"
+            className="h-11 px-5"
+            onClick={huntEverywhere}
+            disabled={judge.kind === "running"}
+          >
+            {judge.kind === "running" ? (
+              <LoaderCircle className="motion-safe:animate-spin" aria-hidden />
+            ) : (
+              <Search aria-hidden />
+            )}
+            Hunt every board
+          </Button>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Searches live job aggregators using your JD, then scores what it finds.
+          </p>
+        </div>
 
         <form
           onSubmit={(e) => {
@@ -342,6 +399,16 @@ export function DreamPanel() {
                       <h3 className="mt-1.5 text-base font-semibold text-balance">
                         {v.job?.title ?? "Role"}
                       </h3>
+                      {v.job?.company && (
+                        <p className="text-sm text-muted-foreground">
+                          {v.job.company}
+                          {v.job.source && (
+                            <span className="ml-2 font-mono text-[10px] tracking-wide">
+                              via {v.job.source}
+                            </span>
+                          )}
+                        </p>
+                      )}
                     </div>
                     <div className="shrink-0 text-right">
                       <span className="font-mono text-2xl leading-none font-medium tabular-nums text-brand">
