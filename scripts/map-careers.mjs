@@ -37,17 +37,28 @@ const OVERRIDES = {
   tsmc: "https://careers.tsmc.com/careers/JobSearch",
   broadcom: "https://broadcom.wd1.myworkdayjobs.com/External_Career",
   "saudiaramco": "https://www.aramco.com/en/careers",
-  "berkshirehathaway": "https://www.berkshirehathaway.com/careers/careers.html",
-  "jpmorganchase": "https://careers.jpmorgan.com/global/en/home",
+  jpmorganchase: "https://careers.jpmorgan.com/global/en/home",
   elililly: "https://careers.lilly.com/us/en",
   loreal: "https://careers.loreal.com/en_US/jobs",
-  chinamobile: "https://www.chinamobileltd.com/en/about/careers.php",
   // Bank of China publishes recruitment only on its Chinese-language site and
   // not at a stable English URL. Leaving it unmapped beats pointing at
   // /aboutboc/ab7/, which is their corporate history and produced 40 articles
   // masquerading as job postings.
   bankofchina: null,
-  petrochina: "https://www.petrochina.com.cn/ptr/rlzy/",
+
+  // Caught by the audit: pattern guessing had sent these to the wrong company
+  // or to a parked domain. Corrected by hand, or unmapped where no stable
+  // public careers URL exists.
+  texasinstruments: "https://careers.ti.com/",
+  shell: "https://www.shell.com/careers.html",
+  catl: "https://www.catl.com/en/join/",
+  generalelectric: "https://www.gecareers.com/",
+  chinaconstructionbank: null,
+  agriculturalbankofchina: null,
+  petrochina: null,
+  chinamobile: null,
+  // Berkshire does not hire centrally; its subsidiaries each run their own.
+  berkshirehathaway: null,
   philipmorrisinternational: "https://www.pmi.com/careers",
   spacex: "https://www.spacex.com/careers/",
   salesforce: "https://careers.salesforce.com/en/jobs/",
@@ -70,8 +81,7 @@ const OVERRIDES = {
   amd: "https://careers.amd.com/careers-home/jobs",
   palantir: "https://jobs.lever.co/palantir",
   novonordisk: "https://www.novonordisk.com/careers.html",
-  "appliedmaterials": "https://careers.appliedmaterials.com/careers",
-  "generalelectric": "https://jobs.gecareers.com/global/en/search-results",
+  appliedmaterials: "https://careers.appliedmaterials.com/careers",
 };
 
 /**
@@ -130,7 +140,17 @@ function mentionsCompany(html, name) {
   return words.some((w) => haystack.includes(w));
 }
 
+/**
+ * Domain parking and marketplace hosts. An unregistered company domain often
+ * resolves to one of these, and the parked page helpfully displays the company
+ * name, which is enough to fool a naive ownership check. Two of the top 100
+ * banks mapped to a domain-trading forum this way.
+ */
+const PARKED =
+  /(namepros|sedo\.|afternic|hugedomains|dan\.com|atom\.com|undeveloped|domainmarket|buydomains|parkingcrew|bodis\.com|above\.com)/i;
+
 async function alive(url, name, { strict = true } = {}) {
+  if (PARKED.test(url)) return null;
   try {
     const res = await fetch(url, {
       headers: { "user-agent": UA, accept: "text/html" },
@@ -186,7 +206,7 @@ async function careersFromHomepage(name) {
         })
         .filter((u) => u && /careers?|jobs|join-us|work-with-us|talent|recruit/i.test(u));
 
-      if (links[0]) return links[0];
+      if (links[0] && !PARKED.test(links[0])) return links[0];
     } catch {
       /* try the next homepage variant */
     }
@@ -196,6 +216,9 @@ async function careersFromHomepage(name) {
 
 async function findCareers(company) {
   const key = deaccent(company.name.toLowerCase()).replace(/[^a-z0-9]/g, "");
+  if (key in OVERRIDES && OVERRIDES[key] === null) {
+    return { url: null, verified: false, source: "unmapped" };
+  }
   if (OVERRIDES[key]) {
     // Curated URLs are trusted, so only check that they respond.
     const check = await alive(OVERRIDES[key], company.name, { strict: false });

@@ -1,0 +1,879 @@
+{
+  "auditedAt": "2026-07-30T09:19:26.121Z",
+  "results": [
+    {
+      "name": "CATL",
+      "url": "https://www.catl.com/en/join/",
+      "finalUrl": "https://www.catl.com/404/",
+      "grade": "weak",
+      "score": 4,
+      "problems": [
+        "URL does not mention careers or jobs",
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Meta Platforms (Facebook)",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "Berkshire Hathaway",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "China Construction Bank",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "UnitedHealth",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "Agricultural Bank of China",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "Procter & Gamble",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "Royal Bank Of Canada",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "Bank of China",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "Mitsubishi UFJ Financial",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "Kweichow Moutai",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "China Mobile",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "PetroChina",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "International Holding Company",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "Toronto Dominion Bank",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "Airbus",
+      "url": null,
+      "grade": "missing",
+      "score": 0,
+      "problems": [
+        "no URL mapped"
+      ]
+    },
+    {
+      "name": "NVIDIA",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite",
+      "finalUrl": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Alphabet (Google)",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/",
+      "finalUrl": "https://www.google.com/about/careers/applications/jobs/results/",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "TSMC",
+      "url": "https://careers.tsmc.com/careers/JobSearch",
+      "finalUrl": "https://careers.tsmc.com/careers/JobSearch",
+      "grade": "ok",
+      "score": 5,
+      "problems": [
+        "blocked a plain fetch, content unchecked"
+      ]
+    },
+    {
+      "name": "Broadcom",
+      "url": "https://broadcom.wd1.myworkdayjobs.com/External_Career",
+      "finalUrl": "https://broadcom.wd1.myworkdayjobs.com/External_Career",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Saudi Aramco",
+      "url": "https://www.aramco.com/en/careers",
+      "finalUrl": "https://www.aramco.com/en/careers",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "SpaceX",
+      "url": "https://www.spacex.com/careers/",
+      "finalUrl": "https://www.spacex.com/careers/",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Tesla",
+      "url": "https://www.tesla.com/careers/search/",
+      "finalUrl": "https://www.tesla.com/careers/search/",
+      "grade": "ok",
+      "score": 5,
+      "problems": [
+        "blocked a plain fetch, content unchecked"
+      ]
+    },
+    {
+      "name": "Walmart",
+      "url": "https://careers.walmart.com/",
+      "finalUrl": "https://careers.walmart.com/us/en/home",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Visa",
+      "url": "https://corporate.visa.com/en/jobs/",
+      "finalUrl": "https://visa.wd5.myworkdayjobs.com/Visa",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "SK Hynix",
+      "url": "https://www.skhynix.com/careers/",
+      "finalUrl": "https://www.skhynix.com/careers/",
+      "grade": "ok",
+      "score": 5,
+      "problems": [
+        "blocked a plain fetch, content unchecked"
+      ]
+    },
+    {
+      "name": "CXMT",
+      "url": "https://cxmt.zhiye.com/social/jobs",
+      "finalUrl": "https://cxmt.zhiye.com/social/jobs",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Tencent",
+      "url": "https://careers.tencent.com/en-us/home.html",
+      "finalUrl": "https://careers.tencent.com/en-us/home.html",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Costco",
+      "url": "https://www.costco.com/jobs.html",
+      "finalUrl": "https://www.costco.com/jobs.html",
+      "grade": "ok",
+      "score": 5,
+      "problems": [
+        "blocked a plain fetch, content unchecked"
+      ]
+    },
+    {
+      "name": "HSBC",
+      "url": "https://www.hsbc.com/careers",
+      "finalUrl": "https://www.hsbc.com/careers",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Goldman Sachs",
+      "url": "https://www.goldmansachs.com/careers",
+      "finalUrl": "https://www.goldmansachs.com/careers",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "RTX",
+      "url": "https://careers.rtx.com/global/en",
+      "finalUrl": "https://careers.rtx.com/global/en",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Alibaba",
+      "url": "https://talent.alibaba.com/en/home",
+      "finalUrl": "https://talent.alibaba.com/en/home",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "LVMH",
+      "url": "https://www.lvmh.com/en/join-us/work-at-lvmh",
+      "finalUrl": "https://www.lvmh.com/en/join-us/work-at-lvmh",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Arm Holdings",
+      "url": "https://careers.arm.com/",
+      "finalUrl": "https://careers.arm.com/",
+      "grade": "ok",
+      "score": 5,
+      "problems": [
+        "page does not mention the company"
+      ]
+    },
+    {
+      "name": "Nestlé",
+      "url": "https://www.nestle.com/jobs",
+      "finalUrl": "https://www.nestle.com/jobs",
+      "grade": "ok",
+      "score": 5,
+      "problems": [
+        "blocked a plain fetch, content unchecked"
+      ]
+    },
+    {
+      "name": "Dell",
+      "url": "https://jobs.dell.com/malaysia",
+      "finalUrl": "https://enterpriseplatform.dell.com/hcmUI/CandidateExperience/en/sites/careers",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "KLA",
+      "url": "https://www.kla.com/careers/events",
+      "finalUrl": "https://www.kla.com/company/events",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "URL does not mention careers or jobs"
+      ]
+    },
+    {
+      "name": "Shell",
+      "url": "https://www.shell.com/careers.html",
+      "finalUrl": "https://www.shell.com/careers.html",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "American Express",
+      "url": "https://careers.americanexpress.com/en/sites/CX_1",
+      "finalUrl": "https://careers.americanexpress.com/en/sites/CX_1",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Commonwealth Bank",
+      "url": "https://careers.commonwealthbank.com/",
+      "finalUrl": "https://careers.commonwealthbank.com/",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Verizon",
+      "url": "https://mycareer.verizon.com/",
+      "finalUrl": "https://mycareer.verizon.com/",
+      "grade": "ok",
+      "score": 5,
+      "problems": [
+        "blocked a plain fetch, content unchecked"
+      ]
+    },
+    {
+      "name": "Pepsico",
+      "url": "https://www.pepsico.com/careers",
+      "finalUrl": "https://www.pepsico.com/en/careers",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "McDonald",
+      "url": "https://careers.mcdonalds.com/",
+      "finalUrl": "https://careers.mcdonalds.com/",
+      "grade": "ok",
+      "score": 7,
+      "problems": [
+        "no openings language on the page"
+      ]
+    },
+    {
+      "name": "Apple",
+      "url": "https://jobs.apple.com/en-us/search",
+      "finalUrl": "https://jobs.apple.com/en-us/search?location=united-states-USA",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Microsoft",
+      "url": "https://jobs.careers.microsoft.com/global/en/search",
+      "finalUrl": "https://apply.careers.microsoft.com/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Amazon",
+      "url": "https://www.amazon.jobs/en/search",
+      "finalUrl": "https://www.amazon.jobs/en/search",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Eli Lilly",
+      "url": "https://careers.lilly.com/us/en",
+      "finalUrl": "https://careers.lilly.com/us/en",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "JPMorgan Chase",
+      "url": "https://careers.jpmorgan.com/global/en/home",
+      "finalUrl": "https://www.jpmorganchase.com/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Samsung",
+      "url": "https://www.samsung.com/us/careers/",
+      "finalUrl": "https://www.samsung.com/us/careers/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Micron Technology",
+      "url": "https://www.micron.com/about/careers",
+      "finalUrl": "https://www.micron.com/about/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "AMD",
+      "url": "https://careers.amd.com/careers-home/jobs",
+      "finalUrl": "https://careers.amd.com/careers-home/jobs",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Johnson & Johnson",
+      "url": "https://www.careers.jnj.com/en/jobs/",
+      "finalUrl": "https://www.careers.jnj.com/en/jobs/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Exxon Mobil",
+      "url": "https://jobs.exxonmobil.com/",
+      "finalUrl": "https://jobs.exxonmobil.com/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "ASML",
+      "url": "https://www.asml.com/en/careers/saved-jobs",
+      "finalUrl": "https://www.asml.com/en/careers/saved-jobs",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Mastercard",
+      "url": "https://careers.mastercard.com/us/en/search-results",
+      "finalUrl": "https://careers.mastercard.com/us/en/search-results",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "AbbVie",
+      "url": "https://careers.abbvie.com/",
+      "finalUrl": "https://careers.abbvie.com/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Cisco",
+      "url": "https://jobs.cisco.com/jobs/SearchJobs",
+      "finalUrl": "https://careers.cisco.com/global/en",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Bank of America",
+      "url": "https://careers.bankofamerica.com/en-us",
+      "finalUrl": "https://careers.bankofamerica.com/en-us",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Intel",
+      "url": "https://jobs.intel.com/en/search-jobs",
+      "finalUrl": "https://intel.wd1.myworkdayjobs.com/External/page/6042070b79e01001f04fa9b468070000",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Caterpillar",
+      "url": "https://www.caterpillar.com/en/careers.html",
+      "finalUrl": "https://www.caterpillar.com/en/careers.html",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Coca-Cola",
+      "url": "https://www.coca-colacompany.com/careers",
+      "finalUrl": "https://www.coca-colacompany.com/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Applied Materials",
+      "url": "https://careers.appliedmaterials.com/careers",
+      "finalUrl": "https://careers.appliedmaterials.com/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "General Electric",
+      "url": "https://www.gecareers.com/",
+      "finalUrl": "https://www.geaerospace.com/company/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Chevron",
+      "url": "https://www.chevron.com/who-we-are/contact/jobs",
+      "finalUrl": "https://www.chevron.com/who-we-are/contact/jobs",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Roche",
+      "url": "https://careers.roche.com",
+      "finalUrl": "https://careers.roche.com/global/en",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Oracle",
+      "url": "https://careers.oracle.com/jobs/",
+      "finalUrl": "https://careers.oracle.com/en/sites/jobsearch",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Home Depot",
+      "url": "https://careers.homedepot.com/",
+      "finalUrl": "https://careers.homedepot.com/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "ICBC",
+      "url": "https://www.icbc.com/about-icbc/careers",
+      "finalUrl": "https://www.icbc.com/about-icbc/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Lam Research",
+      "url": "https://www.lamresearch.com/careers/careers-overview/",
+      "finalUrl": "https://www.lamresearch.com/careers/careers-overview/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Morgan Stanley",
+      "url": "https://www.morganstanley.com/careers/career-opportunities-search?opportunity=sg",
+      "finalUrl": "https://www.morganstanley.com/careers/career-opportunities-search?opportunity=sg",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Merck",
+      "url": "https://jobs.merck.com/us/en",
+      "finalUrl": "https://jobs.merck.com/us/en",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Philip Morris International",
+      "url": "https://www.pmi.com/careers",
+      "finalUrl": "https://www.pmi.com/careers/overview",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Novartis",
+      "url": "https://www.novartis.com/careers",
+      "finalUrl": "https://www.novartis.com/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Netflix",
+      "url": "https://explore.jobs.netflix.net/careers",
+      "finalUrl": "https://explore.jobs.netflix.net/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Palantir",
+      "url": "https://jobs.lever.co/palantir",
+      "finalUrl": "https://jobs.lever.co/palantir",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "AstraZeneca",
+      "url": "https://careers.astrazeneca.com/",
+      "finalUrl": "https://careers.astrazeneca.com/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Wells Fargo",
+      "url": "https://www.wellsfargo.com/about/careers/",
+      "finalUrl": "https://www.wellsfargojobs.com/en/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Palo Alto Networks",
+      "url": "https://jobs.paloaltonetworks.com/en/",
+      "finalUrl": "https://jobs.paloaltonetworks.com/en/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Texas Instruments",
+      "url": "https://careers.ti.com/",
+      "finalUrl": "https://careers.ti.com/en/sites/CX",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "GE Vernova",
+      "url": "https://careers.gevernova.com",
+      "finalUrl": "https://careers.gevernova.com/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Siemens",
+      "url": "https://www.siemens.com/en-us/company/jobs/",
+      "finalUrl": "https://www.siemens.com/en-us/company/jobs/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Linde",
+      "url": "https://www.lindecareers.com",
+      "finalUrl": "https://www.lindecareers.com/en/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "L'Oréal",
+      "url": "https://careers.loreal.com/en_US/jobs",
+      "finalUrl": "https://careers.loreal.com/en_US/jobs",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Novo Nordisk",
+      "url": "https://www.novonordisk.com/careers.html",
+      "finalUrl": "https://www.novonordisk.com/careers.html",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Citigroup",
+      "url": "https://jobs.citi.com/",
+      "finalUrl": "https://jobs.citi.com/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Toyota",
+      "url": "https://careers.toyota.com/us/en/",
+      "finalUrl": "https://careers.toyota.com/us/en/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "IBM",
+      "url": "https://www.ibm.com/careers/search",
+      "finalUrl": "https://www.ibm.com/careers/search",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Thermo Fisher Scientific",
+      "url": "https://jobs.thermofisher.com/global/en",
+      "finalUrl": "https://jobs.thermofisher.com/global/en",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Arista Networks",
+      "url": "https://www.arista.com/en/careers",
+      "finalUrl": "https://www.arista.com/en/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "BHP Group",
+      "url": "https://www.bhp.com/careers",
+      "finalUrl": "https://www.bhp.com/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Amgen",
+      "url": "http://careers.amgen.com/",
+      "finalUrl": "https://careers.amgen.com/en",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "SAP",
+      "url": "https://jobs.sap.com/?utm_source=CareerSite&amp;utm_campaign=CorpSite_FT",
+      "finalUrl": "https://jobs.sap.com/?utm_source=CareerSite&amp;utm_campaign=CorpSite_FT",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Santander",
+      "url": "https://www.santander.com/en/careers",
+      "finalUrl": "https://www.santander.com/en/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Prosus",
+      "url": "https://prosus-talent-lab.com/",
+      "finalUrl": "https://prosus-talent-lab.com/",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Inditex",
+      "url": "https://www.inditex.com/itxcomweb/sa/en/talent/life-at-inditex",
+      "finalUrl": "https://www.inditex.com/itxcomweb/sa/en/talent/life-at-inditex",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "T-Mobile US",
+      "url": "https://www.t-mobile.com/resources/how-to-join-us?INTNAV=tNav%3AJoin",
+      "finalUrl": "https://www.t-mobile.com/resources/how-to-join-us?INTNAV=tNav%3AJoin",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "TotalEnergies",
+      "url": "https://totalenergies.com/careers",
+      "finalUrl": "https://totalenergies.com/careers",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Abbott Laboratories",
+      "url": "https://www.jobs.abbott/us/en",
+      "finalUrl": "https://www.jobs.abbott/us/en",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    },
+    {
+      "name": "Nextera Energy",
+      "url": "https://www.nexteraenergy.com/careers/search-jobs.html",
+      "finalUrl": "https://www.nexteraenergy.com/careers/search-jobs.html",
+      "grade": "good",
+      "score": 10,
+      "problems": []
+    }
+  ]
+}
