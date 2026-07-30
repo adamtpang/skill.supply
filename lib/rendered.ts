@@ -20,12 +20,27 @@ type RenderedCompany = {
   jobs: { title: string; url: string; location: string | null; team: string | null }[];
 };
 
+/**
+ * Index under every name a person might type. "Alphabet (Google)" has to be
+ * findable as "alphabet" and as "google", so register the parenthetical alias
+ * as its own key rather than discarding it.
+ */
+function keysFor(name: string): string[] {
+  const keys = [normalize(name)];
+  for (const m of name.matchAll(/\(([^)]+)\)/g)) keys.push(normalize(m[1]));
+  const withoutParens = name.replace(/\([^)]*\)/g, " ").trim();
+  if (withoutParens) keys.push(normalize(withoutParens));
+  return [...new Set(keys.filter(Boolean))];
+}
+
 const BY_KEY: Map<string, RenderedCompany> = (() => {
   const map = new Map<string, RenderedCompany>();
   const companies = (rendered as { companies?: Record<string, RenderedCompany> }).companies ?? {};
   for (const company of Object.values(companies)) {
     if (!company?.name || !company.jobs?.length) continue;
-    map.set(normalize(company.name), company);
+    for (const key of keysFor(company.name)) {
+      if (!map.has(key)) map.set(key, company);
+    }
   }
   return map;
 })();
@@ -35,7 +50,6 @@ function normalize(input: string): string {
     .toLowerCase()
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
-    .replace(/\([^)]*\)/g, "")
     .replace(/[^a-z0-9]/g, "");
 }
 
