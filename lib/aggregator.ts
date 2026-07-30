@@ -313,8 +313,39 @@ export async function searchAggregators(query: string, limit = 40): Promise<Aggr
     merged.push(job);
   }
 
-  merged.sort((a, b) => (b.postedAt ?? "").localeCompare(a.postedAt ?? ""));
-  return merged.slice(0, limit);
+  // Some providers search fuzzily, so "founding engineer" came back with a
+  // sales role on top. Rank by how well the TITLE actually matches, and drop
+  // anything that matches nowhere, rather than trusting each provider's idea
+  // of relevance.
+  const terms = query.toLowerCase().split(/\s+/).filter((t) => t.length > 1);
+  if (terms.length === 0) {
+    merged.sort((a, b) => (b.postedAt ?? "").localeCompare(a.postedAt ?? ""));
+    return merged.slice(0, limit);
+  }
+
+  const score = (job: AggregatedJob): number => {
+    const title = job.title.toLowerCase();
+    const rest = `${job.company} ${job.location ?? ""} ${job.team ?? ""} ${job.description ?? ""}`.toLowerCase();
+    let n = 0;
+    for (const t of terms) {
+      if (title.includes(t)) n += 10;
+      else if (rest.includes(t)) n += 1;
+    }
+    // Reward a title that contains the whole phrase, not just the words.
+    if (title.includes(query.toLowerCase())) n += 15;
+    return n;
+  };
+
+  return merged
+    .map((job) => ({ job, relevance: score(job) }))
+    .filter((x) => x.relevance > 0)
+    .sort((a, b) =>
+      b.relevance !== a.relevance
+        ? b.relevance - a.relevance
+        : (b.job.postedAt ?? "").localeCompare(a.job.postedAt ?? "")
+    )
+    .slice(0, limit)
+    .map((x) => x.job);
 }
 
 /** Roles at one named company, as seen by the aggregators. */
