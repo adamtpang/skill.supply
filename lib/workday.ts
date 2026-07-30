@@ -35,6 +35,27 @@ export const WORKDAY_TENANTS: Record<string, WorkdayTenant> = {
   rtx: { tenant: "globalhr", wd: "wd5", site: "REC_RTX_Ext_Gateway", name: "RTX" },
   amgen: { tenant: "amgen", wd: "wd1", site: "Careers", name: "Amgen" },
   santander: { tenant: "santander", wd: "wd3", site: "SantanderCareers", name: "Santander" },
+  // Second discovery pass, each confirmed against the live API.
+  johnsonjohnson: { tenant: "jj", wd: "wd5", site: "JJ", name: "Johnson & Johnson" },
+  jj: { tenant: "jj", wd: "wd5", site: "JJ", name: "Johnson & Johnson" },
+  paloaltonetworks: {
+    tenant: "paloaltonetworks",
+    wd: "wd5",
+    site: "panwexternalcareers",
+    name: "Palo Alto Networks",
+  },
+  gevernova: { tenant: "gevernova", wd: "wd5", site: "Vernova_ExternalSite", name: "GE Vernova" },
+  citigroup: { tenant: "citi", wd: "wd5", site: "2", name: "Citigroup" },
+  citi: { tenant: "citi", wd: "wd5", site: "2", name: "Citigroup" },
+  toyota: { tenant: "toyota", wd: "wd503", site: "TMNA", name: "Toyota" },
+  airbus: { tenant: "ag", wd: "wd3", site: "Airbus", name: "Airbus" },
+  abbott: { tenant: "abbott", wd: "wd5", site: "abbottcareers", name: "Abbott" },
+  abbottlaboratories: {
+    tenant: "abbott",
+    wd: "wd5",
+    site: "abbottcareers",
+    name: "Abbott Laboratories",
+  },
 };
 
 const PAGE_SIZE = 20;

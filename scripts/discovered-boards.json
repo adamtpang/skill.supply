@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T12:55:15.929Z",
+  "generatedAt": "2026-07-30T04:16:48.395Z",
   "results": [
     {
       "name": "Apple",
@@ -9,13 +9,19 @@
     },
     {
       "name": "NVIDIA",
-      "url": "https://jobs.nvidia.com/",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite",
       "boards": [
         {
           "provider": "workday",
           "tenant": "nvidia",
           "wd": "wd5",
           "site": "NVIDIAExternalCareerSite"
+        },
+        {
+          "provider": "workday",
+          "tenant": "nvidia",
+          "wd": "wd5",
+          "site": "wday"
         }
       ]
     },
@@ -41,11 +47,11 @@
       "name": "TSMC",
       "url": null,
       "boards": [],
-      "reason": "HTTP 408"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Broadcom",
-      "url": "https://www.broadcom.com/careers",
+      "url": "https://broadcom.wd1.myworkdayjobs.com/External_Career",
       "boards": [
         {
           "provider": "workday",
@@ -87,7 +93,7 @@
     },
     {
       "name": "Samsung",
-      "url": "https://www.samsung.com/careers",
+      "url": "https://www.samsung.com/us/careers/",
       "boards": [
         {
           "provider": "workday",
@@ -101,7 +107,7 @@
       "name": "Micron Technology",
       "url": null,
       "boards": [],
-      "reason": "HTTP 408"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Walmart",
@@ -111,7 +117,7 @@
     },
     {
       "name": "AMD",
-      "url": "https://careers.amd.com/",
+      "url": "https://careers.amd.com/careers-home/jobs",
       "boards": [
         {
           "provider": "icims",
@@ -125,13 +131,19 @@
     },
     {
       "name": "Visa",
-      "url": "https://www.visa.com/careers",
+      "url": "https://corporate.visa.com/en/jobs/",
       "boards": [
         {
           "provider": "workday",
           "tenant": "visa",
           "wd": "wd5",
           "site": "Visa"
+        },
+        {
+          "provider": "workday",
+          "tenant": "visa",
+          "wd": "wd5",
+          "site": "wday"
         }
       ]
     },
@@ -139,19 +151,25 @@
       "name": "SK Hynix",
       "url": null,
       "boards": [],
-      "reason": "HTTP 408"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Johnson & Johnson",
-      "url": null,
-      "boards": [],
-      "reason": "no board link on any careers page"
+      "url": "https://www.careers.jnj.com/en/jobs/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "jj",
+          "wd": "wd5",
+          "site": "JJ"
+        }
+      ]
     },
     {
       "name": "Exxon Mobil",
       "url": null,
       "boards": [],
-      "reason": "HTTP 408"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "ASML",
@@ -173,7 +191,7 @@
     },
     {
       "name": "Mastercard",
-      "url": "https://careers.mastercard.com/",
+      "url": "https://careers.mastercard.com/us/en/search-results",
       "boards": [
         {
           "provider": "workday",
@@ -197,7 +215,7 @@
     },
     {
       "name": "Bank of America",
-      "url": "https://careers.bankofamerica.com/",
+      "url": "https://careers.bankofamerica.com/en-us",
       "boards": [
         {
           "provider": "workday",
@@ -209,9 +227,21 @@
     },
     {
       "name": "Intel",
-      "url": null,
-      "boards": [],
-      "reason": "HTTP 408"
+      "url": "https://jobs.intel.com/en/search-jobs",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "intel",
+          "wd": "wd1",
+          "site": "External"
+        },
+        {
+          "provider": "workday",
+          "tenant": "intel",
+          "wd": "wd1",
+          "site": "wday"
+        }
+      ]
     },
     {
       "name": "Costco",
@@ -223,7 +253,7 @@
       "name": "China Construction Bank",
       "url": null,
       "boards": [],
-      "reason": "HTTP 408"
+      "reason": "target site blocked the render"
     },
     {
       "name": "UnitedHealth",
@@ -233,7 +263,7 @@
     },
     {
       "name": "Caterpillar",
-      "url": "https://www.caterpillar.com/careers",
+      "url": "https://www.caterpillar.com/en/careers.html",
       "boards": [
         {
           "provider": "workday",
@@ -257,7 +287,7 @@
     },
     {
       "name": "Roche",
-      "url": "https://careers.roche.com/",
+      "url": "https://careers.roche.com",
       "boards": [
         {
           "provider": "workday",
@@ -323,7 +353,7 @@
     },
     {
       "name": "Merck",
-      "url": "https://jobs.merck.com/",
+      "url": "https://jobs.merck.com/us/en",
       "boards": [
         {
           "provider": "workday",
@@ -365,7 +395,7 @@
     },
     {
       "name": "RTX",
-      "url": "https://careers.rtx.com/",
+      "url": "https://careers.rtx.com/global/en",
       "boards": [
         {
           "provider": "workday",
@@ -379,145 +409,183 @@
       "name": "Bank of China",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Alibaba",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "CATL",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "AstraZeneca",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "LVMH",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Wells Fargo",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Arm Holdings",
-      "url": null,
-      "boards": [],
-      "reason": "HTTP 429"
+      "url": "https://careers.arm.com/",
+      "boards": [
+        {
+          "provider": "icims",
+          "board": "earlycareers-arm"
+        },
+        {
+          "provider": "icims",
+          "board": "experienced-arm"
+        }
+      ]
     },
     {
       "name": "Palo Alto Networks",
-      "url": null,
-      "boards": [],
-      "reason": "HTTP 429"
+      "url": "https://jobs.paloaltonetworks.com/en/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "paloaltonetworks",
+          "wd": "wd5",
+          "site": "panwexternalcareers"
+        }
+      ]
     },
     {
       "name": "Nestlé",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "HTTP 408"
     },
     {
       "name": "Dell",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Texas Instruments",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Mitsubishi UFJ Financial",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "GE Vernova",
-      "url": null,
-      "boards": [],
-      "reason": "HTTP 429"
+      "url": "https://careers.gevernova.com",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "gevernova",
+          "wd": "wd5",
+          "site": "Vernova_ExternalSite"
+        }
+      ]
     },
     {
       "name": "KLA",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Kweichow Moutai",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "target site blocked the render"
     },
     {
       "name": "Shell",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Siemens",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Linde",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "China Mobile",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "PetroChina",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "L'Oréal",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "American Express",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Citigroup",
-      "url": null,
-      "boards": [],
-      "reason": "HTTP 429"
+      "url": "https://jobs.citi.com/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "citi",
+          "wd": "wd5",
+          "site": "2"
+        }
+      ]
     },
     {
       "name": "Toyota",
-      "url": null,
-      "boards": [],
-      "reason": "HTTP 429"
+      "url": "https://careers.toyota.com/us/en/",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "toyota",
+          "wd": "wd503",
+          "site": "en-us"
+        },
+        {
+          "provider": "workday",
+          "tenant": "toyota",
+          "wd": "wd503",
+          "site": "TMNA"
+        }
+      ]
     },
     {
       "name": "IBM",
@@ -529,7 +597,7 @@
       "name": "Thermo Fisher Scientific",
       "url": null,
       "boards": [],
-      "reason": "target site blocked the render"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Arista Networks",
@@ -545,7 +613,7 @@
     },
     {
       "name": "Amgen",
-      "url": "https://careers.amgen.com/",
+      "url": "http://careers.amgen.com/",
       "boards": [
         {
           "provider": "workday",
@@ -575,7 +643,7 @@
     },
     {
       "name": "Santander",
-      "url": "https://careers.santander.com/",
+      "url": "https://www.santander.com/en/careers",
       "boards": [
         {
           "provider": "workday",
@@ -595,13 +663,13 @@
       "name": "Prosus",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Inditex",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "T-Mobile US",
@@ -619,31 +687,49 @@
       "name": "McDonald",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Airbus",
-      "url": null,
-      "boards": [],
-      "reason": "HTTP 429"
+      "url": "https://www.airbus.com/careers",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "ag",
+          "wd": "wd3",
+          "site": "Airbus"
+        },
+        {
+          "provider": "workday",
+          "tenant": "ag",
+          "wd": "wd3",
+          "site": "fr-FR"
+        }
+      ]
     },
     {
       "name": "TotalEnergies",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     },
     {
       "name": "Abbott Laboratories",
-      "url": null,
-      "boards": [],
-      "reason": "HTTP 429"
+      "url": "https://www.jobs.abbott/us/en",
+      "boards": [
+        {
+          "provider": "workday",
+          "tenant": "abbott",
+          "wd": "wd5",
+          "site": "abbottcareers"
+        }
+      ]
     },
     {
       "name": "Nextera Energy",
       "url": null,
       "boards": [],
-      "reason": "HTTP 429"
+      "reason": "no board link on any careers page"
     }
   ]
 }
