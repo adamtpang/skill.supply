@@ -27,10 +27,12 @@ monetizes the demand. Revenue for this pairing is measured on darktalent.
 - **Free snapshot: $0, forever.** The full agent run, no signup, nothing
   stored, you own the output. This is the wedge and it never gets a paywall
   (LAUNCH.md rule: do not bolt payments onto seekers).
-- **Founding report: $69 one-time** (added to the page 2026-07-30): a
-  concierge deep pass delivered within 48 hours, refund if no interview
-  within 30 days. Fulfilled by mailto today; no Stripe rail exists.
 - **Companies: pay on darktalent.tech**, not here.
+- **Retired 2026-08-01: the $69 founding report.** It charged seekers, which
+  contradicted LAUNCH.md. Adam ruled "LAUNCH.md wins every conflict: seekers
+  never pay," so the FoundingOffer section was removed from app/page.tsx the
+  same day. No Stripe rail ever existed for it and it had zero buyers, so
+  nothing was refunded or migrated.
 
 ## Grand-slam checks
 
@@ -47,10 +49,9 @@ Reports shared: `/s#` links opened by someone other than their creator. That
 is the viral coefficient, and it predicts everything downstream including the
 demand side. Log it weekly in EVIDENCE.md.
 
-## Open pricing question (for Adam, do not resolve silently)
+## Pricing question: resolved
 
 LAUNCH.md (2026-07-23) says seekers never pay. The $69 founding report
-(2026-07-30) charges seekers. The reconciliation used here: the free loop is
-untouched and unlimited, and $69 buys optional concierge depth, not access.
-If that reading is wrong, remove the FoundingOffer section from app/page.tsx;
-if it is right, the $69 stays mailto-only until it has a first buyer.
+(2026-07-30) charged seekers. Adam resolved it 2026-08-01: LAUNCH.md wins
+every conflict, seekers never pay. The FoundingOffer is removed. Any future
+revenue idea for this product must charge the demand side via darktalent.tech.

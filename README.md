@@ -2,8 +2,9 @@
 
 **You're the supply. We make you irresistible.**
 
-An AI career agent in a single page: paste your background (resume, LinkedIn text, or a few
-honest paragraphs) and a server-side Claude agent
+The transfer market for human talent. It combines live market intelligence with an AI career
+agent: paste your background (resume, LinkedIn text, or a few honest paragraphs) and a server-side
+Claude agent
 
 1. **Discovers** your ikigai-market fit: what you love × what you're great at × what
    companies actually pay for,
@@ -11,6 +12,17 @@ honest paragraphs) and a server-side Claude agent
    who ___*,
 3. **Places** you: five named targets (real companies or sharp archetypes) with honest fit
    scores and gaps, and a tailored, non-generic intro message for target #1.
+
+The market side indexes live roles from public company job boards. `/skills` is the consolidated
+home of **Skill Market Cap**: an hourly demand ranking based on explicit skill mentions in those
+real roles. The standalone `skillmarketcap.com` domain redirects into this surface. It remains an
+acquisition asset, not a separate product or a fourth pillar in the talent suite.
+
+`/apply` is the Browser Harness application-agent handoff. It builds a client-only packet from one
+job, candidate facts, an evidence-backed profile, and the exact local resume path. A project agent
+then uses the candidate's real Chrome session to fill deterministic fields, pauses for missing or
+sensitive answers, and requires explicit approval before the final Submit action. See
+[`APPLICATION_AGENT.md`](APPLICATION_AGENT.md).
 
 No auth. No database. No payments. The finished report is compressed into the URL hash, so a
 share link (`/s#…`) reproduces it with zero backend.
@@ -62,5 +74,7 @@ Key files: [`lib/agent.ts`](lib/agent.ts) (the chain), [`lib/prompts.ts`](lib/pr
 
 ## Non-goals (v1)
 
-Auth, accounts, database, payments, live job-board scraping, recruiter side. The agent names
-*targets to pursue*, never claims a live opening exists. Candor is the product.
+Auth, accounts, database, payments, recruiter workflow, unsupported salary estimates, invented
+market trends, bulk auto-applying, and unattended submission. Public Greenhouse, Ashby, and Lever
+inventory is labeled live. Agent-generated targets remain targets to pursue unless they are linked
+to a public opening. Candor is the product.

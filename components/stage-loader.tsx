@@ -27,15 +27,14 @@ export function StageLoader({
   headline: string | null;
   teaser: string | null;
 }) {
-  const [step, setStep] = useState(0);
+  const [cosmeticStep, setCosmeticStep] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
     const base = STAGE_STEP[stage];
-    setStep((s) => Math.max(s, base));
     const advance = COSMETIC_ADVANCE_MS[stage];
     if (advance == null) return;
-    const t = setTimeout(() => setStep((s) => Math.max(s, base + 1)), advance);
+    const t = setTimeout(() => setCosmeticStep((s) => Math.max(s, base + 1)), advance);
     return () => clearTimeout(t);
   }, [stage]);
 
@@ -46,6 +45,7 @@ export function StageLoader({
 
   const mm = String(Math.floor(seconds / 60));
   const ss = String(seconds % 60).padStart(2, "0");
+  const step = Math.max(STAGE_STEP[stage], cosmeticStep);
 
   return (
     <div

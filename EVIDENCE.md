@@ -34,6 +34,10 @@ it weekly below once analytics is collecting.
 | Date | Change | Before | After | Evidence link |
 | --- | --- | --- | --- | --- |
 | 2026-07-26 | Fleet bootstrap created this baseline | n/a | file exists | this file |
+| 2026-08-01 | Stranger test of the core loop on production | assumed working | **FAILED: "no funded model access right now", the agent cannot run.** Site, OG image (200, 49KB PNG), /s page, analytics, fleet footer, and capture (mailto mode) all fine; the product inside them is down. Unblock: Adam funds Vercel AI Gateway credits or sets a funded ANTHROPIC_API_KEY in Vercel env, then rerun this test | browser run, this date |
+| 2026-08-01 | Removed the $69 FoundingOffer from app/page.tsx per Adam's ruling: LAUNCH.md wins every conflict, seekers never pay | $69 seeker offer live on the page, zero buyers ever | seekers fully free; demand side monetizes on darktalent.tech only | OFFER.md "Pricing question: resolved" |
+| 2026-08-01 | Seed posts drafted (r/jobs, r/cscareerquestions, LinkedIn, X) | none | POSTS.md, gated on funding + Adam's real report link | POSTS.md |
+| 2026-08-01 | Share-loop metric baseline | n/a | 0 shared reports (loop cannot run while unfunded) | this row |
 
 ## Rules
 

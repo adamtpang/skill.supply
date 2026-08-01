@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ArrowRight, CircleAlert, RefreshCw } from "lucide-react";
 import type { AgentEvent, SupplyReport } from "@/lib/schema";
 import { Button } from "@/components/ui/button";
@@ -154,13 +155,22 @@ export function AgentFlow() {
           companies that should be fighting to hire you, with the resume and the opening message
           to make it happen.
         </p>
-        <a
-          href="/companies"
-          className="mt-5 inline-flex items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
-        >
-          Or explore the best companies to work for
-          <ArrowRight className="size-4" aria-hidden />
-        </a>
+        <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+          <Link
+            href="/companies"
+            className="inline-flex items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Explore the best companies
+            <ArrowRight className="size-4" aria-hidden />
+          </Link>
+          <Link
+            href="/skills"
+            className="inline-flex items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            See live skill demand
+            <ArrowRight className="size-4" aria-hidden />
+          </Link>
+        </div>
       </section>
 
       {/* Flow */}

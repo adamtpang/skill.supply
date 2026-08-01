@@ -1,8 +1,8 @@
-# Grok: Continue From Claude - skill.supply
+# Antigravity: Continue From Claude - skill.supply
 
-Generated on 2026-07-26 from local Claude transcripts for Grok cross-agent continuity.
+Generated on 2026-07-27 from local Claude transcripts in `C:\Users\adamp\.claude\projects`.
 
-This file refreshes Claude progress since 2020-01-01T00:00:00.000Z. Use it (or `/resume-claude`) before continuing this project in Grok.
+This file refreshes Claude progress since 2026-07-20T00:00:00.000Z. Use it before continuing this project in Antigravity.
 
 Recent Claude sessions mapped here: 1. Showing 1 detailed sessions.
 
@@ -30,7 +30,7 @@ Recent Claude sessions mapped here: 1. Showing 1 detailed sessions.
 ### 2026-07-25T11:03:26.134Z
 
 - Claude session: `207c7fd5-2e7e-48b7-83e2-3ba861ff241f`
-- Grok import record id: `22952f56-2928-41a1-992d-63af7e986bde`
+- Antigravity import record id: `584428a5-a2a5-49a0-b302-b2953310ac71`
 - Messages: 372 user / 641 assistant / 1498 events
 - First user ask: # Build skill.supply — an AI agent that gets people hired You're building the v1 of **skill.supply**, a web app. Ship a real, deployed, working product — not a plan. Move like the goal is a public launch this week. ## What it is skill.supply is an **AI career agent** that turns a person into the "supply" companies compete for. It does three things in one flo
 - Last user ask: its applovin.com axon.ai yeah how do i increase visibility then? how do i get a job asap at a top top company? like the ones in companiesmarketcap.com? i want all those companies, and their careers pages, and the Jds in those careers pages to be indexable by the users of skill.supply, and after extensively vetting, onboarding, interviewing, upskilling users 

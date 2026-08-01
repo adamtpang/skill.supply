@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Bot } from "lucide-react";
 import { COMPANIES, getCompany } from "@/lib/companies";
 import { fetchJobs } from "@/lib/jobs";
+import { applicationHref } from "@/lib/application";
 import { GetInPanel } from "@/components/get-in-panel";
 
 export function generateStaticParams() {
@@ -32,19 +34,19 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
       <header className="flex items-center justify-between pt-6">
-        <a
+        <Link
           href="/"
           className="rounded font-mono text-sm font-semibold tracking-tight outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
         >
           skill<span className="text-brand">.</span>supply
-        </a>
-        <a
+        </Link>
+        <Link
           href="/companies"
           className="inline-flex items-center gap-1.5 rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
         >
           <ArrowLeft className="size-3" aria-hidden />
           All companies
-        </a>
+        </Link>
       </header>
 
       <main className="flex-1 pb-16">
@@ -121,12 +123,12 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
             </div>
             <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-card">
               {jobs.slice(0, 8).map((job) => (
-                <li key={job.id}>
+                <li key={job.id} className="flex items-center gap-2 p-2 pl-4">
                   <a
                     href={job.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-baseline justify-between gap-4 p-4 outline-none transition-colors hover:bg-muted/50 focus-visible:bg-muted/50"
+                    className="flex min-w-0 flex-1 items-baseline justify-between gap-4 rounded-lg py-2 outline-none transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
                   >
                     <span className="min-w-0">
                       <span className="block truncate text-sm font-medium">{job.title}</span>
@@ -141,6 +143,13 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
                       aria-hidden
                     />
                   </a>
+                  <Link
+                    href={applicationHref(job, company.name)}
+                    className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-lg border border-border px-3 text-xs font-medium outline-none transition-colors hover:border-foreground/25 hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50"
+                  >
+                    <Bot className="size-3.5 text-brand" aria-hidden />
+                    Apply
+                  </Link>
                 </li>
               ))}
             </ul>

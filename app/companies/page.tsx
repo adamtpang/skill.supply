@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { COMPANIES, AS_OF } from "@/lib/companies";
+import { OFFICIAL_CAREERS } from "@/lib/careers";
 import { fetchJobCounts } from "@/lib/jobs";
 import { CompanyCard } from "@/components/company-card";
 import { CompanySearch } from "@/components/company-search";
@@ -17,20 +19,28 @@ export default async function CompaniesPage() {
 
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-5 sm:px-8">
-      <header className="flex items-center justify-between pt-6">
-        <a
+      <header className="flex items-center justify-between gap-4 pt-6">
+        <Link
           href="/"
           className="rounded font-mono text-sm font-semibold tracking-tight outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
         >
           skill<span className="text-brand">.</span>supply
-        </a>
-        <a
-          href="/"
-          className="inline-flex items-center gap-1.5 rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
-        >
-          <ArrowLeft className="size-3" aria-hidden />
-          Your report
-        </a>
+        </Link>
+        <nav className="flex items-center gap-4" aria-label="Market navigation">
+          <Link
+            href="/skills"
+            className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Skills
+          </Link>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            <ArrowLeft className="size-3" aria-hidden />
+            Your report
+          </Link>
+        </nav>
       </header>
 
       <main className="flex-1 pb-16">
@@ -56,6 +66,45 @@ export default async function CompaniesPage() {
         <section className="mb-10">
           <CompanySearch />
         </section>
+
+        <section className="mb-10">
+          <div className="mb-3 flex items-baseline justify-between gap-3">
+            <h2 className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+              Official career pages
+            </h2>
+            <p className="text-xs text-muted-foreground">Workday and proprietary boards</p>
+          </div>
+          <ul className="grid overflow-hidden rounded-xl border border-border bg-card sm:grid-cols-2">
+            {OFFICIAL_CAREERS.map((career) => (
+              <li key={career.name} className="border-b border-border last:border-b-0 sm:odd:border-r">
+                <a
+                  href={career.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-12 items-center justify-between gap-3 px-4 py-3 text-sm font-medium outline-none transition-colors hover:bg-muted/50 hover:text-brand focus-visible:ring-3 focus-visible:ring-ring/50"
+                >
+                  {career.name}
+                  <ArrowUpRight className="size-3.5 shrink-0 text-muted-foreground" aria-hidden />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <Link
+          href="/skills"
+          className="mb-10 flex flex-col gap-3 rounded-xl border border-border bg-muted/40 p-5 outline-none transition-colors hover:border-foreground/25 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <span>
+            <span className="block font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+              Skill Market Cap
+            </span>
+            <span className="mt-1 block text-sm font-medium">
+              See which skills these companies are hiring for right now.
+            </span>
+          </span>
+          <span className="shrink-0 text-sm font-medium text-brand">View live demand</span>
+        </Link>
 
         <h2 className="mb-4 font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
           Hand-picked

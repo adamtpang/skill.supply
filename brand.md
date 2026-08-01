@@ -8,6 +8,14 @@ skill.supply is an AI career agent. Tagline: **"You're the supply. We make you i
 It treats a person as the supply side of a market and makes their value legible: ikigai-market
 fit → packaging (resume + one-liner) → placement (5 targets + opening move).
 
+Skill Market Cap is a capability inside skill.supply, not a separate brand. It makes market demand
+legible from real public roles, then hands the person back to the agent to turn demanded skills into
+proof and a placement path. `skillmarketcap.com` is an acquisition domain for `/skills`.
+
+The application agent is the execution layer. It uses Browser Harness to prepare one grounded
+application in the candidate's own browser and makes human review visible as a product feature. It
+never becomes an auto-apply spray tool, and the candidate owns the final Submit action.
+
 ## Voice
 
 Sharp, warm, direct. A brilliant friend who knows the market, never an HR department.

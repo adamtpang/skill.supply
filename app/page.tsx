@@ -1,5 +1,4 @@
 import { AgentFlow } from "@/components/agent-flow";
-import { FoundingOffer } from "@/components/founding-offer";
 import { PlacementStories } from "@/components/placement-stories";
 import Link from "next/link";
 
@@ -48,9 +47,11 @@ export default function Home() {
       </header>
 
       <main className="flex-1 pb-16">
+        {/* Seekers never pay: LAUNCH.md wins every conflict, ruled by Adam
+            2026-08-01. The $69 FoundingOffer that lived here charged seekers
+            and is retired; the demand side monetizes on darktalent.tech. */}
         <AgentFlow />
         <PlacementStories />
-        <FoundingOffer />
       </main>
 
       <footer className="border-t border-border py-6">

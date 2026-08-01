@@ -1,13 +1,19 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowUpRight, LoaderCircle, Search } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, Bot, LoaderCircle, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Job } from "@/lib/jobs";
+import { applicationHref } from "@/lib/application";
 
 type Result =
   | { found: true; name: string; provider: string; count: number; jobs: Job[] }
-  | { found: false; message: string };
+  | {
+      found: false;
+      message: string;
+      officialCareer?: { name: string; url: string } | null;
+    };
 
 const SUGGESTED = ["AppLovin", "Nvidia", "Stripe", "Databricks", "Palantir", "Figma"];
 
@@ -31,7 +37,7 @@ export function CompanySearch() {
         signal: controller.signal,
       });
       setResult((await res.json()) as Result);
-    } catch (err) {
+    } catch {
       if (!controller.signal.aborted) {
         setResult({ found: false, message: "Could not reach the job board. Try again." });
       }
@@ -104,12 +110,12 @@ export function CompanySearch() {
               </div>
               <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-card">
                 {result.jobs.slice(0, 10).map((job) => (
-                  <li key={job.id}>
+                  <li key={job.id} className="flex items-center gap-2 p-2 pl-4">
                     <a
                       href={job.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-baseline justify-between gap-4 p-4 outline-none transition-colors hover:bg-muted/50 focus-visible:bg-muted/50"
+                      className="flex min-w-0 flex-1 items-baseline justify-between gap-4 rounded-lg py-2 outline-none transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
                     >
                       <span className="min-w-0">
                         <span className="block truncate text-sm font-medium">{job.title}</span>
@@ -124,6 +130,13 @@ export function CompanySearch() {
                         aria-hidden
                       />
                     </a>
+                    <Link
+                      href={applicationHref(job, result.name)}
+                      className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-lg border border-border px-3 text-xs font-medium outline-none transition-colors hover:border-foreground/25 hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50"
+                    >
+                      <Bot className="size-3.5 text-brand" aria-hidden />
+                      Apply
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -134,9 +147,20 @@ export function CompanySearch() {
               )}
             </>
           ) : (
-            <p className="rounded-xl border border-border bg-muted/40 p-4 text-sm leading-relaxed text-muted-foreground">
-              {result.message}
-            </p>
+            <div className="rounded-xl border border-border bg-muted/40 p-4">
+              <p className="text-sm leading-relaxed text-muted-foreground">{result.message}</p>
+              {result.officialCareer && (
+                <a
+                  href={result.officialCareer.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 rounded text-sm font-medium text-brand outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring/50"
+                >
+                  Open {result.officialCareer.name} careers
+                  <ArrowUpRight className="size-3.5" aria-hidden />
+                </a>
+              )}
+            </div>
           )}
         </div>
       )}
