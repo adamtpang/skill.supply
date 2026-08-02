@@ -1,0 +1,21 @@
+# repos.yaml v0 — see github.com/adamtpang/repo-protocol
+repo: skill.supply
+is: The supply side of talent: an AI career agent that packages a person and places them.
+url: https://skill.supply
+cluster: talent-stack
+ranks: candidates
+
+provides:
+  - career-agent: ikigai read, resume packaging, role matching
+
+stack: [next, anthropic, zod]
+
+kin:
+  - repo: darktalent.tech
+    why: darktalent scores talent from the demand side; skill.supply works the supply side
+  - repo: company.university
+    why: consumes its in-demand-skills board as matching targets
+  - repo: summon.company
+    why: summon builds the company; skill.supply staffs it
+
+canon: adamtpang/repo-protocol
