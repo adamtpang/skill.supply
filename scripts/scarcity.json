@@ -1,0 +1,269 @@
+{
+  "sampleSize": 635,
+  "rows": [
+    {
+      "name": "TypeScript",
+      "terms": [
+        "typescript"
+      ],
+      "supply": 9,
+      "why": "the default language of web hiring",
+      "you": true,
+      "hits": 48,
+      "demandPct": 7.6,
+      "demand": 6.1,
+      "scarcity": 0.67
+    },
+    {
+      "name": "React",
+      "terms": [
+        "react",
+        "react.js"
+      ],
+      "supply": 10,
+      "why": "the single most taught frontend skill",
+      "you": true,
+      "hits": 48,
+      "demandPct": 7.6,
+      "demand": 6.1,
+      "scarcity": 0.61
+    },
+    {
+      "name": "Next.js",
+      "terms": [
+        "next.js",
+        "nextjs"
+      ],
+      "supply": 7,
+      "why": "common but a step past basic React",
+      "you": true,
+      "hits": 11,
+      "demandPct": 1.7,
+      "demand": 2.8,
+      "scarcity": 0.41
+    },
+    {
+      "name": "Node.js",
+      "terms": [
+        "node.js",
+        "nodejs",
+        "node "
+      ],
+      "supply": 9,
+      "why": "ubiquitous backend runtime",
+      "you": true,
+      "hits": 29,
+      "demandPct": 4.6,
+      "demand": 4.8,
+      "scarcity": 0.54
+    },
+    {
+      "name": "Full-stack product",
+      "terms": [
+        "full stack",
+        "full-stack",
+        "fullstack",
+        "product engineer"
+      ],
+      "supply": 9,
+      "why": "the most claimed title in tech",
+      "you": true,
+      "hits": 56,
+      "demandPct": 8.8,
+      "demand": 6.4,
+      "scarcity": 0.72
+    },
+    {
+      "name": "LLM API integration",
+      "terms": [
+        "llm",
+        "openai api",
+        "anthropic",
+        "claude api",
+        "gpt-"
+      ],
+      "supply": 6,
+      "why": "fast-growing, still shallower than it looks",
+      "you": true,
+      "hits": 42,
+      "demandPct": 6.6,
+      "demand": 5.7,
+      "scarcity": 0.96
+    },
+    {
+      "name": "AI agents",
+      "terms": [
+        "ai agent",
+        "agentic",
+        "agent framework",
+        "multi-agent",
+        "autonomous agent"
+      ],
+      "supply": 4,
+      "why": "everyone claims it, few have shipped one that runs unattended",
+      "you": true,
+      "hits": 40,
+      "demandPct": 6.3,
+      "demand": 5.6,
+      "scarcity": 1.4
+    },
+    {
+      "name": "Prompt and eval engineering",
+      "terms": [
+        "prompt engineering",
+        "evals",
+        "eval harness",
+        "prompt versioning"
+      ],
+      "supply": 4,
+      "why": "treated as an afterthought by most teams",
+      "you": true,
+      "hits": 20,
+      "demandPct": 3.1,
+      "demand": 4,
+      "scarcity": 1
+    },
+    {
+      "name": "RAG and retrieval",
+      "terms": [
+        "rag",
+        "retrieval augmented",
+        "vector database",
+        "embeddings"
+      ],
+      "supply": 5,
+      "why": "well documented, widely attempted",
+      "you": true,
+      "hits": 9,
+      "demandPct": 1.4,
+      "demand": 2.5,
+      "scarcity": 0.5
+    },
+    {
+      "name": "Agent output verification",
+      "terms": [
+        "reconcil",
+        "audit trail",
+        "auditable",
+        "observability for agents",
+        "agent reliability",
+        "guardrail",
+        "hallucination",
+        "drift detection",
+        "provenance"
+      ],
+      "supply": 2,
+      "why": "the actual blocker on agent adoption and almost nobody evidences it",
+      "you": true,
+      "hits": 6,
+      "demandPct": 0.9,
+      "demand": 1.9,
+      "scarcity": 0.94
+    },
+    {
+      "name": "MCP and tool use",
+      "terms": [
+        "mcp",
+        "model context protocol",
+        "tool use",
+        "function calling"
+      ],
+      "supply": 3,
+      "why": "new enough that shipped experience is rare",
+      "you": true,
+      "hits": 16,
+      "demandPct": 2.5,
+      "demand": 3.6,
+      "scarcity": 1.18
+    },
+    {
+      "name": "Developer tooling",
+      "terms": [
+        "developer tool",
+        "devtools",
+        "sdk",
+        "cli tool",
+        "developer experience"
+      ],
+      "supply": 5,
+      "why": "narrower than product engineering",
+      "you": true,
+      "hits": 12,
+      "demandPct": 1.9,
+      "demand": 3,
+      "scarcity": 0.6
+    },
+    {
+      "name": "Shipping solo, zero to one",
+      "terms": [
+        "0 to 1",
+        "zero to one",
+        "founding engineer",
+        "first engineer",
+        "greenfield"
+      ],
+      "supply": 4,
+      "why": "claimed constantly, provable rarely",
+      "you": true,
+      "hits": 12,
+      "demandPct": 1.9,
+      "demand": 3,
+      "scarcity": 0.75
+    },
+    {
+      "name": "Python",
+      "terms": [
+        "python"
+      ],
+      "supply": 10,
+      "why": "you do not lead with this",
+      "you": false,
+      "hits": 75,
+      "demandPct": 11.8,
+      "demand": 7.2,
+      "scarcity": 0.72
+    },
+    {
+      "name": "Rust",
+      "terms": [
+        "rust"
+      ],
+      "supply": 4,
+      "why": "scarce but you cannot evidence it",
+      "you": false,
+      "hits": 11,
+      "demandPct": 1.7,
+      "demand": 2.8,
+      "scarcity": 0.71
+    },
+    {
+      "name": "Go",
+      "terms": [
+        "golang",
+        "go "
+      ],
+      "supply": 6,
+      "why": "scarce-ish but you cannot evidence it",
+      "you": false,
+      "hits": 133,
+      "demandPct": 20.9,
+      "demand": 8.7,
+      "scarcity": 1.45
+    },
+    {
+      "name": "Kubernetes and infra",
+      "terms": [
+        "kubernetes",
+        "k8s",
+        "terraform"
+      ],
+      "supply": 6,
+      "why": "you cannot evidence it",
+      "you": false,
+      "hits": 44,
+      "demandPct": 6.9,
+      "demand": 5.8,
+      "scarcity": 0.97
+    }
+  ]
+}
