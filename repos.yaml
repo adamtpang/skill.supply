@@ -6,7 +6,9 @@ cluster: talent-stack
 ranks: candidates
 
 provides:
-  - career-agent: ikigai read, resume packaging, role matching
+  - id: career-agent
+    what: ikigai read, resume packaging, role matching
+    at: lib/agent.ts
 
 stack: [next, anthropic, zod]
 
