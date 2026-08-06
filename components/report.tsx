@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Bot, Link2, RefreshCw } from "lucide-react";
+import { ArrowRight, Bot, Link2, RefreshCw, Share2 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import type { SupplyReport } from "@/lib/schema";
@@ -78,6 +78,17 @@ export function SupplyReportView({
     } catch {
       /* clipboard denied */
     }
+  }
+
+  // The static brand OG card can't carry the personal one-liner (the report
+  // lives in the URL hash, so the server never sees it to render a per-report
+  // card). A pre-filled tweet is the one channel where the actual hook,
+  // "You are the person who ___", still travels with the share.
+  function shareToX() {
+    const text = `${report.one_liner}\n\nFree AI career agent, no signup:`;
+    const url = shareUrl(report, window.location.origin);
+    const intent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+    window.open(intent, "_blank", "noopener,noreferrer");
   }
 
   function beginApplication() {
@@ -238,6 +249,10 @@ export function SupplyReportView({
             <Button type="button" size="lg" onClick={copyLink}>
               <Link2 aria-hidden />
               {linkCopied ? "Link copied. Go post it" : "Copy share link"}
+            </Button>
+            <Button type="button" variant="outline" size="lg" onClick={shareToX}>
+              <Share2 aria-hidden />
+              Share to X
             </Button>
             <Button type="button" variant="outline" size="lg" onClick={beginApplication}>
               <Bot aria-hidden />

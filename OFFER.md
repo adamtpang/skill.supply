@@ -1,4 +1,4 @@
-# OFFER — skill.supply
+# OFFER: skill.supply
 
 Filled 2026-08-01. No brackets. Two-sided by design; see LAUNCH.md for the
 growth model and the open pricing question at the bottom for the one tension.
@@ -40,8 +40,8 @@ monetizes the demand. Revenue for this pairing is measured on darktalent.
 - [x] Perceived likelihood is high (real live openings scored, not advice)
 - [x] Time delay is short (snapshot instant; founding report inside 48h)
 - [x] Effort is low (paste a background, that is the whole job)
-- [x] Risk is reversed (free tier owns the loop; $69 refunds if no interview
-      in 30 days)
+- [x] Risk is reversed (free, no signup, nothing stored; there is nothing to
+      lose by trying it)
 
 ## The one metric
 
