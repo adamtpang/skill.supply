@@ -47,3 +47,19 @@ next-env.d.ts
 
 # outreach drafts, never committed (public repo)
 sales/
+
+# personal job-search data: real names, real personal emails, targeting
+# dossiers on real people, your own financial/career strategy. Stays local
+# only. Purged from history 2026-08-01 when this repo went public.
+/APPLICATIONS.md
+/ASAP.md
+/INCOME.md
+/jobs.md
+/company/
+/scripts/contacts.json
+/scripts/people.json
+/scripts/remote-candidates.json
+/scripts/scored-roles.json
+/scripts/verified-people.json
+/scripts/warmth.json
+/scripts/issues-found.json
