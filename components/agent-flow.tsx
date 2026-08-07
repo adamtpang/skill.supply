@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, CircleAlert, RefreshCw } from "lucide-react";
 import type { AgentEvent, SupplyReport } from "@/lib/schema";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { StageLoader, type ServerStage } from "@/components/stage-loader";
 import { SupplyReportView } from "@/components/report";
@@ -27,6 +28,7 @@ type Phase = "idle" | "running" | "need_more" | "error" | "done";
 
 export function AgentFlow() {
   const [input, setInput] = useState("");
+  const [apiKey, setApiKey] = useState("");
   const [phase, setPhase] = useState<Phase>("idle");
   const [stage, setStage] = useState<ServerStage>("reading");
   const [headline, setHeadline] = useState<string | null>(null);
@@ -72,7 +74,7 @@ export function AgentFlow() {
   }
 
   async function run() {
-    if (input.trim().length === 0 || phase === "running") return;
+    if (input.trim().length === 0 || apiKey.trim().length === 0 || phase === "running") return;
     setPhase("running");
     setStage("reading");
     setHeadline(null);
@@ -88,7 +90,7 @@ export function AgentFlow() {
       const res = await fetch("/api/agent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ input }),
+        body: JSON.stringify({ input, apiKey: apiKey.trim() }),
         signal: controller.signal,
       });
       if (!res.ok || !res.body) {
@@ -217,12 +219,41 @@ export function AgentFlow() {
               className="max-h-[420px] min-h-[220px] overflow-y-auto rounded-xl bg-card p-4 text-[0.925rem] leading-relaxed"
               required
             />
+            <div className="mt-3">
+              <label htmlFor="apiKey" className="mb-1.5 block text-xs font-medium text-muted-foreground">
+                Your Anthropic API key
+              </label>
+              <Input
+                id="apiKey"
+                name="apiKey"
+                type="password"
+                autoComplete="off"
+                value={apiKey}
+                onChange={(e) => setApiKey(e.target.value)}
+                placeholder="sk-ant-..."
+                className="max-w-sm rounded-xl bg-card px-4 py-4 text-[0.925rem]"
+                required
+              />
+              <p className="mt-1.5 text-xs text-muted-foreground">
+                This runs the agent, not skill.supply, so the report stays free forever. Get a
+                free key at{" "}
+                <a
+                  href="https://console.anthropic.com/settings/keys"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded font-medium text-foreground underline underline-offset-4 outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+                >
+                  console.anthropic.com
+                </a>
+                . Used once for this run, never logged, never stored.
+              </p>
+            </div>
             <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-3">
               <Button
                 type="submit"
                 size="lg"
                 className="h-11 px-5 text-[0.925rem]"
-                disabled={input.trim().length === 0}
+                disabled={input.trim().length === 0 || apiKey.trim().length === 0}
               >
                 {phase === "need_more" || phase === "error" ? (
                   <>
@@ -235,8 +266,8 @@ export function AgentFlow() {
                 )}
               </Button>
               <p className="text-xs leading-relaxed text-muted-foreground">
-                ≈ a minute · no signup · nothing stored ·<br className="sm:hidden" /> your report
-                lives in a link only you hold
+                ≈ a minute · your own API key · nothing stored ·<br className="sm:hidden" /> your
+                report lives in a link only you hold
               </p>
             </div>
             {input.trim().length === 0 && (

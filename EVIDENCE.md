@@ -55,6 +55,73 @@ The connected integration cannot execute this regardless of authorization.
 **A prior memory record claiming "team gateway credits funded" is stale and
 wrong as of today.** Corrected in memory after this session.
 
+## 2026-08-06, later: pivot to bring-your-own-key
+
+Adam considered two funding paths (a real Anthropic API key, or the Vercel AI
+Gateway) and rejected both in favor of using his existing $200/mo Claude
+subscription instead. Checked that against Anthropic's actual current policy
+before building anything (WebSearch, not memory): **OAuth tokens from Claude
+Free, Pro, and Max subscriptions are explicitly prohibited in any context
+outside Claude Code and Claude.ai themselves.** `/api/agent` is neither.
+Wiring the subscription's token into it would be a real, sourced policy
+violation risking suspension of the account Adam uses for Claude Code across
+his entire fleet, not a gray area. Declined to build it; explained why with
+sources (alternativeto.net, yage.ai) rather than silently doing something
+that technically works but breaks the account it depends on.
+
+Adam's actual decision, once that path was closed: **every seeker brings
+their own Anthropic API key.** Implemented:
+
+- `lib/agent.ts`: `makeClient(byokKey?)` now tries a caller-supplied key
+  first, before the existing `ANTHROPIC_API_KEY` / Gateway fallback chain.
+  `runAgent(rawInput, send, byokKey?)` threads it through. Scoped
+  deliberately to `runAgent` (the free report, LAUNCH.md's whole product)
+  only; `runGetIn` (`/scout`), `runDream`, `runJudge` (the dream-JD feature)
+  still use the old fallback chain and are **not yet on BYOK**, a separate
+  open decision, not an oversight.
+- `friendlyError(err, { byok })`: the same Anthropic error classes now read
+  as "your key" problems, not "the app's" problems, when `byok: true`. An
+  invalid key says so and points at console.anthropic.com; no credit says so
+  and notes the real cost is a fraction of a cent per call.
+- `app/api/agent/route.ts`: requires `apiKey` in the request body, 400s with
+  a clear message if missing, passes it through, logs only `err.message` on
+  failure (never the raw error object, as a defensive habit now that a
+  secret flows through this path).
+- `components/agent-flow.tsx` + new `components/ui/input.tsx`: a password-
+  type API key field next to the background textarea, submit disabled until
+  both are non-empty, a `console.anthropic.com/settings/keys` link, and copy
+  stating plainly that this is what keeps the report free and that the key
+  is used once and never stored.
+
+**Verified, not just built:**
+- `pnpm run build` passes clean.
+- Served locally and hit the real route three ways: no `apiKey` field → 400
+  with the correct message; empty `apiKey` → same 400; a syntactically
+  present but invalid key → the stream starts, then correctly surfaces
+  **"That API key was rejected"** (a real Anthropic `AuthenticationError`,
+  caught and reframed, not a mock). This proves the key genuinely reaches a
+  real `Anthropic({ apiKey })` client end to end, at zero cost, since an
+  invalid key is rejected before any billable call happens.
+- In a real browser: invoking the actual React `onChange` handler directly
+  confirmed the submit button's disabled state correctly tracks both fields.
+  (Note: dispatching synthetic DOM `input`/`change` events did not trigger
+  React 19's delegated listener in this test harness, a tooling quirk, not a
+  product bug; calling the handler directly through the fiber's props, the
+  same code path a real keystroke invokes, confirmed the logic itself is
+  correct.)
+
+**Honest tradeoff, not hidden:** OFFER.md and LAUNCH.md updated to say this
+plainly. skill.supply itself still costs nothing and stores nothing, so the
+"free forever" promise holds, but a seeker with no Anthropic account now
+faces real friction (a new signup elsewhere, a small card charge) before
+their first report. This could meaningfully hurt the share-loop metric
+LAUNCH.md cares about. Not resolved here; watch the numbers once this ships.
+
+**Still not deployed.** This project's deploy step (`vercel deploy --prod`)
+remains Adam's, and there is now a second reason to hold off pushing it live
+without a final look: this changes the core promise of the product, not just
+a funding mechanism.
+
 ## Deployment model, different from the rest of the fleet
 
 Checked `list_deployments`: every single deployment in this project's history

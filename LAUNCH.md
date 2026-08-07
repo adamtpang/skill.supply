@@ -1,4 +1,4 @@
-# skill.supply — launch and market plan
+# skill.supply: launch and market plan
 
 Positioning: **You're the supply. We make you irresistible.** A free AI career agent that
 turns anyone into a person companies fight to hire. Market it, never push it.
@@ -6,7 +6,10 @@ turns anyone into a person companies fight to hire. Market it, never push it.
 ## The wedge (free, viral by design)
 1. **The free report is the whole product and the whole ad.** Paste your background, get
    your ikigai, a packaged resume, five well-paid targets, five intros, five get-in plans,
-   as an exportable kit. No auth, no paywall.
+   as an exportable kit. No skill.supply auth, no paywall, ever. **Changed 2026-08-06:**
+   the seeker now pastes their own Anthropic API key too (bring-your-own-key, see OFFER.md),
+   so skill.supply never carries the AI bill. This is a real friction addition worth
+   watching in the share-loop numbers, not a free lunch.
 2. **The share link is the growth loop.** The report lives in the URL hash (`/s#...`). When
    someone shares "here's the person I am: I'm the one who ___", their network sees a real,
    flattering artifact and wants their own. Every user is a billboard.
