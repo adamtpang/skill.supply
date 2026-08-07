@@ -8,6 +8,7 @@ import { shareUrl } from "@/lib/share";
 import { Button } from "@/components/ui/button";
 import { CopyButton } from "@/components/copy-button";
 import { Markdown, markdownToPlainText } from "@/components/markdown";
+import { PoolOptIn } from "@/components/pool-optin";
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
@@ -270,6 +271,14 @@ export function SupplyReportView({
           </div>
         )}
       </Section>
+
+      {/* Pool opt-in: the wire to darktalent.tech, the demand side. Only on
+          your own report, never on someone else's shared link. */}
+      {!shared && (
+        <Section eyebrow="06 · Get scored">
+          <PoolOptIn report={report} />
+        </Section>
+      )}
     </article>
   );
 }
