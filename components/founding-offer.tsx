@@ -41,7 +41,7 @@ export function FoundingOffer() {
           </p>
         </div>
         <div className="rounded-xl border border-border bg-card p-4 sm:p-5">
-          <p className="text-[0.95rem] font-semibold tracking-tight">Founding report — $69</p>
+          <p className="text-[0.95rem] font-semibold tracking-tight">Founding report ($69)</p>
           <p className="mt-1 text-xs text-muted-foreground">
             Price rises after the first 10 reports.
           </p>

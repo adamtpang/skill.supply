@@ -8,7 +8,7 @@ export function BetaBar() {
   return (
     <div className="mx-auto w-full max-w-3xl px-5 pb-6 sm:px-8">
       <p className="text-[11px] leading-relaxed text-muted-foreground">
-        🧪 Beta — tell me what sucked:{" "}
+        🧪 Beta, tell me what sucked:{" "}
         <a
           href={href}
           className="rounded font-medium text-foreground underline underline-offset-4 outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
