@@ -117,10 +117,26 @@ faces real friction (a new signup elsewhere, a small card charge) before
 their first report. This could meaningfully hurt the share-loop metric
 LAUNCH.md cares about. Not resolved here; watch the numbers once this ships.
 
-**Still not deployed.** This project's deploy step (`vercel deploy --prod`)
-remains Adam's, and there is now a second reason to hold off pushing it live
-without a final look: this changes the core promise of the product, not just
-a funding mechanism.
+**Deployed 2026-08-07 on Adam's instruction** (`vercel deploy --prod`,
+`dpl_6peqj8XQZ5hv5pMawzEEdbXd7tdC`, READY). Verified live, not just built:
+
+- `https://skill.supply` returns 200, and the retired $69 "Founding report"
+  offer is finally gone from production too (it had been stuck live for a
+  week behind the earlier deploy-freshness bug; this deploy also carries the
+  fix from the 2026-08-06 session, since `main` had moved further in the
+  meantime, including a `.gitignore` pass that stopped tracking Adam's
+  personal job-search files before the repo goes public).
+- The BYOK field and the `console.anthropic.com` link are present in the
+  live HTML.
+- Re-ran the same zero-cost functional test directly against production: a
+  request missing `apiKey` returns the same clean 400, and a syntactically
+  valid but wrong key reaches a real Anthropic client and comes back with
+  the real, correctly-reframed **"That API key was rejected"** message.
+  Confirms the whole path works in the actual deployed environment, not just
+  locally.
+
+Not yet observed: a real seeker completing a real report with their own
+funded key. That is the one thing that still needs a live human to confirm.
 
 ## Deployment model, different from the rest of the fleet
 
