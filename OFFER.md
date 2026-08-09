@@ -37,25 +37,31 @@ monetizes the demand. Revenue for this pairing is measured on darktalent.
 **Changed 2026-08-06: bring-your-own-key.** The Vercel AI Gateway that ran the
 free agent was unfunded and broken (see EVIDENCE.md). Rather than skill.supply
 paying for every seeker's run, the seeker now pastes their own Anthropic API
-key alongside their background; it is used only in memory for that one run,
-never logged, never persisted. This keeps the $0 price genuinely free (no
-skill.supply cost, ever) but adds real friction: a seeker who has never used
-the Anthropic API now has to create an account and add a few dollars of
-credit at console.anthropic.com before they get a report. That is a real
-tension with LAUNCH.md's "no signup, just paste and go" promise, decided by
-Adam directly rather than something to paper over. Watch the share-loop
-metric for whether this friction kills conversion; if it does, the honest
-fallback is fund Anthropic API access or the Gateway directly instead.
+key; it is used only in memory for that one run server-side, never logged.
+This keeps the $0 price genuinely free (no skill.supply cost, ever).
+
+**UX pass, same day:** the key field does not appear until the first submit
+(one textarea, one button, unchanged first impression), and the key is then
+remembered in the seeker's own browser (`localStorage`, never sent to
+skill.supply's servers except in that one request) so it is a one-time ask
+per device, not per report. The remaining real friction: a seeker who has
+never used the Anthropic API still has to create an account and add a small
+credit at console.anthropic.com the first time. That is a genuine tension
+with LAUNCH.md's "no signup, just paste and go" promise, decided by Adam
+directly rather than papered over. Watch the share-loop metric for whether
+this first-time friction kills conversion; if it does, the honest fallback
+is fund Anthropic API access or the Gateway directly instead.
 
 ## Grand-slam checks
 
 - [x] Dream outcome is clear and valuable (the job you should have, named)
 - [x] Perceived likelihood is high (real live openings scored, not advice)
 - [x] Time delay is short (snapshot instant; founding report inside 48h)
-- [ ] Effort is low: **weakened 2026-08-06.** Paste a background, that used
-      to be the whole job. Now also paste an Anthropic API key, which for
-      most job seekers means a new signup elsewhere and a small card charge
-      first. Honest about this rather than claiming it is still low.
+- [ ] Effort is low: **partially restored 2026-08-06.** First screen is back
+      to one field, one button. The key ask only appears on first submit and
+      only once per device, but a seeker with no Anthropic account still
+      faces a real first-time detour: a new signup elsewhere and a small
+      card charge. Honest about this rather than claiming it is fully low.
 - [x] Risk is reversed (free, no signup on skill.supply itself, nothing
       stored; there is nothing to lose by trying it beyond the small
       Anthropic credit the seeker funds themselves)

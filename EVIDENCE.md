@@ -138,6 +138,53 @@ LAUNCH.md cares about. Not resolved here; watch the numbers once this ships.
 Not yet observed: a real seeker completing a real report with their own
 funded key. That is the one thing that still needs a live human to confirm.
 
+## 2026-08-07, later: the key field itself was the remaining friction
+
+Adam's own framing: "it should be frictionless for the user, minimal copy,
+minimal clicks." The deployed BYOK version showed the API key field
+unconditionally next to the background textarea, an always-visible second
+mandatory field, which reads as a form rather than the one-box product
+LAUNCH.md promises. Redesigned `components/agent-flow.tsx` around
+progressive disclosure instead of removing the requirement:
+
+- **First screen is back to one textarea, one button.** No key field visible
+  until the seeker actually submits.
+- **First submit with no key reveals the key field inline**, in place, with
+  the button relabeling to "Continue." Cost is stated plainly ("about
+  $0.01, charged to your account") right at the point of the ask, since
+  "how much will this cost me" is the real hesitation, not the concept of a
+  key.
+- **The key is remembered in the seeker's own browser** (`localStorage`,
+  keyed `skill.supply.anthropic_key`), so it is a one-time ask per device,
+  not per report. A small "Using your saved API key. Change it" link
+  replaces the field on return visits. Disclosed as a deliberate exception
+  to "nothing stored" in both the code comment and OFFER.md: it lives on
+  the seeker's own device, never in a database Adam controls.
+
+**Verified in a real browser, not just built:**
+- First load: `document.getElementById('apiKey')` is `null`, confirming the
+  field genuinely does not exist until needed.
+- Simulated the real flow through React's actual handlers (not raw DOM
+  event dispatch, which React 19's delegated listener does not pick up in
+  this harness): load sample -> submit -> key field appears, button reads
+  "Continue" -> fill key -> submit -> `localStorage` holds the key and the
+  real request fires, correctly surfacing **"That API key was rejected"**
+  for a bad test key.
+- Reloaded fresh: the saved key persisted, no key field appeared, and the
+  "Using your saved API key. Change it" note showed instead. Clicking
+  "Change it" cleared `localStorage` and reverted to the ask-on-submit
+  state, confirmed by direct inspection.
+
+OFFER.md's effort grand-slam check updated: **partially restored**, not
+fully green, since a seeker with zero Anthropic history still has a genuine
+first-time detour (their account, their card) that this redesign cannot
+remove, only defer to the moment it is least likely to cause a bounce.
+
+**Not deployed.** The version currently live (2026-08-07,
+`dpl_6peqj8XQZ5hv5pMawzEEdbXd7tdC`) is the always-visible-field version, not
+this redesign. Deploying this increment is a fresh decision, not covered by
+the earlier "deploy it" for the BYOK feature itself.
+
 ## Deployment model, different from the rest of the fleet
 
 Checked `list_deployments`: every single deployment in this project's history

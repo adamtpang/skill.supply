@@ -26,9 +26,18 @@ const STEPS_STRIP = [
 
 type Phase = "idle" | "running" | "need_more" | "error" | "done";
 
+// Client-side only. Never sent anywhere but the /api/agent call itself, and
+// never touches skill.supply's servers except in that one request's memory.
+// This is a deliberate, disclosed exception to "nothing stored": it lives in
+// the seeker's own browser, not a database Adam controls. See OFFER.md.
+const KEY_STORAGE = "skill.supply.anthropic_key";
+
 export function AgentFlow() {
   const [input, setInput] = useState("");
   const [apiKey, setApiKey] = useState("");
+  const [keyDraft, setKeyDraft] = useState("");
+  const [needKey, setNeedKey] = useState(false);
+  const [hasStoredKey, setHasStoredKey] = useState(false);
   const [phase, setPhase] = useState<Phase>("idle");
   const [stage, setStage] = useState<ServerStage>("reading");
   const [headline, setHeadline] = useState<string | null>(null);
@@ -40,6 +49,42 @@ export function AgentFlow() {
   const topRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => () => abortRef.current?.abort(), []);
+
+  // Load a remembered key on mount, so returning visitors (and anyone who
+  // reruns after their first report) never see the key field again.
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(KEY_STORAGE);
+      if (saved) {
+        setApiKey(saved);
+        setHasStoredKey(true);
+      }
+    } catch {
+      /* localStorage unavailable (private mode, etc.); fall back to asking each time */
+    }
+  }, []);
+
+  function saveKey(key: string) {
+    setApiKey(key);
+    setHasStoredKey(true);
+    try {
+      window.localStorage.setItem(KEY_STORAGE, key);
+    } catch {
+      /* still works this run, just won't be remembered next time */
+    }
+  }
+
+  function forgetKey() {
+    setApiKey("");
+    setKeyDraft("");
+    setHasStoredKey(false);
+    setNeedKey(false);
+    try {
+      window.localStorage.removeItem(KEY_STORAGE);
+    } catch {
+      /* nothing to clean up */
+    }
+  }
 
   useEffect(() => {
     if ((phase === "done" || phase === "running") && topRef.current) {
@@ -73,8 +118,29 @@ export function AgentFlow() {
     }
   }
 
-  async function run() {
-    if (input.trim().length === 0 || apiKey.trim().length === 0 || phase === "running") return;
+  // The single entry point for the form. First press: if we already have a
+  // key (remembered or none needed yet), run immediately. Otherwise reveal
+  // the key field instead of running, so first-time visitors see one plain
+  // textarea and one button, not a form with two mandatory fields.
+  function handleSubmit() {
+    if (input.trim().length === 0) return;
+    if (apiKey.trim().length === 0) {
+      if (!needKey) {
+        setNeedKey(true);
+        return;
+      }
+      const key = keyDraft.trim();
+      if (key.length === 0) return;
+      saveKey(key);
+      setKeyDraft("");
+      run(key);
+      return;
+    }
+    run(apiKey);
+  }
+
+  async function run(key: string) {
+    if (input.trim().length === 0 || key.trim().length === 0 || phase === "running") return;
     setPhase("running");
     setStage("reading");
     setHeadline(null);
@@ -90,7 +156,7 @@ export function AgentFlow() {
       const res = await fetch("/api/agent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ input, apiKey: apiKey.trim() }),
+        body: JSON.stringify({ input, apiKey: key.trim() }),
         signal: controller.signal,
       });
       if (!res.ok || !res.body) {
@@ -204,7 +270,7 @@ export function AgentFlow() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              run();
+              handleSubmit();
             }}
           >
             <label htmlFor="background" className="sr-only">
@@ -218,46 +284,73 @@ export function AgentFlow() {
               placeholder="Paste your resume, your LinkedIn About + Experience, or just write honestly: what you've built, what you're great at, what you love doing…"
               className="max-h-[420px] min-h-[220px] overflow-y-auto rounded-xl bg-card p-4 text-[0.925rem] leading-relaxed"
               required
+              autoFocus
             />
-            <div className="mt-3">
-              <label htmlFor="apiKey" className="mb-1.5 block text-xs font-medium text-muted-foreground">
-                Your Anthropic API key
-              </label>
-              <Input
-                id="apiKey"
-                name="apiKey"
-                type="password"
-                autoComplete="off"
-                value={apiKey}
-                onChange={(e) => setApiKey(e.target.value)}
-                placeholder="sk-ant-..."
-                className="max-w-sm rounded-xl bg-card px-4 py-4 text-[0.925rem]"
-                required
-              />
-              <p className="mt-1.5 text-xs text-muted-foreground">
-                This runs the agent, not skill.supply, so the report stays free forever. Get a
-                free key at{" "}
-                <a
-                  href="https://console.anthropic.com/settings/keys"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded font-medium text-foreground underline underline-offset-4 outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+
+            {/* The key field only exists once we actually need it: after a
+                first press with no remembered key. First-time view is one
+                textarea, one button, same as before bring-your-own-key. */}
+            {needKey && apiKey.trim().length === 0 && (
+              <div className="mt-3 animate-in fade-in slide-in-from-top-1 duration-200">
+                <label htmlFor="apiKey" className="mb-1.5 block text-xs font-medium text-muted-foreground">
+                  One more thing: your Anthropic API key
+                </label>
+                <Input
+                  id="apiKey"
+                  name="apiKey"
+                  type="password"
+                  autoComplete="off"
+                  autoFocus
+                  value={keyDraft}
+                  onChange={(e) => setKeyDraft(e.target.value)}
+                  placeholder="sk-ant-..."
+                  className="max-w-sm rounded-xl bg-card px-4 py-4 text-[0.925rem]"
+                />
+                <p className="mt-1.5 text-xs text-muted-foreground">
+                  Runs on your key, not ours, so this stays free. About $0.01, charged to
+                  your account.{" "}
+                  <a
+                    href="https://console.anthropic.com/settings/keys"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded font-medium text-foreground underline underline-offset-4 outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+                  >
+                    Get a free key
+                  </a>{" "}
+                  &middot; remembered on this device only, never sent to us to store.
+                </p>
+              </div>
+            )}
+            {hasStoredKey && !needKey && (
+              <p className="mt-2 text-xs text-muted-foreground">
+                Using your saved API key.{" "}
+                <button
+                  type="button"
+                  onClick={forgetKey}
+                  className="rounded font-medium underline underline-offset-4 outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
                 >
-                  console.anthropic.com
-                </a>
-                . Used once for this run, never logged, never stored.
+                  Change it
+                </button>
               </p>
-            </div>
+            )}
+
             <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-3">
               <Button
                 type="submit"
                 size="lg"
                 className="h-11 px-5 text-[0.925rem]"
-                disabled={input.trim().length === 0 || apiKey.trim().length === 0}
+                disabled={
+                  input.trim().length === 0 ||
+                  (needKey && apiKey.trim().length === 0 && keyDraft.trim().length === 0)
+                }
               >
                 {phase === "need_more" || phase === "error" ? (
                   <>
                     <RefreshCw aria-hidden /> Run it again
+                  </>
+                ) : needKey && apiKey.trim().length === 0 ? (
+                  <>
+                    Continue <ArrowRight aria-hidden />
                   </>
                 ) : (
                   <>
@@ -266,7 +359,7 @@ export function AgentFlow() {
                 )}
               </Button>
               <p className="text-xs leading-relaxed text-muted-foreground">
-                ≈ a minute · your own API key · nothing stored ·<br className="sm:hidden" /> your
+                ≈ a minute · nothing stored on skill.supply ·<br className="sm:hidden" /> your
                 report lives in a link only you hold
               </p>
             </div>
