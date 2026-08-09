@@ -37,8 +37,8 @@ import {
 const EXTRACT_MODEL = "claude-haiku-4-5";
 const REASON_MODEL = "claude-sonnet-5";
 
-const MIN_INPUT_CHARS = 80;
-const MAX_INPUT_CHARS = 30000;
+export const MIN_INPUT_CHARS = 80;
+export const MAX_INPUT_CHARS = 30000;
 
 type Send = (event: AgentEvent) => void;
 

@@ -24,7 +24,7 @@ const STEPS_STRIP = [
   ["Place", "Five named targets with honest fit scores, and your opening message for #1."],
 ] as const;
 
-type Phase = "idle" | "running" | "need_more" | "error" | "done";
+type Phase = "idle" | "running" | "queued" | "need_more" | "error" | "done";
 
 // Client-side only. Never sent anywhere but the /api/agent call itself, and
 // never touches skill.supply's servers except in that one request's memory.
@@ -192,6 +192,55 @@ export function AgentFlow() {
     }
   }
 
+  // Fallback for visitors without their own key: queues the report for the
+  // local worker (billed to the founder's own Claude subscription) instead
+  // of the fast synchronous BYOK path. Slower (a few minutes, one worker
+  // processes the queue in order), but genuinely free with no key needed.
+  async function runQueued() {
+    if (input.trim().length === 0 || phase === "running" || phase === "queued") return;
+    setPhase("queued");
+    setError(null);
+    setQuestion(null);
+    setReport(null);
+
+    try {
+      const res = await fetch("/api/agent/queue", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ input }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error ?? `Could not queue the report (HTTP ${res.status}).`);
+      const id = data.id as string;
+
+      for (;;) {
+        await new Promise((r) => setTimeout(r, 5000));
+        const poll = await fetch(`/api/agent/queue/${id}`);
+        const pdata = await poll.json();
+        if (!poll.ok) throw new Error(pdata?.error ?? "Lost track of the queued report.");
+        if (pdata.status === "served") {
+          setReport(pdata.result);
+          setPhase("done");
+          return;
+        }
+        if (pdata.status === "failed") {
+          setError(pdata.error ?? "The queued report failed. Run it again.");
+          setPhase("error");
+          return;
+        }
+        if (pdata.status === "need_more") {
+          setQuestion(pdata.question);
+          setPhase("need_more");
+          return;
+        }
+        // still pending/processing, keep polling
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something broke. Run it again.");
+      setPhase("error");
+    }
+  }
+
   function restart() {
     abortRef.current?.abort();
     setPhase("idle");
@@ -266,6 +315,13 @@ export function AgentFlow() {
 
         {phase === "running" ? (
           <StageLoader stage={stage} headline={headline} teaser={teaser} />
+        ) : phase === "queued" ? (
+          <div className="rounded-xl border border-border bg-muted/40 p-6 text-center">
+            <p className="text-sm font-medium">Cooking your report&hellip;</p>
+            <p className="mt-1.5 text-xs text-muted-foreground">
+              Queued on the free path, usually a few minutes. This tab will update on its own.
+            </p>
+          </div>
         ) : (
           <form
             onSubmit={(e) => {
@@ -318,6 +374,17 @@ export function AgentFlow() {
                     Get a free key
                   </a>{" "}
                   &middot; remembered on this device only, never sent to us to store.
+                </p>
+                <p className="mt-1.5 text-xs text-muted-foreground">
+                  Don&rsquo;t have a key?{" "}
+                  <button
+                    type="button"
+                    onClick={runQueued}
+                    className="rounded font-medium text-foreground underline underline-offset-4 outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+                  >
+                    Use the free queue instead
+                  </button>{" "}
+                  (a few minutes, runs on the founder&rsquo;s own account).
                 </p>
               </div>
             )}

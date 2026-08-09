@@ -48,6 +48,9 @@ next-env.d.ts
 # outreach drafts, never committed (public repo)
 sales/
 
+# local report-worker runtime log
+worker/worker.log
+
 # personal job-search data: real names, real personal emails, targeting
 # dossiers on real people, your own financial/career strategy. Stays local
 # only. Purged from history 2026-08-01 when this repo went public.
