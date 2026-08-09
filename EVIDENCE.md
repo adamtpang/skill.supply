@@ -180,10 +180,24 @@ fully green, since a seeker with zero Anthropic history still has a genuine
 first-time detour (their account, their card) that this redesign cannot
 remove, only defer to the moment it is least likely to cause a bounce.
 
-**Not deployed.** The version currently live (2026-08-07,
-`dpl_6peqj8XQZ5hv5pMawzEEdbXd7tdC`) is the always-visible-field version, not
-this redesign. Deploying this increment is a fresh decision, not covered by
-the earlier "deploy it" for the BYOK feature itself.
+**Deployed 2026-08-09 on Adam's instruction** (`vercel deploy --prod`,
+`dpl_66sFDtnt3batc6kiyn2RfsE16tE4`, READY). Verified live, not just built:
+
+- `https://skill.supply` returns 200.
+- A missing `apiKey` returns the correct `400` with the "paste your key too"
+  message; a syntactically valid but wrong key reaches a real Anthropic
+  client and comes back with the real, correctly-reframed **"That API key
+  was rejected"** message. Same zero-cost functional test as the prior
+  deploy, re-run directly against production.
+- In a real browser against the live site: first load has no `#apiKey`
+  field; loading the sample and submitting once reveals the field inline
+  with the cost note, exactly as designed. Confirms the progressive
+  disclosure genuinely shipped, not just the underlying BYOK requirement.
+
+Still not observed: a real seeker completing a real report with their own
+funded key, and whether the one-time-per-device key ask holds up the
+share-loop conversion LAUNCH.md cares about. Both need real traffic, not an
+agent, to answer.
 
 ## Deployment model, different from the rest of the fleet
 
