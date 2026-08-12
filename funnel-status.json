@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-08-12T05:45:23.020Z",
+  "totalTargets": 80,
+  "statusCounts": {
+    "not sent": 64,
+    "sent": 3,
+    "drafted": 7,
+    "closed": 6
+  },
+  "backlogDrafted": [
+    {
+      "company": "Mobian",
+      "role": "Technical PM + Senior/Staff Engineers (Systems & DevOps)",
+      "url": "https://themobian.ai/about"
+    },
+    {
+      "company": "Namecoach/Euphonia",
+      "role": "Founding Voice AI Engineer (part-time, path to CAIO)",
+      "url": "https://euphonia.namecoach.ai/"
+    },
+    {
+      "company": "Sequent Tech",
+      "role": "Senior Fullstack Engineer",
+      "url": "https://news.ycombinator.com/item?id=48749845"
+    },
+    {
+      "company": "Babou",
+      "role": "Full Stack Software Engineer",
+      "url": "https://babou.ai/careers"
+    },
+    {
+      "company": "Mitty",
+      "role": "First Engineer",
+      "url": "https://mitty.film/careers/first-engineer.html"
+    },
+    {
+      "company": "BetterDB ( https://betterdb.com )",
+      "role": "Founding Engineer",
+      "url": "https://betterdb.com"
+    },
+    {
+      "company": "Starbridge",
+      "role": "Senior AI Engineer (Python)",
+      "url": "https://starbridge.ai/careers"
+    }
+  ],
+  "notSentRemaining": 64
+}
