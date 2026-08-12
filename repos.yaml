@@ -19,5 +19,9 @@ kin:
     why: consumes its in-demand-skills board as matching targets
   - repo: summon.company
     why: summon builds the company; skill.supply staffs it
+  - repo: optimism.fun
+    why: same legibility-engines ranking pattern (live public data -> a scored rank), same family as pokedex.life (people), portal.voyage (places), and moneymeta.fun (income paths). Both repos even use the same manifest convention, this file declares "ranks: candidates", optimism.fun declares "ranks: problems". skill.supply's /skills Skill Market Cap (hourly demand ranking from live public job-board postings) is a concrete real data source moneymeta.fun could eventually pull from for its AI-native decks, which currently have no verified income median.
+  - repo: finn.monster
+    why: finn.monster owns real automated posting to X and Reddit (admin-secret-gated API routes); the candidate's own build-in-public distribution work, born out of skill.supply's job search, can post through those routes instead of every project reinventing social posting
 
 canon: ECOSYSTEM.md (the Talent Trifecta constitution, identical in all three repos)
