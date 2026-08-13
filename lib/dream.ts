@@ -49,6 +49,18 @@ export const JudgementSchema = z.object({
         recommend: z
           .enum(["chase", "maybe", "skip"])
           .describe("chase = worth real effort. maybe = only if the top targets go cold. skip = do not spend a day on it."),
+        eta_weeks: z
+          .number()
+          .int()
+          .min(0)
+          .describe(
+            "Realistic weeks to close the named gaps and become the obvious hire for THIS role, given their real evidence and learning velocity. 0 when there are no real gaps."
+          ),
+        eta_basis: z
+          .string()
+          .describe(
+            "One sentence: the concrete artifact that would close the biggest gap (a shipped project, a specific number owned), not 'get more experience'."
+          ),
       })
     )
     .describe("One verdict per role given, in the same order."),
@@ -89,6 +101,7 @@ Rules:
 - Judge against the DREAM JD, not against whether they could get hired. A role they would hate is a low score even if they would clear the bar.
 - matches and gaps must be specific to the posting text you were given, never generic.
 - recommend: "chase" only for roles worth real effort this week. Be sparing.
+- eta_weeks and eta_basis: name how long closing the real gaps would take and what closing looks like, concretely. A flattering ETA is a lie that costs someone weeks, so ground it in their actual evidence and pace, never in optimism. 0 weeks only when the gaps list is genuinely empty.
 - Copy each job_id back exactly as given.
 - Second person throughout ("you"), never their name.
 - ${NO_DASHES}`;

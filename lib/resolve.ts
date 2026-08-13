@@ -28,19 +28,29 @@ export type Resolved = {
 
 /** Name to candidate slugs: "AppLovin" -> applovin, app-lovin, applovincorp. */
 function slugCandidates(input: string): string[] {
-  const base = input
+  const stripped = input
     .toLowerCase()
     .trim()
     .replace(/^https?:\/\//, "")
-    .replace(/^www\./, "")
+    .replace(/^www\./, "");
+
+  // Some ATS slugs keep the TLD as a hyphen instead of dropping it: fal.ai's
+  // real Ashby board is "fal-ai", not "fal". Happens most with short .ai/.io
+  // names where the bare word is already taken. Capture that candidate before
+  // the TLD-stripping regex below throws it away.
+  const tldMatch = stripped.match(/^([a-z0-9-]+)\.(com|ai|io|co|app|dev|inc|org|net)\b/);
+  const tldHyphen = tldMatch ? `${tldMatch[1]}-${tldMatch[2]}` : null;
+
+  const base = stripped
     .replace(/\.(com|ai|io|co|app|dev|inc|org|net)\b.*$/, "")
     .replace(/[^a-z0-9 -]/g, "")
     .trim();
-  if (!base) return [];
+  if (!base && !tldHyphen) return [];
 
   const squashed = base.replace(/[\s-]+/g, "");
   const dashed = base.replace(/\s+/g, "-");
-  return [...new Set([squashed, dashed, squashed + "inc", squashed + "hq"])].filter(Boolean);
+  const candidates = [squashed, dashed, tldHyphen, squashed && `${squashed}inc`, squashed && `${squashed}hq`];
+  return [...new Set(candidates.filter((s): s is string => Boolean(s)))];
 }
 
 type Probe = { provider: Resolved["provider"]; url: string };

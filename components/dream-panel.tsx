@@ -427,6 +427,19 @@ export function DreamPanel() {
                     <Bullets label="Gaps" items={v.gaps} muted />
                   </div>
 
+                  {v.eta_weeks > 0 ? (
+                    <p className="mt-3 rounded-lg bg-muted/40 p-3 text-xs leading-relaxed text-muted-foreground">
+                      <span className="font-mono font-semibold text-foreground">
+                        ~{v.eta_weeks} {v.eta_weeks === 1 ? "week" : "weeks"}
+                      </span>{" "}
+                      to close the gap: {v.eta_basis}
+                    </p>
+                  ) : v.gaps.length === 0 ? (
+                    <p className="mt-3 rounded-lg bg-muted/40 p-3 text-xs leading-relaxed text-muted-foreground">
+                      No real gap. You are the obvious hire for this one already.
+                    </p>
+                  ) : null}
+
                   {v.job?.url && (
                     <a
                       href={v.job.url}

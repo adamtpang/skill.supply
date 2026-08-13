@@ -294,7 +294,11 @@ export async function runJudge(
   });
 
   judged.verdicts = judged.verdicts
-    .map((v) => ({ ...v, score: Math.max(0, Math.min(100, Math.round(v.score))) }))
+    .map((v) => ({
+      ...v,
+      score: Math.max(0, Math.min(100, Math.round(v.score))),
+      eta_weeks: Math.max(0, Math.round(v.eta_weeks)),
+    }))
     .sort((a, b) => b.score - a.score);
   return judged;
 }
