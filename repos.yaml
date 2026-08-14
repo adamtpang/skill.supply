@@ -35,5 +35,7 @@ kin:
     why: megawatt.fun was born inside this repo's job search; it is the public demo surface for the dispatch-planner proof-of-work artifact (github.com/adamtpang/megawatt.fun) attached to the Base Power outreach.
   - repo: adampang.com
     why: adampang.com is the candidate's own proof layer, the visual tracker of the shipped output (apps, essays, songs) that this repo's proof-over-pedigree packaging cites as evidence; the transfer market and the personal hub point at the same artifacts.
+  - repo: sprite.email
+    why: this repo's job search stages fully drafted outreach emails; sprite.email's draft-loader (src/app/api/drafts/load/route.ts) turns them into real Gmail drafts, so previewing, improving, sending, or discarding each one happens natively in Gmail, and the sending stays Adam's act, never the agent's.
 
 canon: ECOSYSTEM.md (the Talent Trifecta constitution, identical in all three repos)
