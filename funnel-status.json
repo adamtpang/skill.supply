@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T06:24:37.069Z",
+  "generatedAt": "2026-08-14T02:38:23.207Z",
   "totalTargets": 80,
   "statusCounts": {
     "not sent": 64,
@@ -10,7 +10,7 @@
   "backlogDrafted": [
     {
       "company": "Mobian",
-      "role": "Technical PM + Senior/Staff Engineers (Systems & DevOps)",
+      "role": "Senior/Staff Engineer, AI Prototyping track (Technical PM role gone from site 2026-08-14)",
       "url": "https://themobian.ai/about"
     },
     {
@@ -25,7 +25,7 @@
     },
     {
       "company": "Babou",
-      "role": "Full Stack Software Engineer",
+      "role": "Agent-Native Software Engineer (retitled from Full Stack SWE)",
       "url": "https://babou.ai/careers"
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "company": "Starbridge",
-      "role": "Senior AI Engineer (Python)",
+      "role": "AI Engineer, NYC onsite $200-380K (Senior Python posting closed)",
       "url": "https://starbridge.ai/careers"
     }
   ],
