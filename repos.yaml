@@ -33,5 +33,7 @@ kin:
     why: proof over pedigree needs a verifiable proof list; vercel.school's shipped-domains-inventory (index.html) is the public ground-truth of the candidate's live products, the exact list skill.supply's outreach cites as evidence, and skill.supply is itself one of the products on it.
   - repo: megawatt.fun
     why: megawatt.fun was born inside this repo's job search; it is the public demo surface for the dispatch-planner proof-of-work artifact (github.com/adamtpang/megawatt.fun) attached to the Base Power outreach.
+  - repo: adampang.com
+    why: adampang.com is the candidate's own proof layer, the visual tracker of the shipped output (apps, essays, songs) that this repo's proof-over-pedigree packaging cites as evidence; the transfer market and the personal hub point at the same artifacts.
 
 canon: ECOSYSTEM.md (the Talent Trifecta constitution, identical in all three repos)
