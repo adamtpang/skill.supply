@@ -5,6 +5,20 @@
 export type Founder = { name: string; role: string };
 export type Stat = { label: string; value: string };
 
+/**
+ * One funding event, hand-verified from public reporting, same discipline as
+ * `stats`: rounded and hedged on purpose, dated so staleness is visible.
+ * valuation_usd is the post-money valuation in dollars when a round disclosed
+ * one; omit it rather than guess.
+ */
+export type FundingRound = {
+  round: string;
+  date: string;
+  amount_usd?: number;
+  valuation_usd?: number;
+  source: string;
+};
+
 export type Company = {
   slug: string;
   name: string;
@@ -20,6 +34,8 @@ export type Company = {
   /** The honest wedge for breaking in. Also fed to the get-in agent. */
   get_in_angle: string;
   website: string;
+  /** Chronological funding history, oldest first. Omit entirely, never guess a round. */
+  funding_rounds?: FundingRound[];
 };
 
 export const AS_OF = "mid-2026";
@@ -169,6 +185,80 @@ export const COMPANIES: Company[] = [
     get_in_angle:
       "They built the company on the belief that talent assessment is a data problem. Come as living proof: show the work, not the credential.",
     website: "https://mercor.com",
+  },
+  {
+    slug: "base-power",
+    name: "Base Power",
+    category: "Energy hardware",
+    problem: "Deploy a network of home batteries paired with an integrated electricity plan to build a more resilient, decentralized Texas grid.",
+    the_bet:
+      "Valuation went from about $4B to about $13B in roughly ten months across two raises, one of the fastest climbs of any private company right now, with a hiring push to match.",
+    why_great:
+      "In-person, Austin-only, high-intensity build culture. Actively short-staffed: a live posting shows an internal recruiter tasked with filling 20+ open engineering roles this year alone.",
+    stats: [
+      { label: "Valuation", value: "$13B (Series D, Aug 2026)" },
+      { label: "Team", value: "~230" },
+      { label: "Open roles", value: "~130" },
+      { label: "Founded", value: "2023" },
+    ],
+    founders: [
+      { name: "Zach Dell", role: "CEO" },
+      { name: "Justin Lopas", role: "Co-founder" },
+    ],
+    get_in_angle:
+      "Their own published process is 4 stages, about 2 weeks first-call-to-offer. They hire for ownership and bias for action over pedigree; a direct message naming a specific open engineering role beats a generic application.",
+    website: "https://www.basepowercompany.com",
+    funding_rounds: [
+      { round: "Series B", date: "2025-04-10", amount_usd: 200_000_000, source: "Axios, a16z" },
+      { round: "Series C", date: "2025-10-08", amount_usd: 1_000_000_000, valuation_usd: 4_000_000_000, source: "Businesswire, Canary Media" },
+      { round: "Series D", date: "2026-08-01", amount_usd: 1_000_000_000, valuation_usd: 13_000_000_000, source: "Forbes, Sourcery VC" },
+    ],
+  },
+  {
+    slug: "saronic",
+    name: "Saronic Technologies",
+    category: "Defense tech",
+    problem: "Build autonomous surface vessels, from 6-foot scout craft to 40-metric-ton ships, for military and commercial maritime use.",
+    the_bet:
+      "Valuation more than doubled in about 13 months (Feb 2025 to Mar 2026), backed by a $392M Navy contract and a new dedicated shipyard under construction.",
+    why_great:
+      "Top-tier defense-tech backers (Kleiner Perkins, a16z American Dynamism), 1,300+ headcount and still scaling toward 20+ ships a year by 2027.",
+    stats: [
+      { label: "Valuation", value: "$9.25B (Series D, Mar 2026)" },
+      { label: "Team", value: "1,300+" },
+      { label: "Founded", value: "2022" },
+    ],
+    founders: [{ name: "Dino Mavrookas", role: "CEO" }],
+    get_in_angle:
+      "Also listed on a16z's own portfolio jobs board (Saronic is an American Dynamism company), so an a16z-adjacent connection can surface a candidate through two channels at once.",
+    website: "https://saronic.com",
+    funding_rounds: [
+      { round: "Series C", date: "2025-02-18", amount_usd: 600_000_000, valuation_usd: 4_000_000_000, source: "PR Newswire, CNBC" },
+      { round: "Series D", date: "2026-03-31", amount_usd: 1_750_000_000, valuation_usd: 9_250_000_000, source: "CNBC, PR Newswire" },
+    ],
+  },
+  {
+    slug: "apptronik",
+    name: "Apptronik",
+    category: "Robotics",
+    problem: "Build \"Apollo,\" a general-purpose humanoid robot for manufacturing and logistics labor.",
+    the_bet:
+      "UT Austin spinout hiring 200+ people over the next year on top of ~300 today, with April 2026 exec hires from Waymo, Boston Dynamics, and Amazon signaling a real pedigree upgrade in leadership.",
+    why_great:
+      "Real hardware, real deployed robot, backed by Google and Mercedes-Benz, still small enough that an early hire owns serious scope.",
+    stats: [
+      { label: "Valuation", value: "~$5B (Feb 2026)" },
+      { label: "Team", value: "~300, hiring 200+ more" },
+      { label: "Founded", value: "2016" },
+    ],
+    founders: [{ name: "Jeff Cardenas", role: "CEO" }],
+    get_in_angle:
+      "Also listed on lead investor B Capital's own portfolio jobs board, a secondary channel worth checking alongside their direct Greenhouse postings.",
+    website: "https://apptronik.com",
+    funding_rounds: [
+      { round: "Series A", date: "2025-02-01", amount_usd: 403_000_000, source: "Crunchbase News, Apptronik" },
+      { round: "Series A extension", date: "2026-02-11", amount_usd: 520_000_000, valuation_usd: 5_000_000_000, source: "CNBC, Bloomberg" },
+    ],
   },
 ];
 

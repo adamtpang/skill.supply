@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { COMPANIES, AS_OF } from "@/lib/companies";
 import { OFFICIAL_CAREERS } from "@/lib/careers";
 import { fetchJobCounts } from "@/lib/jobs";
+import { rankByMomentum, formatUsd } from "@/lib/momentum";
 import { CompanyCard } from "@/components/company-card";
 import { CompanySearch } from "@/components/company-search";
 
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default async function CompaniesPage() {
   const counts = await fetchJobCounts(COMPANIES.map((c) => c.slug));
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
+  const momentum = rankByMomentum(COMPANIES);
 
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-5 sm:px-8">
@@ -66,6 +68,51 @@ export default async function CompaniesPage() {
         <section className="mb-10">
           <CompanySearch />
         </section>
+
+        {momentum.length > 0 && (
+          <section className="mb-10">
+            <div className="mb-1 flex items-baseline justify-between gap-3">
+              <h2 className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+                Fastest-growing, by funding velocity
+              </h2>
+            </div>
+            <p className="mb-3 max-w-xl text-xs leading-relaxed text-muted-foreground">
+              A public market cap gainers list only covers stock tickers, and the companies worth
+              chasing right now are mostly private. This ranks by valuation growth between
+              hand-verified, dated funding rounds instead, annualized so different time spans
+              compare fairly. A company with only one disclosed valuation gets no rank, not a
+              guessed one.
+            </p>
+            <ol className="overflow-hidden rounded-xl border border-border bg-card">
+              {momentum.map(({ company, momentum: m }, i) => (
+                <li key={company.slug} className="border-b border-border last:border-b-0">
+                  <a
+                    href={`/companies/${company.slug}`}
+                    className="flex items-center justify-between gap-4 px-4 py-3 outline-none transition-colors hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50"
+                  >
+                    <div className="flex min-w-0 items-baseline gap-3">
+                      <span className="font-mono text-xs text-muted-foreground tabular-nums">
+                        {i + 1}
+                      </span>
+                      <span className="truncate text-sm font-medium">{company.name}</span>
+                    </div>
+                    <div className="shrink-0 text-right">
+                      {m.annualizedMultiple ? (
+                        <span className="font-mono text-sm font-semibold text-brand tabular-nums">
+                          {m.annualizedMultiple.toFixed(1)}x/yr
+                        </span>
+                      ) : (
+                        <span className="font-mono text-xs text-muted-foreground">
+                          {formatUsd(m.totalRaisedUsd)} raised
+                        </span>
+                      )}
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
 
         <section className="mb-10">
           <div className="mb-3 flex items-baseline justify-between gap-3">

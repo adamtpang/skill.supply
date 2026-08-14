@@ -27,6 +27,9 @@ export const BOARDS: Record<string, Board> = {
   perplexity: { provider: "ashby", board: "perplexity" },
   linear: { provider: "ashby", board: "linear" },
   mercor: { provider: "ashby", board: "mercor" },
+  "base-power": { provider: "ashby", board: "base-power" },
+  saronic: { provider: "ashby", board: "saronic" },
+  apptronik: { provider: "greenhouse", board: "apptronik" },
 };
 
 const REVALIDATE = 3600; // an hour is fresh enough for a job board

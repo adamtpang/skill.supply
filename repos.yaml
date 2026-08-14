@@ -25,5 +25,7 @@ kin:
     why: finn.monster owns real automated posting to X and Reddit (admin-secret-gated API routes); the candidate's own build-in-public distribution work, born out of skill.supply's job search, can post through those routes instead of every project reinventing social posting
   - repo: youchop.app
     why: youchop.app's tools/corpus.mjs pulls real transcripts and channel corpora; skill.supply's research needs (verifying a claim against a real source instead of a search-snippet paraphrase, as done for the Naval Ravikant JRE #1309 check) can run through it instead of ad hoc web search
+  - repo: moneymeta.fun
+    why: moneymeta.fun already declares this kin edge (shares the fleet footer and the same audience, someone ranking income paths is the same person deciding which job to take), reciprocated here. Concretely, skill.supply's /skills Skill Market Cap (hourly demand ranking from live public job-board postings) is a real data source moneymeta.fun's AI-native income decks could pull from, since those decks currently have no verified income median.
 
 canon: ECOSYSTEM.md (the Talent Trifecta constitution, identical in all three repos)
