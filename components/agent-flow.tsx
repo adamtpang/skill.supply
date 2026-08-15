@@ -281,7 +281,7 @@ export function AgentFlow() {
             <ArrowRight className="size-4" aria-hidden />
           </Link>
           <Link
-            href="/skills"
+            href="https://skillmarketcap.com"
             className="inline-flex items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
           >
             See live skill demand

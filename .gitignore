@@ -55,6 +55,12 @@ worker/worker.log
 # dossiers on real people, your own financial/career strategy. Stays local
 # only. Purged from history 2026-08-01 when this repo went public.
 /APPLICATIONS.md
+/CANDIDATE_PROFILE.md
+/OUTREACH_launch_drafts.md
+/PERFECT_APPLICANT.md
+/S_TIER_HARVEST.md
+/tmp/
+/data/
 /ASAP.md
 /CAREER_CANON.md
 /INCOME.md

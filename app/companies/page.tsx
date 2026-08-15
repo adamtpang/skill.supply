@@ -30,7 +30,7 @@ export default async function CompaniesPage() {
         </Link>
         <nav className="flex items-center gap-4" aria-label="Market navigation">
           <Link
-            href="/skills"
+            href="https://skillmarketcap.com"
             className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
           >
             Skills
@@ -139,7 +139,7 @@ export default async function CompaniesPage() {
         </section>
 
         <Link
-          href="/skills"
+          href="https://skillmarketcap.com"
           className="mb-10 flex flex-col gap-3 rounded-xl border border-border bg-muted/40 p-5 outline-none transition-colors hover:border-foreground/25 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 sm:flex-row sm:items-center sm:justify-between"
         >
           <span>

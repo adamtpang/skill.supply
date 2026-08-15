@@ -20,7 +20,7 @@ export default function Home() {
             Apply
           </Link>
           <Link
-            href="/skills"
+            href="https://skillmarketcap.com"
             className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
           >
             Skills

@@ -20,13 +20,13 @@ kin:
   - repo: summon.company
     why: summon builds the company; skill.supply staffs it
   - repo: optimism.fun
-    why: same legibility-engines ranking pattern (live public data -> a scored rank), same family as pokedex.life (people), portal.voyage (places), and moneymeta.fun (income paths). Both repos even use the same manifest convention, this file declares "ranks: candidates", optimism.fun declares "ranks: problems". skill.supply's /skills Skill Market Cap (hourly demand ranking from live public job-board postings) is a concrete real data source moneymeta.fun could eventually pull from for its AI-native decks, which currently have no verified income median.
+    why: same legibility-engines ranking pattern (live public data -> a scored rank), same family as pokedex.life (people), portal.voyage (places), and moneymeta.fun (income paths). Both repos even use the same manifest convention, this file declares "ranks: candidates", optimism.fun declares "ranks: problems". the Skill Market Cap hourly demand ranking (now extracted to skillmarketcap.com) is a concrete real data source moneymeta.fun could eventually pull from for its AI-native decks, which currently have no verified income median.
   - repo: finn.monster
     why: finn.monster owns real automated posting to X and Reddit (admin-secret-gated API routes); the candidate's own build-in-public distribution work, born out of skill.supply's job search, can post through those routes instead of every project reinventing social posting
   - repo: youchop.app
     why: youchop.app's tools/corpus.mjs pulls real transcripts and channel corpora; skill.supply's research needs (verifying a claim against a real source instead of a search-snippet paraphrase, as done for the Naval Ravikant JRE #1309 check) can run through it instead of ad hoc web search
   - repo: moneymeta.fun
-    why: moneymeta.fun already declares this kin edge (shares the fleet footer and the same audience, someone ranking income paths is the same person deciding which job to take), reciprocated here. Concretely, skill.supply's /skills Skill Market Cap (hourly demand ranking from live public job-board postings) is a real data source moneymeta.fun's AI-native income decks could pull from, since those decks currently have no verified income median.
+    why: moneymeta.fun already declares this kin edge (shares the fleet footer and the same audience, someone ranking income paths is the same person deciding which job to take), reciprocated here. Concretely, the Skill Market Cap hourly demand ranking (now extracted to skillmarketcap.com) is a real data source moneymeta.fun's AI-native income decks could pull from, since those decks currently have no verified income median.
   - repo: summon.guide
     why: summon.guide already declares this edge (skill.supply packages a person for hiring, its legends coach the decision, not just the resume), reciprocated here. Concretely, summon.guide's legend-match (src/app/api/match) routes a free-text question to the best-fit sourced figure, so a candidate weighing skill.supply's judged offers or ETA-gap tradeoffs can be handed to a real mentor chat instead of generic advice.
   - repo: vercel.school
@@ -37,5 +37,9 @@ kin:
     why: adampang.com is the candidate's own proof layer, the visual tracker of the shipped output (apps, essays, songs) that this repo's proof-over-pedigree packaging cites as evidence; the transfer market and the personal hub point at the same artifacts.
   - repo: sprite.email
     why: this repo's job search stages fully drafted outreach emails; sprite.email's draft-loader (src/app/api/drafts/load/route.ts) turns them into real Gmail drafts, so previewing, improving, sending, or discarding each one happens natively in Gmail, and the sending stays Adam's act, never the agent's.
+  - repo: themain.quest
+    why: themain.quest surfaces the one move that matters most across Adam's whole life, and right now that move lives in this repo (Aether/GOAL.md names the S-tier income goal as the active quest; SEND_TODAY.md and X_CALENDAR.md are the daily move feeds). The macro quest dashboard and the quest's own engine room.
+  - repo: skillmarketcap.com
+    why: the Skill Market Cap demand ranking was extracted from this repo's /skills route into its own repo and domain on 2026-08-15 (that route now redirects there). skill.supply is the supply side, packaging and placing a person; skillmarketcap.com is the demand side, measuring what the market asks for. lib/companies.ts and lib/jobs.ts are duplicated across both on purpose, per its HANDOFF_FROM_SKILL_SUPPLY.md.
 
 canon: ECOSYSTEM.md (the Talent Trifecta constitution, identical in all three repos)
