@@ -39,6 +39,34 @@ export const metadata: Metadata = {
   },
 };
 
+// Organization + WebSite nodes for AI crawlers (GPTBot etc.) that read raw
+// HTML with no JS execution. sameAs points only at skillmarketcap.com: the
+// Skill Market Cap ranking was extracted from this repo into that domain on
+// 2026-08-15 (see repos.yaml), it's still linked from the nav above, and it
+// reciprocates with sameAs: ["https://skill.supply"] on its own side. No
+// SearchAction: the in-page company search (components/company-search.tsx)
+// is a client-side fetch to /api/resolve, not a URL a browser can navigate
+// to with a query substituted in, so it doesn't qualify as a real target.
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://skill.supply/#organization",
+      name: "skill.supply",
+      url: "https://skill.supply",
+      sameAs: ["https://skillmarketcap.com"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://skill.supply/#website",
+      name: "skill.supply",
+      url: "https://skill.supply",
+      publisher: { "@id": "https://skill.supply/#organization" },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,6 +78,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        />
         {children}
         <FleetFooter />
         <BetaBar />

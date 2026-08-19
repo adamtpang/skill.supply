@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import { AgentFlow } from "@/components/agent-flow";
 import { PlacementStories } from "@/components/placement-stories";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
