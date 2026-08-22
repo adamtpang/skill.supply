@@ -20,7 +20,7 @@ kin:
   - repo: summon.company
     why: summon builds the company; skill.supply staffs it
   - repo: optimism.fun
-    why: same legibility-engines ranking pattern (live public data -> a scored rank), same family as pokedex.life (people), portal.voyage (places), and moneymeta.fun (income paths). Both repos even use the same manifest convention, this file declares "ranks: candidates", optimism.fun declares "ranks: problems". the Skill Market Cap hourly demand ranking (now extracted to skillmarketcap.com) is a concrete real data source moneymeta.fun could eventually pull from for its AI-native decks, which currently have no verified income median.
+    why: same legibility-engines ranking pattern (live public data -> a scored rank), same family as pokedex.life (people), portal.voyage (places), and moneymeta.fun (income paths). Both repos even use the same manifest convention, this file declares "ranks: candidates", optimism.fun declares "ranks: problems". the Skill Market Cap hourly demand ranking (now extracted to skillmarketcap.com) is a concrete real data source moneymeta.fun could eventually pull from for its AI-native decks, which currently have no verified income median. Added 2026-08-22: optimism.fun now declares this repo the JOIN half of its start-or-join starter packs. It supplies the ranked target list of S-tier companies worth joining (the $1T-ceiling set: Helion, Commonwealth Fusion, Fervo and peers); this repo's career agent packages the candidate for those specific roles. Its list, this repo's placement.
   - repo: finn.monster
     why: finn.monster owns real automated posting to X and Reddit (admin-secret-gated API routes); the candidate's own build-in-public distribution work, born out of skill.supply's job search, can post through those routes instead of every project reinventing social posting
   - repo: youchop.app
@@ -38,7 +38,11 @@ kin:
   - repo: sprite.email
     why: this repo's job search stages fully drafted outreach emails; sprite.email's draft-loader (src/app/api/drafts/load/route.ts) turns them into real Gmail drafts, so previewing, improving, sending, or discarding each one happens natively in Gmail, and the sending stays Adam's act, never the agent's.
   - repo: themain.quest
-    why: themain.quest surfaces the one move that matters most across Adam's whole life, and right now that move lives in this repo (Aether/GOAL.md names the S-tier income goal as the active quest; SEND_TODAY.md and X_CALENDAR.md are the daily move feeds). The macro quest dashboard and the quest's own engine room.
+    why: themain.quest surfaces the one move that matters most across Adam's whole life, and right now that move lives in this repo (Aether/GOAL.md names the S-tier income goal as the active quest; SEND_TODAY.md and X_CALENDAR.md are the daily move feeds). The macro quest dashboard and the quest's own engine room. In the who/what/where life map themain.quest hubs (Naval Ravikant's three big decisions: what you do, who you're with, where you live), this repo is a WHAT engine alongside optimism.fun, with pokedex.life as WHO and portal.voyage as WHERE.
+  - repo: ness.city
+    why: ECOSYSTEM.md's standing rule names NS members as supply-only, never sold to; ness.city is the civic layer for that community and hosts the Exam Course (/fellowship-prep) that grows it. Reciprocal of ness.city's own edge; the never-extract rule is the shared law.
+  - repo: portal.voyage
+    why: portal.voyage already declares this edge (its WHERE ranking and this repo's WHAT placements are now the same decision for Adam, since Forest City is closing and the next role and the next city need choosing together, not separately), reciprocated here. This repo's job listings (lib/jobs.ts) carry a real per-listing location field, live demand signal portal.voyage's curated per-field career scores could eventually be checked or seeded against.
   - repo: skillmarketcap.com
     why: the Skill Market Cap demand ranking was extracted from this repo's /skills route into its own repo and domain on 2026-08-15 (that route now redirects there). skill.supply is the supply side, packaging and placing a person; skillmarketcap.com is the demand side, measuring what the market asks for. lib/companies.ts and lib/jobs.ts are duplicated across both on purpose, per its HANDOFF_FROM_SKILL_SUPPLY.md.
 
