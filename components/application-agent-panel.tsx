@@ -286,7 +286,7 @@ export function ApplicationAgentPanel({ initialJob }: { initialJob: InitialJob }
           </Button>
           <p className="basis-full text-xs leading-relaxed text-muted-foreground sm:basis-auto">
             Paste the copied task into Codex or Claude Code in this repo. The registered agent uses
-            Browser Harness with Helium through Chromium's debugging connection.
+            Browser Harness with Helium through Chromium&rsquo;s debugging connection.
           </p>
         </div>
       </form>

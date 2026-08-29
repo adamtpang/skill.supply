@@ -3,6 +3,7 @@
 import { ArrowRight, Bot, Link2, RefreshCw, Share2 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { SupplyReport } from "@/lib/schema";
 import { shareUrl } from "@/lib/share";
 import { Button } from "@/components/ui/button";
@@ -64,6 +65,7 @@ export function SupplyReportView({
   shared?: boolean;
   onRestart?: () => void;
 }) {
+  const router = useRouter();
   const [linkCopied, setLinkCopied] = useState(false);
   const date = new Date(report.at).toLocaleDateString("en-US", {
     month: "long",
@@ -94,7 +96,7 @@ export function SupplyReportView({
 
   function beginApplication() {
     window.sessionStorage.setItem("skill.supply.application.evidence", report.resume_markdown);
-    window.location.assign("/apply");
+    router.push("/apply");
   }
 
   const intro = report.intro;
@@ -266,7 +268,7 @@ export function SupplyReportView({
               </Button>
             )}
             <p className="basis-full text-xs text-muted-foreground sm:basis-auto">
-              The whole report is encoded in the link. No account, no database.
+              No account required. The shareable copy is encoded in the link.
             </p>
           </div>
         )}

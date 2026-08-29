@@ -78,7 +78,7 @@ export default function SharePage() {
       <footer className="border-t border-border py-6">
         <p className="text-xs leading-relaxed text-muted-foreground">
           Made with skill<span className="text-brand">.</span>supply · an AI career agent. No
-          accounts, no database; the whole report is encoded in the link.
+          account required; this shareable copy is encoded in the link.
         </p>
       </footer>
     </div>

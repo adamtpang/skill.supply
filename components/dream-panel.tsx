@@ -39,15 +39,18 @@ export function DreamPanel() {
 
   // The profile lives on this device. No account, no database, still persistent.
   useEffect(() => {
-    try {
-      setBackground(localStorage.getItem(KEY_BG) ?? "");
-      setWishes(localStorage.getItem(KEY_WISH) ?? "");
-      const saved = localStorage.getItem(KEY_DREAM);
-      if (saved) setDream(JSON.parse(saved) as DreamJob);
-    } catch {
-      /* storage blocked, the page still works for one session */
-    }
-    setLoaded(true);
+    const timer = window.setTimeout(() => {
+      try {
+        setBackground(localStorage.getItem(KEY_BG) ?? "");
+        setWishes(localStorage.getItem(KEY_WISH) ?? "");
+        const saved = localStorage.getItem(KEY_DREAM);
+        if (saved) setDream(JSON.parse(saved) as DreamJob);
+      } catch {
+        /* storage blocked, the page still works for one session */
+      }
+      setLoaded(true);
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => () => abortRef.current?.abort(), []);

@@ -39,14 +39,11 @@ export const metadata: Metadata = {
   },
 };
 
-// Organization + WebSite nodes for AI crawlers (GPTBot etc.) that read raw
-// HTML with no JS execution. sameAs points only at skillmarketcap.com: the
-// Skill Market Cap ranking was extracted from this repo into that domain on
-// 2026-08-15 (see repos.yaml), it's still linked from the nav above, and it
-// reciprocates with sameAs: ["https://skill.supply"] on its own side. No
-// SearchAction: the in-page company search (components/company-search.tsx)
-// is a client-side fetch to /api/resolve, not a URL a browser can navigate
-// to with a query substituted in, so it doesn't qualify as a real target.
+// Truthful site identity for crawlers that read raw HTML without JavaScript.
+// Adam's operator identity and public profiles are already published in this
+// repository, on the live beta contact link, and through the Aether fleet.
+// No physical address, reviews, or SearchAction are claimed because none is
+// supported by the product or its public routes.
 const JSON_LD = {
   "@context": "https://schema.org",
   "@graph": [
@@ -55,7 +52,17 @@ const JSON_LD = {
       "@id": "https://skill.supply/#organization",
       name: "skill.supply",
       url: "https://skill.supply",
-      sameAs: ["https://skillmarketcap.com"],
+      description:
+        "A free AI career agent that helps job seekers package their evidence and identify fitting companies.",
+      founder: { "@id": "https://skill.supply/#adam-pangelinan" },
+      sameAs: ["https://github.com/adamtpang/skill.supply"],
+    },
+    {
+      "@type": "Person",
+      "@id": "https://skill.supply/#adam-pangelinan",
+      name: "Adam Pangelinan",
+      url: "https://adampang.com",
+      sameAs: ["https://github.com/adamtpang"],
     },
     {
       "@type": "WebSite",
@@ -80,7 +87,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(JSON_LD).replace(/</g, "\\u003c"),
+          }}
         />
         {children}
         <FleetFooter />

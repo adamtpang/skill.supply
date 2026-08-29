@@ -167,7 +167,7 @@ function looksLikeRole(title) {
   return t.split(/\s+/).length >= 3 || ROLE_WORD.test(t);
 }
 
-function extractFromMarkdown(data, baseUrl) {
+function extractFromMarkdown(data) {
   const md = data.markdown ?? "";
   const found = new Map();
 
@@ -281,7 +281,7 @@ async function main() {
     }
     try {
       const data = await scrape(c.careers.url);
-      const raw = SMART ? extractSmart(data, c.careers.url) : extractFromMarkdown(data, c.careers.url);
+      const raw = SMART ? extractSmart(data, c.careers.url) : extractFromMarkdown(data);
       const seen = new Set();
       const jobs = raw.filter((j) => {
         const k = `${j.title.toLowerCase()}|${(j.location ?? "").toLowerCase()}`;

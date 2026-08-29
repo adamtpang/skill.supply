@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, TrendingUp } from "lucide-react";
 import {
   MARKET_AS_OF,
@@ -32,19 +33,19 @@ export default function MetaPage() {
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
       <header className="flex items-center justify-between pt-6">
-        <a
+        <Link
           href="/"
           className="rounded font-mono text-sm font-semibold tracking-tight outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
         >
           skill<span className="text-brand">.</span>supply
-        </a>
-        <a
+        </Link>
+        <Link
           href="/companies"
           className="inline-flex items-center gap-1.5 rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
         >
           <ArrowLeft className="size-3" aria-hidden />
           Companies
-        </a>
+        </Link>
       </header>
 
       <main className="flex-1 pb-16">
@@ -159,13 +160,13 @@ export default function MetaPage() {
             means you are not competing on volume, you are competing on whether a specific person
             believes you will solve a specific problem.
           </p>
-          <a
+          <Link
             href="/companies"
             className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground outline-none transition-colors hover:bg-primary/80 focus-visible:ring-3 focus-visible:ring-ring/50"
           >
             Find the companies actually hiring
             <ArrowUpRight className="size-4" aria-hidden />
-          </a>
+          </Link>
         </section>
 
         {/* Sources */}

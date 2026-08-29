@@ -1,4 +1,5 @@
 import { FLEET_HUB, FLEET_SISTERS } from "@/lib/fleet";
+import Link from "next/link";
 
 // The fleet ring, rendered site-wide from the layout.
 export function FleetFooter() {
@@ -27,6 +28,29 @@ export function FleetFooter() {
           </span>
         ))}
       </div>
+      <nav
+        aria-label="Site information"
+        className="mt-3 flex flex-wrap gap-x-4 gap-y-2 font-mono text-[11px] tracking-[0.08em] text-muted-foreground"
+      >
+        <Link
+          href="/about"
+          className="rounded underline-offset-2 outline-none hover:text-foreground hover:underline focus-visible:ring-2 focus-visible:ring-ring/50"
+        >
+          About
+        </Link>
+        <Link
+          href="/contact"
+          className="rounded underline-offset-2 outline-none hover:text-foreground hover:underline focus-visible:ring-2 focus-visible:ring-ring/50"
+        >
+          Contact
+        </Link>
+        <Link
+          href="/privacy"
+          className="rounded underline-offset-2 outline-none hover:text-foreground hover:underline focus-visible:ring-2 focus-visible:ring-ring/50"
+        >
+          Privacy
+        </Link>
+      </nav>
     </footer>
   );
 }

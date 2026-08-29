@@ -1,0 +1,31 @@
+# skill.supply
+
+> skill.supply is a free AI career agent and talent transfer market for job seekers. It turns an evidence-based background into positioning, five target companies, an ATS-friendly resume, and a draft opening message.
+
+Operator: Adam Pangelinan
+Canonical site: https://skill.supply/
+Source: https://github.com/adamtpang/skill.supply
+
+## Use this site when
+
+- A job seeker needs to package real experience without inventing claims.
+- A person wants public company research, live role discovery, or an application packet they review before submission.
+- A crawler needs the current offer, operator, privacy flow, or contact path.
+
+## Key pages
+
+- Home and career agent: https://skill.supply/
+- Company research: https://skill.supply/companies
+- Application packet builder: https://skill.supply/apply
+- About: https://skill.supply/about
+- Contact: https://skill.supply/contact
+- Privacy: https://skill.supply/privacy
+- Sitemap: https://skill.supply/sitemap.xml
+
+## Current commercial status
+
+The price for job seekers is $0. skill.supply has no paid candidate plan, trial, checkout, or placement guarantee. Company-side talent work is handled separately at https://darktalent.tech/.
+
+## Data and automation boundaries
+
+Direct report runs use a user-supplied Anthropic API key. An optional free queue stores the submitted background while a local worker prepares the report; the Privacy page explains current retention. Shareable reports are encoded in the URL fragment. skill.supply does not offer a public API or MCP server, and it does not submit applications or send messages for users.

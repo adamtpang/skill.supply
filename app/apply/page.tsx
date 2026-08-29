@@ -48,7 +48,7 @@ export default async function ApplyPage({ searchParams }: { searchParams: Query 
           </h1>
           <p className="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-muted-foreground">
             Build one grounded application packet, then hand it to Browser Harness in your real
-            Chrome session. It fills what is known, asks when it is not, and waits for you before
+            Helium session. It fills what is known, asks when it is not, and waits for you before
             submitting.
           </p>
         </section>

@@ -53,15 +53,18 @@ export function AgentFlow() {
   // Load a remembered key on mount, so returning visitors (and anyone who
   // reruns after their first report) never see the key field again.
   useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem(KEY_STORAGE);
-      if (saved) {
-        setApiKey(saved);
-        setHasStoredKey(true);
+    const timer = window.setTimeout(() => {
+      try {
+        const saved = window.localStorage.getItem(KEY_STORAGE);
+        if (saved) {
+          setApiKey(saved);
+          setHasStoredKey(true);
+        }
+      } catch {
+        /* localStorage unavailable (private mode, etc.); fall back to asking each time */
       }
-    } catch {
-      /* localStorage unavailable (private mode, etc.); fall back to asking each time */
-    }
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   function saveKey(key: string) {
@@ -371,7 +374,7 @@ export function AgentFlow() {
                     rel="noreferrer"
                     className="rounded font-medium text-foreground underline underline-offset-4 outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
                   >
-                    Get a free key
+                    Create a key
                   </a>{" "}
                   &middot; remembered on this device only, never sent to us to store.
                 </p>
@@ -426,8 +429,8 @@ export function AgentFlow() {
                 )}
               </Button>
               <p className="text-xs leading-relaxed text-muted-foreground">
-                ≈ a minute · nothing stored on skill.supply ·<br className="sm:hidden" /> your
-                report lives in a link only you hold
+                ≈ a minute · no account ·<br className="sm:hidden" /> direct runs are not stored
+                by skill.supply
               </p>
             </div>
             {input.trim().length === 0 && (
