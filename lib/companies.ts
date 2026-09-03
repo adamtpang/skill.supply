@@ -260,6 +260,25 @@ export const COMPANIES: Company[] = [
       { round: "Series A extension", date: "2026-02-11", amount_usd: 520_000_000, valuation_usd: 5_000_000_000, source: "CNBC, Bloomberg" },
     ],
   },
+  {
+    slug: "axon",
+    name: "Axon",
+    category: "Public safety tech",
+    problem: "Build the technology stack for public safety: TASER energy weapons, body cameras, the Evidence.com cloud, and AI products like Draft One report writing.",
+    the_bet:
+      "A founder-led public company (NASDAQ: AXON, Rick Smith since 1993) that turned hardware into a recurring cloud business and is now pushing hard into AI for police workflows.",
+    why_great:
+      "Public-company stability with startup-scale hiring: 483 open roles on their Greenhouse board as of 2026-08-15, including AI and platform engineering.",
+    stats: [
+      { label: "Listed", value: "NASDAQ: AXON" },
+      { label: "Open roles", value: "483 (Greenhouse, 2026-08-15)" },
+      { label: "Founded", value: "1993 (as TASER International)" },
+    ],
+    founders: [{ name: "Rick Smith", role: "Founder & CEO" }],
+    get_in_angle:
+      "The AI product line (Draft One, real-time ops) is the newest surface and the closest fit to agent-tooling experience; a public company also means formal pipelines actually get read.",
+    website: "https://www.axon.com",
+  },
 ];
 
 export function getCompany(slug: string): Company | undefined {

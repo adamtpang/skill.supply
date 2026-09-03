@@ -108,7 +108,7 @@ export function ApplicationAgentPanel({ initialJob }: { initialJob: InitialJob }
       <section className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
         <AgentFact eyebrow="Browser" value="Your Helium session" />
         <AgentFact eyebrow="Agent" value="Browser Harness" />
-        <AgentFact eyebrow="Control" value="You approve Submit" />
+        <AgentFact eyebrow="Control" value="You click Submit" />
       </section>
 
       <form
@@ -252,10 +252,11 @@ export function ApplicationAgentPanel({ initialJob }: { initialJob: InitialJob }
           <div className="flex gap-3">
             <ShieldCheck className="mt-0.5 size-5 shrink-0 text-brand" aria-hidden />
             <div>
-              <h2 className="font-semibold">Human review is part of the agent</h2>
+              <h2 className="font-semibold">The last click always belongs to you</h2>
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                 The agent fills facts and prepares the application. It must pause for these fields
-                and cannot click Submit until you explicitly approve that exact application.
+                and must never click Submit, even after you approve the answers. You review and
+                perform the final action manually.
               </p>
               <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                 {HUMAN_REVIEW_FIELDS.map((field) => (
@@ -286,7 +287,7 @@ export function ApplicationAgentPanel({ initialJob }: { initialJob: InitialJob }
           </Button>
           <p className="basis-full text-xs leading-relaxed text-muted-foreground sm:basis-auto">
             Paste the copied task into Codex or Claude Code in this repo. The registered agent uses
-            Browser Harness with Helium through Chromium&rsquo;s debugging connection.
+            Browser Harness with Helium through Chromium&apos;s debugging connection.
           </p>
         </div>
       </form>

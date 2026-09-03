@@ -1,0 +1,461 @@
+{
+  "contract": "shapeable.site-design-system",
+  "version": "0.1.0",
+  "site": "skill.supply",
+  "repository": "C:/Users/adamp/Aether/skill.supply",
+  "status": "adopted",
+  "approval": {
+    "state": "approved",
+    "ownerReviewRequired": true,
+    "approvedAt": "2026-08-31T08:00:08.5624294Z",
+    "evidence": "Owner message on 2026-08-31 approved the combined Skill Supply visual result, design-system adoption, and exact-preview production promotion."
+  },
+  "generatedAt": "2026-08-31T06:50:00.000Z",
+  "identityBrief": "artifacts/audits/skill-supply-factory-baseline-20260831/identity-brief.json",
+  "intent": "Make a capable person's market value legible through an honest, proof-first career instrument that feels sharp, warm, direct, and unlike an HR portal.",
+  "northStar": "Paste a messy background in and receive a sharp resume, a defensible one-liner, and five named companies worth pitching, with the human retaining control of every external action.",
+  "personality": {
+    "traits": [
+      "sharp",
+      "warm",
+      "direct",
+      "editorial",
+      "confident",
+      "anti-HR"
+    ],
+    "signature": "A restrained transfer-market editorial with the precision of a career agent's working desk: monochrome, candid, proof-heavy, and punctuated by one indigo signal color.",
+    "mustPreserve": [
+      "The candidates-never-pay promise.",
+      "The sharp and warm anti-HR voice.",
+      "Monochrome chrome with restrained indigo data accents.",
+      "The Geist Sans and Geist Mono contrast.",
+      "Evidence-first transfer-market framing.",
+      "Human control over applications and external communication."
+    ],
+    "mustNotBecome": [
+      "Shapeable's colorful editorial audit identity.",
+      "A generic card-heavy SaaS dashboard.",
+      "A loud gradient recruiting marketplace.",
+      "A corporate HR portal.",
+      "A Mobbin visual clone."
+    ]
+  },
+  "foundations": {
+    "color": {
+      "strategy": "Hierarchy comes from typography, spacing, and proof. Chrome stays monochrome. Indigo is a scarce signal for the mark, selected data, focus, and decisive state. Sentiment colors describe real outcomes, not compatibility scores.",
+      "tokens": [
+        {
+          "name": "background",
+          "role": "page canvas",
+          "light": "oklch(1 0 0)",
+          "dark": "oklch(0.145 0 0)",
+          "usage": "The page and full-width reading surfaces."
+        },
+        {
+          "name": "foreground",
+          "role": "primary text",
+          "light": "oklch(0.145 0 0)",
+          "dark": "oklch(0.985 0 0)",
+          "usage": "Body copy, headings, and primary interface labels."
+        },
+        {
+          "name": "surface",
+          "role": "contained surface",
+          "light": "oklch(1 0 0)",
+          "dark": "oklch(0.205 0 0)",
+          "usage": "Forms, reports, and overlays only when containment clarifies function."
+        },
+        {
+          "name": "muted",
+          "role": "quiet surface and secondary text",
+          "light": "oklch(0.97 0 0)",
+          "dark": "oklch(0.269 0 0)",
+          "usage": "Secondary surfaces and supporting metadata, paired with the matching muted foreground token."
+        },
+        {
+          "name": "border",
+          "role": "structural separator",
+          "light": "oklch(0.922 0 0)",
+          "dark": "oklch(1 0 0 / 10%)",
+          "usage": "Hairline structure where spacing alone cannot communicate grouping."
+        },
+        {
+          "name": "brand",
+          "role": "indigo decision signal",
+          "light": "oklch(0.511 0.230 277)",
+          "dark": "oklch(0.68 0.16 277)",
+          "usage": "Wordmark dot, selected data, pull-quote rules, focus, and active states. Never a large surface or default button fill."
+        },
+        {
+          "name": "destructive",
+          "role": "negative outcome or destructive action",
+          "light": "#A23B2E",
+          "dark": "#E8877A",
+          "usage": "True errors and destructive actions, never ordinary low fit."
+        },
+        {
+          "name": "positive",
+          "role": "verified positive outcome",
+          "light": "#1F7A4D",
+          "dark": "#6FC796",
+          "usage": "Completed or verified positive outcomes, not decorative reassurance."
+        },
+        {
+          "name": "warning",
+          "role": "caution requiring attention",
+          "light": "#96702A",
+          "dark": "#E0B85E",
+          "usage": "Material cautions and incomplete evidence."
+        }
+      ]
+    },
+    "typography": {
+      "strategy": "Geist Sans carries reading and direct action. Geist Mono marks navigation, market evidence, sequence, scores, timestamps, and the wordmark. Hierarchy is typographic, not ornamental.",
+      "families": [
+        {
+          "role": "interface and editorial reading",
+          "family": "Geist Sans",
+          "fallback": "Arial, Helvetica, sans-serif",
+          "usage": "Body copy, headings, form controls, and buttons."
+        },
+        {
+          "role": "market evidence and machine precision",
+          "family": "Geist Mono",
+          "fallback": "Consolas, ui-monospace, monospace",
+          "usage": "Navigation, eyebrows, scores, timestamps, sequences, and the wordmark."
+        }
+      ],
+      "scale": [
+        {
+          "name": "display",
+          "size": "clamp(2.5rem, 7vw, 5.5rem)",
+          "lineHeight": "0.95",
+          "weight": 650,
+          "tracking": "-0.045em",
+          "usage": "One decisive homepage proposition."
+        },
+        {
+          "name": "heading",
+          "size": "clamp(1.75rem, 4vw, 3rem)",
+          "lineHeight": "1.05",
+          "weight": 620,
+          "tracking": "-0.035em",
+          "usage": "Major report and process sections."
+        },
+        {
+          "name": "subheading",
+          "size": "1.25rem",
+          "lineHeight": "1.3",
+          "weight": 600,
+          "tracking": "-0.02em",
+          "usage": "Named findings, targets, and step titles."
+        },
+        {
+          "name": "body",
+          "size": "1rem",
+          "lineHeight": "1.65",
+          "weight": 400,
+          "tracking": "0",
+          "usage": "Primary reading copy and form guidance."
+        },
+        {
+          "name": "label",
+          "size": "0.75rem",
+          "lineHeight": "1.4",
+          "weight": 560,
+          "tracking": "0.1em",
+          "usage": "Mono eyebrows and compact evidence labels. Never below 12px for essential text."
+        }
+      ]
+    },
+    "spacing": {
+      "baseUnitPx": 4,
+      "density": "Generous editorial whitespace around compact evidence and controls.",
+      "scalePx": [0, 4, 8, 12, 16, 24, 32, 48, 64, 80]
+    },
+    "shape": {
+      "radiusPx": [0, 4, 8, 10],
+      "border": "One-pixel neutral hairlines. Use borders only when whitespace cannot explain the boundary.",
+      "elevation": "Nearly flat. Use overlays with a restrained shadow, not floating card stacks.",
+      "signatureShape": "Square editorial blocks with modest rounding on inputs and controls."
+    },
+    "layout": {
+      "strategy": "A centered 768px editorial measure. Full-width bands are rare. Internal content reflows from one mobile column to bounded desktop compositions without hiding core work.",
+      "maxContentWidthPx": 768,
+      "columns": 12,
+      "gutterPx": 20,
+      "breakpointsPx": [390, 640, 768, 1024, 1440]
+    },
+    "motion": {
+      "principle": "Motion explains progress, change, or causality. It never decorates waiting or reading.",
+      "durationsMs": [0, 120, 180],
+      "easing": "cubic-bezier(0.2, 0, 0, 1)",
+      "reducedMotion": "All non-essential animation and smooth scrolling become instantaneous under prefers-reduced-motion: reduce."
+    },
+    "focus": {
+      "ring": "2px solid var(--brand)",
+      "offset": "2px against the current surface",
+      "rule": "Every interactive element has a visible focus-visible state with at least WCAG 2.2 AA non-text contrast."
+    },
+    "imagery": {
+      "direction": "Show the work: resumes, target lists, fit evidence, market data, and verified outcomes. Let evidence carry the visual interest.",
+      "allowed": [
+        "Redacted real proof artifacts.",
+        "Directly labelled market data visualizations.",
+        "Candidate-owned screenshots used with permission.",
+        "Simple diagrams that explain the agent's work."
+      ],
+      "forbidden": [
+        "Stock recruiting photography.",
+        "Decorative AI illustration.",
+        "Abstract gradients used to imply intelligence.",
+        "Fabricated profiles, placements, or testimonials."
+      ]
+    }
+  },
+  "patterns": [
+    {
+      "name": "candidate-input",
+      "intent": "Make it safe and obvious to provide a messy background without pretending the data is already polished.",
+      "rules": [
+        "State what can be pasted and what remains private.",
+        "Keep the primary input and primary action in one visual field.",
+        "Never place an API key or personal background into analytics."
+      ],
+      "states": [
+        "empty",
+        "ready",
+        "submitting",
+        "validation-error",
+        "service-error"
+      ]
+    },
+    {
+      "name": "agent-progress",
+      "intent": "Reveal useful progress without fake precision or distracting motion.",
+      "rules": [
+        "Name the current work in plain language.",
+        "Use indigo only for the active signal.",
+        "Allow the user to stop or recover when the process fails."
+      ],
+      "states": [
+        "queued",
+        "working",
+        "partial-result",
+        "complete",
+        "failed",
+        "cancelled"
+      ]
+    },
+    {
+      "name": "evidence-report",
+      "intent": "Turn a career judgment into inspectable evidence and a clear next move.",
+      "rules": [
+        "Lead with the candidate's strongest truthful positioning.",
+        "Separate fact, inference, uncertainty, and recommendation.",
+        "Use direct labels instead of color-only meaning.",
+        "Make copying and sharing explicit actions."
+      ],
+      "states": [
+        "complete",
+        "incomplete-evidence",
+        "no-qualified-targets",
+        "shared",
+        "print"
+      ]
+    },
+    {
+      "name": "human-control-gate",
+      "intent": "Keep the candidate visibly responsible for every application and external communication.",
+      "rules": [
+        "Describe what the agent prepared and what it did not send.",
+        "Require human review before the final external action.",
+        "Never imply that an application was submitted when it was only drafted."
+      ],
+      "states": [
+        "drafted",
+        "needs-review",
+        "approved-by-human",
+        "submitted-by-human"
+      ]
+    }
+  ],
+  "content": {
+    "voice": "A brilliant friend who understands the market: sharp, warm, candid, and useful. Never an HR department and never a motivational poster.",
+    "rules": [
+      "Use short declarative sentences and concrete nouns.",
+      "Say what the evidence supports and name uncertainty.",
+      "Prefer honest fit, gap, proof, target, and next move language.",
+      "State that candidates never pay wherever pricing ambiguity could occur.",
+      "State human control wherever external communication could be inferred.",
+      "Use commas, colons, periods, and parentheses instead of em or en dashes."
+    ],
+    "bannedPatterns": [
+      "Corporate HR euphemisms.",
+      "Passionate, perfect fit, rockstar, ninja, and world-class.",
+      "Claims without evidence.",
+      "Fake urgency and manipulative scarcity.",
+      "Copy that implies autonomous sending or applying."
+    ]
+  },
+  "responsiveRules": [
+    {
+      "name": "mobile-first-reflow",
+      "rule": "At 390px, navigation, forms, reports, tables, and actions reflow without horizontal scrolling or clipped essential content.",
+      "acceptance": "Document width equals viewport width and the audit reports zero offscreen essential text."
+    },
+    {
+      "name": "comfortable-actions",
+      "rule": "All controls are at least 24 by 24 CSS pixels. Primary mobile actions and dense standalone controls target 44 by 44 CSS pixels.",
+      "acceptance": "Automated geometry audit reports zero controls below 24px and human review confirms comfortable primary actions at 390px."
+    },
+    {
+      "name": "desktop-measure",
+      "rule": "At 1440px, the main reading measure remains bounded and evidence never stretches into an unreadable line length.",
+      "acceptance": "The primary content remains at or below 768px except for explicitly labelled comparative graphics."
+    },
+    {
+      "name": "same-capability",
+      "rule": "Mobile and desktop expose the same core candidate workflow and evidence. Layout may change, capability may not disappear.",
+      "acceptance": "The audit's route and interaction matrix passes at both 390x844 and 1440x900."
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "contrast",
+      "rule": "Text and controls meet WCAG 2.2 AA contrast in light and dark themes, including focus, error, warning, and positive states.",
+      "acceptance": "Automated checks pass and the final human review verifies no meaning depends on subtle gray alone."
+    },
+    {
+      "name": "keyboard",
+      "rule": "Every action is reachable, named, operable, and visibly focused by keyboard in a logical order.",
+      "acceptance": "A keyboard-only pass reaches the complete candidate flow without traps or invisible focus."
+    },
+    {
+      "name": "reduced-motion",
+      "rule": "Reduced-motion preference disables smooth scrolling and all non-essential transitions or animation.",
+      "acceptance": "The identical mobile and desktop audit reports zero reduced-motion violations."
+    },
+    {
+      "name": "semantic-status",
+      "rule": "Progress, errors, and completion are announced semantically and never communicated by color alone.",
+      "acceptance": "Screen-reader inspection identifies labels, status changes, errors, and recovery actions."
+    },
+    {
+      "name": "readable-type",
+      "rule": "Essential text is at least 12px. Body copy targets 16px with a readable measure and line height.",
+      "acceptance": "Automated type audit reports zero essential text below 12px at 390px and 1440px."
+    }
+  ],
+  "influences": [
+    {
+      "id": "linear-monochrome",
+      "title": "Linear",
+      "author": "Linear design team",
+      "url": "https://linear.app",
+      "principle": "Use near-monochrome surfaces and reserve one accent for meaningful state.",
+      "take": "Let weight, spacing, and evidence carry hierarchy. Spend indigo only when it communicates a decision or active state.",
+      "doNotCopy": "Do not copy Linear's layout, gradients, component shapes, animation, assets, or trade dress."
+    },
+    {
+      "id": "vitsoe-longevity",
+      "title": "Vitsoe",
+      "author": "Vitsoe",
+      "url": "https://www.vitsoe.com",
+      "principle": "Treat restraint and longevity as a product position.",
+      "take": "Prefer durable typography, clear structure, and proof over seasonal visual novelty.",
+      "doNotCopy": "Do not copy Vitsoe's product photography, grid, typography treatment, assets, or trade dress."
+    },
+    {
+      "id": "govuk-evidence",
+      "title": "GOV.UK Design System",
+      "author": "Government Digital Service",
+      "url": "https://design-system.service.gov.uk",
+      "principle": "A pattern should carry research, usage conditions, and a retirement path.",
+      "take": "Record the evidence and acceptance conditions behind career-flow patterns instead of treating the component library as the system.",
+      "doNotCopy": "Do not copy GOV.UK components, crown identity, typography, content, or visual trade dress."
+    },
+    {
+      "id": "polaris-content",
+      "title": "Shopify Polaris",
+      "author": "Shopify design team",
+      "url": "https://polaris.shopify.com",
+      "principle": "Content guidance is a first-class design-system layer.",
+      "take": "Encode candid voice rules, error formulas, human-control language, and banned recruiting cliches alongside visual tokens.",
+      "doNotCopy": "Do not copy Polaris components, layouts, illustrations, tokens, or Shopify trade dress."
+    },
+    {
+      "id": "daring-fireball-longevity",
+      "title": "Daring Fireball",
+      "author": "John Gruber",
+      "url": "https://daringfireball.net",
+      "principle": "A clear measure, strong voice, and minimal vocabulary can remain legible for decades.",
+      "take": "Keep the editorial spine and let direct writing do more work than decorative interface chrome.",
+      "doNotCopy": "Do not copy Daring Fireball's exact layout, typography, colors, marks, content, or trade dress."
+    }
+  ],
+  "governance": {
+    "owner": "Adam Pang",
+    "sourceOfTruth": ".shapeable/design-system.json after adoption; this central artifact remains the generated draft and audit record.",
+    "versioning": "Semantic versioning. Patch clarifies without changing identity, minor adds compatible tokens or patterns, major changes the visual or product language.",
+    "adoption": "Owner approval is required before Shapeable writes the pack into skill.supply or adds the managed Claude import. Adoption must preserve unrelated repository instructions and include rollback.",
+    "deviations": "Record intentional deviations beside the affected pattern with rationale, evidence, owner, and a review date. Do not silently fork tokens.",
+    "lastAuditId": "audit-20260831061705",
+    "reviewCadence": "Review after each accepted Shapeable cure, after a material product-positioning change, and at least every six months."
+  },
+  "agentInstructions": {
+    "readFirst": [
+      "Read NORTH_STAR.md, brand.md, and .shapeable/design-system.json before changing product-facing design.",
+      "Treat this site's identity and product boundaries as constraints, not optional inspiration.",
+      "Inspect the current implementation and audit evidence before proposing a visual change."
+    ],
+    "decisionRules": [
+      "Choose the smallest reversible change that fixes the highest-impact measured problem.",
+      "Preserve Skill Supply's editorial transfer-market identity while improving usability.",
+      "Use indigo as a scarce signal, never as generic chrome or a decorative surface.",
+      "Prefer fewer elements, stronger hierarchy, plain language, and real evidence.",
+      "Design mobile and desktop together and verify both on the identical audit matrix.",
+      "When evidence and owner direction conflict, stop and request owner review."
+    ],
+    "forbidden": [
+      "Do not apply Shapeable's palette, layout, typography, or visual motifs.",
+      "Do not genericize the product into a card-heavy SaaS dashboard.",
+      "Do not introduce gradients, decorative AI art, recruiting stock photography, or HR cliches.",
+      "Do not copy proprietary assets, layout, source code, screenshots, or trade dress from an influence.",
+      "Do not invent claims, placements, profiles, proof, or testimonials.",
+      "Do not send applications or external messages, and do not imply that the agent did.",
+      "Do not overwrite brand.md, CLAUDE.md, or unrelated repository instructions without explicit owner-approved adoption."
+    ],
+    "reviewChecklist": [
+      "The 390x844 and 1440x900 profiles both show zero horizontal overflow and zero clipped essential content.",
+      "Essential labels are at least 12px, every control is at least 24px, and primary mobile actions are comfortable at 44px.",
+      "Keyboard, focus, status announcements, contrast, and reduced motion pass.",
+      "Claims have evidence and candidates-never-pay language is unambiguous.",
+      "The candidate retains explicit control of every external action.",
+      "The result still looks and sounds unmistakably like Skill Supply, not Shapeable or another influence.",
+      "Build, bounded lint comparison, protected preview, identical rescan, rollback, and human visual review are recorded."
+    ]
+  },
+  "runnableEvidence": [
+    {
+      "command": "npm run build",
+      "expected": "The Skill Supply production build completes without a new error.",
+      "scope": "Run from C:/Users/adamp/Aether/skill.supply."
+    },
+    {
+      "command": "npm run audit:site -- --url https://skill.supply --output artifacts/audits/skill-supply-rescan",
+      "expected": "The configured mobile and desktop matrix reaches 100/100 with 100% coverage, sufficient confidence, and no material regression.",
+      "scope": "Run from C:/Users/adamp/Aether/shapeable.art against the protected preview first, then production only after owner promotion approval."
+    },
+    {
+      "command": "npm test",
+      "expected": "Shapeable contract, renderer, factory, and audit tests pass.",
+      "scope": "Run from C:/Users/adamp/Aether/shapeable.art before exporting or adopting the pack."
+    }
+  ],
+  "exports": {
+    "machinePath": ".shapeable/design-system.json",
+    "claudePath": ".shapeable/CLAUDE_DESIGN_SYSTEM.md",
+    "claudeImport": "@.shapeable/CLAUDE_DESIGN_SYSTEM.md"
+  }
+}

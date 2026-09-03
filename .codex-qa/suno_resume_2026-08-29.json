@@ -1,0 +1,31 @@
+{
+  "docx": {
+    "path": "C:\\Users\\adamp\\Aether\\skill.supply\\outputs\\adam_pangelinan_suno_pro_create_resume_2026-08-29.docx",
+    "sections": 1,
+    "page_width_inches": 8.5,
+    "page_height_inches": 11.0,
+    "missing_expected_text": [],
+    "forbidden_text_found": [],
+    "author": "",
+    "last_modified_by": "",
+    "hyperlink_relationships": 5,
+    "real_bullet_numbering": true,
+    "numbered_paragraphs": 5,
+    "comments_present": false,
+    "tracked_changes_present": false,
+    "raw_http_text_present": false,
+    "passed": true
+  },
+  "pdf": {
+    "path": "C:\\Users\\adamp\\Aether\\skill.supply\\output\\pdf\\adam_pangelinan_suno_pro_create_resume_2026-08-29.pdf",
+    "pages": 1,
+    "missing_expected_text": [],
+    "forbidden_text_found": [],
+    "author": "",
+    "creator": "",
+    "producer": "",
+    "annotations": 6,
+    "passed": true
+  },
+  "passed": true
+}

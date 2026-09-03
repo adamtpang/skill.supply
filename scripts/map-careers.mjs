@@ -1,5 +1,5 @@
 /**
- * Build the complete careers-page map for the world's 100 largest companies.
+ * Build a checkpointed careers-page map for the CompaniesMarketCap universe.
  *
  * Every company has a careers page, whether or not it uses a third-party ATS.
  * This finds and VERIFIES that URL for each one (HTTP 200, follows redirects),
@@ -7,7 +7,8 @@
  *
  * Free: plain fetches, no crawler, no API key.
  *
- * Run:    node scripts/map-careers.mjs
+ * Run:    node scripts/map-careers.mjs --start-rank 1 --limit 100
+ *         node scripts/map-careers.mjs --all
  * Reads:  scripts/marketcap-index.json  (run ingest-marketcap.mjs first)
  * Writes: scripts/careers-map.json
  */
@@ -250,34 +251,118 @@ async function pool(items, limit, fn) {
   return out;
 }
 
+function numberFlag(args, name, fallback) {
+  const index = args.indexOf(name);
+  if (index === -1) return fallback;
+  const value = Number(args[index + 1]);
+  if (!Number.isFinite(value) || value < 0) throw new Error(`${name} needs a non-negative number`);
+  return value;
+}
+
+function careerKey(name) {
+  return deaccent(name.toLowerCase()).replace(/[^a-z0-9]/g, "");
+}
+
+function publicRecord(company, careers) {
+  return {
+    rank: company.rank,
+    name: company.name,
+    symbol: company.symbol ?? null,
+    marketCap: company.marketCap ?? null,
+    country: company.country ?? null,
+    profileSlug: company.profileSlug ?? null,
+    profileUrl: company.profileUrl ?? null,
+    board: company.board ?? null,
+    careers,
+  };
+}
+
 async function main() {
   if (!existsSync(INDEX)) {
     console.error("Run `node scripts/ingest-marketcap.mjs` first.");
     process.exit(1);
   }
-  const { companies } = JSON.parse(readFileSync(INDEX, "utf8"));
-  console.log(`Finding the careers page for ${companies.length} companies…\n`);
-
-  const mapped = await pool(companies, 8, async (c) => {
-    const found = await findCareers(c);
-    console.log(
-      `${String(c.rank).padStart(3)}. ${c.name.padEnd(24).slice(0, 24)} ${
-        found.url ? `${found.verified ? "ok " : "?? "}${found.url.slice(0, 60)}` : "no careers page found"
-      }`
-    );
-    return { rank: c.rank, name: c.name, symbol: c.symbol, board: c.board, careers: found };
+  const args = process.argv.slice(2);
+  const index = JSON.parse(readFileSync(INDEX, "utf8"));
+  const companies = index.companies ?? [];
+  const startRank = Math.max(1, numberFlag(args, "--start-rank", 1));
+  const limit = args.includes("--all") ? companies.length : numberFlag(args, "--limit", 100);
+  const concurrency = Math.max(1, numberFlag(args, "--concurrency", 6));
+  const refresh = args.includes("--refresh");
+  const previous = existsSync(OUT) ? JSON.parse(readFileSync(OUT, "utf8")) : { companies: [] };
+  const careersByName = new Map(
+    (previous.companies ?? []).map((company) => [careerKey(company.name), company.careers])
+  );
+  const lastRank = limit === 0 ? startRank - 1 : startRank + limit - 1;
+  const selected = companies.filter(
+    (company) => company.rank >= startRank && company.rank <= lastRank
+  );
+  const targets = selected.filter((company) => {
+    if (refresh) return true;
+    const old = careersByName.get(careerKey(company.name));
+    return !(old?.verified === true || old?.source === "unmapped");
   });
 
-  const withPage = mapped.filter((m) => m.careers.url);
-  const withBoard = mapped.filter((m) => m.board);
+  function snapshot() {
+    const mapped = companies.map((company) =>
+      publicRecord(
+        company,
+        careersByName.get(careerKey(company.name)) ?? {
+          url: null,
+          verified: false,
+          source: "pending",
+        }
+      )
+    );
+    const verified = mapped.filter((company) => company.careers?.verified === true).length;
+    const attempted = mapped.filter(
+      (company) => company.careers?.source && company.careers.source !== "pending"
+    ).length;
+    const payload = {
+      version: 2,
+      source: {
+        companyUniverse: index.source?.url ?? "https://companiesmarketcap.com/",
+        generatedFrom: "scripts/marketcap-index.json",
+      },
+      generatedAt: new Date().toISOString(),
+      coverage: {
+        companies: mapped.length,
+        attempted,
+        verified,
+        pending: mapped.length - attempted,
+      },
+      companies: mapped,
+    };
+    writeFileSync(OUT, `${JSON.stringify(payload, null, 2)}\n`);
+    return payload.coverage;
+  }
 
-  writeFileSync(OUT, JSON.stringify({ generatedAt: new Date().toISOString(), companies: mapped }, null, 2));
+  console.log(
+    `Careers mapping: ${companies.length.toLocaleString()} indexed, ${targets.length} network checks in this run`
+  );
+  snapshot();
 
-  console.log(`\n${"=".repeat(58)}`);
-  console.log(`careers page found: ${withPage.length} of ${mapped.length}`);
-  console.log(`machine-readable job data: ${withBoard.length}`);
-  console.log(`needs a crawler or adapter: ${withPage.length - withBoard.length}`);
-  console.log(`\nwrote scripts/careers-map.json`);
+  for (let offset = 0; offset < targets.length; offset += concurrency) {
+    const batch = targets.slice(offset, offset + concurrency);
+    const results = await pool(batch, concurrency, async (company) => {
+      const found = await findCareers(company);
+      console.log(
+        `${String(company.rank).padStart(5)} ${company.name.padEnd(28).slice(0, 28)} ${
+          found.url
+            ? `${found.verified ? "ok" : "unverified"} ${found.url.slice(0, 70)}`
+            : "unresolved"
+        }`
+      );
+      return [careerKey(company.name), found];
+    });
+    for (const [key, found] of results) careersByName.set(key, found);
+    snapshot();
+  }
+
+  const coverage = snapshot();
+  console.log(`${coverage.verified.toLocaleString()} verified careers destinations`);
+  console.log(`${coverage.pending.toLocaleString()} companies remain pending`);
+  console.log("Wrote scripts/careers-map.json");
 }
 
 main().catch((e) => {

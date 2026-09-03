@@ -5,6 +5,8 @@ import { COMPANIES, AS_OF } from "@/lib/companies";
 import { OFFICIAL_CAREERS } from "@/lib/careers";
 import { fetchJobCounts } from "@/lib/jobs";
 import { rankByMomentum, formatUsd } from "@/lib/momentum";
+import { fetchSkillMarket } from "@/lib/skills";
+import { companyMarketLeaders, companyMarketSummary } from "@/lib/company-market";
 import { CompanyCard } from "@/components/company-card";
 import { CompanySearch } from "@/components/company-search";
 
@@ -15,12 +17,26 @@ export const metadata: Metadata = {
 };
 
 export default async function CompaniesPage() {
-  const counts = await fetchJobCounts(COMPANIES.map((c) => c.slug));
+  const [counts, skillMarket] = await Promise.all([
+    fetchJobCounts(COMPANIES.map((c) => c.slug)),
+    fetchSkillMarket(),
+  ]);
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
   const momentum = rankByMomentum(COMPANIES);
+  const publicMarket = companyMarketSummary();
+  const publicLeaders = companyMarketLeaders(10);
+  const marketSignals = skillMarket.signals.map(
+    ({ slug, name, demandScore, matchingRoles, companiesHiring }) => ({
+      slug,
+      name,
+      demandScore,
+      matchingRoles,
+      companiesHiring,
+    })
+  );
 
   return (
-    <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-5 sm:px-8">
+    <div className="legible-text-surface mobile-touch-surface mx-auto flex w-full max-w-4xl flex-1 flex-col px-5 sm:px-8">
       <header className="flex items-center justify-between gap-4 pt-6">
         <Link
           href="/"
@@ -65,8 +81,86 @@ export default async function CompaniesPage() {
           )}
         </section>
 
-        <section className="mb-10">
-          <CompanySearch />
+        <section id="company-search" className="mb-10 scroll-mt-6">
+          <CompanySearch
+            marketSignals={marketSignals}
+            suggestedCompanies={publicLeaders.slice(0, 6).map((company) => company.name)}
+            indexedCompanies={publicMarket.indexedCompanies}
+          />
+        </section>
+
+        <section className="mb-10" aria-labelledby="public-market-heading">
+          <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+                CompaniesMarketCap universe
+              </p>
+              <h2 id="public-market-heading" className="mt-1 text-xl font-semibold tracking-tight">
+                Start with every ranked public company
+              </h2>
+            </div>
+            <a
+              href="https://companiesmarketcap.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded text-xs text-muted-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+            >
+              Source
+              <ArrowUpRight className="size-3" aria-hidden />
+            </a>
+          </div>
+          <p className="mb-4 max-w-2xl text-xs leading-relaxed text-muted-foreground">
+            The full public-company ranking is indexed with canonical profile URLs, country,
+            ticker, and market cap. Verified career destinations are layered on separately. Private
+            companies such as fal.ai remain in the live ATS and hand-picked market so they are not
+            excluded just because they have no public market cap.
+          </p>
+          <div className="mb-4 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-3">
+            <MarketFact
+              value={publicMarket.indexedCompanies.toLocaleString()}
+              label="Public companies indexed"
+            />
+            <MarketFact
+              value={publicMarket.verifiedCareers.toLocaleString()}
+              label="Verified career destinations"
+            />
+            <MarketFact value="On demand" label="Live role and resume matching" />
+          </div>
+          <ol className="grid overflow-hidden rounded-xl border border-border bg-card sm:grid-cols-2">
+            {publicLeaders.map((company) => (
+              <li
+                key={company.profileSlug}
+                className="border-b border-border last:border-b-0 sm:odd:border-r"
+              >
+                <a
+                  href={company.careers?.url ?? company.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-14 items-center justify-between gap-3 px-4 py-3 outline-none transition-colors hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50"
+                >
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm font-medium">
+                      #{company.rank} {company.name}
+                    </span>
+                    <span className="mt-0.5 block truncate font-mono text-[10px] text-muted-foreground">
+                      {[company.symbol, company.marketCap ? `$${company.marketCap}` : null, company.country]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </span>
+                  </span>
+                  <span className="inline-flex shrink-0 items-center gap-1 font-mono text-[10px] font-medium text-brand uppercase">
+                    {company.careers ? "Careers" : "Profile"}
+                    <ArrowUpRight className="size-3" aria-hidden />
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+            Search above by company name or ticker. When live descriptions are available, your
+            locally saved resume ranks the roles and the Resume button loads the exact JD into the
+            improver.
+          </p>
         </section>
 
         {momentum.length > 0 && (
@@ -156,7 +250,7 @@ export default async function CompaniesPage() {
         <h2 className="mb-4 font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
           Hand-picked
         </h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {COMPANIES.map((c) => (
             <CompanyCard key={c.slug} company={c} openRoles={counts[c.slug] ?? 0} />
           ))}
@@ -173,6 +267,15 @@ export default async function CompaniesPage() {
           helpers. No accounts, no database.
         </p>
       </footer>
+    </div>
+  );
+}
+
+function MarketFact({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="bg-card p-4">
+      <p className="font-mono text-lg font-semibold tabular-nums text-brand">{value}</p>
+      <p className="mt-1 text-xs text-muted-foreground">{label}</p>
     </div>
   );
 }

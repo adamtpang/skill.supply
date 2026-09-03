@@ -31,7 +31,7 @@ export default function MetaPage() {
   const maxIndex = Math.max(...SECTORS.map((s) => s.index));
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
+    <div className="legible-text-surface mobile-touch-surface mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
       <header className="flex items-center justify-between pt-6">
         <Link
           href="/"
@@ -70,7 +70,7 @@ export default function MetaPage() {
                 {s.value}
               </p>
               <p className="mt-1 text-xs font-medium">{s.label}</p>
-              <p className="mt-1 text-[0.7rem] leading-relaxed text-muted-foreground">{s.note}</p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{s.note}</p>
             </div>
           ))}
         </section>

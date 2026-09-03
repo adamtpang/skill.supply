@@ -1,0 +1,44 @@
+{
+  "docx": {
+    "path": "C:\\Users\\adamp\\Aether\\skill.supply\\outputs\\adam_pangelinan_workos_applied_ai_resume_2026-08-29.docx",
+    "sections": 1,
+    "page_width_inches": 8.5,
+    "page_height_inches": 11.0,
+    "margins_inches": {
+      "top": 0.55,
+      "right": 0.55,
+      "bottom": 0.55,
+      "left": 0.55
+    },
+    "missing_expected_text": [],
+    "forbidden_text_found": [],
+    "author": "",
+    "last_modified_by": "",
+    "title": "Adam Pangelinan - Applied AI Engineer",
+    "subject": "Role-specific resume for WorkOS Applied AI",
+    "hyperlink_relationships": 6,
+    "hyperlink_elements": 7,
+    "missing_url_targets": [],
+    "real_bullet_numbering": true,
+    "numbered_paragraphs": 4,
+    "comments_present": false,
+    "tracked_changes_present": false,
+    "raw_http_text_present": false,
+    "custom_properties_present": false,
+    "rsid_present": false,
+    "passed": true
+  },
+  "pdf": {
+    "path": "C:\\Users\\adamp\\Aether\\skill.supply\\output\\pdf\\adam_pangelinan_workos_applied_ai_resume_2026-08-29.pdf",
+    "pages": 1,
+    "missing_expected_text": [],
+    "forbidden_text_found": [],
+    "author": "",
+    "creator": "",
+    "producer": "",
+    "annotations": 7,
+    "missing_url_targets": [],
+    "passed": true
+  },
+  "passed": true
+}

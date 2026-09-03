@@ -2,22 +2,50 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Bot, LoaderCircle, Search } from "lucide-react";
+import { ArrowUpRight, Bot, FileCheck2, LoaderCircle, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Job } from "@/lib/jobs";
 import { applicationHref } from "@/lib/application";
+import { scoreResume, type MarketSignal } from "@/lib/resume-improver";
+
+type MarketCompany = {
+  rank: number;
+  symbol: string | null;
+  marketCap: string | null;
+  country: string | null;
+  profileUrl: string;
+};
+
+type ScoredJob = Job & { resumeScore?: number };
 
 type Result =
-  | { found: true; name: string; provider: string; count: number; jobs: Job[] }
+  | {
+      found: true;
+      name: string;
+      provider: string;
+      count: number;
+      jobs: ScoredJob[];
+      market?: MarketCompany | null;
+    }
   | {
       found: false;
       message: string;
       officialCareer?: { name: string; url: string } | null;
+      market?: MarketCompany | null;
     };
 
 const SUGGESTED = ["AppLovin", "Nvidia", "Stripe", "Databricks", "Palantir", "Figma"];
+const RESUME_STORAGE_KEY = "skill.supply.resume-improver.v1";
 
-export function CompanySearch() {
+export function CompanySearch({
+  marketSignals = [],
+  suggestedCompanies = SUGGESTED,
+  indexedCompanies,
+}: {
+  marketSignals?: MarketSignal[];
+  suggestedCompanies?: string[];
+  indexedCompanies?: number;
+}) {
   const [q, setQ] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
@@ -36,7 +64,28 @@ export function CompanySearch() {
       const res = await fetch(`/api/resolve?q=${encodeURIComponent(term)}`, {
         signal: controller.signal,
       });
-      setResult((await res.json()) as Result);
+      const payload = (await res.json()) as Result;
+      if (payload.found) {
+        const resume = savedResume();
+        payload.jobs = payload.jobs
+          .map((job) => ({
+            ...job,
+            resumeScore:
+              resume && job.description
+                ? scoreResume({
+                    resume,
+                    targetRole: job.title,
+                    jobDescription: job.description,
+                    market: marketSignals,
+                  }).score
+                : undefined,
+          }))
+          .sort(
+            (a, b) =>
+              (b.resumeScore ?? -1) - (a.resumeScore ?? -1) || a.title.localeCompare(b.title)
+          );
+      }
+      setResult(payload);
     } catch {
       if (!controller.signal.aborted) {
         setResult({ found: false, message: "Could not reach the job board. Try again." });
@@ -44,6 +93,25 @@ export function CompanySearch() {
     } finally {
       if (!controller.signal.aborted) setLoading(false);
     }
+  }
+
+  function matchResume(job: Job) {
+    let saved: Record<string, unknown> = {};
+    try {
+      const current = window.localStorage.getItem(RESUME_STORAGE_KEY);
+      if (current) saved = JSON.parse(current) as Record<string, unknown>;
+    } catch {
+      // A fresh local draft is enough when stored state is unavailable.
+    }
+    window.localStorage.setItem(
+      RESUME_STORAGE_KEY,
+      JSON.stringify({
+        ...saved,
+        targetRole: job.title,
+        jobDescription: job.description ?? "",
+      })
+    );
+    window.location.assign("/resume");
   }
 
   return (
@@ -67,7 +135,7 @@ export function CompanySearch() {
             id="company-q"
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Search any company: AppLovin, Stripe, Nvidia…"
+          placeholder="Search a company or ticker: NVIDIA, NVDA, fal.ai"
             className="h-11 w-full rounded-lg border border-input bg-card pr-3 pl-9 text-[0.925rem] outline-none transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
           />
         </div>
@@ -79,8 +147,9 @@ export function CompanySearch() {
 
       {!result && !loading && (
         <p className="mt-3 text-xs text-muted-foreground">
+          {indexedCompanies ? `${indexedCompanies.toLocaleString()} public companies indexed. ` : ""}
           Try{" "}
-          {SUGGESTED.map((s, i) => (
+          {suggestedCompanies.map((s, i) => (
             <span key={s}>
               {i > 0 && ", "}
               <button
@@ -100,17 +169,32 @@ export function CompanySearch() {
           {result.found ? (
             <>
               <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
-                <p className="text-sm font-medium">
-                  {result.name}
-                  <span className="ml-2 font-mono text-xs font-normal text-muted-foreground">
-                    via {result.provider}
-                  </span>
-                </p>
+                <div>
+                  <p className="text-sm font-medium">
+                    {result.name}
+                    <span className="ml-2 font-mono text-xs font-normal text-muted-foreground">
+                      via {result.provider}
+                    </span>
+                  </p>
+                  {result.market && (
+                    <a
+                      href={result.market.profileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-flex rounded font-mono text-[11px] text-muted-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+                    >
+                      Public rank #{result.market.rank}
+                      {result.market.symbol ? ` · ${result.market.symbol}` : ""}
+                      {result.market.marketCap ? ` · $${result.market.marketCap}` : ""}
+                      {result.market.country ? ` · ${result.market.country}` : ""}
+                    </a>
+                  )}
+                </div>
                 <p className="font-mono text-xs tabular-nums text-brand">{result.count} live</p>
               </div>
               <ul className="divide-y divide-border overflow-hidden rounded-xl border border-border bg-card">
-                {result.jobs.slice(0, 10).map((job) => (
-                  <li key={job.id} className="flex items-center gap-2 p-2 pl-4">
+                {result.jobs.slice(0, 10).map((job, index) => (
+                  <li key={job.id} className="flex flex-wrap items-center gap-2 p-2 pl-4">
                     <a
                       href={job.url}
                       target="_blank"
@@ -118,7 +202,14 @@ export function CompanySearch() {
                       className="flex min-w-0 flex-1 items-baseline justify-between gap-4 rounded-lg py-2 outline-none transition-colors hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
                     >
                       <span className="min-w-0">
-                        <span className="block truncate text-sm font-medium">{job.title}</span>
+                        <span className="flex min-w-0 items-center gap-2">
+                          <span className="block truncate text-sm font-medium">{job.title}</span>
+                          {index === 0 && job.resumeScore !== undefined && (
+                            <span className="shrink-0 rounded bg-brand/10 px-1.5 py-0.5 font-mono text-[9px] font-medium tracking-wide text-brand uppercase">
+                              Best match
+                            </span>
+                          )}
+                        </span>
                         {(job.location || job.team) && (
                           <span className="block truncate text-xs text-muted-foreground">
                             {[job.team, job.location].filter(Boolean).join(" · ")}
@@ -130,13 +221,28 @@ export function CompanySearch() {
                         aria-hidden
                       />
                     </a>
-                    <Link
-                      href={applicationHref(job, result.name)}
-                      className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-lg border border-border px-3 text-xs font-medium outline-none transition-colors hover:border-foreground/25 hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50"
-                    >
-                      <Bot className="size-3.5 text-brand" aria-hidden />
-                      Apply
-                    </Link>
+                    {job.resumeScore !== undefined && (
+                      <span className="font-mono text-[11px] font-medium tabular-nums text-brand">
+                        {job.resumeScore}/100
+                      </span>
+                    )}
+                    <div className="flex shrink-0 gap-2">
+                      <button
+                        type="button"
+                        onClick={() => matchResume(job)}
+                        className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-border px-3 text-xs font-medium outline-none transition-colors hover:border-foreground/25 hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50"
+                      >
+                        <FileCheck2 className="size-3.5 text-brand" aria-hidden />
+                        Resume
+                      </button>
+                      <Link
+                        href={applicationHref(job, result.name)}
+                        className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-border px-3 text-xs font-medium outline-none transition-colors hover:border-foreground/25 hover:bg-muted/50 focus-visible:ring-3 focus-visible:ring-ring/50"
+                      >
+                        <Bot className="size-3.5 text-brand" aria-hidden />
+                        Apply
+                      </Link>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -149,6 +255,19 @@ export function CompanySearch() {
           ) : (
             <div className="rounded-xl border border-border bg-muted/40 p-4">
               <p className="text-sm leading-relaxed text-muted-foreground">{result.message}</p>
+              {result.market && (
+                <a
+                  href={result.market.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex rounded font-mono text-[11px] text-muted-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+                >
+                  Public rank #{result.market.rank}
+                  {result.market.symbol ? ` · ${result.market.symbol}` : ""}
+                  {result.market.marketCap ? ` · $${result.market.marketCap}` : ""}
+                  {result.market.country ? ` · ${result.market.country}` : ""}
+                </a>
+              )}
               {result.officialCareer && (
                 <a
                   href={result.officialCareer.url}
@@ -166,4 +285,17 @@ export function CompanySearch() {
       )}
     </div>
   );
+}
+
+function savedResume(): string | null {
+  try {
+    const saved = window.localStorage.getItem(RESUME_STORAGE_KEY);
+    if (!saved) return null;
+    const parsed = JSON.parse(saved) as { resume?: unknown };
+    return typeof parsed.resume === "string" && parsed.resume.trim().length >= 40
+      ? parsed.resume
+      : null;
+  } catch {
+    return null;
+  }
 }

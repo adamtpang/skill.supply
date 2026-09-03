@@ -49,11 +49,16 @@ type Send = (event: AgentEvent) => void;
  *    never logged, never persisted). This is the path `runAgent` uses, so
  *    skill.supply never carries the AI bill for the free report.
  * 2. ANTHROPIC_API_KEY → the Claude API directly, this app's own key.
- * 3. Vercel OIDC token → AI Gateway's Anthropic-compatible endpoint.
- *    In deployments the token comes from the request context; locally from
- *    VERCEL_OIDC_TOKEN in .env.local (refresh with `vercel env pull`, 12h TTL).
  *
- * 2 and 3 remain for the other agent entry points below (runGetIn, runDream,
+ * There is deliberately no third path. A Vercel AI Gateway fallback (OIDC
+ * token against ai-gateway.vercel.sh) used to sit here and was removed
+ * 2026-08-23 at Adam's explicit call: the gateway is a metered, pay-per-token
+ * service billed to a card, and this app must never silently start spending
+ * money on inference. Do not add it back, or any other implicit paid provider
+ * fallback, without Adam saying so directly. If neither key above is present,
+ * failing loudly is the correct behavior.
+ *
+ * 2 remains for the other agent entry points below (runGetIn, runDream,
  * runJudge), which are not yet on bring-your-own-key. That is a deliberate,
  * separate decision, not an oversight: see EVIDENCE.md.
  */
@@ -64,18 +69,9 @@ async function makeClient(byokKey?: string): Promise<Anthropic> {
   if (process.env.ANTHROPIC_API_KEY) {
     return new Anthropic();
   }
-  try {
-    const { getVercelOidcToken } = await import("@vercel/functions/oidc");
-    const token = await getVercelOidcToken();
-    return new Anthropic({
-      baseURL: "https://ai-gateway.vercel.sh",
-      authToken: token,
-    });
-  } catch {
-    throw new Error(
-      "No model access configured: set ANTHROPIC_API_KEY, or enable Vercel OIDC so the AI Gateway can authenticate."
-    );
-  }
+  throw new Error(
+    "No model access configured: set ANTHROPIC_API_KEY, or supply your own Anthropic API key on the page."
+  );
 }
 
 /** One structured call. Throws with a human-readable message on failure. */
@@ -326,8 +322,8 @@ export function friendlyError(err: unknown, opts?: { byok?: boolean }): string {
   if (err instanceof Anthropic.APIConnectionError) {
     return "Couldn't reach the model. Check your connection and run it again.";
   }
-  // No funded model access: the gateway rejects the model outright (403), or the
-  // key's org is out of credit.
+  // No funded model access: the key's org is out of credit, or the model is
+  // restricted on that account.
   const raw = err instanceof Anthropic.APIError ? `${err.status} ${JSON.stringify(err.error ?? "")}` : "";
   if (
     err instanceof Anthropic.PermissionDeniedError ||
@@ -335,7 +331,7 @@ export function friendlyError(err: unknown, opts?: { byok?: boolean }): string {
   ) {
     return byok
       ? "Your Anthropic account has no credit yet. Add a few dollars at console.anthropic.com/settings/billing, then run it again; a Haiku call here costs a fraction of a cent."
-      : "This app has no funded model access right now, so the agent cannot run. If you own it: add credits to the Vercel AI Gateway, or set a funded ANTHROPIC_API_KEY.";
+      : "This app has no funded model access right now, so the agent cannot run. Paste your own Anthropic API key above to run it yourself.";
   }
   if (err instanceof Anthropic.APIError) {
     return "The model hit an unexpected error. Run it again in a moment.";

@@ -1,53 +1,53 @@
 # Grok: Continue From Claude - skill.supply
 
-Generated on 2026-07-26 from local Claude transcripts for Grok cross-agent continuity.
+Generated on 2026-08-25 from local Claude transcripts for Grok cross-agent continuity.
 
-This file refreshes Claude progress since 2020-01-01T00:00:00.000Z. Use it (or `/resume-claude`) before continuing this project in Grok.
+This file refreshes Claude progress since 2026-08-24T00:00:00.000Z. Use it (or `/resume-claude`) before continuing this project in Grok.
 
 Recent Claude sessions mapped here: 1. Showing 1 detailed sessions.
 
 ## Latest stop point
 
-- Last activity: `2026-07-25T11:03:26.134Z`
-- Claude session: `207c7fd5-2e7e-48b7-83e2-3ba861ff241f`
-- CWD: `C:\Users\adamp\OneDrive\Aether\skill.supply`
-- Last user ask: its applovin.com axon.ai yeah how do i increase visibility then? how do i get a job asap at a top top company? like the ones in companiesmarketcap.com? i want all those companies, and their careers pages, and the Jds in those careers pages to be indexable by the users of skill.supply, and after extensively vetting, onboarding, interviewing, upskilling users 
-- Last assistant note: 🚀 **Shipped and live: [skill.supply/companies](https://skill.supply/companies) now indexes any company.** Type a name, it probes Greenhouse, Ashby, and Lever, and returns live JDs. Verified in production just now: ``` applovin FOUND 23 jobs via greenhouse stripe FOUND 536 jobs via greenhouse anthropic FOUND 411 jobs via greenhouse nvidia not indexable (Work
+- Last activity: `2026-08-24T03:27:38.997Z`
+- Claude session: `c27cabd8-14ab-43e6-98bb-ac1950eecbbd`
+- CWD: `C:\Users\adamp\Aether\skill.supply`
+- Last user ask: Base directory for this skill: C:\Users\adamp\.claude\skills\interview-me # /interview-me — ask exactly what's missing, nothing else The failure mode this exists to prevent: Claude either invents a plausible-sounding answer to cover a gap (a fake resume line, a guessed preference, a made-up detail) or stalls entirely because it's missing one real fact only A
+- Last assistant note: Both answered, and both are different from what you'd expect. ## 💼 Mercor: that page is not a job at Mercor `work.mercor.com/explore` is Mercor's **contractor marketplace**, where you get placed on AI-training projects for other companies (mostly labs). Applying there does not make you a Mercor employee. It makes you a paid contractor on someone else's data
 - Recent files touched:
-  - `skill.supply\app\layout.tsx`
-  - `skill.supply\app\globals.css`
-  - `skill.supply\package.json`
-  - `skill.supply\lib\schema.ts`
-  - `skill.supply\lib\prompts.ts`
-  - `skill.supply\lib\agent.ts`
-  - `skill.supply\app\api\agent\route.ts`
-  - `skill.supply\lib\share.ts`
-  - `skill.supply\components\ui\button.tsx`
-  - `skill.supply\components\ui\textarea.tsx`
+  - `summon.company`
+  - `summon.company\doc\REGISTER-TRUTH-AGENT.md`
+  - `summon.company\scripts\register-truth.ts`
+  - `summon.company\server\src\services\register-truth.ts`
+  - `summon.company\server\src\__tests__\register-truth.test.ts`
+  - `summon.company\server\src\__tests__\register-truth-runner.test.ts`
+  - `summon.company\packages\shared\src\types\register-truth.ts`
+  - `summon.company\server\src\services\register-truth-parsers.ts`
+  - `summon.company\outbound\regain-register\run-output.txt`
+  - `summon.company\server\src\services\register-truth-eval-scenarios.ts`
 
 ## Recent sessions
 
-### 2026-07-25T11:03:26.134Z
+### 2026-08-24T03:27:38.997Z
 
-- Claude session: `207c7fd5-2e7e-48b7-83e2-3ba861ff241f`
-- Grok import record id: `22952f56-2928-41a1-992d-63af7e986bde`
-- Messages: 372 user / 641 assistant / 1498 events
-- First user ask: # Build skill.supply — an AI agent that gets people hired You're building the v1 of **skill.supply**, a web app. Ship a real, deployed, working product — not a plan. Move like the goal is a public launch this week. ## What it is skill.supply is an **AI career agent** that turns a person into the "supply" companies compete for. It does three things in one flo
-- Last user ask: its applovin.com axon.ai yeah how do i increase visibility then? how do i get a job asap at a top top company? like the ones in companiesmarketcap.com? i want all those companies, and their careers pages, and the Jds in those careers pages to be indexable by the users of skill.supply, and after extensively vetting, onboarding, interviewing, upskilling users 
-- Last assistant note: 🚀 **Shipped and live: [skill.supply/companies](https://skill.supply/companies) now indexes any company.** Type a name, it probes Greenhouse, Ashby, and Lever, and returns live JDs. Verified in production just now: ``` applovin FOUND 23 jobs via greenhouse stripe FOUND 536 jobs via greenhouse anthropic FOUND 411 jobs via greenhouse nvidia not indexable (Work
-- Tools seen: `Artifact`, `AskUserQuestion`, `Bash`, `Edit`, `Glob`, `Grep`, `PowerShell`, `Read`, `Skill`, `ToolSearch`, `WebFetch`, `WebSearch`, `Write`, `mcp__Claude_Browser__computer`, `mcp__Claude_Browser__find`, `mcp__Claude_Browser__javascript_tool`, `mcp__Claude_Browser__navigate`, `mcp__Claude_Browser__preview_logs`
+- Claude session: `c27cabd8-14ab-43e6-98bb-ac1950eecbbd`
+- Grok import record id: `fbdb1163-cb2d-423f-9388-447ba1a61629`
+- Messages: 1116 user / 1832 assistant / 7229 events
+- First user ask: continue so what are the best tech 24 year olds doing in 2026? how are people getting jobs? check the internet and levels.fyi and find the best solution paths for me to get income /repo-connect moneymeta.fun
+- Last user ask: Base directory for this skill: C:\Users\adamp\.claude\skills\interview-me # /interview-me — ask exactly what's missing, nothing else The failure mode this exists to prevent: Claude either invents a plausible-sounding answer to cover a gap (a fake resume line, a guessed preference, a made-up detail) or stalls entirely because it's missing one real fact only A
+- Last assistant note: Both answered, and both are different from what you'd expect. ## 💼 Mercor: that page is not a job at Mercor `work.mercor.com/explore` is Mercor's **contractor marketplace**, where you get placed on AI-training projects for other companies (mostly labs). Applying there does not make you a Mercor employee. It makes you a paid contractor on someone else's data
+- Tools seen: `Agent`, `Artifact`, `AskUserQuestion`, `Bash`, `Edit`, `Glob`, `Grep`, `Monitor`, `PowerShell`, `Read`, `SendMessage`, `SendUserFile`, `Skill`, `TaskCreate`, `ToolSearch`, `WebFetch`, `WebSearch`, `Workflow`
 - Files touched:
-  - `skill.supply\app\layout.tsx`
-  - `skill.supply\app\globals.css`
-  - `skill.supply\package.json`
-  - `skill.supply\lib\schema.ts`
-  - `skill.supply\lib\prompts.ts`
-  - `skill.supply\lib\agent.ts`
-  - `skill.supply\app\api\agent\route.ts`
-  - `skill.supply\lib\share.ts`
-  - `skill.supply\components\ui\button.tsx`
-  - `skill.supply\components\ui\textarea.tsx`
-  - `skill.supply\components\ui\badge.tsx`
-  - `skill.supply\components\markdown.tsx`
-- Raw transcript: `C:\Users\adamp\.claude\projects\C--Users-adamp-OneDrive-Aether-skill-supply\207c7fd5-2e7e-48b7-83e2-3ba861ff241f.jsonl`
+  - `summon.company`
+  - `summon.company\doc\REGISTER-TRUTH-AGENT.md`
+  - `summon.company\scripts\register-truth.ts`
+  - `summon.company\server\src\services\register-truth.ts`
+  - `summon.company\server\src\__tests__\register-truth.test.ts`
+  - `summon.company\server\src\__tests__\register-truth-runner.test.ts`
+  - `summon.company\packages\shared\src\types\register-truth.ts`
+  - `summon.company\server\src\services\register-truth-parsers.ts`
+  - `summon.company\outbound\regain-register\run-output.txt`
+  - `summon.company\server\src\services\register-truth-eval-scenarios.ts`
+  - `summon.company\server\src\__tests__\register-truth-eval.test.ts`
+  - `summon.company\outbound\register-truth-eval\EVAL-REPORT.md`
+- Raw transcript: `C:\Users\adamp\.claude\projects\C--Users-adamp-Aether-skill-supply\c27cabd8-14ab-43e6-98bb-ac1950eecbbd.jsonl`
 

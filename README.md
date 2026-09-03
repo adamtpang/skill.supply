@@ -18,10 +18,25 @@ home of **Skill Market Cap**: an hourly demand ranking based on explicit skill m
 real roles. The standalone `skillmarketcap.com` domain redirects into this surface. It remains an
 acquisition asset, not a separate product or a fourth pillar in the talent suite.
 
-`/apply` is the Browser Harness application-agent handoff. It builds a client-only packet from one
-job, candidate facts, an evidence-backed profile, and the exact local resume path. A project agent
-then uses the candidate's real Chrome session to fill deterministic fields, pauses for missing or
-sensitive answers, and requires explicit approval before the final Submit action. See
+`/center` is the local-first Career Center and the primary candidate journey. It keeps one private
+Career Case with a factual profile, one active target, the current bottleneck, the first unfinished
+placement step, and one next action. It coordinates the Talent Card from `darktalent.tech`, demand,
+matching, campaigns, applications, and placement in `skill.supply`, plus company-specific Gap Plans
+from `company.university`. The candidate can import, export, or copy a bounded agent task. Nothing
+is communicated or submitted externally by the product. See [`CAREER_CENTER.md`](CAREER_CENTER.md).
+
+`/campaign` is the sniper layer before an application. It turns a reusable `profile.md` into exactly
+five company campaigns. A target can be a live role or simply a company and team. The version 2
+packet records confirmed product use, a sourced budget hypothesis, three problem hypotheses with
+confidence, a people map, proof of fit, useful research, a scoped artifact, a Loom outline, separate
+email and DM drafts, a formal-application path, a follow-up, and one next action. Legacy version 1
+packets import automatically. Drafts stay in local browser storage or a downloaded JSON packet.
+
+`/apply` is the Browser Harness application-agent handoff after a campaign earns the formal form.
+It builds a client-only packet from one job, candidate facts, an evidence-backed profile, and the
+exact local resume path. A project agent then uses the candidate's real Helium session to fill
+deterministic fields and pauses for missing or sensitive answers. It must never send a message or
+click Submit. The candidate performs every external action manually. See
 [`APPLICATION_AGENT.md`](APPLICATION_AGENT.md).
 
 No auth. No database. No payments. The finished report is compressed into the URL hash, so a
@@ -50,11 +65,15 @@ One env var:
 | --- | --- |
 | `ANTHROPIC_API_KEY` | Claude API key: <https://console.anthropic.com> |
 
-…or **zero env vars on Vercel**: when `ANTHROPIC_API_KEY` is absent, the agent authenticates
-to [Vercel AI Gateway](https://vercel.com/docs/ai-gateway)'s Anthropic-compatible endpoint
-with the deployment's OIDC token (billed to the team's AI Gateway credits). For local dev on
-that path, `vercel link && vercel env pull` writes a 12-hour `VERCEL_OIDC_TOKEN` into
-`.env.local`; re-pull when it expires.
+…or **zero env vars**: the free report runs on bring-your-own-key. The seeker pastes their
+own Anthropic API key on the page. The server uses it for that request, never logs it, and
+never persists it server-side. The client can remember it in that browser's `localStorage`
+until the seeker chooses “Forget key.” skill.supply never carries the AI bill.
+
+There is deliberately **no paid-provider fallback**. A Vercel AI Gateway path (OIDC token
+against `ai-gateway.vercel.sh`, billed per token to the team's card) was removed 2026-08-23.
+When no key is available the agent fails loudly instead of quietly spending money. Do not add
+that path, or any equivalent, back.
 
 ## How it works
 
@@ -74,7 +93,7 @@ Key files: [`lib/agent.ts`](lib/agent.ts) (the chain), [`lib/prompts.ts`](lib/pr
 
 ## Non-goals (v1)
 
-Auth, accounts, database, payments, recruiter workflow, unsupported salary estimates, invented
-market trends, bulk auto-applying, and unattended submission. Public Greenhouse, Ashby, and Lever
+Auth, accounts, database, payments, recruiter workflow, unsupported salary claims, invented market
+trends, bulk auto-applying, agent-sent outreach, and agent-performed submission. Public Greenhouse, Ashby, and Lever
 inventory is labeled live. Agent-generated targets remain targets to pursue unless they are linked
 to a public opening. Candor is the product.

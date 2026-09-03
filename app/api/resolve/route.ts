@@ -1,5 +1,6 @@
 import { resolveCompany } from "@/lib/resolve";
 import { findOfficialCareer } from "@/lib/careers";
+import { findMarketCompany } from "@/lib/company-market";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
@@ -13,17 +14,30 @@ export async function GET(req: Request) {
     return Response.json({ error: "That name is too long." }, { status: 400 });
   }
 
-  const resolved = await resolveCompany(q);
+  const market = findMarketCompany(q);
+  const resolved = await resolveCompany(market?.name ?? q);
   if (!resolved) {
     const official = findOfficialCareer(q);
+    const verifiedCareer = official
+      ? { name: official.name, url: official.url }
+      : market?.careers
+        ? { name: market.name, url: market.careers.url }
+        : null;
     return Response.json(
       {
         found: false,
-        message: official
-          ? `${official.name} uses a proprietary or Workday-backed board. Open its verified careers page to search every live role.`
+        message: verifiedCareer
+          ? `${verifiedCareer.name} has a verified careers destination, but its live roles are not normalized yet. Open the official page to search every current role.`
           : `No public job board found for "${q}". Try the exact company name. Public Greenhouse, Ashby, and Lever boards are indexed automatically; proprietary boards need a verified official-careers entry.`,
-        officialCareer: official
-          ? { name: official.name, url: official.url }
+        officialCareer: verifiedCareer,
+        market: market
+          ? {
+              rank: market.rank,
+              symbol: market.symbol,
+              marketCap: market.marketCap,
+              country: market.country,
+              profileUrl: market.profileUrl,
+            }
           : null,
       },
       { headers: { "Cache-Control": "public, s-maxage=3600" } }
@@ -40,6 +54,15 @@ export async function GET(req: Request) {
       // Only the rendered tier is a snapshot; everything else is live.
       capturedAt: resolved.capturedAt ?? null,
       careersUrl: resolved.careersUrl ?? null,
+      market: market
+        ? {
+            rank: market.rank,
+            symbol: market.symbol,
+            marketCap: market.marketCap,
+            country: market.country,
+            profileUrl: market.profileUrl,
+          }
+        : null,
     },
     { headers: { "Cache-Control": "public, s-maxage=3600" } }
   );

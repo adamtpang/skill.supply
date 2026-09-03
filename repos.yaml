@@ -9,20 +9,27 @@ provides:
   - id: career-agent
     what: ikigai read, resume packaging, role matching
     at: lib/agent.ts
+  - id: career-profile-contract
+    what: local-first factual profile, evidence index, story bank, gaps, and approved application answers
+    at: data/profiles/_template/profile.md
+  - id: placement-campaign-contract
+    what: five-target company campaign with sourced hypotheses, proof, drafts, and manual-action guardrails
+    at: lib/campaign.ts
+  - id: s-tier-target-contract
+    what: the shared AND-gate definition for judging a company, team, role, offer, and location across problem, hiring budget, people, and place
+    at: S_TIER_TARGET_SPEC.md
 
 stack: [next, anthropic, zod]
 
 kin:
   - repo: darktalent.tech
-    why: darktalent scores talent from the demand side; skill.supply works the supply side
+    why: darktalent.tech owns scoring, public signals, and the shared TalentProfile card; skill.supply owns demand discovery, matching, gap ETA, candidate campaigns, introductions, and placement. The card is scored by darktalent, transacted by skill.supply, and placement outcomes write back to calibrate the score.
   - repo: company.university
     why: consumes its in-demand-skills board as matching targets
   - repo: summon.company
     why: summon builds the company; skill.supply staffs it
   - repo: optimism.fun
     why: same legibility-engines ranking pattern (live public data -> a scored rank), same family as pokedex.life (people), portal.voyage (places), and moneymeta.fun (income paths). Both repos even use the same manifest convention, this file declares "ranks: candidates", optimism.fun declares "ranks: problems". the Skill Market Cap hourly demand ranking (now extracted to skillmarketcap.com) is a concrete real data source moneymeta.fun could eventually pull from for its AI-native decks, which currently have no verified income median. Added 2026-08-22: optimism.fun now declares this repo the JOIN half of its start-or-join starter packs. It supplies the ranked target list of S-tier companies worth joining (the $1T-ceiling set: Helion, Commonwealth Fusion, Fervo and peers); this repo's career agent packages the candidate for those specific roles. Its list, this repo's placement.
-  - repo: finn.monster
-    why: finn.monster owns real automated posting to X and Reddit (admin-secret-gated API routes); the candidate's own build-in-public distribution work, born out of skill.supply's job search, can post through those routes instead of every project reinventing social posting
   - repo: youchop.app
     why: youchop.app's tools/corpus.mjs pulls real transcripts and channel corpora; skill.supply's research needs (verifying a claim against a real source instead of a search-snippet paraphrase, as done for the Naval Ravikant JRE #1309 check) can run through it instead of ad hoc web search
   - repo: moneymeta.fun
@@ -42,8 +49,12 @@ kin:
   - repo: ness.city
     why: ECOSYSTEM.md's standing rule names NS members as supply-only, never sold to; ness.city is the civic layer for that community and hosts the Exam Course (/fellowship-prep) that grows it. Reciprocal of ness.city's own edge; the never-extract rule is the shared law.
   - repo: portal.voyage
-    why: portal.voyage already declares this edge (its WHERE ranking and this repo's WHAT placements are now the same decision for Adam, since Forest City is closing and the next role and the next city need choosing together, not separately), reciprocated here. This repo's job listings (lib/jobs.ts) carry a real per-listing location field, live demand signal portal.voyage's curated per-field career scores could eventually be checked or seeded against.
+    why: skill.supply judges the company, team, role, offer, and candidate match; portal.voyage owns the required-location axis through cost, field-specific career density, admired people, and hard visa, language, climate, and timezone filters. Under S_TIER_TARGET_SPEC.md, a target qualifies as S-tier only when problem, hiring budget, people, and place all pass, so WHAT and WHERE are one decision rather than separate rankings.
   - repo: skillmarketcap.com
     why: the Skill Market Cap demand ranking was extracted from this repo's /skills route into its own repo and domain on 2026-08-15 (that route now redirects there). skill.supply is the supply side, packaging and placing a person; skillmarketcap.com is the demand side, measuring what the market asks for. lib/companies.ts and lib/jobs.ts are duplicated across both on purpose, per its HANDOFF_FROM_SKILL_SUPPLY.md.
+  - repo: sellsniper.com
+    why: this repo's job search kept hitting the same wall, proof-over-pedigree only works when the proof is visible, and the candidate's proof is 53 public repos carrying 5 stars total (verified against the GitHub API 2026-08-23). Finding the right communities for an artifact is sellsniper's whole job description, so on 2026-08-23 that work was handed over as sellsniper.com/HANDOFF_FROM_SKILL_SUPPLY.md plus GITHUB_DISTRIBUTION.md. This repo keeps the outreach half (X_DM_HIRING.md, DMing people posting hiring on X); sellsniper keeps the artifact-distribution half. Same underlying problem, REACH, split at the seam between a person and a repo.
+  - repo: deathmoney.fyi
+    why: deathmoney.fyi supplies the private burn, debt, accessible-cash, and runway constraints that should govern this career agent's priorities; skill.supply turns the resulting urgency into qualified income opportunities and records job income as an outcome. Together they separate the immediate stabilization job from the longer ownership path without publishing private financial data.
 
 canon: ECOSYSTEM.md (the Talent Trifecta constitution, identical in all three repos)

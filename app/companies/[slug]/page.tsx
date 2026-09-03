@@ -32,7 +32,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
   const jobs = await fetchJobs(slug);
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
+    <div className="legible-text-surface mobile-touch-surface mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
       <header className="flex items-center justify-between pt-6">
         <Link
           href="/"
@@ -69,9 +69,14 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Stats */}
-        <section className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4">
-          {company.stats.map((s) => (
-            <div key={s.label} className="bg-card p-4">
+        <section
+          className={`mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border ${company.stats.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-4"}`}
+        >
+          {company.stats.map((s, index) => (
+            <div
+              key={s.label}
+              className={`bg-card p-4 ${company.stats.length === 3 && index === 2 ? "col-span-2 sm:col-span-1" : ""}`}
+            >
               <p className="font-mono text-[10px] tracking-wide text-muted-foreground uppercase">
                 {s.label}
               </p>

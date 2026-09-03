@@ -27,7 +27,7 @@ export default function SharePage() {
   }, []);
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
+    <div className="legible-text-surface mobile-touch-surface mx-auto flex w-full max-w-3xl flex-1 flex-col px-5 sm:px-8">
       <header className="flex items-center justify-between pt-6 pb-10">
         <Link
           href="/"

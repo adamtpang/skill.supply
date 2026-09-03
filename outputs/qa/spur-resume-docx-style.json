@@ -1,0 +1,105 @@
+{
+  "input": "C:\\Users\\adamp\\Aether\\skill.supply\\outputs\\adam_pangelinan_spur_applied_ai_product_engineer_resume_2026-08-28.docx",
+  "fonts_by_char_count": {
+    "Calibri": 2451
+  },
+  "direct_run_formatting_runs": 43,
+  "direct_paragraph_formatting_paragraphs": 23,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 1,
+      "text": "Adam Pangelinan",
+      "style": "Normal"
+    },
+    {
+      "para_index": 2,
+      "text": "APPLIED AI PRODUCT ENGINEER | BROWSER AGENTS, TYPESCRIPT, QA",
+      "style": "Normal"
+    },
+    {
+      "para_index": 11,
+      "text": "Anchor Marianas | Founder and Software Engineer | 2023 to present | Remote",
+      "style": "Normal"
+    },
+    {
+      "para_index": 13,
+      "text": "EIGN | Software Engineer and B2B Sales | 2025 to 2026 | Remote",
+      "style": "Normal"
+    },
+    {
+      "para_index": 15,
+      "text": "Guam Power Authority | GIS and Software Engineer | Summer 2024 | Guam",
+      "style": "Normal"
+    },
+    {
+      "para_index": 18,
+      "text": "Product engineering: TypeScript, React, Next.js, Node.js, REST APIs, Python, Go",
+      "style": "Normal"
+    },
+    {
+      "para_index": 22,
+      "text": "App Academy | Full-Stack Web Development | 2022 to 2023 | San Francisco",
+      "style": "Normal"
+    }
+  ],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 1,
+        "text": "Adam Pangelinan",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "text": "APPLIED AI PRODUCT ENGINEER | BROWSER AGENTS, TYPESCRIPT, QA",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "text": "adamtpang@gmail.com  |  +60 19 798 1734  |  adampang.com  |  github.com/adamtpang  |  linkedin.com/in/adamtpang",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "text": "Full-stack engineer with 2 to 3 years of experience shipping browser and AI agent products in TypeScript and Python. Bui",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "text": "SELECTED ENGINEERING WORK",
+        "style": "Heading 1"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "Adam Pangelinan",
+        "style": "Normal"
+      },
+      {
+        "para_index": 2,
+        "run_text": "APPLIED AI PRODUCT ENGINEER | BROWSER AGENTS, TYPESCRIPT, QA",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "adamtpang@gmail.com",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "  |  ",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "+60 19 798 1734",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

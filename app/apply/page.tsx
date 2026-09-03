@@ -6,7 +6,7 @@ import { ApplicationAgentPanel } from "@/components/application-agent-panel";
 export const metadata: Metadata = {
   title: "Application agent",
   description:
-    "Prepare an evidence-backed job application packet for a Browser Harness agent, with human review before submission.",
+    "Prepare an evidence-backed job application packet for Browser Harness, with the final submission always performed by the candidate.",
   alternates: { canonical: "/apply" },
 };
 
@@ -21,7 +21,7 @@ export default async function ApplyPage({ searchParams }: { searchParams: Query 
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-5 sm:px-8">
+    <div className="legible-text-surface mobile-touch-surface mx-auto flex w-full max-w-4xl flex-1 flex-col px-5 sm:px-8">
       <header className="flex items-center justify-between gap-4 pt-6">
         <Link
           href="/"
@@ -29,13 +29,21 @@ export default async function ApplyPage({ searchParams }: { searchParams: Query 
         >
           skill<span className="text-brand">.</span>supply
         </Link>
-        <Link
-          href="/companies"
-          className="inline-flex items-center gap-1.5 rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
-        >
-          <ArrowLeft className="size-3" aria-hidden />
-          Find a role
-        </Link>
+        <nav className="flex items-center gap-4" aria-label="Application navigation">
+          <Link
+            href="/campaign"
+            className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Build the campaign
+          </Link>
+          <Link
+            href="/companies"
+            className="inline-flex items-center gap-1.5 rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            <ArrowLeft className="size-3" aria-hidden />
+            Find a role
+          </Link>
+        </nav>
       </header>
 
       <main className="flex-1 pb-16">
@@ -47,9 +55,9 @@ export default async function ApplyPage({ searchParams }: { searchParams: Query 
             Let the agent fill it. Keep the last click.
           </h1>
           <p className="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-muted-foreground">
-            Build one grounded application packet, then hand it to Browser Harness in your real
-            Helium session. It fills what is known, asks when it is not, and waits for you before
-            submitting.
+            After the company campaign earns a formal application, build one grounded packet and
+            hand it to Browser Harness in your real Chrome session. It fills what is known, asks
+            when it is not, then stops so you can review and submit manually.
           </p>
         </section>
 

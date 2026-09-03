@@ -278,14 +278,14 @@ export function AgentFlow() {
         <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
           <Link
             href="/companies"
-            className="inline-flex items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6"
           >
             Explore the best companies
             <ArrowRight className="size-4" aria-hidden />
           </Link>
           <Link
             href="https://skillmarketcap.com"
-            className="inline-flex items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6"
           >
             See live skill demand
             <ArrowRight className="size-4" aria-hidden />
@@ -297,7 +297,7 @@ export function AgentFlow() {
       <div className="space-y-4">
         {phase === "need_more" && question && (
           <div className="rounded-xl border border-border bg-muted/40 p-4 sm:p-5" role="alert">
-            <p className="mb-1 font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+            <p className="mb-1 font-mono text-xs font-medium tracking-[0.14em] text-muted-foreground uppercase">
               One more thing
             </p>
             <p className="text-sm leading-relaxed">{question}</p>
@@ -438,7 +438,7 @@ export function AgentFlow() {
                 No resume handy?{" "}
                 <button
                   type="button"
-                  className="rounded font-medium text-foreground underline underline-offset-4 outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50"
+                  className="inline-flex min-h-11 items-center rounded font-medium text-foreground underline underline-offset-4 outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6"
                   onClick={() => setInput(SAMPLE)}
                 >
                   Load a sample background
@@ -454,7 +454,7 @@ export function AgentFlow() {
           <section aria-label="How it works" className="grid gap-4 border-t border-border pt-8 sm:grid-cols-3 sm:gap-6">
             {STEPS_STRIP.map(([title, body], i) => (
               <div key={title}>
-                <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-muted-foreground">
+                <p className="font-mono text-xs font-medium tracking-[0.14em] text-muted-foreground">
                   0{i + 1} <span className="ml-1 text-foreground normal-case">{title}</span>
                 </p>
                 <p className="mt-1.5 text-[0.8rem] leading-relaxed text-muted-foreground">{body}</p>

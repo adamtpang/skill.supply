@@ -33,10 +33,26 @@ export const CANDIDATE = {
     usEast: "UTC+8 evening is the US East morning, so roughly 3 hours if the day starts at 21:00 local",
     usWest: "no comfortable overlap, workable only async or on a shifted schedule",
   },
-  /** Employment shape that needs no visa, which is what most of these roles need to hear. */
+  /**
+   * Form facts supplied directly by Adam. The agent may use only a fact that
+   * maps exactly to the jurisdiction and wording of the employer's question.
+   */
+  applicationFacts: {
+    usWorkAuthorization: "US citizen. No employment sponsorship required for US roles.",
+    singaporeWorkAuthorization:
+      "Does not currently have Singapore work authorization and requires employer sponsorship for a Singapore work visa.",
+    malaysiaEmployment: "Will not take employment in Malaysia.",
+    availability: "Available as soon as possible, full time. No notice period identified.",
+    relocation: "Open to relocation worldwide, with a preference for the United States, especially Texas.",
+    referralSource: "Company careers page when the role was found through the employer's own listing.",
+    education:
+      "High-school graduate with some college. No university degree. Completed App Academy coding bootcamp in 2022-2023; currently at Network School.",
+    compensation:
+      "Prioritizes exceptional problems, exceptional teams, near-term income, learning, and meaningful equity. Do not invent a numerical expectation.",
+  },
   engagement:
-    "Available as an independent contractor invoicing from Malaysia, or through an employer of record such as Deel or Oyster. No visa or sponsorship needed for remote work.",
-  availability: "Immediate, full time.",
+    "Open to employment or contracting where the role's location and work-authorization requirements match the candidate's supplied facts.",
+  availability: "As soon as possible, full time.",
 
   headline: "Full-stack TypeScript engineer who ships AI agent tooling end to end.",
 

@@ -1,0 +1,69 @@
+{
+  "input": "C:\\Users\\adamp\\Aether\\skill.supply\\outputs\\adam_pangelinan_workos_applied_ai_resume_2026-08-29.docx",
+  "fonts_by_char_count": {
+    "Aptos": 2410
+  },
+  "direct_run_formatting_runs": 26,
+  "direct_paragraph_formatting_paragraphs": 10,
+  "heading_like_paragraphs_not_heading_style": [],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 3,
+        "text": "adamtpang@gmail.com  |  +60 19 798 1734  |  Portfolio  |  GitHub  |  LinkedIn",
+        "style": "Normal"
+      },
+      {
+        "para_index": 4,
+        "text": "Malaysia | US citizen | No US sponsorship required | Open to US relocation",
+        "style": "Normal"
+      },
+      {
+        "para_index": 5,
+        "text": "Applied AI and full-stack TypeScript engineer with 2 to 3 years of experience building agent products and developer tool",
+        "style": "Normal"
+      },
+      {
+        "para_index": 12,
+        "text": "Anchor Marianas | Founder and Software Engineer | Oct 2024 to present | Remote\nSold and delivered software directly to c",
+        "style": "Normal"
+      },
+      {
+        "para_index": 13,
+        "text": "EIGN | Software Engineer and B2B Sales | One-month trial, ended Dec 2025 | Remote\nBuilt Lightmark.app's evidence-backed ",
+        "style": "Normal"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 3,
+        "run_text": "adamtpang@gmail.com",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "  |  ",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "+60 19 798 1734",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "  |  ",
+        "style": "Normal"
+      },
+      {
+        "para_index": 3,
+        "run_text": "  |  ",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

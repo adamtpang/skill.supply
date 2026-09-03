@@ -146,9 +146,30 @@
   ::selection {
     background: color-mix(in oklch, var(--brand), transparent 82%);
   }
+  .legible-text-surface :where(.text-\[7px\], .text-\[8px\], .text-\[9px\], .text-\[10px\], .text-\[11px\]) {
+    font-size: 12px !important;
+  }
+  @media (max-width: 480px) {
+    .mobile-touch-surface.mobile-touch-surface :where(a, button, select) {
+      min-width: 44px !important;
+      min-height: 44px !important;
+    }
+    .mobile-touch-surface.mobile-touch-surface :where(label:has(input[type="checkbox"]), label:has(input[type="radio"])) {
+      min-height: 44px !important;
+    }
+  }
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      scroll-behavior: auto !important;
+      transition: none !important;
     }
   }
 }
