@@ -1,18 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { JetBrains_Mono, Public_Sans, Schibsted_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { BetaBar } from "@/components/beta-bar";
 import { FleetFooter } from "@/components/fleet-footer";
 import "./globals.css";
 
-const geistSans = Geist({
+// Brand kernel "The Market" (Shapeable, 2026-09-19): heavy grotesk display,
+// neutral text face, mono for figures. All three are free Google Fonts.
+const displayFont = Schibsted_Grotesk({
+  variable: "--font-display",
+  subsets: ["latin"],
+  // Variable font: one file covers every weight, which keeps the hero's
+  // Largest Contentful Paint from waiting on several font downloads.
+});
+
+const textFont = Public_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const monoFont = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  // Figures only, never the headline, so it stays off the critical path.
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -82,7 +93,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${textFont.variable} ${monoFont.variable} ${displayFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <script

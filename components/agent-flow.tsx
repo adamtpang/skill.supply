@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { ArrowRight, CircleAlert, RefreshCw } from "lucide-react";
 import type { AgentEvent, SupplyReport } from "@/lib/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { MarketListing } from "@/components/market-listing";
 import { StageLoader, type ServerStage } from "@/components/stage-loader";
 import { SupplyReportView } from "@/components/report";
 
@@ -263,38 +263,38 @@ export function AgentFlow() {
 
   return (
     <div ref={topRef} className="scroll-mt-10">
-      {/* Hero */}
-      <section className="pt-14 pb-10 sm:pt-20">
-        <h1 className="text-4xl font-semibold tracking-tighter text-balance sm:text-5xl">
-          You&rsquo;re the supply.
-          <br />
-          <span className="text-muted-foreground">We make you irresistible.</span>
-        </h1>
-        <p className="mt-5 max-w-xl text-[0.95rem] leading-relaxed text-muted-foreground">
-          An AI career agent that reads you, finds your ikigai-market fit, and names the five
-          companies that should be fighting to hire you, with the resume and the opening message
-          to make it happen.
-        </p>
-        <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-          <Link
-            href="/companies"
-            className="inline-flex min-h-11 items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6"
+      {/* Hero: brand kernel "The Market". One proposition, one action, one anchor. */}
+      <section className="grid items-center gap-10 pt-12 pb-14 sm:pt-16 lg:grid-cols-2 lg:gap-14 lg:pt-20 lg:pb-20">
+        <div>
+          <h1 className="text-5xl leading-[0.95] font-extrabold tracking-[-0.035em] text-balance sm:text-6xl lg:text-7xl">
+            You&rsquo;re the supply. <span className="text-brand">Get priced right.</span>
+          </h1>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
+            Paste your background. See what the market wants from you, and the five companies most
+            likely to buy.
+          </p>
+          <a
+            href="#background"
+            onClick={(event) => {
+              event.preventDefault();
+              const field = document.getElementById("background");
+              field?.scrollIntoView({ behavior: "smooth", block: "center" });
+              field?.focus({ preventScroll: true });
+            }}
+            className="mt-8 inline-flex min-h-12 items-center gap-3 rounded-full bg-primary py-2 pr-2 pl-6 text-base font-semibold text-primary-foreground outline-none hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2"
           >
-            Explore the best companies
-            <ArrowRight className="size-4" aria-hidden />
-          </Link>
-          <Link
-            href="https://skillmarketcap.com"
-            className="inline-flex min-h-11 items-center gap-1.5 rounded text-sm font-medium text-foreground outline-none hover:text-brand focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6"
-          >
-            See live skill demand
-            <ArrowRight className="size-4" aria-hidden />
-          </Link>
+            List myself
+            <span className="inline-grid size-8 place-items-center rounded-full bg-brand" aria-hidden>
+              <ArrowRight className="size-4" />
+            </span>
+          </a>
+          <p className="mt-4 text-sm text-muted-foreground">Free. About a minute. No account.</p>
         </div>
+        <MarketListing />
       </section>
 
       {/* Flow */}
-      <div className="space-y-4">
+      <div className="mx-auto max-w-3xl space-y-4">
         {phase === "need_more" && question && (
           <div className="rounded-xl border border-border bg-muted/40 p-4 sm:p-5" role="alert">
             <p className="mb-1 font-mono text-xs font-medium tracking-[0.14em] text-muted-foreground uppercase">
@@ -343,7 +343,6 @@ export function AgentFlow() {
               placeholder="Paste your resume, your LinkedIn About + Experience, or just write honestly: what you've built, what you're great at, what you love doing…"
               className="max-h-[420px] min-h-[220px] overflow-y-auto rounded-xl bg-card p-4 text-[0.925rem] leading-relaxed"
               required
-              autoFocus
             />
 
             {/* The key field only exists once we actually need it: after a
@@ -409,10 +408,9 @@ export function AgentFlow() {
                 type="submit"
                 size="lg"
                 className="h-11 px-5 text-[0.925rem]"
-                disabled={
-                  input.trim().length === 0 ||
-                  (needKey && apiKey.trim().length === 0 && keyDraft.trim().length === 0)
-                }
+                // Stays enabled when empty so it never reads as broken; the
+                // textarea's required attribute asks for input on submit.
+                disabled={needKey && apiKey.trim().length === 0 && keyDraft.trim().length === 0}
               >
                 {phase === "need_more" || phase === "error" ? (
                   <>

@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0a0a0a"/>
-  <text x="30" y="45" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="38" font-weight="600" fill="#ffffff" text-anchor="middle">s</text>
-  <circle cx="47" cy="44" r="5" fill="#4f46e5"/>
+  <!-- skill.supply mark, "The Market": three rising bars and the brand dot. Paths only, no font. -->
+  <rect width="64" height="64" rx="14" fill="#0d0f1a"/>
+  <rect x="13" y="36" width="8" height="15" rx="2" fill="#ffffff"/>
+  <rect x="25" y="27" width="8" height="24" rx="2" fill="#ffffff"/>
+  <rect x="37" y="18" width="8" height="33" rx="2" fill="#ffffff"/>
+  <circle cx="51" cy="15" r="5" fill="#4f46e5"/>
 </svg>
