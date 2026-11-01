@@ -273,7 +273,7 @@ current free-only reality.
 | Email capture wired to the fleet list | **yes, fail-soft** | `components/fleet-capture.tsx`, rendered on `app/s/page.tsx`; falls back to mailto since `NEXT_PUBLIC_FLEET_SUBSCRIBE_URL` is unset |
 | Fleet footer + fleet.json | **yes** | `components/fleet-footer.tsx` wired; `Aether/fleet.json` already reads `"status": "live", "tier": 1` |
 | Vercel Web Analytics enabled | **no** | `get_web_analytics` returns 404 for this project |
-| `@vercel/analytics` wired in code | **yes, already done** | `app/layout.tsx` imports and renders `<Analytics />` |
+| `@vercel/analytics` wired in code | **yes, already done** | `app/layout.tsx` imports and renders `` |
 | Seed posts (r/jobs, r/cscareerquestions, LinkedIn, X) drafted | **yes, already excellent** | `POSTS.md`, correctly gated on funding and using [YOUR-REPORT-LINK] placeholders |
 | Project framework setting | **mismatched, likely cosmetic** | Vercel project metadata reports `framework: "vite"`; this is genuinely a Next.js app (`next build`/`next dev`/`next start` in `package.json`). Every deploy has succeeded regardless, so likely a stale project-creation setting rather than a live problem. Not fixed here; flagging only. |
 
