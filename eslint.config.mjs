@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored Stageshow kit (MIT), kept byte-close to upstream so it can be
+    // updated; it is linted where it comes from, not here.
+    "components/stageshow/**",
   ]),
 ]);
 

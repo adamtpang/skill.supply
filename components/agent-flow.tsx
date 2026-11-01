@@ -6,7 +6,8 @@ import type { AgentEvent, SupplyReport } from "@/lib/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MarketListing } from "@/components/market-listing";
+import { MarketScene } from "@/components/market-scene";
+import { MARKET_AS_OF, RISING, SOURCES } from "@/lib/market";
 import { StageLoader, type ServerStage } from "@/components/stage-loader";
 import { SupplyReportView } from "@/components/report";
 
@@ -290,7 +291,30 @@ export function AgentFlow() {
           </a>
           <p className="mt-4 text-sm text-muted-foreground">Free. About a minute. No account.</p>
         </div>
-        <MarketListing />
+        <figure
+          aria-label="Illustration: a skill.supply report ranking target companies by fit, beside the share of US job postings that mention AI"
+          className="w-full max-w-[500px] justify-self-center lg:justify-self-end"
+        >
+          {/* The stage scales to its column in JS; until hydration it draws at
+              its design size, so clip it (at the stage's own 16px corner) rather than
+              let it widen the page. */}
+          <div aria-hidden className="overflow-hidden rounded-[16px]">
+            <MarketScene />
+          </div>
+          <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
+            Illustrative targets and fit scores. Real demand: {RISING.value} of US job postings
+            mention AI ({MARKET_AS_OF},{" "}
+            <a
+              href={SOURCES[0].url}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded underline underline-offset-2 outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+            >
+              Indeed Hiring Lab
+            </a>
+            ).
+          </figcaption>
+        </figure>
       </section>
 
       {/* Flow */}

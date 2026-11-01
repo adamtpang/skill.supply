@@ -1,0 +1,13 @@
+--- /c/Users/adamp/.claude/skills/stageshow/scripts/film-checks.mjs
++++ /c/Users/adamp/AppData/Local/Temp/claude/C--Users-adamp-Aether-shapeable-art/526bde4a-d2c5-4b9b-b4c5-3e735d700b3f/scratchpad/ssfilm/scripts/film-checks.mjs
+@@ -1017,6 +1017,10 @@
+     const guarded = /\.ss-(row|tapback|bubble|facepile|avatar|stamp|receipt|toast|check|kb|keyboard|phone__(status|home|island|screen))/
+     const subject = (sel) => sel.split(',')[0].trim().replace(/^&\s*/, '').split(/\s+(?![^(]*\))|>|\+|~/).filter(Boolean).pop() || ''
+     const walk = (list) => { for (const r of list) {
++      // PILOT PATCH: a bundler merges the vendored kit CSS into the host's
++      // chunks, so its href no longer says /kit/. Every kit rule lives in
++      // @layer stageshow; skip that layer instead.
++      if (typeof CSSLayerBlockRule !== 'undefined' && r instanceof CSSLayerBlockRule && r.name === 'stageshow') continue
+       if (r.selectorText && r.style) {
+         const subj = subject(r.selectorText).replace(/::?[a-z-]+(\([^)]*\))?/g, '')
+         const css = r.style.cssText

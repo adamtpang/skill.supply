@@ -1,0 +1,192 @@
+/* The homepage hero scene. Every rule is scoped under .mk-scene so nothing
+   leaks into the page, and the page's own type and colors are mapped onto
+   the Stageshow tokens here, once. */
+.mk-scene {
+  & .ss-stage {
+    --gutter: 24px;
+    --ss-font: var(--font-sans), system-ui, sans-serif;
+    --ss-mono: var(--font-geist-mono), ui-monospace, monospace;
+    --ss-accent: #4f46e5;
+    --ss-accent-soft: color-mix(in srgb, #4f46e5 12%, transparent);
+    --ss-canvas: #f3f4f7;
+    --ss-surface: #fff;
+    --ss-well: #e8eaf0;
+    --ss-text-strong: #0d0f1a;
+    --ss-text: #545a6e;
+    --ss-text-faint: #6b7183;
+    --ss-success: #0f8a5f;
+    --ss-line: #dde0e8;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--ss-well);
+  }
+
+  /* Corner bleed: pinned a gutter from the top, its left edge set so the
+     demand card straddles it evenly (gutter plus half the card), running off
+     the right and the bottom. */
+  .mk-window {
+    position: absolute;
+    top: var(--gutter);
+    left: 119px;
+    width: 470px;
+    height: 440px;
+    box-shadow: var(--ss-shadow-hero);
+  }
+
+  /* The report page on the site's grey ground. The column of targets ends a
+     gutter short of the stage's right edge, so every real word stays whole
+     and only the page's empty ground bleeds. */
+  .mk-body {
+    background: var(--ss-canvas);
+  }
+
+  .mk-column {
+    width: 341px;
+    margin-left: 16px;
+    padding-top: 24px;
+  }
+
+  .mk-eyebrow {
+    display: block;
+    font-family: var(--ss-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ss-text);
+  }
+
+  .mk-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .mk-card {
+    border: 1px solid var(--ss-line);
+    border-radius: 10px;
+    background: var(--ss-surface);
+  }
+
+  /* The strongest target is lifted the way the product lifts a card: its own
+     surface and a raised shadow, no ring. */
+  .mk-card[data-top] {
+    border-color: transparent;
+    box-shadow: var(--ss-shadow-ground);
+  }
+
+  .mk-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ss-text-strong);
+  }
+
+  .mk-score {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex: none;
+  }
+
+  /* One 16px line box for the figure, real or placeholder, so every card
+     in the list keeps the same pitch. */
+  .mk-score__value {
+    display: flex;
+    align-items: baseline;
+    height: 16px;
+    line-height: 16px;
+    gap: 1px;
+    white-space: nowrap;
+  }
+
+  .mk-score__num {
+    font-family: var(--ss-mono);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 16px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ss-accent);
+  }
+
+  .mk-score__of {
+    font-family: var(--ss-mono);
+    font-size: 10px;
+    line-height: 16px;
+    color: var(--ss-text-faint);
+  }
+
+  .mk-score__track {
+    display: block;
+    width: 56px;
+    height: 4px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--ss-ink-1);
+  }
+
+  .mk-score__fill {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--ss-accent);
+  }
+
+  .mk-score__value--filler {
+    align-items: center;
+  }
+
+  .mk-score__fill--quiet {
+    background: var(--ss-ink-2);
+  }
+
+  /* The satellite: the one sourced figure, straddling the window's lower
+     left edge over the two filler targets, 8px clear of the three real ones. */
+  .mk-demand {
+    position: absolute;
+    left: var(--gutter);
+    bottom: var(--gutter);
+    width: 190px;
+    padding: 12px 14px 14px;
+    border-radius: 12px;
+    background: var(--ss-surface);
+    box-shadow: var(--ss-shadow-satellite);
+  }
+
+  .mk-demand__value {
+    display: block;
+    font-family: var(--font-display), var(--ss-font);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+    color: var(--ss-success);
+  }
+
+  .mk-demand__label {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    line-height: 14px;
+    color: var(--ss-text);
+  }
+
+  /* Compact, for a phone column: a redesign, not a squeeze. The demand card
+     is dropped (the caption under the stage carries the figure), so the
+     window takes the corner bleed alone at the one gutter, and what shows
+     stays wider than tall. */
+  & .ss-stage[data-layout="compact"] {
+    .mk-window {
+      left: var(--gutter);
+      width: 400px;
+      height: 360px;
+    }
+
+    .mk-column {
+      width: 286px;
+      padding-top: 16px;
+    }
+  }
+}

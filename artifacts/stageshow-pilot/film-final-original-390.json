@@ -1,0 +1,40 @@
+{
+  "status": "inconclusive",
+  "mode": "still",
+  "stages": [
+    {
+      "key": "stage-1",
+      "label": "ss-fit mk-scene",
+      "coverage": {
+        "status": "complete",
+        "frames": 1,
+        "durationMs": 0,
+        "maxGapMs": 0,
+        "reasons": [],
+        "framingSamples": 1,
+        "layout": {
+          "controls": 0,
+          "paddedContainers": 5,
+          "compositionCrops": 0
+        }
+      },
+      "findings": [
+        "kit override: .ss-row is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row__dot is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row__body is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row:has(.ss-row__subtitle, .ss-row__preview) .ss-row__bo is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row__head is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row__title is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "layout: div.ss-row leaves -17px below its last child inside div.ss-window.ss-recede.mk-window, short of its 14px bottom padding (still)"
+      ],
+      "manual": []
+    }
+  ],
+  "errors": [
+    "warning: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "error: Refused to execute script from 'http://localhost:3417/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+  ],
+  "manualReviewRequired": false,
+  "exitCode": 2
+}

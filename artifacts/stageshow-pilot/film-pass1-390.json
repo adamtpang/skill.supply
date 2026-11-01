@@ -1,0 +1,42 @@
+{
+  "status": "inconclusive",
+  "mode": "still",
+  "stages": [
+    {
+      "key": "stage-1",
+      "label": "ss-fit mk-scene",
+      "coverage": {
+        "status": "complete",
+        "frames": 1,
+        "durationMs": 0,
+        "maxGapMs": 0,
+        "reasons": [],
+        "framingSamples": 1,
+        "layout": {
+          "controls": 0,
+          "paddedContainers": 5,
+          "compositionCrops": 0
+        }
+      },
+      "findings": [
+        "clipped: span.ss-text \"Fintech infra, Series A\" clipped right by 6px by span.ss-row__title (still)",
+        "clipped: span.ss-text \"Payments API startup\" clipped right by 4px by span.ss-row__title (still)",
+        "kit override: .ss-row is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row__dot is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row__body is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row:has(.ss-row__subtitle, .ss-row__preview) .ss-row__bo is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row__head is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "kit override: .ss-row__title is restyled by the example's own CSS (position, size or spacing); a kit part's geometry is the kit's. Style your own class, pass the part's props, or set its tokens (still)",
+        "framing: div.ss-window shows 256x356, narrower than tall for a desktop window; change the crop (bleed it) or the layout rather than squash the app (still)"
+      ],
+      "manual": []
+    }
+  ],
+  "errors": [
+    "warning: Error with Permissions-Policy header: Unrecognized feature: 'browsing-topics'.",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "error: Refused to execute script from 'http://localhost:3417/_vercel/insights/script.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+  ],
+  "manualReviewRequired": false,
+  "exitCode": 2
+}
