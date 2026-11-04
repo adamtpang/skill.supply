@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/apply`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/resume`, lastModified, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${BASE}/companies`, lastModified, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${BASE}/x`, lastModified, changeFrequency: 'daily', priority: 0.8 },
     ...COMPANIES.map((company) => ({
       url: `${BASE}/companies/${company.slug}`,
       lastModified,

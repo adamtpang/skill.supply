@@ -10,7 +10,8 @@
     "marketcap:sync": "node scripts/ingest-marketcap.mjs --all --no-resolve",
     "marketcap:resolve": "node scripts/ingest-marketcap.mjs --start-page 1 --pages 1 --resolve-limit 100",
     "marketcap:careers": "node scripts/map-careers.mjs --start-rank 1 --limit 100",
-    "qa:marketcap": "node qa_company_market.mjs"
+    "qa:marketcap": "node qa_company_market.mjs",
+    "test:x-jobs": "node scripts/test-x-jobs-filter.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.112.3",
