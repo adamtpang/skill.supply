@@ -399,3 +399,12 @@ serving a build from a week before the seekers-never-pay ruling.
 - Self-payments and test charges do not count as stranger revenue.
 - After every meaningful ship, add one row to the results log.
 - Log zeros. Zero is the true number here and hiding it is lying.
+
+## 2026-10-31: Next.js critical RCE patch (branch security/next-rce-2026-10-31)
+
+- next 16.3.3 -> 16.4.3 on patching GHSA-673q-mjm6-r5xr and GHSA-2464-fhr4-w9xw. Mode: next+audit fix, never --force.
+- Build: `npm run build` passed.
+- beware.dog code-audit --no-deps, code findings: 1 (0 crit/high) -> 1 (0 crit/high).
+- beware.dog OSV dependency findings: 74 (31 crit/high, 11 next) -> 3 (0 crit/high, 0 next).
+- npm audit (critical/high/total): 2c/14h/41t -> 0c/0h/20t.
+- Not pushed or deployed; merging and deploying is Adam's call.
