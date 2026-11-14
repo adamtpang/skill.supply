@@ -13,6 +13,7 @@ import {
   openPostingPairs,
   roleOptions,
 } from "@/lib/shots";
+import { PayCards } from "@/components/shots/pay-cards";
 import { LowConfidenceBadge, Provenance } from "@/components/shots/provenance";
 
 const ALL = "all";
@@ -87,6 +88,7 @@ function CompanySection({ company }: { company: CompanyShots }) {
       </div>
 
       <div aria-live="polite" className="mt-10 space-y-12">
+        <PayCards company={company} companySlug={company.slug} roleFilter={role} />
         <ResponseChart companySlug={company.slug} observations={response} />
         <HireChart companySlug={company.slug} bars={hireBars} references={hireRefs} />
         <PostingChart
