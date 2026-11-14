@@ -9,8 +9,28 @@ export const METRICS = [
   "response_time_distribution",
   "days_to_hire",
   "posting_open_since",
+  "pay",
 ] as const;
 export type Metric = (typeof METRICS)[number];
+
+export const PAY_KINDS = ["posted", "estimate", "unknown"] as const;
+export type PayKind = (typeof PAY_KINDS)[number];
+
+export const PAY_UNITS = ["hour", "year"] as const;
+export type PayUnit = (typeof PAY_UNITS)[number];
+
+/**
+ * Amounts as published. One unit per figure. Do not convert hour to year,
+ * and do not fill median from min and max or from an average.
+ */
+export type PayValues = {
+  min: number | null;
+  max: number | null;
+  median: number | null;
+  /** Set only when the source publishes an average. Never a stand-in for median. */
+  average: number | null;
+  unit: PayUnit;
+};
 
 /** One published share. Do not renormalize these to 100. */
 export type DistributionBucket = {
@@ -53,10 +73,39 @@ export type PostingOpenObservation = Sourced & {
   postingUrl: string;
 };
 
+export type PayObservation = {
+  id: string;
+  metric: "pay";
+  /** Role this card belongs to. A company-level figure uses the source's title, not a posting title. */
+  role: string;
+  kind: PayKind;
+  /** Null when the source gives no amount, including a posting that lists no pay. */
+  values: PayValues | null;
+  /** L1, L2, or null when the source names no level. */
+  level: string | null;
+  location: string | null;
+  /**
+   * False when the amount is for a different place than the role card.
+   * The page then labels it "Other location: <place>".
+   */
+  sameLocation: boolean;
+  /** False renders an Unverified badge. */
+  verified: boolean;
+  /** role: this posting or role. company: do not treat it as one posting's pay. */
+  scope: "role" | "company";
+  sourceName: string;
+  /** Null when the source page is gone. */
+  sourceUrl: string | null;
+  retrieved: string;
+  n: number | null;
+  note?: string;
+};
+
 export type Observation =
   | ResponseTimeObservation
   | DaysToHireObservation
-  | PostingOpenObservation;
+  | PostingOpenObservation
+  | PayObservation;
 
 /** A count of live postings on a board snapshot. Not a sample of applicants. */
 export type OpenPostingsCount = {

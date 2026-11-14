@@ -3,6 +3,9 @@ import type {
   DaysToHireObservation,
   Observation,
   OpenPostingsCount,
+  PayObservation,
+  PayUnit,
+  PayValues,
   PostingOpenObservation,
   ResponseTimeObservation,
 } from "../data/shots/types";
@@ -60,6 +63,69 @@ export function isPosting(obs: Observation): obs is PostingOpenObservation {
   return obs.metric === "posting_open_since";
 }
 
+export function isPay(obs: Observation): obs is PayObservation {
+  return obs.metric === "pay";
+}
+
+export function formatPayMoney(value: number, unit: PayUnit): string {
+  const amount =
+    unit === "hour"
+      ? Number.isInteger(value)
+        ? value.toFixed(0)
+        : value.toFixed(2)
+      : value.toLocaleString("en-US", { maximumFractionDigits: 2 });
+  return unit === "hour" ? `$${amount}/hr` : `$${amount}/yr`;
+}
+
+/** Render one pay figure in the source unit. Does not convert hour to year. */
+export function formatPayFigure(obs: PayObservation): string {
+  if (obs.kind === "unknown" || (obs.kind === "estimate" && !obs.values)) return "Pay: unknown";
+  if (obs.kind === "posted" && !obs.values) return "Posted: none listed";
+  if (!obs.values) return "Pay: unknown";
+  const values = obs.values;
+  if (values.average !== null) {
+    const bits = [`average ${formatPayMoney(values.average, values.unit)}`];
+    if (values.min !== null) bits.push(`low ${formatPayMoney(values.min, values.unit)}`);
+    if (values.max !== null) bits.push(`high ${formatPayMoney(values.max, values.unit)}`);
+    if (values.median !== null) bits.push(`median ${formatPayMoney(values.median, values.unit)}`);
+    return `Estimate: ${bits.join(", ")}`;
+  }
+  const range = formatPayRange(values);
+  const median = values.median === null ? "" : `, median ${formatPayMoney(values.median, values.unit)}`;
+  const prefix = obs.kind === "posted" ? "Posted" : "Estimate";
+  return range ? `${prefix}: ${range}${median}` : "Pay: unknown";
+}
+
+function formatPayRange(values: PayValues): string | null {
+  const { min, max, unit } = values;
+  if (min !== null && max !== null && min !== max) {
+    return `${formatPayMoney(min, unit)} to ${formatPayMoney(max, unit)}`;
+  }
+  if (min !== null) return formatPayMoney(min, unit);
+  if (max !== null) return formatPayMoney(max, unit);
+  return null;
+}
+
+export function payForRole(company: CompanyShots, role: string): PayObservation[] {
+  return company.observations.filter((obs): obs is PayObservation => isPay(obs) && obs.role === role);
+}
+
+/** Every role that has any figure, pay data first, then roles whose pay is unknown. */
+export function payCardRoles(company: CompanyShots, roleFilter: string): string[] {
+  const roles = new Set<string>();
+  for (const obs of company.observations) roles.add(obs.role);
+  const list = [...roles].filter((role) => roleFilter === "all" || role === roleFilter);
+  return list.sort((a, b) => payRank(company, a) - payRank(company, b) || a.localeCompare(b, "en"));
+}
+
+function payRank(company: CompanyShots, role: string): number {
+  const pays = payForRole(company, role);
+  if (pays.length === 0) return 3;
+  if (pays.every((obs) => obs.scope === "company")) return 2;
+  if (pays.some((obs) => obs.sameLocation && obs.kind === "posted")) return 0;
+  return 1;
+}
+
 /** Roles a person can filter to. "All roles" stays the company-wide reference, not a filter row. */
 export function roleOptions(company: CompanyShots): string[] {
   const roles = new Set<string>();
@@ -97,7 +163,8 @@ export function assertCompanyShots(companies: readonly CompanyShots[]): void {
     for (const obs of company.observations) {
       if (ids.has(obs.id)) throw new Error(`Duplicate observation ${company.slug}/${obs.id}`);
       ids.add(obs.id);
-      assertSourced(company.slug, obs);
+      if (obs.metric === "pay") assertPay(company.slug, obs);
+      else assertSourced(company.slug, obs);
       if (obs.metric === "response_time_distribution") {
         if (!obs.reportedAs.trim() || obs.buckets.length === 0) {
           throw new Error(`${obs.id} needs a reported label and at least one bucket`);
@@ -131,6 +198,33 @@ export function assertCompanyShots(companies: readonly CompanyShots[]): void {
         throw new Error(`${count.id} count must be a non-negative integer`);
       }
     }
+  }
+}
+
+function assertPay(slug: string, obs: PayObservation): void {
+  if (!obs.sourceName.trim()) throw new Error(`${slug}/${obs.id} is missing a source name`);
+  if (obs.sourceUrl !== null && !obs.sourceUrl.startsWith("https://")) {
+    throw new Error(`${slug}/${obs.id} source url must be https or null`);
+  }
+  if (!isIsoDate(obs.retrieved)) throw new Error(`${slug}/${obs.id} retrieved date is invalid`);
+  if (obs.kind === "unknown" && obs.values !== null) {
+    throw new Error(`${slug}/${obs.id} unknown pay must not invent an amount`);
+  }
+  if (obs.kind === "estimate" && obs.values === null) {
+    throw new Error(`${slug}/${obs.id} estimate is missing published amounts`);
+  }
+  if (!obs.values) return;
+  const numbers = [obs.values.min, obs.values.max, obs.values.median, obs.values.average];
+  if (!numbers.some((value) => value !== null)) {
+    throw new Error(`${slug}/${obs.id} pay values are empty`);
+  }
+  for (const value of numbers) {
+    if (value !== null && (!Number.isFinite(value) || value < 0)) {
+      throw new Error(`${slug}/${obs.id} has a pay amount that is not a number`);
+    }
+  }
+  if (obs.values.min !== null && obs.values.max !== null && obs.values.min > obs.values.max) {
+    throw new Error(`${slug}/${obs.id} pay min is above max`);
   }
 }
 

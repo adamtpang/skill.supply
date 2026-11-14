@@ -24,7 +24,7 @@ The next companies should come from Adam's Notion Job Tier List. After that, a G
 
 Each observation is one sourced number.
 
-- `metric`: `response_time_distribution`, `days_to_hire`, or `posting_open_since`
+- `metric`: `response_time_distribution`, `days_to_hire`, `posting_open_since`, or `pay`
 - `role`: the role title, or `All roles` for a company-wide figure
 - `location`: a string, or `null` when the source does not name one
 - `n`: sample size, or `null` when it is missing or does not apply
@@ -36,6 +36,15 @@ Metric payloads:
 - `response_time_distribution`: `reportedAs` is the source's own name (for example `interview process length`). `buckets` are `{ label, percent }` as published. Do not rescale shares that sum to something other than 100.
 - `days_to_hire`: `days` is the published average. A company-wide figure uses `role: "All roles"` and is drawn as a reference line, not mixed into the role bars.
 - `posting_open_since`: `firstPosted` (`YYYY-MM-DD`) and `postingUrl`. The page computes days open as whole UTC days from `firstPosted` to `retrieved`, and labels the bar `still open as of <retrieved>`. Store the first posted date, not a precomputed day count.
+- `pay`: one published pay figure.
+  - `kind`: `posted`, `estimate`, or `unknown`
+  - `values`: `{ min, max, median, average, unit }` or `null`. `unit` is `hour` or `year`. Leave `average` null unless the source calls the number an average. Do not store a median you calculated, and do not convert an hourly figure into a yearly one.
+  - `values: null` with `kind: "posted"` means the posting lists no pay. The page says `Posted: none listed`.
+  - `level`: `L1`, `L2`, or `null`
+  - `sameLocation`: `false` when the amount is for a different place than the role card. The page labels that `Other location: <place>`.
+  - `verified`: `false` shows an Unverified badge. `sourceUrl` may be `null` when the page is gone.
+  - `scope`: `role` for one role, or `company` for a company-level figure that must not be copied onto a posting.
+  - A role with no `pay` observation renders `Pay: unknown`. Do not add a guessed amount to fill that gap.
 
 `n` below 10 renders a Low confidence badge. Null `n` renders `n unknown` and does not get that badge.
 

@@ -47,11 +47,12 @@ export default function ShotsPage() {
             Which shots go in
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            A cold application is a shot. This page shows where those shots land: how often people
-            hear back, how fast a process moves, how many days a hire takes, and how long a posting
-            stays open. Figures are per company and per role. Every number keeps its source, its
-            sample size, and the date it was retrieved. Missing numbers stay unknown. Nothing here
-            is averaged across sources or filled in.
+            A cold application is a shot. This page shows where those shots land, and what they pay:
+            how often people hear back, how fast a process moves, how many days a hire takes, how
+            long a posting stays open, and the posted or estimated pay for each role. Figures are
+            per company and per role. Every number keeps its source, its sample size, and the date
+            it was retrieved. Missing numbers stay unknown. Nothing here is averaged across sources,
+            converted from hourly to annual, or filled in.
           </p>
         </section>
 
