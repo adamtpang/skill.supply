@@ -17,12 +17,18 @@ export default function Home() {
         >
           skill<span className="text-brand">.</span>supply
         </Link>
-        <nav className="flex items-center justify-end gap-x-4 sm:gap-x-6" aria-label="Main navigation">
+        <nav className="flex flex-wrap items-center justify-end gap-x-4 sm:gap-x-6" aria-label="Main navigation">
           <Link
             href="/companies"
             className="inline-flex min-h-11 min-w-11 items-center justify-center rounded text-sm text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6 sm:min-w-6"
           >
             Companies
+          </Link>
+          <Link
+            href="/shots"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded text-sm text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6 sm:min-w-6"
+          >
+            Shots
           </Link>
           <Link
             href="https://skillmarketcap.com"
@@ -68,6 +74,9 @@ export default function Home() {
           </Link>
           <Link href="/companies" className="inline-flex min-h-11 items-center rounded font-mono text-xs tracking-[0.12em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6">
             Companies
+          </Link>
+          <Link href="/shots" className="inline-flex min-h-11 items-center rounded font-mono text-xs tracking-[0.12em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6">
+            Shots
           </Link>
           <Link href="/dream" className="inline-flex min-h-11 items-center rounded font-mono text-xs tracking-[0.12em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50 sm:min-h-6">
             Dream

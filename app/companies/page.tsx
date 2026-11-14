@@ -46,6 +46,12 @@ export default async function CompaniesPage() {
         </Link>
         <nav className="flex items-center gap-4" aria-label="Market navigation">
           <Link
+            href="/shots"
+            className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+          >
+            Shots
+          </Link>
+          <Link
             href="https://skillmarketcap.com"
             className="rounded font-mono text-[11px] tracking-[0.14em] text-muted-foreground uppercase outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
           >
