@@ -61,7 +61,7 @@ export const CANDIDATE = {
   },
   engagement:
     "Open to employment or contracting where the role's location and work-authorization requirements match the candidate's supplied facts.",
-  availability: "As soon as possible, full time.",
+  availability: "Earliest start date and notice period are not recorded. Ask Adam.",
 
   headline:
     "Forward Deployed Engineer | I build AI agents for real businesses | Solo Grok Bot Hackathon winner (won solo, Austin, Oct 2026).",
