@@ -32,6 +32,11 @@ confidence, a people map, proof of fit, useful research, a scoped artifact, a Lo
 email and DM drafts, a formal-application path, a follow-up, and one next action. Legacy version 1
 packets import automatically. Drafts stay in local browser storage or a downloaded JSON packet.
 
+Adam's saved application answers live in
+[`data/profiles/adam-pangelinan/profile.md`](data/profiles/adam-pangelinan/profile.md)
+(JSON twin beside it). Read that file before asking him a question a form already
+has an answer for. Blank items under "Open questions" are still his to answer.
+
 `/apply` is the Browser Harness application-agent handoff after a campaign earns the formal form.
 It builds a client-only packet from one job, candidate facts, an evidence-backed profile, and the
 exact local resume path. A project agent then uses the candidate's real Helium session to fill

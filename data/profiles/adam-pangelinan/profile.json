@@ -1,0 +1,173 @@
+{
+  "profileId": "adam-pangelinan",
+  "canonical": true,
+  "updated": "2026-11-24",
+  "readme": "Application answers for Adam Pangelinan. Human source: profile.md. City-level location only. No phone number. No street address.",
+  "resumeSource": {
+    "page": "https://adampang.com/cv",
+    "file": "adamtpang/adampang.com src/app/cv/resume.json",
+    "resumeUpdated": "2026-11-01"
+  },
+  "identity": {
+    "legalName": "Adam Pangelinan",
+    "goesBy": "Adam Pang",
+    "email": "adamtpang@gmail.com",
+    "website": "https://adampang.com",
+    "resume": "https://adampang.com/cv",
+    "github": "https://github.com/adamtpang",
+    "linkedin": "https://www.linkedin.com/in/adamtpang/"
+  },
+  "location": {
+    "city": "New Braunfels, TX",
+    "willMoveToAustinForTheRightJob": true,
+    "ycProfileOpenLocations": ["Austin", "Seattle", "Dubai"]
+  },
+  "workAuthorization": {
+    "authorizedToWorkInUs": true,
+    "needsVisaSponsorshipNowOrInFuture": false,
+    "usCitizenRecordedInRepo": true,
+    "singapore": "Does not currently have Singapore work authorization and requires employer sponsorship for a Singapore work visa.",
+    "malaysiaEmployment": "Will not take employment in Malaysia."
+  },
+  "education": [
+    {
+      "org": "High school",
+      "credential": "Diploma",
+      "dates": null
+    },
+    {
+      "org": "University of Guam",
+      "credential": "One semester of Computer Science. No degree.",
+      "dates": null
+    },
+    {
+      "org": "App Academy",
+      "credential": "Certificate",
+      "dates": "2023",
+      "url": "https://appacademy.io"
+    }
+  ],
+  "headline": "Forward Deployed Engineer | I build AI agents for real businesses | Solo Grok Bot Hackathon winner (won solo, Austin, Oct 2026).",
+  "targetRoles": [
+    "Forward Deployed Engineer",
+    "Applied AI",
+    "Solutions Engineer"
+  ],
+  "targetEmployers": "Fast-moving AI startups and YC teams.",
+  "compensation": {
+    "willingToGoBelowListedMinimumUsd": 120000,
+    "expectedAnnualBaseSalaryUsd": null
+  },
+  "eeo": {
+    "default": "decline to self-identify",
+    "formSpecificChoiceRemainsHis": true
+  },
+  "experience": [
+    {
+      "org": "Quantus",
+      "url": "https://quantus.com",
+      "title": "Ambassador",
+      "dates": "Jul 2026 to present",
+      "locationNote": "YC_WAAS_PROFILE_REPAIR_2026-08-28.md records this role as remote.",
+      "bullets": [
+        "Built vc.fail (https://vc.fail): 28 of the top 100 VCs hold a quantum-related asset. Built exchange.fail (https://exchange.fail): 841 of 947 exchanges list no post-quantum coins."
+      ]
+    },
+    {
+      "org": "EIGN",
+      "url": "https://eign.xyz",
+      "title": null,
+      "dates": "Dec 2025 to Jan 2026",
+      "bullets": ["B2B outreach and AI SEO internal tools."]
+    },
+    {
+      "org": "Guam Power Authority",
+      "title": "Intern",
+      "dates": "Summer 2024",
+      "locationNote": "YC_WAAS_PROFILE_REPAIR_2026-08-28.md places this role in Guam.",
+      "bullets": [
+        "Wrote a Python script, used by interns, that cut an Excel workflow from ~2 hours to ~2 minutes per run."
+      ]
+    },
+    {
+      "org": "International Distributors",
+      "title": "Sales Associate",
+      "dates": "Oct 2020 to Apr 2021",
+      "locationNote": "YC_WAAS_PROFILE_REPAIR_2026-08-28.md places this role in Guam. Do not add revenue or account-count claims.",
+      "bullets": []
+    }
+  ],
+  "projects": [
+    {
+      "name": "Garage Sale",
+      "url": "https://grokbothackathon.vercel.app",
+      "github": "https://github.com/adamtpang/grokbothackathon",
+      "summary": "Grok agents that find Marketplace deals, price items, write listings and draft buyer replies, with human approval on every step. Built in 2.5 hours."
+    },
+    {
+      "name": "summon.guide",
+      "url": "https://summon.guide",
+      "github": "https://github.com/adamtpang/summon.guide",
+      "summary": "Chat with 58 AI mentors from history, with cited sources, side-by-side compare and a council mode."
+    },
+    {
+      "name": "youchop.app",
+      "url": "https://youchop.app/chop",
+      "github": "https://github.com/adamtpang/youchop.app",
+      "summary": "Paste a YouTube link, get timestamped chapters ready for the description. 66 commits, built solo."
+    },
+    {
+      "name": "megawatt.fun",
+      "url": "https://megawatt.fun",
+      "summary": "A page on the Kardashev scale with a small battery game."
+    },
+    {
+      "name": "senrajobs.com",
+      "url": "https://senrajobs.com",
+      "summary": "Jobs at David Senra's guests' companies."
+    }
+  ],
+  "achievement": "Grok Bot Hackathon, Winner (solo), Austin, Oct 2026.",
+  "githubSnapshotAsOf2026-11-01": {
+    "contributions": 5660,
+    "pullRequests": 362,
+    "profile": "https://github.com/adamtpang"
+  },
+  "skills": {
+    "languages": ["TypeScript", "Python", "JavaScript", "Bash"],
+    "frameworks": ["React", "Next.js", "Node.js", "FastAPI"],
+    "ai": ["Grok", "Anthropic and OpenAI APIs", "tool use", "MCP", "structured outputs", "evals"],
+    "infra": ["Vercel", "Redis", "Git", "Playwright"]
+  },
+  "supersededAnswers": [
+    "Forest City, Johor, Malaysia as the current city, and UTC+8 overlap from lib/candidate.ts",
+    "EIGN title Software Engineer and B2B Sales, one-month trial ended Dec 2025, and any Lightmark multi-provider evaluation claim",
+    "Anchor Marianas, Founder and Software Engineer, Oct 2024 to present",
+    "Guam Power Authority as Workflow Automation or GIS Engineer, and the April, June 13, and August 18 2024 month notes",
+    "Tropicode, August through October 2023",
+    "App Academy 2022 to 2023 in San Francisco",
+    "Currently at Network School",
+    "Available as soon as possible, and no notice period",
+    "Open to relocation worldwide",
+    "Partly base proposal of $120,000 to $135,000",
+    "International Distributors revenue or account-count claims",
+    "Company careers page as a universal how-did-you-hear answer"
+  ],
+  "openQuestions": [
+    { "id": "expected-annual-base-salary", "question": "Expected annual base salary number", "answer": null, "status": "TODO" },
+    { "id": "veteran-status", "question": "Veteran / protected veteran / military spouse status", "answer": null, "status": "TODO" },
+    { "id": "drug-screen", "question": "Willingness to take a drug screen", "answer": null, "status": "TODO" },
+    { "id": "travel", "question": "Willingness to travel, and what percent", "answer": null, "status": "TODO" },
+    { "id": "shift-overtime", "question": "Shift / overtime availability", "answer": null, "status": "TODO" },
+    { "id": "ever-employed-by-company", "question": "Ever employed by a specific company the form names", "answer": null, "status": "TODO" },
+    { "id": "reliable-transportation", "question": "Reliable transportation", "answer": null, "status": "TODO" },
+    { "id": "age-18-plus", "question": "18 or older", "answer": null, "status": "TODO" },
+    { "id": "english-fluency", "question": "English fluency", "answer": null, "status": "TODO" },
+    { "id": "earliest-start-date", "question": "Earliest start date", "answer": null, "status": "TODO" },
+    { "id": "notice-period", "question": "Notice period", "answer": null, "status": "TODO" },
+    { "id": "references", "question": "References", "answer": null, "status": "TODO" },
+    { "id": "relocation-assistance", "question": "Relocation assistance needs", "answer": null, "status": "TODO" },
+    { "id": "how-heard", "question": "How he heard about the role", "answer": null, "status": "TODO" },
+    { "id": "eign-title", "question": "EIGN job title, when a form requires one", "answer": null, "status": "TODO" }
+  ]
+}

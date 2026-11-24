@@ -61,8 +61,16 @@ worker/worker.log
 /S_TIER_HARVEST.md
 /tmp/
 # Personal files dropped in data/ stay local. Public shots evidence is tracked.
+# Adam's application profile is the exception: city-level facts only, no phone
+# or street address. Campaign packets under this profile stay ignored.
 /data/*
 !/data/shots/
+!/data/profiles/
+/data/profiles/*
+!/data/profiles/adam-pangelinan/
+/data/profiles/adam-pangelinan/*
+!/data/profiles/adam-pangelinan/profile.md
+!/data/profiles/adam-pangelinan/profile.json
 /ASAP.md
 /CAREER_CANON.md
 /INCOME.md
