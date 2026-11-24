@@ -1,6 +1,11 @@
 /**
  * The candidate profile the application engine writes from.
  *
+ * Form answers live in `data/profiles/adam-pangelinan/profile.md` (JSON twin
+ * beside it). Read that file before asking Adam an application question.
+ * Fields below that a form would type in must match it. The evidence bank
+ * further down is older scoring proof, not the public resume project list.
+ *
  * Every claim here is checkable against a repo, a commit, or a live URL. That
  * constraint is the point: a resume bullet that cannot survive one follow-up
  * question in an interview is worse than no bullet, and the fastest way to lose
@@ -24,37 +29,42 @@ export type Evidence = {
 
 export const CANDIDATE = {
   name: "Adam Pangelinan",
-  location: "Forest City, Malaysia",
-  timezone: "UTC+8",
-  /** Hours that overlap a working day elsewhere, stated plainly. */
+  goesBy: "Adam Pang",
+  location: "New Braunfels, TX",
+  /** Not a saved form answer. The old UTC+8 overlap is retired. */
+  timezone: "not recorded; do not reuse UTC+8",
   overlap: {
-    apac: "full overlap with Singapore, Sydney, Tokyo, Bengaluru",
-    europe: "UTC+8 afternoon is the European morning, so a 4 hour overlap without either side working nights",
-    usEast: "UTC+8 evening is the US East morning, so roughly 3 hours if the day starts at 21:00 local",
-    usWest: "no comfortable overlap, workable only async or on a shifted schedule",
+    apac: "not recorded",
+    europe: "not recorded",
+    usEast: "not recorded",
+    usWest: "not recorded",
   },
   /**
    * Form facts supplied directly by Adam. The agent may use only a fact that
    * maps exactly to the jurisdiction and wording of the employer's question.
+   * Canonical copy: data/profiles/adam-pangelinan/profile.md.
    */
   applicationFacts: {
-    usWorkAuthorization: "US citizen. No employment sponsorship required for US roles.",
+    usWorkAuthorization:
+      "Authorized to work in the US. Does not need visa sponsorship now or in the future. US citizen.",
     singaporeWorkAuthorization:
       "Does not currently have Singapore work authorization and requires employer sponsorship for a Singapore work visa.",
     malaysiaEmployment: "Will not take employment in Malaysia.",
-    availability: "Available as soon as possible, full time. No notice period identified.",
-    relocation: "Open to relocation worldwide, with a preference for the United States, especially Texas.",
-    referralSource: "Company careers page when the role was found through the employer's own listing.",
+    availability: "Earliest start date and notice period are not recorded. Ask Adam.",
+    relocation:
+      "New Braunfels, TX. Will move to Austin for the right job. YC profile open locations: Austin, Seattle, Dubai.",
+    referralSource: "How he heard about the role is not recorded. Ask Adam.",
     education:
-      "High-school graduate with some college. No university degree. Completed App Academy coding bootcamp in 2022-2023; currently at Network School.",
+      "High school diploma. One semester of Computer Science at University of Guam, no degree, dates not recorded. App Academy certificate, 2023. No university degree.",
     compensation:
-      "Prioritizes exceptional problems, exceptional teams, near-term income, learning, and meaningful equity. Do not invent a numerical expectation.",
+      "Willing to go below a $120,000 listed minimum. Exact expected annual base salary is not recorded. Ask Adam.",
   },
   engagement:
     "Open to employment or contracting where the role's location and work-authorization requirements match the candidate's supplied facts.",
-  availability: "As soon as possible, full time.",
+  availability: "Earliest start date and notice period are not recorded. Ask Adam.",
 
-  headline: "Full-stack TypeScript engineer who ships AI agent tooling end to end.",
+  headline:
+    "Forward Deployed Engineer | I build AI agents for real businesses | Solo Grok Bot Hackathon winner (won solo, Austin, Oct 2026).",
 
   /** Ordered by how much proof sits behind each one. */
   skills: [
@@ -126,7 +136,7 @@ export const CANDIDATE = {
     "the full 3,214 commit count of the summon.company repo as personal output",
     "user numbers, revenue, or funding for any project",
     "years of experience at a named employer",
-    "a degree, certification, or credential",
+    "a university degree",
   ],
 } as const;
 

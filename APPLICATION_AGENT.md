@@ -13,12 +13,20 @@ sensitive questions by inference, bypass browser controls, run a bulk applicatio
 final Submit action. This remains true even if the candidate approves the answers or asks the agent to
 submit. The candidate performs the final action manually.
 
-`data/profiles/<profile-id>/profile.md` is the local reusable source of truth. It holds verified
+`data/profiles/<profile-id>/profile.md` is the reusable source of truth. It holds verified
 facts, stable evidence IDs, interview stories, ownership boundaries, honest gaps, and approved form
 answers. Update it whenever the candidate supplies or corrects a fact. The agent may use a recorded
 answer only when the employer's question has the same jurisdiction and meaning. It must pause when
 the form asks for a more specific date, a numerical compensation expectation, a new legal status,
 or anything not recorded there.
+
+Adam's file is
+[`data/profiles/adam-pangelinan/profile.md`](data/profiles/adam-pangelinan/profile.md),
+with [`profile.json`](data/profiles/adam-pangelinan/profile.json) beside it. Read it
+before asking him anything. Use the recorded US work authorization, location,
+education, headline, and EEO default (decline to self-identify). Ask the blank
+items under "Open questions", including the salary number, start date, and notice
+period. August 2026 resume builders in this repo are superseded by that file.
 
 This is deliberate. Auto-applying manufactures noise. The product is a truthful, high-signal
 application that the candidate can defend in an interview.
